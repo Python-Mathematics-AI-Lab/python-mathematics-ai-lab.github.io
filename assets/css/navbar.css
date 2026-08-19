@@ -1,0 +1,347 @@
+/* =========================================================
+   PMAI LAB — NAVBAR
+========================================================= */
+
+.navbar {
+
+    width: 100%;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.navbar-container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    min-height: 76px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.navbar-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-weight: 800;
+
+    color: var(--primary);
+
+}
+
+
+.logo-symbol {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+
+.logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.1;
+
+}
+
+
+.logo-main {
+
+    font-size: 1rem;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+.logo-sub {
+
+    font-size: 0.65rem;
+
+    color: var(--text-light);
+
+    margin-top: 4px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+.nav-menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    list-style: none;
+
+}
+
+
+.nav-menu a {
+
+    display: block;
+
+    padding: 9px 11px;
+
+    border-radius: 5px;
+
+    color: var(--text);
+
+    font-size: 0.92rem;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+
+}
+
+
+.nav-menu a:hover {
+
+    color: var(--accent);
+
+    background: var(--surface);
+
+}
+
+
+/* =========================================================
+   ACTIVE PAGE
+========================================================= */
+
+.nav-menu a.active {
+
+    color: var(--accent);
+
+}
+
+
+/* =========================================================
+   SEMINAR BUTTON
+========================================================= */
+
+.nav-cta {
+
+    background: var(--primary) !important;
+
+    color: white !important;
+
+    margin-left: 5px;
+
+}
+
+
+.nav-cta:hover {
+
+    background: var(--accent) !important;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 1.7rem;
+
+    color: var(--primary);
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .nav-menu {
+
+        gap: 0;
+
+    }
+
+    .nav-menu a {
+
+        padding: 8px 7px;
+
+        font-size: 0.85rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
+
+    .nav-menu {
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 15px 20px 20px;
+
+        background: white;
+
+        border-bottom: 1px solid var(--border);
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    }
+
+
+    .nav-menu.show {
+
+        display: flex;
+
+    }
+
+
+    .nav-menu li {
+
+        width: 100%;
+
+    }
+
+
+    .nav-menu a {
+
+        width: 100%;
+
+        padding: 13px 10px;
+
+    }
+
+
+    .nav-cta {
+
+        margin: 8px 0 0;
+
+        text-align: center;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .navbar-container {
+
+        min-height: 68px;
+
+    }
+
+
+    .logo-symbol {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 11px;
+
+    }
+
+
+    .logo-main {
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .logo-sub {
+
+        font-size: 0.58rem;
+
+    }
+
+}
