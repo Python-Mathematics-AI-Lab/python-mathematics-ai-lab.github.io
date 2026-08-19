@@ -319,3 +319,100 @@
     }
 
 }
+
+/* =========================================================
+   FACULTY PREVIEW
+========================================================= */
+
+.faculty-preview-box {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    background: white;
+
+}
+
+
+.faculty-preview-box strong {
+
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 1.5rem;
+
+}
+
+
+.faculty-preview-box span {
+
+    color: var(--text-light);
+
+}
+
+
+@media (max-width: 700px) {
+
+    .faculty-preview-box {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+
+/* =========================================================
+   SEMINAR TOPICS
+========================================================= */
+
+.seminar-topics {
+
+    max-width: 900px;
+
+    margin: 0 auto 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.seminar-topics span {
+
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    background: #eff6ff;
+
+    color: var(--accent);
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+}
