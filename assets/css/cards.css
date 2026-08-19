@@ -416,3 +416,40 @@
     font-weight: 600;
 
 }
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+#final-cta {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+#final-cta .section-label {
+
+    color: #93c5fd;
+
+}
+
+
+#final-cta .section-heading p {
+
+    color: #cbd5e1;
+
+}
+
+
+#final-cta .btn-secondary {
+
+    background: white;
+
+    border-color: white;
+
+    color: var(--primary);
+
+}
