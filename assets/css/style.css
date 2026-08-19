@@ -1,6 +1,12 @@
 /* =========================================================
-   PMAI LAB - MAIN STYLESHEET
+   PMAI LAB
    Python, Mathematics & Artificial Intelligence Lab
+   Main Stylesheet
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
 ========================================================= */
 
 * {
@@ -9,6 +15,408 @@
     box-sizing: border-box;
 }
 
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+
+    --primary: #0b1f3a;
+    --accent: #2563eb;
+
+    --background: #ffffff;
+    --surface: #f8fafc;
+
+    --text: #111827;
+    --text-light: #64748b;
+
+    --border: #e2e8f0;
+
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
 body {
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    border-radius: 6px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+}
+
+
+.btn-primary {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+.btn-primary:hover {
+
+    background: var(--accent);
+
+}
+
+
+.btn-secondary {
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+}
+
+
+.btn-secondary:hover {
+
+    border-color: var(--accent);
+
+    color: var(--accent);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+#hero {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background: var(--surface);
+
+}
+
+
+.hero-content {
+
+    max-width: 900px;
+
+}
+
+
+.hero-label {
+
+    color: var(--accent);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.hero-content h1 {
+
+    font-size: clamp(2.2rem, 5vw, 4rem);
+
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero-description {
+
+    max-width: 700px;
+
+    margin: 0 auto 35px;
+
+    color: var(--text-light);
+
+    font-size: 1.1rem;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section {
+
+    padding: 90px 20px;
+
+}
+
+
+.section-heading {
+
+    max-width: 800px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+}
+
+
+.section-label {
+
+    color: var(--accent);
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size: 2.2rem;
+
+    margin-bottom: 15px;
+
+}
+
+
+.section-heading p {
+
+    color: var(--text-light);
+
+}
+
+
+/* =========================================================
+   ACADEMIC AREAS
+========================================================= */
+
+#academic-areas {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+.area-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.area-card {
+
+    padding: 30px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: white;
+
+    transition: 0.3s ease;
+
+}
+
+
+.area-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--accent);
+
+}
+
+
+.area-card h3 {
+
+    margin-bottom: 15px;
+
+}
+
+
+.area-card p {
+
+    color: var(--text-light);
+
+    margin-bottom: 20px;
+
+}
+
+
+.area-card a {
+
+    color: var(--accent);
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   FACULTY PREVIEW
+========================================================= */
+
+#faculty-preview {
+
+    text-align: center;
+
+    background: var(--surface);
+
+}
+
+
+/* =========================================================
+   SEMINARS
+========================================================= */
+
+#seminars-preview {
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+#site-footer {
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .area-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    section {
+
+        padding: 60px 20px;
+
+    }
+
+
+    .area-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+
+    .btn {
+
+        width: 100%;
+
+        max-width: 300px;
+
+        text-align: center;
+
+    }
+
 }
