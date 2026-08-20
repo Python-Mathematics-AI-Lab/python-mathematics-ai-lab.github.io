@@ -1,0 +1,975 @@
+/* =========================================================
+   PMAI LAB — PROJECTS PAGE
+   Premium Academic / Research Design
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL PROJECT CONTAINER
+   ========================================================= */
+
+.projects-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PROJECT HERO
+   ========================================================= */
+
+.projects-hero {
+    position: relative;
+    padding: 110px 0 100px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(245, 247, 250, 0.96),
+            rgba(255, 255, 255, 1)
+        );
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.projects-hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    top: -180px;
+    right: -120px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.projects-hero::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    bottom: -150px;
+    left: -80px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.projects-hero .projects-container {
+    position: relative;
+    z-index: 2;
+}
+
+.projects-hero .section-label {
+    margin-bottom: 18px;
+}
+
+.projects-hero h1 {
+    max-width: 850px;
+    margin: 0 0 24px;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+}
+
+.projects-hero-description {
+    max-width: 780px;
+    margin: 0;
+    font-size: 1.12rem;
+    line-height: 1.8;
+    color: #5f6368;
+}
+
+
+/* =========================================================
+   HERO ACTIONS
+   ========================================================= */
+
+.projects-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.projects-page .btn,
+.projects-hero .btn,
+.projects-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.projects-hero .btn:hover,
+.projects-cta .btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   PROJECT INTRO
+   ========================================================= */
+
+.projects-introduction {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.projects-introduction-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.projects-introduction-content h2 {
+    margin: 0 0 22px;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+.projects-introduction-content p {
+    margin: 0 0 18px;
+    color: #62666b;
+    line-height: 1.8;
+}
+
+.projects-introduction-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PROJECT PRINCIPLES
+   ========================================================= */
+
+.project-principles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.principle-card {
+    padding: 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: #ffffff;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+    border-color: #d1d5db;
+}
+
+.principle-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.principle-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.12rem;
+}
+
+.principle-card p {
+    margin: 0;
+    color: #6b7280;
+    line-height: 1.65;
+    font-size: 0.94rem;
+}
+
+
+/* =========================================================
+   PROJECT AREAS
+   ========================================================= */
+
+.project-areas {
+    padding: 100px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.projects-section-heading {
+    max-width: 760px;
+    margin-bottom: 48px;
+}
+
+.projects-section-heading .section-label {
+    margin-bottom: 14px;
+}
+
+.projects-section-heading h2 {
+    margin: 0 0 16px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+.projects-section-heading p {
+    margin: 0;
+    color: #666b70;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   AREA GRID
+   ========================================================= */
+
+.project-area-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.project-area-card {
+    position: relative;
+    min-height: 260px;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 18px;
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.project-area-card:hover {
+    transform: translateY(-6px);
+    border-color: #cfd4da;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+.project-area-number {
+    display: block;
+    margin-bottom: 55px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #8a8f96;
+}
+
+.project-area-card h3 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+}
+
+.project-area-card p {
+    margin: 0;
+    color: #6b7280;
+    line-height: 1.65;
+    font-size: 0.94rem;
+}
+
+
+/* =========================================================
+   ACTIVE PROJECTS
+   ========================================================= */
+
+.active-projects {
+    padding: 105px 0;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+   ========================================================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 34px;
+    border: 1px solid #e3e6ea;
+    border-radius: 18px;
+    background: #ffffff;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    border-color: #d1d5db;
+}
+
+
+/* =========================================================
+   PROJECT CARD TOP
+   ========================================================= */
+
+.project-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.project-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    border-radius: 14px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    background: #f9fafb;
+    color: #5f6368;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PROJECT CARD CONTENT
+   ========================================================= */
+
+.project-card h3 {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+    line-height: 1.3;
+}
+
+.project-card-description {
+    margin: 0 0 24px;
+    color: #646a70;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   PROJECT TAGS
+   ========================================================= */
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.project-tag {
+    display: inline-flex;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: #f3f4f6;
+    color: #555b62;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PROJECT META
+   ========================================================= */
+
+.project-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding-top: 20px;
+    margin-top: auto;
+    border-top: 1px solid #edf0f2;
+}
+
+.project-meta-item span {
+    display: block;
+    margin-bottom: 5px;
+    color: #8a9097;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.project-meta-item strong {
+    font-size: 0.88rem;
+    color: #30343a;
+}
+
+
+/* =========================================================
+   PROJECT CARD ACTION
+   ========================================================= */
+
+.project-card-action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.project-card-action a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 9px 16px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.project-card-action a:hover {
+    transform: translateY(-2px);
+}
+
+.project-link-primary {
+    background: #111827;
+    color: #ffffff;
+}
+
+.project-link-secondary {
+    background: #f3f4f6;
+    color: #20242a;
+}
+
+
+/* =========================================================
+   RESEARCH PROJECTS
+   ========================================================= */
+
+.research-projects {
+    padding: 105px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #e5e7eb;
+}
+
+.research-project-list {
+    display: grid;
+    gap: 18px;
+}
+
+.research-project {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 30px;
+    align-items: center;
+    padding: 28px 30px;
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 16px;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.research-project:hover {
+    transform: translateX(4px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+}
+
+.research-project-number {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #c5c9ce;
+}
+
+.research-project-content h3 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+}
+
+.research-project-content p {
+    margin: 0;
+    color: #6b7076;
+    line-height: 1.65;
+    font-size: 0.94rem;
+}
+
+.research-project-action a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border: 1px solid #dfe3e7;
+    border-radius: 9px;
+    color: #20242a;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.research-project-action a:hover {
+    background: #f3f4f6;
+    border-color: #cfd4d9;
+}
+
+
+/* =========================================================
+   STUDENT PROJECTS
+   ========================================================= */
+
+.student-projects {
+    padding: 105px 0;
+    background: #ffffff;
+}
+
+.student-projects-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 55px;
+    border: 1px solid #e3e6ea;
+    border-radius: 22px;
+    background: #f8f9fa;
+}
+
+.student-projects-content h2 {
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+}
+
+.student-projects-content p {
+    margin: 0 0 22px;
+    color: #646a70;
+    line-height: 1.75;
+}
+
+.student-project-points {
+    display: grid;
+    gap: 12px;
+}
+
+.student-project-point {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.student-project-point::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    flex: 0 0 23px;
+    border-radius: 50%;
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.student-project-point span {
+    color: #50565d;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   PROJECT PROCESS
+   ========================================================= */
+
+.project-process {
+    padding: 105px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.process-card {
+    position: relative;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e3e6ea;
+    border-radius: 16px;
+}
+
+.process-number {
+    display: block;
+    margin-bottom: 28px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #8a9097;
+    letter-spacing: 0.12em;
+}
+
+.process-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+
+.process-card p {
+    margin: 0;
+    color: #686e75;
+    line-height: 1.65;
+    font-size: 0.92rem;
+}
+
+
+/* =========================================================
+   COLLABORATION CTA
+   ========================================================= */
+
+.projects-cta {
+    position: relative;
+    padding: 110px 0;
+    overflow: hidden;
+    background: #111827;
+    color: #ffffff;
+    text-align: center;
+}
+
+.projects-cta::before {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    top: -250px;
+    right: -150px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.projects-cta::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    bottom: -190px;
+    left: -120px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+}
+
+.projects-cta .projects-container {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+}
+
+.projects-cta .section-label {
+    color: #aeb5be;
+}
+
+.projects-cta h2 {
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+.projects-cta p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: #c8cdd4;
+    line-height: 1.75;
+}
+
+.projects-cta .btn-primary {
+    background: #ffffff;
+    color: #111827;
+}
+
+
+/* =========================================================
+   PROJECT PAGE FOOTER SPACING
+   ========================================================= */
+
+#site-footer {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.project-card a:focus-visible,
+.project-area-card a:focus-visible,
+.research-project-action a:focus-visible,
+.projects-hero a:focus-visible,
+.projects-cta a:focus-visible {
+    outline: 3px solid #111827;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   TABLET — 1000px
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .project-area-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-introduction-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .student-projects-box {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET — 800px
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .projects-hero {
+        padding: 85px 0 80px;
+    }
+
+    .projects-introduction,
+    .project-areas,
+    .active-projects,
+    .research-projects,
+    .student-projects,
+    .project-process {
+        padding: 80px 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .research-project {
+        grid-template-columns: 70px 1fr;
+        gap: 22px;
+    }
+
+    .research-project-action {
+        grid-column: 2;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .projects-container {
+        width: min(92%, 540px);
+    }
+
+    .projects-hero {
+        padding: 70px 0;
+    }
+
+    .projects-hero h1 {
+        font-size: 2.65rem;
+    }
+
+    .projects-hero-description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .projects-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .projects-hero-actions .btn {
+        width: 100%;
+    }
+
+    .projects-introduction,
+    .project-areas,
+    .active-projects,
+    .research-projects,
+    .student-projects,
+    .project-process {
+        padding: 70px 0;
+    }
+
+    .project-principles {
+        grid-template-columns: 1fr;
+    }
+
+    .project-area-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-area-card {
+        min-height: auto;
+    }
+
+    .project-area-number {
+        margin-bottom: 35px;
+    }
+
+    .project-card {
+        padding: 26px;
+    }
+
+    .project-card-top {
+        gap: 12px;
+    }
+
+    .project-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .project-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card-action {
+        flex-direction: column;
+    }
+
+    .project-card-action a {
+        width: 100%;
+    }
+
+    .research-project {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .research-project-number {
+        font-size: 1.5rem;
+    }
+
+    .research-project-action {
+        grid-column: auto;
+    }
+
+    .research-project-action a {
+        width: 100%;
+    }
+
+    .student-projects-box {
+        padding: 32px 25px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-cta {
+        padding: 80px 0;
+    }
+
+    .projects-cta h2 {
+        font-size: 2.25rem;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 400px
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .projects-hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .project-card {
+        padding: 22px;
+    }
+
+    .project-icon {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+    }
+
+    .project-status {
+        font-size: 0.65rem;
+    }
+
+}
