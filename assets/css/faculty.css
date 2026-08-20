@@ -1,0 +1,426 @@
+/* =========================================================
+   PMAI LAB — FACULTY PAGE
+========================================================= */
+
+
+/* =========================================================
+   FACULTY HERO
+========================================================= */
+
+.faculty-hero {
+
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 90px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eff6ff
+        );
+
+}
+
+
+.faculty-hero-content {
+
+    max-width: 850px;
+
+}
+
+
+.faculty-hero h1 {
+
+    margin: 15px 0 25px;
+
+    color: var(--primary);
+
+    font-size: clamp(
+        2.5rem,
+        5vw,
+        4rem
+    );
+
+    line-height: 1.1;
+
+}
+
+
+.faculty-hero p:not(.section-label) {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: var(--text-light);
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =========================================================
+   FACULTY INTRODUCTION
+========================================================= */
+
+.faculty-introduction {
+
+    padding-bottom: 30px;
+
+}
+
+
+/* =========================================================
+   FACULTY DIRECTORY
+========================================================= */
+
+.faculty-directory {
+
+    padding-top: 30px;
+
+}
+
+
+.faculty-grid {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 28px;
+
+}
+
+
+/* =========================================================
+   FACULTY CARD
+========================================================= */
+
+.faculty-card {
+
+    display: grid;
+
+    grid-template-columns:
+        190px 1fr;
+
+    min-height: 330px;
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.faculty-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--accent);
+
+    box-shadow:
+        0 20px 50px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+
+}
+
+
+/* =========================================================
+   FACULTY PHOTO
+========================================================= */
+
+.faculty-photo {
+
+    min-height: 330px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #e2e8f0,
+            #f8fafc
+        );
+
+}
+
+
+.faculty-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================================
+   FACULTY INFORMATION
+========================================================= */
+
+.faculty-info {
+
+    padding: 28px;
+
+}
+
+
+.faculty-number {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--accent);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.faculty-info h2 {
+
+    margin-bottom: 7px;
+
+    color: var(--primary);
+
+    font-size: 1.35rem;
+
+}
+
+
+.faculty-designation {
+
+    margin-bottom: 4px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+
+.faculty-department {
+
+    margin-bottom: 15px;
+
+    color: var(--accent);
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+}
+
+
+.faculty-description {
+
+    margin-bottom: 18px;
+
+    color: var(--text-light);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   FACULTY TAGS
+========================================================= */
+
+.faculty-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.faculty-tags span {
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: #eff6ff;
+
+    color: var(--accent);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   PROFILE LINK
+========================================================= */
+
+.faculty-profile {
+
+    color: var(--accent);
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.faculty-expertise {
+
+    background: var(--surface);
+
+}
+
+
+.expertise-list {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.expertise-list span {
+
+    padding: 10px 16px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.faculty-cta {
+
+    padding: 100px 20px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .faculty-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 750px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .faculty-card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .faculty-photo {
+
+        height: 300px;
+
+        min-height: 300px;
+
+    }
+
+
+    .faculty-info {
+
+        padding: 25px;
+
+    }
+
+
+    .faculty-hero {
+
+        min-height: 380px;
+
+        padding: 70px 20px;
+
+    }
+
+
+    .faculty-hero h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+}
