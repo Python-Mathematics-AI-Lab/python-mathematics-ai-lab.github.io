@@ -1,0 +1,1085 @@
+/* =========================================================
+   PMAI LAB — RESOURCES PAGE
+   resources.css
+   Python, Mathematics & Artificial Intelligence Lab
+========================================================= */
+
+
+/* =========================================================
+   RESOURCES HERO
+========================================================= */
+
+.resources-hero {
+    position: relative;
+    padding: 110px 20px 90px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+
+/* Subtle background grid */
+
+.resources-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(15, 23, 42, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(15, 23, 42, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+}
+
+
+/* Decorative circle */
+
+.resources-hero::after {
+    content: "";
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 50%;
+
+    right: -180px;
+    top: -150px;
+
+    pointer-events: none;
+}
+
+
+.resources-hero-container {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   HERO LABEL
+========================================================= */
+
+.resources-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #475569;
+}
+
+
+.resources-hero h1 {
+    margin: 0;
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+
+    font-weight: 800;
+    line-height: 1.05;
+
+    letter-spacing: -0.04em;
+
+    color: #0f172a;
+}
+
+
+.resources-hero h1 span {
+    display: block;
+
+    color: #334155;
+}
+
+
+.resources-hero-description {
+    max-width: 760px;
+
+    margin: 28px auto 0;
+
+    font-size: 1.08rem;
+    line-height: 1.8;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   RESOURCES CONTAINER
+========================================================= */
+
+.resources-container {
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   RESOURCE INTRO
+========================================================= */
+
+.resources-intro {
+    padding: 80px 0 30px;
+}
+
+
+.resources-intro-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(280px, 0.8fr);
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+
+.resources-intro h2 {
+    margin: 0 0 20px;
+
+    font-size: 2.2rem;
+    line-height: 1.2;
+
+    letter-spacing: -0.03em;
+
+    color: #0f172a;
+}
+
+
+.resources-intro p {
+    margin: 0;
+
+    max-width: 760px;
+
+    font-size: 1rem;
+    line-height: 1.8;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   RESOURCE STAT CARD
+========================================================= */
+
+.resources-stat-card {
+    padding: 30px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.resources-stat-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+
+.resources-stat-number {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 2.7rem;
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+
+    color: #0f172a;
+}
+
+
+.resources-stat-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   RESOURCE SECTION
+========================================================= */
+
+.resources-section {
+    padding: 70px 0;
+}
+
+
+.resources-section-header {
+    margin-bottom: 35px;
+}
+
+
+.resources-section-label {
+    margin-bottom: 10px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+
+    color: #64748b;
+}
+
+
+.resources-section-header h2 {
+    margin: 0;
+
+    font-size: 2.1rem;
+    line-height: 1.2;
+
+    letter-spacing: -0.03em;
+
+    color: #0f172a;
+}
+
+
+.resources-section-header p {
+    max-width: 720px;
+
+    margin: 15px 0 0;
+
+    line-height: 1.75;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   RESOURCE GRID
+========================================================= */
+
+.resources-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   RESOURCE CARD
+========================================================= */
+
+.resources-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 280px;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.resources-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #0f172a;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.3s ease;
+}
+
+
+.resources-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.09);
+}
+
+
+.resources-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   RESOURCE ICON
+========================================================= */
+
+.resources-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+
+    margin-bottom: 22px;
+
+    border-radius: 14px;
+
+    background: #0f172a;
+
+    color: #ffffff;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.resources-card h3 {
+    margin: 0 0 12px;
+
+    font-size: 1.25rem;
+    line-height: 1.35;
+
+    color: #0f172a;
+}
+
+
+.resources-card p {
+    margin: 0;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   RESOURCE BUTTON
+========================================================= */
+
+.resources-card-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: auto;
+    padding-top: 24px;
+
+    font-size: 0.88rem;
+    font-weight: 700;
+
+    color: #0f172a;
+
+    text-decoration: none;
+
+    transition:
+        gap 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.resources-card-link:hover {
+    gap: 13px;
+
+    color: #475569;
+}
+
+
+.resources-card-link span {
+    transition: transform 0.25s ease;
+}
+
+
+/* =========================================================
+   FEATURED RESOURCE
+========================================================= */
+
+.resources-featured {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(300px, 0.8fr);
+
+    gap: 45px;
+
+    padding: 45px;
+
+    background: #0f172a;
+
+    border-radius: 24px;
+
+    color: #ffffff;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.resources-featured::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    right: -150px;
+    bottom: -190px;
+}
+
+
+.resources-featured-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+.resources-featured-label {
+    margin-bottom: 15px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    color: #cbd5e1;
+}
+
+
+.resources-featured h2 {
+    margin: 0 0 18px;
+
+    font-size: 2.2rem;
+    line-height: 1.2;
+
+    letter-spacing: -0.03em;
+
+    color: #ffffff;
+}
+
+
+.resources-featured p {
+    margin: 0;
+
+    max-width: 650px;
+
+    line-height: 1.8;
+
+    color: #cbd5e1;
+}
+
+
+/* =========================================================
+   FEATURED RESOURCE LIST
+========================================================= */
+
+.resources-featured-list {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.resources-featured-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 16px 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.resources-featured-item:hover {
+    background: rgba(255, 255, 255, 0.11);
+
+    transform: translateX(5px);
+}
+
+
+.resources-featured-item-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+
+.resources-featured-item-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   RESOURCE CATEGORIES
+========================================================= */
+
+.resource-category-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.resource-category {
+    padding: 25px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.resource-category:hover {
+    transform: translateY(-5px);
+
+    background: #ffffff;
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.07);
+}
+
+
+.resource-category-icon {
+    margin-bottom: 17px;
+
+    font-size: 1.4rem;
+    font-weight: 800;
+
+    color: #0f172a;
+}
+
+
+.resource-category h3 {
+    margin: 0 0 8px;
+
+    font-size: 1rem;
+
+    color: #0f172a;
+}
+
+
+.resource-category p {
+    margin: 0;
+
+    font-size: 0.86rem;
+    line-height: 1.6;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   ACADEMIC MATERIAL LIST
+========================================================= */
+
+.academic-material-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.academic-material {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.academic-material:hover {
+    transform: translateX(5px);
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+.academic-material-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: #f1f5f9;
+
+    color: #0f172a;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+
+.academic-material-content {
+    flex: 1;
+}
+
+
+.academic-material-content h3 {
+    margin: 0 0 5px;
+
+    font-size: 1rem;
+
+    color: #0f172a;
+}
+
+
+.academic-material-content p {
+    margin: 0;
+
+    font-size: 0.86rem;
+    line-height: 1.5;
+
+    color: #64748b;
+}
+
+
+.academic-material-arrow {
+    font-size: 1.2rem;
+
+    color: #64748b;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.academic-material:hover .academic-material-arrow {
+    transform: translateX(5px);
+
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   DOWNLOAD / DOCUMENT BADGE
+========================================================= */
+
+.resource-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 9px;
+
+    margin-left: 8px;
+
+    border-radius: 6px;
+
+    background: #f1f5f9;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+
+    color: #475569;
+}
+
+
+/* =========================================================
+   RESOURCE CTA
+========================================================= */
+
+.resources-cta {
+    margin: 40px 0 90px;
+
+    padding: 65px 40px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 24px;
+
+    text-align: center;
+}
+
+
+.resources-cta .section-label {
+    margin-bottom: 12px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+
+    color: #64748b;
+}
+
+
+.resources-cta h2 {
+    margin: 0 0 16px;
+
+    font-size: 2.2rem;
+
+    letter-spacing: -0.03em;
+
+    color: #0f172a;
+}
+
+
+.resources-cta p {
+    max-width: 650px;
+
+    margin: 0 auto 28px;
+
+    line-height: 1.75;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.resources-cta .btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 24px;
+
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.resources-cta .btn-primary {
+    background: #0f172a;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+
+.resources-cta .btn-primary:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.18);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.resources-divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 20px 0;
+
+    background: #e2e8f0;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .resources-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .resource-category-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .resources-featured {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .resources-hero {
+        padding: 85px 20px 70px;
+    }
+
+    .resources-intro-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .resources-intro {
+        padding-top: 60px;
+    }
+
+    .resources-section {
+        padding: 55px 0;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .resources-container {
+        width: min(100% - 30px, 1200px);
+    }
+
+
+    .resources-hero h1 {
+        font-size: 2.7rem;
+    }
+
+
+    .resources-hero-description {
+        font-size: 0.95rem;
+    }
+
+
+    .resources-intro h2 {
+        font-size: 1.8rem;
+    }
+
+
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .resource-category-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .resources-featured {
+        padding: 30px 25px;
+
+        border-radius: 18px;
+    }
+
+
+    .resources-featured h2 {
+        font-size: 1.8rem;
+    }
+
+
+    .resources-cta {
+        padding: 45px 25px;
+
+        margin-bottom: 60px;
+    }
+
+
+    .resources-cta h2 {
+        font-size: 1.8rem;
+    }
+
+
+    .academic-material {
+        padding: 18px;
+
+        gap: 14px;
+    }
+
+
+    .academic-material-arrow {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.resources-card-link:focus-visible,
+.resources-featured-item:focus-visible,
+.resource-category:focus-visible,
+.academic-material:focus-visible,
+.resources-cta .btn:focus-visible {
+    outline: 3px solid #94a3b8;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .resources-card,
+    .resources-stat-card,
+    .resource-category,
+    .academic-material,
+    .resources-featured-item,
+    .resources-card-link,
+    .resources-cta .btn {
+        transition: none;
+    }
+
+}
