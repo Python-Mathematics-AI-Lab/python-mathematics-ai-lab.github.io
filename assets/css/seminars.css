@@ -1,0 +1,1498 @@
+/* =========================================================
+   PMAI LAB — SEMINARS & WORKSHOPS
+   Premium Academic Event Page
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE VARIABLES
+   ========================================================= */
+
+:root {
+
+    --seminars-black: #111111;
+    --seminars-dark: #1a1a1a;
+    --seminars-gray: #666666;
+    --seminars-light-gray: #f5f5f5;
+    --seminars-border: #e5e5e5;
+    --seminars-white: #ffffff;
+
+    --seminars-max-width: 1200px;
+
+    --seminars-radius: 14px;
+
+    --seminars-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.07);
+
+    --seminars-transition:
+        all 0.3s ease;
+
+}
+
+
+/* =========================================================
+   GLOBAL CONTAINER
+   ========================================================= */
+
+.seminars-container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--seminars-max-width)
+    );
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.seminars-hero {
+
+    position: relative;
+
+    padding: 120px 0 110px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f7f7f7 100%
+        );
+
+    border-bottom: 1px solid
+        var(--seminars-border);
+
+    overflow: hidden;
+
+}
+
+
+/* subtle background grid */
+
+.seminars-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+
+}
+
+
+/* hero content */
+
+.seminars-hero .seminars-container {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/* =========================================================
+   HERO EYEBROW
+   ========================================================= */
+
+.seminars-eyebrow {
+
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    color: var(--seminars-gray);
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.seminars-hero h1 {
+
+    max-width: 850px;
+
+    margin: 0 0 24px;
+
+    font-size: clamp(
+        3rem,
+        7vw,
+        5.8rem
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+
+    font-weight: 800;
+
+    color: var(--seminars-black);
+
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.seminars-hero-description {
+
+    max-width: 720px;
+
+    margin: 0;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+    color: var(--seminars-gray);
+
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.seminars-hero-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 35px;
+
+}
+
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+.seminars-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 25px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.01em;
+
+    transition:
+        var(--seminars-transition);
+
+}
+
+
+.seminars-btn-primary {
+
+    background:
+        var(--seminars-black);
+
+    color:
+        var(--seminars-white);
+
+    border: 1px solid
+        var(--seminars-black);
+
+}
+
+
+.seminars-btn-primary:hover {
+
+    background:
+        #333333;
+
+    border-color:
+        #333333;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.seminars-btn-secondary {
+
+    background:
+        transparent;
+
+    color:
+        var(--seminars-black);
+
+    border: 1px solid
+        #cccccc;
+
+}
+
+
+.seminars-btn-secondary:hover {
+
+    background:
+        var(--seminars-black);
+
+    color:
+        var(--seminars-white);
+
+    border-color:
+        var(--seminars-black);
+
+}
+
+
+/* =========================================================
+   SECTION COMMON
+   ========================================================= */
+
+.seminars-categories,
+.seminars-events-section,
+.seminars-archive,
+.seminars-invite,
+.seminars-cta {
+
+    padding: 100px 0;
+
+}
+
+
+.seminars-section-heading {
+
+    max-width: 760px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.seminars-label {
+
+    margin: 0 0 12px;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    color: var(--seminars-gray);
+
+}
+
+
+.seminars-section-heading h2 {
+
+    margin: 0 0 18px;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.2rem
+    );
+
+    line-height: 1.1;
+
+    letter-spacing: -0.035em;
+
+    color: var(--seminars-black);
+
+}
+
+
+.seminars-section-heading > p:last-child {
+
+    margin: 0;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    color: var(--seminars-gray);
+
+}
+
+
+/* =========================================================
+   CATEGORY SECTION
+   ========================================================= */
+
+.seminars-categories {
+
+    background:
+        var(--seminars-white);
+
+}
+
+
+/* =========================================================
+   CATEGORY GRID
+   ========================================================= */
+
+.seminars-category-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+}
+
+
+/* =========================================================
+   CATEGORY CARD
+   ========================================================= */
+
+.seminar-category-card {
+
+    padding: 32px;
+
+    border: 1px solid
+        var(--seminars-border);
+
+    border-radius:
+        var(--seminars-radius);
+
+    background:
+        var(--seminars-white);
+
+    transition:
+        var(--seminars-transition);
+
+}
+
+
+.seminar-category-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        #cfcfcf;
+
+    box-shadow:
+        var(--seminars-shadow);
+
+}
+
+
+/* =========================================================
+   CATEGORY ICON
+   ========================================================= */
+
+.category-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 54px;
+
+    height: 54px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    background:
+        var(--seminars-black);
+
+    color:
+        var(--seminars-white);
+
+    font-size: 0.95rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   CATEGORY TITLE
+   ========================================================= */
+
+.seminar-category-card h3 {
+
+    margin: 0 0 13px;
+
+    font-size: 1.2rem;
+
+    line-height: 1.3;
+
+    color:
+        var(--seminars-black);
+
+}
+
+
+/* =========================================================
+   CATEGORY DESCRIPTION
+   ========================================================= */
+
+.seminar-category-card p {
+
+    margin: 0;
+
+    font-size: 0.94rem;
+
+    line-height: 1.75;
+
+    color:
+        var(--seminars-gray);
+
+}
+
+
+/* =========================================================
+   UPCOMING EVENTS
+   ========================================================= */
+
+.seminars-events-section {
+
+    background:
+        #f7f7f7;
+
+    border-top:
+        1px solid var(--seminars-border);
+
+    border-bottom:
+        1px solid var(--seminars-border);
+
+}
+
+
+/* =========================================================
+   EVENT LIST
+   ========================================================= */
+
+.event-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+/* =========================================================
+   EVENT CARD
+   ========================================================= */
+
+.event-card {
+
+    display: grid;
+
+    grid-template-columns:
+        120px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 28px;
+
+    background:
+        var(--seminars-white);
+
+    border:
+        1px solid var(--seminars-border);
+
+    border-radius:
+        var(--seminars-radius);
+
+    transition:
+        var(--seminars-transition);
+
+}
+
+
+.event-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--seminars-shadow);
+
+}
+
+
+/* =========================================================
+   EVENT DATE
+   ========================================================= */
+
+.event-date {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 88px;
+
+    border-right:
+        1px solid var(--seminars-border);
+
+}
+
+
+.event-date span {
+
+    margin-bottom: 8px;
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+
+    color:
+        var(--seminars-gray);
+
+}
+
+
+.event-date strong {
+
+    font-size: 1.1rem;
+
+    color:
+        var(--seminars-black);
+
+}
+
+
+/* =========================================================
+   EVENT TYPE
+   ========================================================= */
+
+.event-type {
+
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+
+    color:
+        var(--seminars-gray);
+
+}
+
+
+/* =========================================================
+   EVENT CONTENT
+   ========================================================= */
+
+.event-content h3 {
+
+    margin: 0 0 10px;
+
+    font-size: 1.35rem;
+
+    line-height: 1.35;
+
+    color:
+        var(--seminars-black);
+
+}
+
+
+.event-content p {
+
+    max-width: 700px;
+
+    margin: 0;
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+
+    color:
+        var(--seminars-gray);
+
+}
+
+
+/* =========================================================
+   EVENT META
+   ========================================================= */
+
+.event-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-top: 15px;
+
+}
+
+
+.event-meta span {
+
+    font-size: 0.78rem;
+
+    color:
+        #777777;
+
+}
+
+
+/* =========================================================
+   EVENT ACTION
+   ========================================================= */
+
+.event-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 0 20px;
+
+    border:
+        1px solid #cccccc;
+
+    border-radius: 7px;
+
+    color:
+        var(--seminars-black);
+
+    background:
+        var(--seminars-white);
+
+    text-decoration: none;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    transition:
+        var(--seminars-transition);
+
+}
+
+
+.event-button:hover {
+
+    background:
+        var(--seminars-black);
+
+    border-color:
+        var(--seminars-black);
+
+    color:
+        var(--seminars-white);
+
+}
+
+
+/* =========================================================
+   ARCHIVE
+   ========================================================= */
+
+.seminars-archive {
+
+    background:
+        var(--seminars-white);
+
+}
+
+
+.archive-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.archive-card {
+
+    padding: 34px;
+
+    border:
+        1px solid var(--seminars-border);
+
+    border-radius:
+        var(--seminars-radius);
+
+    transition:
+        var(--seminars-transition);
+
+}
+
+
+.archive-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--seminars-shadow);
+
+}
+
+
+.archive-year {
+
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+
+    color:
+        var(--seminars-gray);
+
+}
+
+
+.archive-card h3 {
+
+    margin: 0 0 12px;
+
+    font-size: 1.3rem;
+
+    color:
+        var(--seminars-black);
+
+}
+
+
+.archive-card p {
+
+    margin: 0 0 20px;
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+
+    color:
+        var(--seminars-gray);
+
+}
+
+
+.archive-card a {
+
+    color:
+        var(--seminars-black);
+
+    text-decoration: none;
+
+    font-size: 0.84rem;
+
+    font-weight: 800;
+
+}
+
+
+.archive-card a:hover {
+
+    text-decoration:
+        underline;
+
+}
+
+
+/* =========================================================
+   INVITE SECTION
+   ========================================================= */
+
+.seminars-invite {
+
+    background:
+        var(--seminars-black);
+
+    color:
+        var(--seminars-white);
+
+}
+
+
+.seminars-invite .seminars-container {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(280px, 0.7fr);
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+.seminars-invite .seminars-label {
+
+    color:
+        #aaaaaa;
+
+}
+
+
+.invite-content h2 {
+
+    max-width: 760px;
+
+    margin: 0 0 22px;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.4rem
+    );
+
+    line-height: 1.08;
+
+    letter-spacing: -0.04em;
+
+}
+
+
+.invite-content > p {
+
+    max-width: 700px;
+
+    margin: 0;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    color:
+        #bdbdbd;
+
+}
+
+
+/* =========================================================
+   INVITE BUTTONS
+   ========================================================= */
+
+.invite-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 30px;
+
+}
+
+
+.seminars-invite .seminars-btn-primary {
+
+    background:
+        var(--seminars-white);
+
+    color:
+        var(--seminars-black);
+
+    border-color:
+        var(--seminars-white);
+
+}
+
+
+.seminars-invite .seminars-btn-primary:hover {
+
+    background:
+        #dddddd;
+
+    border-color:
+        #dddddd;
+
+}
+
+
+.seminars-invite .seminars-btn-secondary {
+
+    color:
+        var(--seminars-white);
+
+    border-color:
+        #555555;
+
+}
+
+
+.seminars-invite .seminars-btn-secondary:hover {
+
+    background:
+        var(--seminars-white);
+
+    color:
+        var(--seminars-black);
+
+    border-color:
+        var(--seminars-white);
+
+}
+
+
+/* =========================================================
+   INVITE HIGHLIGHT
+   ========================================================= */
+
+.invite-highlight {
+
+    padding: 38px;
+
+    border:
+        1px solid #3b3b3b;
+
+    border-radius:
+        var(--seminars-radius);
+
+    background:
+        #181818;
+
+}
+
+
+.invite-highlight > span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 52px;
+
+    height: 52px;
+
+    margin-bottom: 25px;
+
+    border-radius: 10px;
+
+    background:
+        var(--seminars-white);
+
+    color:
+        var(--seminars-black);
+
+    font-size: 0.75rem;
+
+    font-weight: 900;
+
+}
+
+
+.invite-highlight h3 {
+
+    margin: 0 0 20px;
+
+    font-size: 1.7rem;
+
+    line-height: 1.25;
+
+    color:
+        var(--seminars-white);
+
+}
+
+
+.invite-highlight p {
+
+    margin: 0;
+
+    font-size: 0.85rem;
+
+    color:
+        #999999;
+
+}
+
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.seminars-cta {
+
+    text-align: center;
+
+    background:
+        #f7f7f7;
+
+    border-top:
+        1px solid var(--seminars-border);
+
+}
+
+
+.seminars-cta .seminars-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.seminars-cta h2 {
+
+    margin: 0 0 18px;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.2rem
+    );
+
+    line-height: 1.1;
+
+    letter-spacing: -0.04em;
+
+    color:
+        var(--seminars-black);
+
+}
+
+
+.seminars-cta > .seminars-container > p:not(.seminars-label) {
+
+    max-width: 620px;
+
+    margin: 0;
+
+    line-height: 1.8;
+
+    color:
+        var(--seminars-gray);
+
+}
+
+
+/* =========================================================
+   CTA BUTTONS
+   ========================================================= */
+
+.seminars-cta-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+#site-footer {
+
+    padding: 30px 0;
+
+    background:
+        var(--seminars-black);
+
+    color:
+        #999999;
+
+    text-align: center;
+
+}
+
+
+#site-footer p {
+
+    margin: 0;
+
+    font-size: 0.82rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.seminars-btn:focus-visible,
+.event-button:focus-visible,
+.archive-card a:focus-visible {
+
+    outline:
+        3px solid #777777;
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .seminars-category-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .seminars-invite .seminars-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE / TABLET EVENT LAYOUT
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .event-card {
+
+        grid-template-columns:
+            85px
+            1fr;
+
+        gap: 22px;
+
+    }
+
+
+    .event-action {
+
+        grid-column:
+            2;
+
+    }
+
+
+    .event-date {
+
+        border-right:
+            1px solid var(--seminars-border);
+
+    }
+
+
+    .archive-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .seminars-container {
+
+        width:
+            min(
+                calc(100% - 30px),
+                var(--seminars-max-width)
+            );
+
+    }
+
+
+    .seminars-hero {
+
+        padding:
+            85px 0 80px;
+
+    }
+
+
+    .seminars-hero h1 {
+
+        font-size:
+            3rem;
+
+    }
+
+
+    .seminars-hero-description {
+
+        font-size:
+            1rem;
+
+    }
+
+
+    .seminars-hero-actions {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+
+    .seminars-btn {
+
+        width:
+            100%;
+
+    }
+
+
+    .seminars-categories,
+    .seminars-events-section,
+    .seminars-archive,
+    .seminars-invite,
+    .seminars-cta {
+
+        padding:
+            75px 0;
+
+    }
+
+
+    .seminars-category-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .seminar-category-card {
+
+        padding:
+            27px;
+
+    }
+
+
+    .event-card {
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            20px;
+
+        padding:
+            24px;
+
+    }
+
+
+    .event-date {
+
+        align-items:
+            flex-start;
+
+        min-height:
+            auto;
+
+        padding-bottom:
+            16px;
+
+        border-right:
+            none;
+
+        border-bottom:
+            1px solid var(--seminars-border);
+
+    }
+
+
+    .event-action {
+
+        width:
+            100%;
+
+    }
+
+
+    .event-button {
+
+        width:
+            100%;
+
+    }
+
+
+    .archive-card {
+
+        padding:
+            27px;
+
+    }
+
+
+    .invite-highlight {
+
+        padding:
+            28px;
+
+    }
+
+
+    .invite-actions {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+
+    .seminars-cta-actions {
+
+        flex-direction:
+            column;
+
+        width:
+            100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .seminars-hero h1 {
+
+        font-size:
+            2.5rem;
+
+    }
+
+
+    .seminars-section-heading h2 {
+
+        font-size:
+            2rem;
+
+    }
+
+
+    .invite-content h2 {
+
+        font-size:
+            2rem;
+
+    }
+
+}
