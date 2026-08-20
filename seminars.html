@@ -381,7 +381,7 @@
                 </div>
 
 
-                <!-- EVENT CARD -->
+                <!-- EVENT 01 -->
 
                 <article class="event-card">
 
@@ -446,7 +446,7 @@
 
 
 
-                <!-- SECOND EVENT -->
+                <!-- EVENT 02 -->
 
                 <article class="event-card">
 
@@ -620,7 +620,7 @@
 
 
         <!-- =================================================
-                     PAST EVENTS
+                         PAST EVENTS
         ================================================== -->
 
         <section class="past-events">
@@ -683,7 +683,9 @@
                 <div class="invite-grid">
 
 
-                    <!-- LEFT SIDE -->
+                    <!-- =================================================
+                             LEFT CONTENT
+                    ================================================== -->
 
                     <div class="invite-content">
 
@@ -710,6 +712,7 @@
                         <div class="invite-points">
 
                             <div>
+
                                 <strong>
                                     Mathematics
                                 </strong>
@@ -718,10 +721,12 @@
                                     Calculus, Linear Algebra,
                                     Discrete Mathematics & more
                                 </span>
+
                             </div>
 
 
                             <div>
+
                                 <strong>
                                     Artificial Intelligence
                                 </strong>
@@ -730,10 +735,12 @@
                                     AI, Machine Learning,
                                     Deep Learning & NLP
                                 </span>
+
                             </div>
 
 
                             <div>
+
                                 <strong>
                                     Programming
                                 </strong>
@@ -742,6 +749,7 @@
                                     Python, Data Science
                                     & Computational Skills
                                 </span>
+
                             </div>
 
                         </div>
@@ -750,7 +758,9 @@
 
 
 
-                    <!-- RIGHT SIDE FORM -->
+                    <!-- =================================================
+                             FORM
+                    ================================================== -->
 
                     <div class="invite-form-wrapper">
 
@@ -760,18 +770,37 @@
 
                         <p>
                             Submit your requirements and
-                            contact our team.
+                            our team will contact you.
                         </p>
 
 
-                        <!-- EMAIL FORM -->
+                        <!-- =================================================
+                             FORMSPREE FORM
+                        ================================================== -->
 
                         <form
-                            action="mailto:pmaiklab@gmail.com"
-                            method="post"
-                            enctype="text/plain"
+                            action="https://formspree.io/f/mvkpdypr"
+                            method="POST"
                             class="invite-form">
 
+
+                            <!-- EMAIL SUBJECT -->
+
+                            <input
+                                type="hidden"
+                                name="_subject"
+                                value="New Seminar / Workshop Request — PMAI Lab">
+
+
+                            <!-- SUCCESS REDIRECT -->
+
+                            <input
+                                type="hidden"
+                                name="_next"
+                                value="https://python-mathematics-ai-lab.github.io/courses/thank-you.html">
+
+
+                            <!-- ORGANIZATION -->
 
                             <div class="form-group">
 
@@ -782,12 +811,15 @@
                                 <input
                                     type="text"
                                     id="organization"
-                                    name="Organization"
+                                    name="organization"
                                     placeholder="e.g. ABC College"
+                                    autocomplete="organization"
                                     required>
 
                             </div>
 
+
+                            <!-- CONTACT PERSON -->
 
                             <div class="form-group">
 
@@ -798,12 +830,15 @@
                                 <input
                                     type="text"
                                     id="name"
-                                    name="Contact Person"
-                                    placeholder="Your name"
+                                    name="name"
+                                    placeholder="Your full name"
+                                    autocomplete="name"
                                     required>
 
                             </div>
 
+
+                            <!-- EMAIL -->
 
                             <div class="form-group">
 
@@ -814,12 +849,15 @@
                                 <input
                                     type="email"
                                     id="email"
-                                    name="Email"
+                                    name="email"
                                     placeholder="your@email.com"
+                                    autocomplete="email"
                                     required>
 
                             </div>
 
+
+                            <!-- PHONE -->
 
                             <div class="form-group">
 
@@ -830,11 +868,15 @@
                                 <input
                                     type="tel"
                                     id="phone"
-                                    name="Phone"
-                                    placeholder="+92 XXX XXXXXXX">
+                                    name="phone"
+                                    placeholder="+92 XXX XXXXXXX"
+                                    autocomplete="tel"
+                                    required>
 
                             </div>
 
+
+                            <!-- EVENT TYPE -->
 
                             <div class="form-group">
 
@@ -844,18 +886,18 @@
 
                                 <select
                                     id="event-type"
-                                    name="Event Type"
+                                    name="event_type"
                                     required>
 
                                     <option value="">
                                         Select event type
                                     </option>
 
-                                    <option value="Seminar">
+                                    <option value="Academic Seminar">
                                         Academic Seminar
                                     </option>
 
-                                    <option value="Workshop">
+                                    <option value="Practical Workshop">
                                         Practical Workshop
                                     </option>
 
@@ -867,6 +909,10 @@
                                         Faculty Development
                                     </option>
 
+                                    <option value="Student Training">
+                                        Student Training
+                                    </option>
+
                                     <option value="Other">
                                         Other
                                     </option>
@@ -875,6 +921,8 @@
 
                             </div>
 
+
+                            <!-- TOPIC -->
 
                             <div class="form-group">
 
@@ -885,12 +933,14 @@
                                 <input
                                     type="text"
                                     id="topic"
-                                    name="Preferred Topic"
+                                    name="preferred_topic"
                                     placeholder="e.g. AI & Machine Learning"
                                     required>
 
                             </div>
 
+
+                            <!-- EXPECTED PARTICIPANTS -->
 
                             <div class="form-group">
 
@@ -901,12 +951,63 @@
                                 <input
                                     type="number"
                                     id="participants"
-                                    name="Expected Participants"
+                                    name="expected_participants"
                                     placeholder="e.g. 100"
                                     min="1">
 
                             </div>
 
+
+                            <!-- PREFERRED DATE -->
+
+                            <div class="form-group">
+
+                                <label for="preferred-date">
+                                    Preferred Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="preferred-date"
+                                    name="preferred_date">
+
+                            </div>
+
+
+                            <!-- EVENT MODE -->
+
+                            <div class="form-group">
+
+                                <label for="mode">
+                                    Preferred Mode
+                                </label>
+
+                                <select
+                                    id="mode"
+                                    name="preferred_mode">
+
+                                    <option value="">
+                                        Select mode
+                                    </option>
+
+                                    <option value="On Campus">
+                                        On Campus
+                                    </option>
+
+                                    <option value="Online">
+                                        Online
+                                    </option>
+
+                                    <option value="Hybrid">
+                                        Hybrid
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- ADDITIONAL REQUIREMENTS -->
 
                             <div class="form-group">
 
@@ -916,12 +1017,26 @@
 
                                 <textarea
                                     id="message"
-                                    name="Additional Requirements"
+                                    name="additional_requirements"
                                     rows="5"
                                     placeholder="Tell us about your event requirements..."></textarea>
 
                             </div>
 
+
+                            <!-- =================================================
+                                 HONEYPOT SPAM PROTECTION
+                            ================================================== -->
+
+                            <input
+                                type="text"
+                                name="_gotcha"
+                                tabindex="-1"
+                                autocomplete="off"
+                                style="display:none;">
+
+
+                            <!-- SUBMIT BUTTON -->
 
                             <button
                                 type="submit"
@@ -968,8 +1083,9 @@
 
                 <div class="contact-actions">
 
+
                     <a
-                        href="mailto:pmaiklab@gmail.com"
+                        href="mailto:pythonmathsailab@gmail.com"
                         class="btn btn-primary">
 
                         Email PMAI Lab
