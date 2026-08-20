@@ -420,3 +420,76 @@ section {
     }
 
 }
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: transform 0.2s ease;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-1px);
+}
+
+/* Icon Container */
+.logo-symbol {
+  width: 42px;
+  height: 42px;
+  background: rgba(37, 99, 235, 0.08);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.logo-symbol svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Typography */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a; /* Main text color */
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.logo-main .accent {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-sub {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .logo-main {
+    color: #f8fafc;
+  }
+  .logo-sub {
+    color: #94a3b8;
+  }
+  .logo-symbol {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
