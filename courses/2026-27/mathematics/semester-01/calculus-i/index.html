@@ -31,7 +31,7 @@
 
 
     <!-- =====================================================
-         OPEN GRAPH / SOCIAL SHARING
+         OPEN GRAPH
     ====================================================== -->
 
     <meta property="og:title"
@@ -52,7 +52,7 @@
 
     <!-- =====================================================
          CSS
-         assets folder is at repository root.
+         assets/ is located at repository root
     ====================================================== -->
 
     <link rel="stylesheet"
@@ -63,7 +63,6 @@
 
     <link rel="stylesheet"
           href="../../../../../assets/css/course-page.css">
-
 
 </head>
 
@@ -82,11 +81,9 @@
             <div class="navbar-container">
 
 
-                <!-- =================================================
-                             LOGO
-                ================================================== -->
+                <!-- LOGO -->
 
-                <a href="../../../../index.html"
+                <a href="/courses/index.html"
                    class="navbar-logo"
                    aria-label="PMAI Lab Home">
 
@@ -109,13 +106,12 @@
                 </a>
 
 
-                <!-- =================================================
-                             MOBILE MENU
-                ================================================== -->
+                <!-- MOBILE MENU BUTTON -->
 
                 <button
                     class="menu-toggle"
                     id="menu-toggle"
+                    type="button"
                     aria-label="Open navigation menu"
                     aria-expanded="false">
 
@@ -124,114 +120,67 @@
                 </button>
 
 
-                <!-- =================================================
-                             NAVIGATION
-                ================================================== -->
+                <!-- NAVIGATION -->
 
-               <header id="site-header">
+                <ul class="nav-menu"
+                    id="nav-menu">
 
-    <nav class="navbar">
+                    <li>
+                        <a href="/courses/index.html">
+                            Home
+                        </a>
+                    </li>
 
-        <div class="navbar-container">
+                    <li>
+                        <a href="/courses/about.html">
+                            About
+                        </a>
+                    </li>
 
-            <!-- LOGO -->
+                    <li>
+                        <a href="/courses/courses.html"
+                           class="active">
+                            Courses
+                        </a>
+                    </li>
 
-            <a href="/courses/index.html"
-               class="navbar-logo"
-               aria-label="PMAI Lab Home">
+                    <li>
+                        <a href="/courses/faculty.html">
+                            Faculty
+                        </a>
+                    </li>
 
-                <span class="logo-symbol">
-                    PMAI
-                </span>
+                    <li>
+                        <a href="/courses/resources.html">
+                            Resources
+                        </a>
+                    </li>
 
-                <span class="logo-text">
+                    <li>
+                        <a href="/courses/seminars.html">
+                            Seminars
+                        </a>
+                    </li>
 
-                    <span class="logo-main">
-                        PMAI LAB
-                    </span>
+                    <li>
+                        <a href="/courses/projects.html">
+                            Projects
+                        </a>
+                    </li>
 
-                    <span class="logo-sub">
-                        Mathematics • Python • AI
-                    </span>
+                    <li>
+                        <a href="/courses/contact.html">
+                            Contact
+                        </a>
+                    </li>
 
-                </span>
+                </ul>
 
-            </a>
+            </div>
 
+        </nav>
 
-            <!-- MOBILE MENU -->
-
-            <button
-                class="menu-toggle"
-                id="menu-toggle"
-                aria-label="Open navigation menu"
-                aria-expanded="false">
-
-                ☰
-
-            </button>
-
-
-            <!-- NAVIGATION -->
-
-            <ul class="nav-menu" id="nav-menu">
-
-                <li>
-                    <a href="/courses/index.html">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/courses/about.html">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/courses/courses.html"
-                       class="active">
-                        Courses
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/courses/faculty.html">
-                        Faculty
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/courses/resources.html">
-                        Resources
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/courses/seminars.html">
-                        Seminars
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/courses/projects.html">
-                        Projects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/courses/contact.html">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </nav>
-
-</header>
+    </header>
 
 
 
@@ -243,7 +192,7 @@
 
 
         <!-- =================================================
-                     COURSE HERO
+                         COURSE HERO
         ================================================== -->
 
         <section class="course-page-hero">
@@ -254,17 +203,17 @@
                 <!-- BACK TO COURSES -->
 
                 <a href="/courses/courses.html"
-                    class="back-link">
+                   class="back-link">
+
                     ← Back to Courses
+
                 </a>
 
 
                 <!-- COURSE CATEGORY -->
 
                 <div class="course-label">
-
                     MATHEMATICS
-
                 </div>
 
 
@@ -293,9 +242,7 @@
                 </p>
 
 
-                <!-- =================================================
-                             COURSE META
-                ================================================== -->
+                <!-- COURSE META -->
 
                 <div class="course-page-meta">
 
@@ -368,20 +315,17 @@
 
             <div class="course-page-container">
 
-
                 <div class="course-layout">
 
 
                     <!-- =================================================
-                             MAIN COURSE CONTENT
+                             MAIN CONTENT
                     ================================================== -->
 
                     <div class="course-main-content">
 
 
-                        <!-- =================================================
-                             COURSE DESCRIPTION
-                        ================================================== -->
+                        <!-- COURSE DESCRIPTION -->
 
                         <section id="overview"
                                  class="course-content-section">
@@ -416,9 +360,7 @@
 
 
 
-                        <!-- =================================================
-                             FACULTY
-                        ================================================== -->
+                        <!-- FACULTY -->
 
                         <section id="faculty"
                                  class="course-content-section">
@@ -460,9 +402,7 @@
 
 
 
-                        <!-- =================================================
-                             COURSE OUTLINE
-                        ================================================== -->
+                        <!-- COURSE OUTLINE -->
 
                         <section id="outline"
                                  class="course-content-section">
@@ -499,7 +439,7 @@
                                 <a href="course-outline.pdf"
                                    class="resource-button"
                                    target="_blank"
-                                   rel="noopener">
+                                   rel="noopener noreferrer">
 
                                     View PDF
 
@@ -511,9 +451,7 @@
 
 
 
-                        <!-- =================================================
-                             LECTURE NOTES
-                        ================================================== -->
+                        <!-- LECTURE NOTES -->
 
                         <section id="lectures"
                                  class="course-content-section">
@@ -554,7 +492,7 @@
                                     <a href="lectures/lecture-01.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -588,7 +526,7 @@
                                     <a href="lectures/lecture-02.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -622,7 +560,7 @@
                                     <a href="lectures/lecture-03.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -637,9 +575,7 @@
 
 
 
-                        <!-- =================================================
-                             ASSIGNMENTS
-                        ================================================== -->
+                        <!-- ASSIGNMENTS -->
 
                         <section id="assignments"
                                  class="course-content-section">
@@ -680,7 +616,7 @@
                                     <a href="assignments/assignment-01.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -714,7 +650,7 @@
                                     <a href="assignments/assignment-02.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -729,9 +665,7 @@
 
 
 
-                        <!-- =================================================
-                             QUIZZES
-                        ================================================== -->
+                        <!-- QUIZZES -->
 
                         <section id="quizzes"
                                  class="course-content-section">
@@ -746,7 +680,6 @@
 
 
                             <div class="resource-list">
-
 
                                 <div class="resource-card">
 
@@ -770,7 +703,7 @@
                                     <a href="quizzes/quiz-01.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -778,16 +711,13 @@
 
                                 </div>
 
-
                             </div>
 
                         </section>
 
 
 
-                        <!-- =================================================
-                             PAST PAPERS
-                        ================================================== -->
+                        <!-- PAST PAPERS -->
 
                         <section id="past-papers"
                                  class="course-content-section">
@@ -828,7 +758,7 @@
                                     <a href="past-papers/midterm.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -862,7 +792,7 @@
                                     <a href="past-papers/final.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -877,9 +807,7 @@
 
 
 
-                        <!-- =================================================
-                             ADDITIONAL RESOURCES
-                        ================================================== -->
+                        <!-- ADDITIONAL RESOURCES -->
 
                         <section id="resources"
                                  class="course-content-section">
@@ -918,7 +846,7 @@
                                     <a href="additional-resources/reference-material.pdf"
                                        class="resource-button"
                                        target="_blank"
-                                       rel="noopener">
+                                       rel="noopener noreferrer">
 
                                         PDF
 
@@ -1010,7 +938,7 @@
 
 
                             <a href="/courses/courses.html">
-                                 ← All Courses
+                                ← All Courses
                             </a>
 
                         </div>
@@ -1028,7 +956,7 @@
 
 
         <!-- =====================================================
-                             CTA
+                         CALL TO ACTION
         ====================================================== -->
 
         <section class="course-cta">
@@ -1049,8 +977,13 @@
                     academic resources.
                 </p>
 
-                 <a href="/courses/courses.html"
-                     class="btn btn-primary">
+
+                <a href="/courses/courses.html"
+                   class="btn btn-primary">
+
+                    Explore All Courses
+
+                </a>
 
             </div>
 
