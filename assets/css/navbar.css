@@ -41,79 +41,53 @@
 /* =========================================================
    LOGO
 ========================================================= */
+/* =========================================================
+   PMAI LAB — NAVBAR LOGO
+========================================================= */
 
 .navbar-logo {
-
-    display: flex;
-
+    display: inline-flex;
     align-items: center;
-
-    gap: 12px;
-
-    font-weight: 800;
-
-    color: var(--primary);
-
+    gap: 10px;
+    text-decoration: none;
+    height: 48px;
 }
-
 
 .logo-symbol {
-
     width: 42px;
-
     height: 42px;
-
-    border-radius: 8px;
-
+    flex: 0 0 42px;
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    background: var(--primary);
-
-    color: white;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
 }
 
+.logo-symbol svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
 .logo-text {
-
     display: flex;
-
     flex-direction: column;
-
+    justify-content: center;
     line-height: 1.1;
-
 }
-
 
 .logo-main {
-
-    font-size: 1rem;
-
-    letter-spacing: 0.5px;
-
+    font-size: 20px;
+    font-weight: 800;
+    white-space: nowrap;
 }
-
 
 .logo-sub {
-
-    font-size: 0.65rem;
-
-    color: var(--text-light);
-
-    margin-top: 4px;
-
+    margin-top: 3px;
+    font-size: 9px;
     font-weight: 500;
-
+    letter-spacing: 0.4px;
+    white-space: nowrap;
 }
-
 
 /* =========================================================
    NAVIGATION LINKS
