@@ -579,6 +579,21 @@
 
 }
 
+.course-code.course-image {
+    width: 90px;
+    height: 90px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+.course-code.course-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
 
 /* =========================================================
    RESPONSIVE
