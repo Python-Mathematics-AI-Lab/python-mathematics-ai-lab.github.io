@@ -2,11 +2,8 @@
    PMAI LAB — PROJECTS PAGE
    assets/css/projects.css
    Version 2.0
-
-   Purpose:
-   Professional Projects & Research page
-   Matching PMAI Lab visual system
-========================================================= */
+   Complete matching stylesheet for projects.html
+   ========================================================= */
 
 
 /* =========================================================
@@ -17,18 +14,19 @@
 
     --project-primary: #2563eb;
     --project-primary-dark: #1d4ed8;
-    --project-primary-soft: #eff6ff;
+    --project-primary-light: #eff6ff;
 
     --project-secondary: #0f172a;
+
     --project-text: #334155;
     --project-muted: #64748b;
 
     --project-white: #ffffff;
     --project-light: #f8fafc;
-    --project-light-blue: #f1f7ff;
+    --project-light-blue: #f5f9ff;
 
     --project-border: #e2e8f0;
-    --project-border-dark: #cbd5e1;
+    --project-border-blue: #bfdbfe;
 
     --project-success: #16a34a;
     --project-warning: #d97706;
@@ -59,35 +57,29 @@
 .projects-page {
 
     width: 100%;
-
     overflow: hidden;
 
-    background:
-        var(--project-white);
+    background: var(--project-white);
 
-    color:
-        var(--project-text);
+    color: var(--project-text);
 }
 
 .projects-page *,
 .projects-page *::before,
 .projects-page *::after {
-
     box-sizing: border-box;
 }
 
 
 /* =========================================================
-   03. CONTAINER
+   03. COMMON CONTAINER
 ========================================================= */
 
 .projects-container {
 
-    width:
-        min(1180px, calc(100% - 40px));
+    width: min(1180px, calc(100% - 40px));
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 }
 
 
@@ -99,20 +91,22 @@
 
     position: relative;
 
-    padding:
-        105px 20px 90px;
+    padding: 95px 20px 75px;
 
     background:
+
         radial-gradient(
-            circle at 10% 20%,
+            circle at 10% 15%,
             rgba(37, 99, 235, 0.12),
-            transparent 32%
+            transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 80%,
-            rgba(14, 165, 233, 0.10),
-            transparent 32%
+            rgba(14, 165, 233, 0.09),
+            transparent 30%
         ),
+
         linear-gradient(
             135deg,
             #f8fafc 0%,
@@ -120,368 +114,805 @@
             #f8fafc 100%
         );
 
-    border-bottom:
-        1px solid var(--project-border);
+    border-bottom: 1px solid var(--project-border);
 }
 
 
 .projects-hero-content {
 
-    max-width:
-        920px;
+    max-width: 850px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
-    text-align:
-        center;
+    text-align: center;
 }
 
 
-/* =========================================================
-   05. HERO LABEL
-========================================================= */
+.projects-hero-badge {
 
-.projects-hero .section-label {
+    display: inline-flex;
 
-    display:
-        inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    align-items:
-        center;
+    padding: 8px 16px;
 
-    justify-content:
-        center;
+    margin-bottom: 20px;
 
-    padding:
-        8px 15px;
+    background: rgba(255,255,255,0.85);
 
-    margin-bottom:
-        20px;
+    border: 1px solid var(--project-border-blue);
 
-    border:
-        1px solid rgba(37, 99, 235, 0.18);
+    border-radius: 999px;
 
-    border-radius:
-        999px;
+    color: var(--project-primary);
 
-    background:
-        rgba(255, 255, 255, 0.82);
+    font-size: 0.78rem;
+    font-weight: 800;
 
-    color:
-        var(--project-primary);
+    letter-spacing: 0.08em;
 
-    font-size:
-        0.78rem;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        0.09em;
-
-    box-shadow:
-        var(--project-shadow-sm);
+    box-shadow: var(--project-shadow-sm);
 }
 
-
-/* =========================================================
-   06. HERO TITLE
-========================================================= */
 
 .projects-hero h1 {
 
-    margin:
-        0 0 20px;
+    margin: 0 0 20px;
 
-    color:
-        var(--project-secondary);
+    color: var(--project-secondary);
 
-    font-size:
-        clamp(2.4rem, 5vw, 4.3rem);
+    font-size: clamp(2.5rem, 5vw, 4.4rem);
 
-    line-height:
-        1.08;
+    line-height: 1.05;
 
-    font-weight:
-        850;
+    font-weight: 850;
 
-    letter-spacing:
-        -0.045em;
+    letter-spacing: -0.045em;
 }
 
 
 .projects-hero h1 span {
 
-    color:
-        var(--project-primary);
+    color: var(--project-primary);
+
+    margin: 0 8px;
 }
 
 
 .projects-hero-description {
 
-    max-width:
-        780px;
+    max-width: 760px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
-    color:
-        var(--project-muted);
+    color: var(--project-muted);
 
-    font-size:
-        1.05rem;
+    font-size: 1.05rem;
 
-    line-height:
-        1.85;
+    line-height: 1.85;
 }
 
 
 /* =========================================================
-   07. HERO BUTTONS
+   05. HERO BUTTONS
 ========================================================= */
 
 .projects-hero-actions {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
+    justify-content: center;
 
-    justify-content:
-        center;
+    flex-wrap: wrap;
 
-    flex-wrap:
-        wrap;
+    gap: 12px;
 
-    gap:
-        12px;
-
-    margin-top:
-        30px;
-}
-
-
-.projects-hero .btn {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    min-height:
-        44px;
-
-    padding:
-        11px 20px;
-
-    border:
-        1px solid transparent;
-
-    border-radius:
-        10px;
-
-    text-decoration:
-        none;
-
-    font-size:
-        0.84rem;
-
-    font-weight:
-        750;
-
-    transition:
-        var(--project-transition);
-}
-
-
-.projects-hero .btn-primary {
-
-    background:
-        var(--project-primary);
-
-    color:
-        var(--project-white);
-
-    box-shadow:
-        0 8px 20px rgba(37, 99, 235, 0.18);
-}
-
-
-.projects-hero .btn-primary:hover {
-
-    background:
-        var(--project-primary-dark);
-
-    transform:
-        translateY(-2px);
-}
-
-
-.projects-hero .btn-secondary {
-
-    background:
-        var(--project-white);
-
-    border-color:
-        var(--project-border);
-
-    color:
-        var(--project-secondary);
-}
-
-
-.projects-hero .btn-secondary:hover {
-
-    background:
-        var(--project-light);
-
-    border-color:
-        var(--project-border-dark);
-
-    transform:
-        translateY(-2px);
+    margin-top: 30px;
 }
 
 
 /* =========================================================
-   08. HERO STAT BOXES
+   06. COMMON BUTTON
+========================================================= */
+
+.project-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 44px;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    font-size: 0.84rem;
+
+    font-weight: 750;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: var(--project-transition);
+}
+
+
+.project-btn-primary {
+
+    background: var(--project-primary);
+
+    color: var(--project-white);
+
+    box-shadow:
+        0 7px 18px rgba(37, 99, 235, 0.22);
+}
+
+
+.project-btn-primary:hover {
+
+    background: var(--project-primary-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.28);
+}
+
+
+.project-btn-secondary {
+
+    background: var(--project-white);
+
+    border: 1px solid var(--project-border);
+
+    color: var(--project-secondary);
+}
+
+
+.project-btn-secondary:hover {
+
+    background: var(--project-light);
+
+    border-color: #cbd5e1;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   07. HERO STAT BOXES
 ========================================================= */
 
 .projects-hero-stats {
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
-    gap:
-        16px;
+    gap: 18px;
 
-    max-width:
-        900px;
+    max-width: 900px;
 
-    margin:
-        48px auto 0;
+    margin: 50px auto 0;
 }
 
 
 .project-stat-card {
 
-    padding:
-        23px 15px;
+    padding: 24px 16px;
 
-    background:
-        rgba(255, 255, 255, 0.88);
+    text-align: center;
 
-    border:
-        1px solid rgba(226, 232, 240, 0.95);
+    background: rgba(255,255,255,0.9);
 
-    border-radius:
-        var(--project-radius-md);
+    border: 1px solid var(--project-border);
 
-    box-shadow:
-        var(--project-shadow-sm);
+    border-radius: var(--project-radius-md);
 
-    transition:
-        var(--project-transition);
+    box-shadow: var(--project-shadow-sm);
+
+    transition: var(--project-transition);
 }
 
 
 .project-stat-card:hover {
 
-    transform:
-        translateY(-5px);
+    transform: translateY(-6px);
 
-    box-shadow:
-        var(--project-shadow-md);
+    border-color: var(--project-border-blue);
 
-    border-color:
-        rgba(37, 99, 235, 0.20);
+    box-shadow: var(--project-shadow-md);
 }
 
 
 .project-stat-number {
 
-    display:
-        block;
+    display: block;
 
-    margin-bottom:
-        5px;
+    margin-bottom: 6px;
 
-    color:
-        var(--project-primary);
+    color: var(--project-primary);
 
-    font-size:
-        1.55rem;
+    font-size: 1.7rem;
 
-    font-weight:
-        850;
+    font-weight: 850;
 }
 
 
 .project-stat-label {
 
-    display:
-        block;
+    display: block;
 
-    color:
-        var(--project-muted);
+    color: var(--project-muted);
 
-    font-size:
-        0.78rem;
+    font-size: 0.78rem;
 
-    font-weight:
-        650;
+    font-weight: 650;
 }
 
 
 /* =========================================================
-   09. SECTION HEADINGS
+   08. SECTION
 ========================================================= */
 
-.projects-section-heading {
+.projects-section {
 
-    max-width:
-        760px;
-
-    margin:
-        0 auto 52px;
-
-    text-align:
-        center;
+    padding: 90px 20px;
 }
 
 
-.projects-section-heading .section-label {
+.projects-section-alt {
 
-    display:
-        inline-block;
-
-    margin-bottom:
-        10px;
-
-    color:
-        var(--project-primary);
-
-    font-size:
-        0.76rem;
-
-    font-weight:
-        850;
-
-    letter-spacing:
-        0.12em;
+    background: var(--project-light);
 }
 
 
-.projects-section-heading h2 {
+.projects-section-header {
 
-    margin:
-       
+    max-width: 760px;
+
+    margin: 0 auto 50px;
+
+    text-align: center;
+}
+
+
+.projects-section-label {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--project-primary);
+
+    font-size: 0.76rem;
+
+    font-weight: 850;
+
+    letter-spacing: 0.13em;
+
+    text-transform: uppercase;
+}
+
+
+.projects-section-header h2 {
+
+    margin: 0 0 15px;
+
+    color: var(--project-secondary);
+
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+
+    line-height: 1.2;
+
+    font-weight: 850;
+
+    letter-spacing: -0.03em;
+}
+
+
+.projects-section-header p {
+
+    margin: 0;
+
+    color: var(--project-muted);
+
+    font-size: 0.96rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   09. INTRODUCTION
+========================================================= */
+
+.projects-intro {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 55px;
+
+    align-items: center;
+}
+
+
+.projects-intro-content h2 {
+
+    margin: 0 0 20px;
+
+    color: var(--project-secondary);
+
+    font-size: clamp(2rem, 4vw, 2.6rem);
+
+    line-height: 1.2;
+
+    font-weight: 850;
+
+    letter-spacing: -0.03em;
+}
+
+
+.projects-intro-content h2 span {
+
+    color: var(--project-primary);
+}
+
+
+.projects-intro-content p {
+
+    margin: 0 0 17px;
+
+    color: var(--project-muted);
+
+    font-size: 0.96rem;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   10. PRINCIPLE CARDS
+========================================================= */
+
+.project-principles {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+.principle-card {
+
+    position: relative;
+
+    padding: 22px;
+
+    background: var(--project-white);
+
+    border: 1px solid var(--project-border);
+
+    border-radius: var(--project-radius-md);
+
+    box-shadow: var(--project-shadow-sm);
+
+    transition: var(--project-transition);
+}
+
+
+.principle-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--project-border-blue);
+
+    box-shadow: var(--project-shadow-md);
+}
+
+
+.principle-number {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    background: var(--project-primary-light);
+
+    color: var(--project-primary);
+
+    font-size: 0.76rem;
+
+    font-weight: 850;
+}
+
+
+.principle-card h3 {
+
+    margin: 0 0 9px;
+
+    color: var(--project-secondary);
+
+    font-size: 1rem;
+
+    font-weight: 800;
+}
+
+
+.principle-card p {
+
+    margin: 0;
+
+    color: var(--project-muted);
+
+    font-size: 0.81rem;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   11. RESEARCH AREAS
+========================================================= */
+
+.research-areas-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+
+.research-area-card {
+
+    position: relative;
+
+    padding: 28px 24px;
+
+    background: var(--project-white);
+
+    border: 1px solid var(--project-border);
+
+    border-radius: var(--project-radius-lg);
+
+    box-shadow: var(--project-shadow-sm);
+
+    overflow: hidden;
+
+    transition: var(--project-transition);
+}
+
+
+.research-area-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        var(--project-primary),
+        #38bdf8
+    );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: var(--project-transition);
+}
+
+
+.research-area-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: var(--project-border-blue);
+
+    box-shadow: var(--project-shadow-md);
+}
+
+
+.research-area-card:hover::before {
+
+    transform: scaleX(1);
+}
+
+
+.research-area-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 54px;
+    height: 54px;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+
+    background: var(--project-primary-light);
+
+    color: var(--project-primary);
+
+    font-size: 1rem;
+
+    font-weight: 850;
+}
+
+
+.research-area-number {
+
+    position: absolute;
+
+    top: 27px;
+    right: 24px;
+
+    color: #cbd5e1;
+
+    font-size: 0.75rem;
+
+    font-weight: 850;
+}
+
+
+.research-area-card h3 {
+
+    margin: 0 0 12px;
+
+    color: var(--project-secondary);
+
+    font-size: 1.12rem;
+
+    font-weight: 800;
+}
+
+
+.research-area-card p {
+
+    margin: 0;
+
+    color: var(--project-muted);
+
+    font-size: 0.85rem;
+
+    line-height: 1.7;
+}
+
+
+.research-area-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 23px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--project-border);
+
+    color: var(--project-primary);
+
+    font-size: 0.72rem;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   12. ACTIVE PROJECT GRID
+========================================================= */
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 26px;
+}
+
+
+/* =========================================================
+   13. PROJECT CARD
+========================================================= */
+
+.project-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 100%;
+
+    background: var(--project-white);
+
+    border: 1px solid var(--project-border);
+
+    border-radius: var(--project-radius-lg);
+
+    box-shadow: var(--project-shadow-sm);
+
+    overflow: hidden;
+
+    transition: var(--project-transition);
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--project-border-blue);
+
+    box-shadow: var(--project-shadow-lg);
+}
+
+
+/* =========================================================
+   14. PROJECT CARD TOP
+========================================================= */
+
+.project-card-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 24px 25px 0;
+}
+
+
+.project-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--project-primary-light),
+            #dbeafe
+        );
+
+    color: var(--project-primary);
+
+    font-size: 0.95rem;
+
+    font-weight: 850;
+}
+
+
+.project-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    background: #f8fafc;
+
+    color: var(--project-muted);
+
+    font-size: 0.7rem;
+
+    font-weight: 750;
+}
+
+
+.project-status::before {
+
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+
+.project-status-active {
+
+    background: #f0fdf4;
+
+    color: var(--project-success);
+}
+
+
+.project-status-planned {
+
+    background: #fffbeb;
+
+    color: var(--project-warning);
+}
+
+
+/* =========================================================
+   15. PROJECT CARD BODY
+========================================================= */
+
+.project-card-body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 23px 25px 25px;
+}
+
+
+.project-card-number {
+
+    margin-bottom: 10px;
+
+    color: var(--project-primary);
+
+    font-size: 0.68rem;
+
+    font-weight: 850;
+
+    letter-spacing: 0.1em;
+}
+
+
+.project-card h3 {
+
+    margin: 0 0 14px;
+
+    color: var(--project-secondary);
+
+    font-size: 1.3rem;
+
+    line-height: 1.35;
+
+    font-weight: 850
