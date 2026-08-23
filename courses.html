@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =====================================================
+         BASIC SEO
+    ====================================================== -->
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -13,28 +17,35 @@
     </title>
 
     <meta name="description"
-          content="Explore semester courses, lecture notes, course outlines, assignments, quizzes and academic resources from the Python, Mathematics & Artificial Intelligence Lab.">
+          content="Explore Mathematics, Python, Computer Science, Artificial Intelligence and Data Science courses with lecture notes, assignments, quizzes, projects and academic resources from PMAI Lab.">
 
     <meta name="keywords"
-          content="PMAI Lab Courses, Mathematics Courses, Computer Science Courses, Python Courses, Artificial Intelligence Courses, Lecture Notes, Assignments, Pakistan">
+          content="PMAI Lab Courses, Mathematics Courses, Python Courses, Programming Courses, Artificial Intelligence Courses, Machine Learning Courses, Data Science Courses, Lecture Notes, Assignments">
 
     <meta name="author"
           content="Python, Mathematics & Artificial Intelligence Lab">
 
+    <meta name="robots"
+          content="index, follow">
 
-    <!-- Open Graph -->
+
+    <!-- =====================================================
+         OPEN GRAPH
+    ====================================================== -->
 
     <meta property="og:title"
           content="Courses | PMAI Lab">
 
     <meta property="og:description"
-          content="Access semester courses, lecture notes, assignments and academic resources from PMAI Lab.">
+          content="Explore Mathematics, Python, Computer Science, Artificial Intelligence and Data Science courses from PMAI Lab.">
 
     <meta property="og:type"
           content="website">
 
 
-    <!-- CSS -->
+    <!-- =====================================================
+         STYLESHEETS
+    ====================================================== -->
 
     <link rel="stylesheet"
           href="assets/css/style.css">
@@ -55,7 +66,7 @@
 
 
     <!-- =====================================================
-                         NAVBAR
+                         NAVIGATION
     ====================================================== -->
 
     <header id="site-header">
@@ -65,8 +76,11 @@
             <div class="navbar-container">
 
 
+                <!-- LOGO -->
+
                 <a href="index.html"
-                   class="navbar-logo">
+                   class="navbar-logo"
+                   aria-label="PMAI Lab Home">
 
                     <span class="logo-symbol">
                         PMAI
@@ -87,16 +101,22 @@
                 </a>
 
 
+                <!-- MOBILE MENU BUTTON -->
+
                 <button
                     class="menu-toggle"
                     id="menu-toggle"
+                    type="button"
                     aria-label="Open navigation menu"
-                    aria-expanded="false">
+                    aria-expanded="false"
+                    aria-controls="nav-menu">
 
                     ☰
 
                 </button>
 
+
+                <!-- NAVIGATION MENU -->
 
                 <ul class="nav-menu"
                     id="nav-menu">
@@ -115,7 +135,8 @@
 
                     <li>
                         <a href="courses.html"
-                           class="active">
+                           class="active"
+                           aria-current="page">
                             Courses
                         </a>
                     </li>
@@ -168,33 +189,58 @@
 
 
     <!-- =====================================================
-                         MAIN
+                         MAIN CONTENT
     ====================================================== -->
 
     <main>
 
 
         <!-- =================================================
-                     COURSES HERO
+                         COURSES HERO
         ================================================== -->
 
         <section class="courses-hero">
 
             <div class="courses-hero-content">
 
+                <span class="hero-eyebrow">
+                    PMAI LAB • ACADEMIC COURSES
+                </span>
+
                 <p class="section-label">
-                    ACADEMIC COURSES
+                    LEARN • PRACTICE • BUILD • RESEARCH
                 </p>
 
                 <h1>
                     Courses & Learning Materials
                 </h1>
 
-                <p>
-                    Access semester-wise courses, lecture notes,
-                    assignments, quizzes, past papers and other
-                    academic resources provided by PMAI Lab faculty.
+                <p class="courses-hero-description">
+                    Explore structured academic courses across
+                    Mathematics, Programming, Computer Science,
+                    Artificial Intelligence and Data Science —
+                    supported by notes, assignments, quizzes,
+                    projects and practical learning resources.
                 </p>
+
+
+                <div class="courses-hero-actions">
+
+                    <a href="#course-catalog"
+                       class="btn btn-primary">
+
+                        Explore Courses
+
+                    </a>
+
+                    <a href="resources.html"
+                       class="btn btn-secondary">
+
+                        View Resources
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -203,24 +249,25 @@
 
 
         <!-- =================================================
-                     QUICK COURSE FILTERS
+                     COURSE CATEGORIES
         ================================================== -->
 
-        <section class="course-filters">
+        <section class="course-filters"
+                 id="course-catalog">
 
             <div class="section-heading">
 
                 <p class="section-label">
-                    FIND YOUR COURSE
+                    COURSE CATALOG
                 </p>
 
                 <h2>
-                    Select Your Academic Area
+                    Explore Your Academic Area
                 </h2>
 
                 <p>
-                    Choose a program or academic area to explore
-                    available courses and learning materials.
+                    Select an academic area to quickly navigate
+                    to relevant courses and learning materials.
                 </p>
 
             </div>
@@ -229,6 +276,8 @@
             <div class="filter-grid">
 
 
+                <!-- MATHEMATICS -->
+
                 <a href="#mathematics"
                    class="filter-card">
 
@@ -236,14 +285,23 @@
                         ∑
                     </span>
 
-                    <h3>
-                        Mathematics
-                    </h3>
+                    <div>
 
-                    <p>
-                        Calculus, Linear Algebra,
-                        Statistics and more.
-                    </p>
+                        <span class="filter-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Mathematics
+                        </h3>
+
+                        <p>
+                            Calculus, Linear Algebra,
+                            Discrete Mathematics, Statistics,
+                            Numerical Analysis and Modeling.
+                        </p>
+
+                    </div>
 
                     <span class="filter-arrow">
                         Explore →
@@ -251,6 +309,8 @@
 
                 </a>
 
+
+                <!-- COMPUTER SCIENCE -->
 
                 <a href="#computer-science"
                    class="filter-card">
@@ -259,14 +319,23 @@
                         &lt;/&gt;
                     </span>
 
-                    <h3>
-                        Computer Science
-                    </h3>
+                    <div>
 
-                    <p>
-                        Programming, algorithms,
-                        databases and computing.
-                    </p>
+                        <span class="filter-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Computer Science
+                        </h3>
+
+                        <p>
+                            Programming, algorithms,
+                            data structures, databases
+                            and computational thinking.
+                        </p>
+
+                    </div>
 
                     <span class="filter-arrow">
                         Explore →
@@ -274,6 +343,8 @@
 
                 </a>
 
+
+                <!-- ARTIFICIAL INTELLIGENCE -->
 
                 <a href="#artificial-intelligence"
                    class="filter-card">
@@ -282,14 +353,23 @@
                         AI
                     </span>
 
-                    <h3>
-                        Artificial Intelligence
-                    </h3>
+                    <div>
 
-                    <p>
-                        AI, Machine Learning,
-                        Deep Learning and NLP.
-                    </p>
+                        <span class="filter-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Artificial Intelligence
+                        </h3>
+
+                        <p>
+                            Artificial Intelligence,
+                            Machine Learning, Deep Learning,
+                            Computer Vision and NLP.
+                        </p>
+
+                    </div>
 
                     <span class="filter-arrow">
                         Explore →
@@ -298,6 +378,8 @@
                 </a>
 
 
+                <!-- DATA SCIENCE -->
+
                 <a href="#data-science"
                    class="filter-card">
 
@@ -305,14 +387,23 @@
                         DS
                     </span>
 
-                    <h3>
-                        Data Science
-                    </h3>
+                    <div>
 
-                    <p>
-                        Data Analytics, Statistics,
-                        Visualization and ML.
-                    </p>
+                        <span class="filter-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Data Science
+                        </h3>
+
+                        <p>
+                            Data Analytics, Statistics,
+                            Visualization, Data Mining
+                            and Machine Learning.
+                        </p>
+
+                    </div>
 
                     <span class="filter-arrow">
                         Explore →
@@ -327,8 +418,8 @@
 
 
 
-      <!-- =================================================
-                     Mathematics
+        <!-- =================================================
+                         MATHEMATICS
         ================================================== -->
 
         <section id="mathematics"
@@ -339,17 +430,23 @@
                 <div>
 
                     <p class="section-label">
-                        
+                        ACADEMIC AREA
                     </p>
 
                     <h2>
                         Mathematics
                     </h2>
 
+                    <p class="course-area-description">
+                        Mathematical foundations for computing,
+                        data science, artificial intelligence
+                        and scientific problem solving.
+                    </p>
+
                 </div>
 
-                <span>
-                    
+                <span class="course-area-badge">
+                    Mathematics
                 </span>
 
             </div>
@@ -358,42 +455,51 @@
             <div class="course-list">
 
 
-               <article class="course-card">
+                <!-- CALCULUS -->
 
-    <div class="course-code course-image">
-        <img src="../assets/images/calculus.png"
-             alt="Calculus Course">
-    </div>
+                <article class="course-card">
 
-    <div class="course-main">
+                    <div class="course-code course-image">
+
+                        <img src="assets/images/calculus.png"
+                             alt="Calculus course">
+
+                    </div>
+
+
+                    <div class="course-main">
+
+                        <span class="course-index">
+                            MATH • 01
+                        </span>
 
                         <h3>
-                            calculus
+                            Calculus
                         </h3>
 
                         <p>
-                            Programming concepts, problem solving,
-                            algorithms and computational thinking.
+                            Limits, continuity, differentiation,
+                            integration, applications of calculus
+                            and mathematical problem solving.
                         </p>
 
                         <div class="course-meta">
 
                             <span>
-                                
+                                Undergraduate
                             </span>
 
                             <span>
-                                Computer Science
+                                Mathematics
                             </span>
 
                         </div>
 
                     </div>
 
-                    <a href=""
-   class="course-button"
-   target="_blank"
-   rel="noopener noreferrer">
+
+                    <a href="#"
+                       class="course-button">
 
                         Course Materials →
 
@@ -402,36 +508,103 @@
                 </article>
 
 
+                <!-- LINEAR ALGEBRA -->
+
                 <article class="course-card">
 
                     <div class="course-code">
-                        
+
+                        <span class="course-symbol">
+                            LA
+                        </span>
+
                     </div>
+
 
                     <div class="course-main">
 
+                        <span class="course-index">
+                            MATH • 02
+                        </span>
+
                         <h3>
-                            Data Structures
+                            Linear Algebra
                         </h3>
 
                         <p>
-                            Fundamental data structures and
-                            algorithmic problem solving.
+                            Vectors, matrices, systems of linear
+                            equations, vector spaces, eigenvalues
+                            and applications in computing and AI.
                         </p>
 
                         <div class="course-meta">
 
                             <span>
-                                
+                                Undergraduate
                             </span>
 
                             <span>
-                                Computer Science
+                                Mathematics
                             </span>
 
                         </div>
 
                     </div>
+
+
+                    <a href="#"
+                       class="course-button">
+
+                        Course Materials →
+
+                    </a>
+
+                </article>
+
+
+                <!-- DISCRETE MATHEMATICS -->
+
+                <article class="course-card">
+
+                    <div class="course-code">
+
+                        <span class="course-symbol">
+                            DM
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-main">
+
+                        <span class="course-index">
+                            MATH • 03
+                        </span>
+
+                        <h3>
+                            Discrete Mathematics
+                        </h3>
+
+                        <p>
+                            Logic, sets, relations, functions,
+                            combinatorics, graphs, trees and
+                            mathematical reasoning for computing.
+                        </p>
+
+                        <div class="course-meta">
+
+                            <span>
+                                Undergraduate
+                            </span>
+
+                            <span>
+                                Mathematics
+                            </span>
+
+                        </div>
+
+                    </div>
+
 
                     <a href="#"
                        class="course-button">
@@ -461,17 +634,23 @@
                 <div>
 
                     <p class="section-label">
-                        
+                        ACADEMIC AREA
                     </p>
 
                     <h2>
                         Computer Science
                     </h2>
 
+                    <p class="course-area-description">
+                        Programming and computational foundations
+                        for software development and intelligent
+                        systems.
+                    </p>
+
                 </div>
 
-                <span>
-                    
+                <span class="course-area-badge">
+                    Computer Science
                 </span>
 
             </div>
@@ -480,27 +659,95 @@
             <div class="course-list">
 
 
-                <article class="course-card">
+                <!-- PYTHON PROGRAMMING -->
+
+                <article class="course-card featured-course">
 
                     <div class="course-code">
-                        
+
+                        <span class="course-symbol">
+                            PY
+                        </span>
+
                     </div>
+
 
                     <div class="course-main">
 
+                        <span class="course-index">
+                            CS • 01
+                        </span>
+
                         <h3>
-                            Programming Fundamentals
+                            Python Programming
                         </h3>
 
                         <p>
-                            Programming concepts, problem solving,
-                            algorithms and computational thinking.
+                            Python fundamentals, programming
+                            concepts, problem solving, functions,
+                            data structures and practical projects.
                         </p>
 
                         <div class="course-meta">
 
                             <span>
-                                
+                                Beginner → Intermediate
+                            </span>
+
+                            <span>
+                                Programming
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="https://msohailakhtar.github.io/Python-Programming/"
+                       class="course-button"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Open Course →
+
+                    </a>
+
+                </article>
+
+
+                <!-- DATA STRUCTURES -->
+
+                <article class="course-card">
+
+                    <div class="course-code">
+
+                        <span class="course-symbol">
+                            DS
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-main">
+
+                        <span class="course-index">
+                            CS • 02
+                        </span>
+
+                        <h3>
+                            Data Structures & Algorithms
+                        </h3>
+
+                        <p>
+                            Arrays, linked lists, stacks, queues,
+                            trees, graphs, searching, sorting and
+                            algorithmic problem solving.
+                        </p>
+
+                        <div class="course-meta">
+
+                            <span>
+                                Undergraduate
                             </span>
 
                             <span>
@@ -511,10 +758,9 @@
 
                     </div>
 
-                    <a href="https://msohailakhtar.github.io/Python-Programming/"
-   class="course-button"
-   target="_blank"
-   rel="noopener noreferrer">
+
+                    <a href="#"
+                       class="course-button">
 
                         Course Materials →
 
@@ -523,27 +769,39 @@
                 </article>
 
 
+                <!-- DATABASE SYSTEMS -->
+
                 <article class="course-card">
 
                     <div class="course-code">
-                        
+
+                        <span class="course-symbol">
+                            DB
+                        </span>
+
                     </div>
+
 
                     <div class="course-main">
 
+                        <span class="course-index">
+                            CS • 03
+                        </span>
+
                         <h3>
-                            Data Structures
+                            Database Systems
                         </h3>
 
                         <p>
-                            Fundamental data structures and
-                            algorithmic problem solving.
+                            Database concepts, relational models,
+                            SQL, normalization and practical
+                            database applications.
                         </p>
 
                         <div class="course-meta">
 
                             <span>
-                                
+                                Undergraduate
                             </span>
 
                             <span>
@@ -553,6 +811,7 @@
                         </div>
 
                     </div>
+
 
                     <a href="#"
                        class="course-button">
@@ -571,7 +830,7 @@
 
 
         <!-- =================================================
-                     ARTIFICIAL INTELLIGENCE
+                  ARTIFICIAL INTELLIGENCE
         ================================================== -->
 
         <section id="artificial-intelligence"
@@ -582,17 +841,23 @@
                 <div>
 
                     <p class="section-label">
-                        
+                        ACADEMIC AREA
                     </p>
 
                     <h2>
                         Artificial Intelligence
                     </h2>
 
+                    <p class="course-area-description">
+                        Intelligent systems, machine learning
+                        and modern AI concepts from foundations
+                        to practical applications.
+                    </p>
+
                 </div>
 
-                <span>
-                    
+                <span class="course-area-badge">
+                    Artificial Intelligence
                 </span>
 
             </div>
@@ -601,27 +866,39 @@
             <div class="course-list">
 
 
+                <!-- AI -->
+
                 <article class="course-card">
 
                     <div class="course-code">
-                        
+
+                        <span class="course-symbol">
+                            AI
+                        </span>
+
                     </div>
 
+
                     <div class="course-main">
+
+                        <span class="course-index">
+                            AI • 01
+                        </span>
 
                         <h3>
                             Introduction to Artificial Intelligence
                         </h3>
 
                         <p>
-                            Fundamental concepts, intelligent agents,
-                            search, reasoning and learning.
+                            Intelligent agents, problem solving,
+                            search strategies, knowledge representation,
+                            reasoning and learning.
                         </p>
 
                         <div class="course-meta">
 
                             <span>
-                                
+                                Undergraduate
                             </span>
 
                             <span>
@@ -631,6 +908,7 @@
                         </div>
 
                     </div>
+
 
                     <a href="#"
                        class="course-button">
@@ -642,21 +920,87 @@
                 </article>
 
 
+                <!-- MACHINE LEARNING -->
+
                 <article class="course-card">
 
                     <div class="course-code">
-                        
+
+                        <span class="course-symbol">
+                            ML
+                        </span>
+
                     </div>
 
+
                     <div class="course-main">
+
+                        <span class="course-index">
+                            AI • 02
+                        </span>
 
                         <h3>
                             Machine Learning
                         </h3>
 
                         <p>
-                            Supervised learning, unsupervised learning,
-                            model evaluation and practical applications.
+                            Supervised and unsupervised learning,
+                            feature engineering, model evaluation,
+                            regression, classification and practical ML.
+                        </p>
+
+                        <div class="course-meta">
+
+                            <span>
+                                Intermediate
+                            </span>
+
+                            <span>
+                                Machine Learning
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="#"
+                       class="course-button">
+
+                        Course Materials →
+
+                    </a>
+
+                </article>
+
+
+                <!-- DEEP LEARNING -->
+
+                <article class="course-card">
+
+                    <div class="course-code">
+
+                        <span class="course-symbol">
+                            DL
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-main">
+
+                        <span class="course-index">
+                            AI • 03
+                        </span>
+
+                        <h3>
+                            Deep Learning
+                        </h3>
+
+                        <p>
+                            Neural networks, deep learning architectures,
+                            optimization, computer vision and modern
+                            deep learning applications.
                         </p>
 
                         <div class="course-meta">
@@ -666,12 +1010,13 @@
                             </span>
 
                             <span>
-                                Artificial Intelligence
+                                Deep Learning
                             </span>
 
                         </div>
 
                     </div>
+
 
                     <a href="#"
                        class="course-button">
@@ -690,7 +1035,7 @@
 
 
         <!-- =================================================
-                     DATA SCIENCE
+                         DATA SCIENCE
         ================================================== -->
 
         <section id="data-science"
@@ -701,17 +1046,23 @@
                 <div>
 
                     <p class="section-label">
-                    
+                        ACADEMIC AREA
                     </p>
 
                     <h2>
                         Data Science
                     </h2>
 
+                    <p class="course-area-description">
+                        Learn how to transform data into insights
+                        using statistics, visualization, analytics
+                        and machine learning.
+                    </p>
+
                 </div>
 
-                <span>
-                    
+                <span class="course-area-badge">
+                    Data Science
                 </span>
 
             </div>
@@ -720,27 +1071,39 @@
             <div class="course-list">
 
 
+                <!-- DATA ANALYTICS -->
+
                 <article class="course-card">
 
                     <div class="course-code">
-                        
+
+                        <span class="course-symbol">
+                            DA
+                        </span>
+
                     </div>
 
+
                     <div class="course-main">
+
+                        <span class="course-index">
+                            DS • 01
+                        </span>
 
                         <h3>
                             Data Analytics
                         </h3>
 
                         <p>
-                            Data preparation, exploratory analysis,
-                            visualization and data-driven decision making.
+                            Data preparation, exploratory data analysis,
+                            visualization, statistical analysis and
+                            data-driven decision making.
                         </p>
 
                         <div class="course-meta">
 
                             <span>
-                                
+                                Beginner → Intermediate
                             </span>
 
                             <span>
@@ -750,6 +1113,61 @@
                         </div>
 
                     </div>
+
+
+                    <a href="#"
+                       class="course-button">
+
+                        Course Materials →
+
+                    </a>
+
+                </article>
+
+
+                <!-- DATA VISUALIZATION -->
+
+                <article class="course-card">
+
+                    <div class="course-code">
+
+                        <span class="course-symbol">
+                            DV
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-main">
+
+                        <span class="course-index">
+                            DS • 02
+                        </span>
+
+                        <h3>
+                            Data Visualization
+                        </h3>
+
+                        <p>
+                            Principles of data visualization,
+                            dashboards, charts, storytelling and
+                            communicating analytical insights.
+                        </p>
+
+                        <div class="course-meta">
+
+                            <span>
+                                Intermediate
+                            </span>
+
+                            <span>
+                                Data Science
+                            </span>
+
+                        </div>
+
+                    </div>
+
 
                     <a href="#"
                        class="course-button">
@@ -768,7 +1186,7 @@
 
 
         <!-- =================================================
-                     COURSE MATERIALS
+                     LEARNING MATERIALS
         ================================================== -->
 
         <section class="materials-section">
@@ -776,12 +1194,18 @@
             <div class="section-heading">
 
                 <p class="section-label">
-                    COURSE MATERIALS
+                    LEARNING RESOURCES
                 </p>
 
                 <h2>
-                    What You Can Find
+                    Everything You Need to Learn
                 </h2>
+
+                <p>
+                    PMAI Lab courses are designed to connect
+                    theoretical foundations with practical
+                    learning and project-based experience.
+                </p>
 
             </div>
 
@@ -800,8 +1224,8 @@
                     </h3>
 
                     <p>
-                        Official course outlines and
-                        semester information.
+                        Structured course outlines, topics,
+                        semester information and learning objectives.
                     </p>
 
                 </article>
@@ -818,8 +1242,8 @@
                     </h3>
 
                     <p>
-                        Faculty-provided lecture notes
-                        and learning materials.
+                        Faculty-provided lecture notes and
+                        organized academic learning materials.
                     </p>
 
                 </article>
@@ -836,8 +1260,8 @@
                     </h3>
 
                     <p>
-                        Practice assignments and
-                        academic activities.
+                        Practice assignments designed to
+                        strengthen concepts and problem-solving skills.
                     </p>
 
                 </article>
@@ -854,8 +1278,8 @@
                     </h3>
 
                     <p>
-                        Quiz materials and revision
-                        resources.
+                        Revision quizzes and assessment resources
+                        for effective exam preparation.
                     </p>
 
                 </article>
@@ -872,8 +1296,8 @@
                     </h3>
 
                     <p>
-                        Previous examination papers
-                        where available.
+                        Previous examination papers and
+                        practice resources where available.
                     </p>
 
                 </article>
@@ -890,8 +1314,8 @@
                     </h3>
 
                     <p>
-                        Useful external resources,
-                        references and supplementary material.
+                        Recommended references, external resources,
+                        tutorials and supplementary materials.
                     </p>
 
                 </article>
@@ -904,7 +1328,109 @@
 
 
         <!-- =================================================
-                     FACULTY UPLOAD CTA
+                     LEARNING PATH
+        ================================================== -->
+
+        <section class="course-learning-path">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    PMAI LEARNING PATH
+                </p>
+
+                <h2>
+                    From Foundations to Real-World Projects
+                </h2>
+
+                <p>
+                    Build your knowledge step by step by connecting
+                    mathematics, programming, AI and data.
+                </p>
+
+            </div>
+
+
+            <div class="learning-path-grid">
+
+
+                <article>
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Foundations
+                    </h3>
+
+                    <p>
+                        Mathematics, logic and computational thinking.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <p>
+                        Python, algorithms and practical programming.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        AI & Data
+                    </h3>
+
+                    <p>
+                        Machine learning, analytics and intelligent systems.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Research & Projects
+                    </h3>
+
+                    <p>
+                        Apply your knowledge to meaningful academic
+                        and real-world problems.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+                     FACULTY CONTRIBUTION CTA
         ================================================== -->
 
         <section class="faculty-upload-section">
@@ -912,7 +1438,7 @@
             <div class="faculty-upload-box">
 
                 <p class="section-label">
-                    FOR FACULTY
+                    FOR FACULTY & ACADEMIC CONTRIBUTORS
                 </p>
 
                 <h2>
@@ -920,10 +1446,10 @@
                 </h2>
 
                 <p>
-                    Faculty members can contribute course
-                    outlines, lecture notes, assignments,
-                    quizzes and other approved academic
-                    resources to the PMAI Lab repository.
+                    Faculty members can contribute approved course
+                    outlines, lecture notes, assignments, quizzes,
+                    projects and other academic resources to the
+                    PMAI Lab learning platform.
                 </p>
 
                 <a href="contact.html"
@@ -932,6 +1458,53 @@
                     Contact PMAI Lab
 
                 </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+                         FINAL CTA
+        ================================================== -->
+
+        <section class="courses-final-cta">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    KEEP LEARNING
+                </p>
+
+                <h2>
+                    Explore PMAI Lab
+                </h2>
+
+                <p>
+                    Discover our faculty, academic resources,
+                    projects and upcoming seminars.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="faculty.html"
+                       class="btn btn-primary">
+
+                        Meet Faculty
+
+                    </a>
+
+
+                    <a href="projects.html"
+                       class="btn btn-secondary">
+
+                        View Projects
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -955,6 +1528,11 @@
 
     </footer>
 
+
+
+    <!-- =====================================================
+                         JAVASCRIPT
+    ====================================================== -->
 
     <script src="assets/js/main.js"></script>
 
