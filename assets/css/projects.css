@@ -1,23 +1,35 @@
 /* =========================================================
    PMAI LAB — PROJECTS PAGE
    assets/css/projects.css
-   Version 1.0
-   ========================================================= */
+   Version 2.0
+
+   Purpose:
+   Professional Projects & Research page
+   Matching PMAI Lab visual system
+========================================================= */
 
 
 /* =========================================================
-   01. PROJECTS PAGE VARIABLES
+   01. PROJECT VARIABLES
 ========================================================= */
 
 :root {
+
     --project-primary: #2563eb;
     --project-primary-dark: #1d4ed8;
+    --project-primary-soft: #eff6ff;
+
     --project-secondary: #0f172a;
     --project-text: #334155;
     --project-muted: #64748b;
-    --project-light: #f8fafc;
+
     --project-white: #ffffff;
+    --project-light: #f8fafc;
+    --project-light-blue: #f1f7ff;
+
     --project-border: #e2e8f0;
+    --project-border-dark: #cbd5e1;
+
     --project-success: #16a34a;
     --project-warning: #d97706;
     --project-info: #0891b2;
@@ -45,46 +57,61 @@
 ========================================================= */
 
 .projects-page {
+
     width: 100%;
+
     overflow: hidden;
-    background: var(--project-white);
-    color: var(--project-text);
+
+    background:
+        var(--project-white);
+
+    color:
+        var(--project-text);
 }
 
 .projects-page *,
 .projects-page *::before,
 .projects-page *::after {
+
     box-sizing: border-box;
 }
 
 
 /* =========================================================
-   03. COMMON CONTAINER
+   03. CONTAINER
 ========================================================= */
 
 .projects-container {
-    width: min(1180px, calc(100% - 40px));
-    margin: 0 auto;
+
+    width:
+        min(1180px, calc(100% - 40px));
+
+    margin:
+        0 auto;
 }
 
 
 /* =========================================================
-   04. PROJECT HERO
+   04. HERO
 ========================================================= */
 
 .projects-hero {
+
     position: relative;
-    padding: 100px 20px 90px;
+
+    padding:
+        105px 20px 90px;
+
     background:
         radial-gradient(
             circle at 10% 20%,
-            rgba(37, 99, 235, 0.10),
-            transparent 30%
+            rgba(37, 99, 235, 0.12),
+            transparent 32%
         ),
         radial-gradient(
             circle at 90% 80%,
-            rgba(14, 165, 233, 0.08),
-            transparent 30%
+            rgba(14, 165, 233, 0.10),
+            transparent 32%
         ),
         linear-gradient(
             135deg,
@@ -92,1345 +119,369 @@
             #eef5ff 50%,
             #f8fafc 100%
         );
-    border-bottom: 1px solid var(--project-border);
+
+    border-bottom:
+        1px solid var(--project-border);
 }
+
 
 .projects-hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
-}
 
-.projects-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    max-width:
+        920px;
 
-    padding: 8px 16px;
-    margin-bottom: 20px;
+    margin:
+        0 auto;
 
-    border: 1px solid rgba(37, 99, 235, 0.18);
-    border-radius: 999px;
-
-    background: rgba(255, 255, 255, 0.8);
-
-    color: var(--project-primary);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-
-    box-shadow: var(--project-shadow-sm);
-}
-
-.projects-hero h1 {
-    margin: 0 0 20px;
-
-    color: var(--project-secondary);
-
-    font-size: clamp(2.3rem, 5vw, 4.2rem);
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-}
-
-.projects-hero h1 span {
-    color: var(--project-primary);
-}
-
-.projects-hero-description {
-    max-width: 760px;
-    margin: 0 auto;
-
-    color: var(--project-muted);
-
-    font-size: 1.08rem;
-    line-height: 1.8;
+    text-align:
+        center;
 }
 
 
 /* =========================================================
-   05. HERO STATS
+   05. HERO LABEL
 ========================================================= */
 
-.projects-hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+.projects-hero .section-label {
 
-    max-width: 900px;
-    margin: 50px auto 0;
-}
+    display:
+        inline-flex;
 
-.project-stat-card {
-    padding: 22px 16px;
+    align-items:
+        center;
 
-    background: rgba(255, 255, 255, 0.88);
+    justify-content:
+        center;
 
-    border: 1px solid rgba(226, 232, 240, 0.9);
-    border-radius: var(--project-radius-md);
+    padding:
+        8px 15px;
 
-    box-shadow: var(--project-shadow-sm);
+    margin-bottom:
+        20px;
 
-    transition: var(--project-transition);
-}
+    border:
+        1px solid rgba(37, 99, 235, 0.18);
 
-.project-stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--project-shadow-md);
-}
+    border-radius:
+        999px;
 
-.project-stat-number {
-    display: block;
+    background:
+        rgba(255, 255, 255, 0.82);
 
-    margin-bottom: 5px;
+    color:
+        var(--project-primary);
 
-    color: var(--project-primary);
+    font-size:
+        0.78rem;
 
-    font-size: 1.8rem;
-    font-weight: 800;
-}
+    font-weight:
+        800;
 
-.project-stat-label {
-    display: block;
-
-    color: var(--project-muted);
-
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   06. SECTION COMMON STYLES
-========================================================= */
-
-.projects-section {
-    padding: 90px 20px;
-}
-
-.projects-section-alt {
-    background: var(--project-light);
-}
-
-.projects-section-header {
-    max-width: 760px;
-    margin: 0 auto 55px;
-
-    text-align: center;
-}
-
-.projects-section-label {
-    display: inline-block;
-
-    margin-bottom: 12px;
-
-    color: var(--project-primary);
-
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.projects-section-header h2 {
-    margin: 0 0 16px;
-
-    color: var(--project-secondary);
-
-    font-size: clamp(1.9rem, 4vw, 2.8rem);
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-}
-
-.projects-section-header p {
-    margin: 0;
-
-    color: var(--project-muted);
-
-    font-size: 1rem;
-    line-height: 1.75;
-}
-
-
-/* =========================================================
-   07. INTRODUCTION
-========================================================= */
-
-.projects-intro {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 50px;
-
-    align-items: center;
-}
-
-.projects-intro-content h2 {
-    margin: 0 0 20px;
-
-    color: var(--project-secondary);
-
-    font-size: 2.3rem;
-    line-height: 1.2;
-    font-weight: 800;
-}
-
-.projects-intro-content h2 span {
-    color: var(--project-primary);
-}
-
-.projects-intro-content p {
-    margin: 0 0 18px;
-
-    color: var(--project-muted);
-
-    font-size: 1rem;
-    line-height: 1.85;
-}
-
-.projects-intro-content p:last-child {
-    margin-bottom: 0;
-}
-
-.projects-intro-card {
-    padding: 34px;
-
-    background: var(--project-white);
-
-    border: 1px solid var(--project-border);
-    border-radius: var(--project-radius-lg);
-
-    box-shadow: var(--project-shadow-md);
-}
-
-.projects-intro-card h3 {
-    margin: 0 0 22px;
-
-    color: var(--project-secondary);
-
-    font-size: 1.25rem;
-    font-weight: 750;
-}
-
-.projects-intro-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.projects-intro-list li {
-    position: relative;
-
-    padding-left: 28px;
-
-    color: var(--project-text);
-
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.projects-intro-list li::before {
-    content: "✓";
-
-    position: absolute;
-    left: 0;
-    top: 1px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 20px;
-    height: 20px;
-
-    border-radius: 50%;
-
-    background: rgba(37, 99, 235, 0.1);
-
-    color: var(--project-primary);
-
-    font-size: 0.75rem;
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   08. RESEARCH AREAS
-========================================================= */
-
-.research-areas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.research-area-card {
-    position: relative;
-
-    padding: 32px 28px;
-
-    background: var(--project-white);
-
-    border: 1px solid var(--project-border);
-    border-radius: var(--project-radius-md);
-
-    box-shadow: var(--project-shadow-sm);
-
-    transition: var(--project-transition);
-    overflow: hidden;
-}
-
-.research-area-card::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 4px;
-
-    background: linear-gradient(
-        90deg,
-        var(--project-primary),
-        #38bdf8
-    );
-
-    transform: scaleX(0);
-    transform-origin: left;
-
-    transition: var(--project-transition);
-}
-
-.research-area-card:hover {
-    transform: translateY(-7px);
-    box-shadow: var(--project-shadow-md);
-}
-
-.research-area-card:hover::before {
-    transform: scaleX(1);
-}
-
-.research-area-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 52px;
-    height: 52px;
-
-    margin-bottom: 22px;
-
-    border-radius: 14px;
-
-    background: rgba(37, 99, 235, 0.09);
-
-    color: var(--project-primary);
-
-    font-size: 1.4rem;
-    font-weight: 800;
-}
-
-.research-area-card h3 {
-    margin: 0 0 12px;
-
-    color: var(--project-secondary);
-
-    font-size: 1.2rem;
-    font-weight: 750;
-}
-
-.research-area-card p {
-    margin: 0;
-
-    color: var(--project-muted);
-
-    font-size: 0.92rem;
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   09. PROJECT GRID
-========================================================= */
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
-}
-
-
-/* =========================================================
-   10. PROJECT CARD
-========================================================= */
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-
-    min-height: 100%;
-
-    background: var(--project-white);
-
-    border: 1px solid var(--project-border);
-    border-radius: var(--project-radius-lg);
-
-    box-shadow: var(--project-shadow-sm);
-
-    overflow: hidden;
-
-    transition: var(--project-transition);
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--project-shadow-lg);
-    border-color: rgba(37, 99, 235, 0.25);
-}
-
-
-/* =========================================================
-   11. PROJECT CARD TOP
-========================================================= */
-
-.project-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-
-    padding: 22px 24px 0;
-}
-
-.project-category {
-    display: inline-flex;
-    align-items: center;
-
-    padding: 6px 11px;
-
-    border-radius: 999px;
-
-    background: rgba(37, 99, 235, 0.09);
-
-    color: var(--project-primary);
-
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-.project-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-
-    font-size: 0.72rem;
-    font-weight: 700;
-}
-
-.project-status::before {
-    content: "";
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: currentColor;
-}
-
-.project-status-active {
-    color: var(--project-success);
-}
-
-.project-status-planned {
-    color: var(--project-warning);
-}
-
-.project-status-completed {
-    color: var(--project-info);
-}
-
-
-/* =========================================================
-   12. PROJECT CARD BODY
-========================================================= */
-
-.project-card-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-
-    padding: 24px;
-}
-
-.project-card h3 {
-    margin: 0 0 13px;
-
-    color: var(--project-secondary);
-
-    font-size: 1.25rem;
-    line-height: 1.35;
-    font-weight: 800;
-}
-
-.project-card-description {
-    margin: 0;
-
-    color: var(--project-muted);
-
-    font-size: 0.91rem;
-    line-height: 1.75;
-}
-
-
-/* =========================================================
-   13. PROJECT META
-========================================================= */
-
-.project-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    margin-top: 22px;
-    padding-top: 18px;
-
-    border-top: 1px solid var(--project-border);
-}
-
-.project-meta-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-
-    color: var(--project-text);
-
-    font-size: 0.82rem;
-    line-height: 1.5;
-}
-
-.project-meta-label {
-    min-width: 70px;
-
-    color: var(--project-muted);
-
-    font-weight: 700;
-}
-
-.project-meta-value {
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   14. PROJECT TAGS
-========================================================= */
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-
-    margin-top: 20px;
-}
-
-.project-tag {
-    display: inline-flex;
-    align-items: center;
-
-    padding: 5px 9px;
-
-    border: 1px solid var(--project-border);
-    border-radius: 7px;
-
-    background: #f8fafc;
-
-    color: var(--project-muted);
-
-    font-size: 0.72rem;
-    font-weight: 650;
-}
-
-
-/* =========================================================
-   15. PROJECT CARD FOOTER
-========================================================= */
-
-.project-card-footer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    margin-top: auto;
-    padding-top: 24px;
-}
-
-.project-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-
-    min-height: 40px;
-    padding: 9px 15px;
-
-    border-radius: 9px;
-
-    font-size: 0.78rem;
-    font-weight: 750;
-
-    text-decoration: none;
-
-    cursor: pointer;
-
-    transition: var(--project-transition);
-}
-
-.project-btn-primary {
-    background: var(--project-primary);
-    color: var(--project-white);
-}
-
-.project-btn-primary:hover {
-    background: var(--project-primary-dark);
-    transform: translateY(-2px);
-}
-
-.project-btn-secondary {
-    background: var(--project-white);
-
-    border: 1px solid var(--project-border);
-
-    color: var(--project-secondary);
-}
-
-.project-btn-secondary:hover {
-    background: var(--project-light);
-    border-color: #cbd5e1;
-}
-
-
-/* =========================================================
-   16. RESEARCH PROJECTS
-========================================================= */
-
-.research-projects {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 26px;
-}
-
-.research-project-card {
-    position: relative;
-
-    padding: 32px;
-
-    background: var(--project-white);
-
-    border: 1px solid var(--project-border);
-    border-radius: var(--project-radius-lg);
-
-    box-shadow: var(--project-shadow-sm);
-
-    transition: var(--project-transition);
-}
-
-.research-project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--project-shadow-md);
-}
-
-.research-project-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 38px;
-    height: 38px;
-
-    margin-bottom: 18px;
-
-    border-radius: 10px;
-
-    background: rgba(37, 99, 235, 0.1);
-
-    color: var(--project-primary);
-
-    font-size: 0.85rem;
-    font-weight: 800;
-}
-
-.research-project-card h3 {
-    margin: 0 0 12px;
-
-    color: var(--project-secondary);
-
-    font-size: 1.3rem;
-    line-height: 1.35;
-    font-weight: 800;
-}
-
-.research-project-card p {
-    margin: 0;
-
-    color: var(--project-muted);
-
-    font-size: 0.92rem;
-    line-height: 1.75;
-}
-
-.research-project-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-
-    margin-top: 22px;
-}
-
-
-/* =========================================================
-   17. STUDENT PROJECTS
-========================================================= */
-
-.student-projects-wrapper {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 45px;
-
-    align-items: center;
-}
-
-.student-projects-content h2 {
-    margin: 0 0 18px;
-
-    color: var(--project-secondary);
-
-    font-size: 2.3rem;
-    line-height: 1.2;
-    font-weight: 800;
-}
-
-.student-projects-content h2 span {
-    color: var(--project-primary);
-}
-
-.student-projects-content p {
-    margin: 0 0 20px;
-
-    color: var(--project-muted);
-
-    font-size: 0.97rem;
-    line-height: 1.8;
-}
-
-.student-projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.student-projects-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-
-    color: var(--project-text);
-
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.student-projects-list li::before {
-    content: "→";
-
-    flex-shrink: 0;
-
-    color: var(--project-primary);
-
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   18. STUDENT PROJECT GRID
-========================================================= */
-
-.student-project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-.student-project-card {
-    padding: 23px;
-
-    background: var(--project-white);
-
-    border: 1px solid var(--project-border);
-    border-radius: var(--project-radius-md);
-
-    box-shadow: var(--project-shadow-sm);
-
-    transition: var(--project-transition);
-}
-
-.student-project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--project-shadow-md);
-}
-
-.student-project-card h3 {
-    margin: 0 0 9px;
-
-    color: var(--project-secondary);
-
-    font-size: 1rem;
-    font-weight: 750;
-}
-
-.student-project-card p {
-    margin: 0;
-
-    color: var(--project-muted);
-
-    font-size: 0.82rem;
-    line-height: 1.65;
-}
-
-
-/* =========================================================
-   19. PROJECT WORKFLOW
-========================================================= */
-
-.project-workflow {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-
-    position: relative;
-}
-
-.project-workflow::before {
-    content: "";
-
-    position: absolute;
-    top: 29px;
-    left: 10%;
-    right: 10%;
-
-    height: 1px;
-
-    background: var(--project-border);
-
-    z-index: 0;
-}
-
-.workflow-step {
-    position: relative;
-    z-index: 1;
-
-    text-align: center;
-}
-
-.workflow-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 58px;
-    height: 58px;
-
-    margin: 0 auto 18px;
-
-    border: 5px solid var(--project-white);
-    border-radius: 50%;
-
-    background: var(--project-primary);
-
-    color: var(--project-white);
-
-    font-size: 0.85rem;
-    font-weight: 800;
+    letter-spacing:
+        0.09em;
 
     box-shadow:
-        0 0 0 1px var(--project-border),
         var(--project-shadow-sm);
 }
 
-.workflow-step h3 {
-    margin: 0 0 8px;
 
-    color: var(--project-secondary);
+/* =========================================================
+   06. HERO TITLE
+========================================================= */
 
-    font-size: 0.98rem;
-    font-weight: 750;
+.projects-hero h1 {
+
+    margin:
+        0 0 20px;
+
+    color:
+        var(--project-secondary);
+
+    font-size:
+        clamp(2.4rem, 5vw, 4.3rem);
+
+    line-height:
+        1.08;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        -0.045em;
 }
 
-.workflow-step p {
-    margin: 0;
 
-    color: var(--project-muted);
+.projects-hero h1 span {
 
-    font-size: 0.78rem;
-    line-height: 1.6;
+    color:
+        var(--project-primary);
+}
+
+
+.projects-hero-description {
+
+    max-width:
+        780px;
+
+    margin:
+        0 auto;
+
+    color:
+        var(--project-muted);
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.85;
 }
 
 
 /* =========================================================
-   20. COLLABORATION CTA
+   07. HERO BUTTONS
 ========================================================= */
 
-.projects-cta {
-    padding: 85px 20px;
+.projects-hero-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        12px;
+
+    margin-top:
+        30px;
+}
+
+
+.projects-hero .btn {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        44px;
+
+    padding:
+        11px 20px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        10px;
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.84rem;
+
+    font-weight:
+        750;
+
+    transition:
+        var(--project-transition);
+}
+
+
+.projects-hero .btn-primary {
 
     background:
-        radial-gradient(
-            circle at 15% 30%,
-            rgba(56, 189, 248, 0.15),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #0f172a,
-            #172554
-        );
+        var(--project-primary);
+
+    color:
+        var(--project-white);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.18);
 }
 
-.projects-cta-content {
-    max-width: 780px;
-    margin: 0 auto;
 
-    text-align: center;
+.projects-hero .btn-primary:hover {
+
+    background:
+        var(--project-primary-dark);
+
+    transform:
+        translateY(-2px);
 }
 
-.projects-cta-content h2 {
-    margin: 0 0 17px;
 
-    color: var(--project-white);
+.projects-hero .btn-secondary {
 
-    font-size: clamp(1.9rem, 4vw, 2.8rem);
-    line-height: 1.2;
-    font-weight: 800;
+    background:
+        var(--project-white);
+
+    border-color:
+        var(--project-border);
+
+    color:
+        var(--project-secondary);
 }
 
-.projects-cta-content p {
-    max-width: 650px;
 
-    margin: 0 auto 28px;
+.projects-hero .btn-secondary:hover {
 
-    color: #cbd5e1;
+    background:
+        var(--project-light);
 
-    font-size: 0.98rem;
-    line-height: 1.8;
-}
+    border-color:
+        var(--project-border-dark);
 
-.projects-cta-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.projects-cta .project-btn-primary {
-    background: var(--project-white);
-    color: var(--project-secondary);
-}
-
-.projects-cta .project-btn-primary:hover {
-    background: #f1f5f9;
-}
-
-.projects-cta .project-btn-secondary {
-    background: transparent;
-
-    border-color: rgba(255, 255, 255, 0.3);
-
-    color: var(--project-white);
-}
-
-.projects-cta .project-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.08);
-
-    border-color: rgba(255, 255, 255, 0.5);
+    transform:
+        translateY(-2px);
 }
 
 
 /* =========================================================
-   21. EMPTY PROJECT STATE
+   08. HERO STAT BOXES
 ========================================================= */
 
-.projects-empty {
-    padding: 55px 30px;
+.projects-hero-stats {
 
-    text-align: center;
+    display:
+        grid;
 
-    background: var(--project-light);
+    grid-template-columns:
+        repeat(4, 1fr);
 
-    border: 1px dashed #cbd5e1;
-    border-radius: var(--project-radius-lg);
+    gap:
+        16px;
+
+    max-width:
+        900px;
+
+    margin:
+        48px auto 0;
 }
 
-.projects-empty h3 {
-    margin: 0 0 10px;
 
-    color: var(--project-secondary);
+.project-stat-card {
 
-    font-size: 1.25rem;
+    padding:
+        23px 15px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    border:
+        1px solid rgba(226, 232, 240, 0.95);
+
+    border-radius:
+        var(--project-radius-md);
+
+    box-shadow:
+        var(--project-shadow-sm);
+
+    transition:
+        var(--project-transition);
 }
 
-.projects-empty p {
-    max-width: 550px;
 
-    margin: 0 auto;
+.project-stat-card:hover {
 
-    color: var(--project-muted);
+    transform:
+        translateY(-5px);
 
-    font-size: 0.9rem;
-    line-height: 1.7;
+    box-shadow:
+        var(--project-shadow-md);
+
+    border-color:
+        rgba(37, 99, 235, 0.20);
+}
+
+
+.project-stat-number {
+
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--project-primary);
+
+    font-size:
+        1.55rem;
+
+    font-weight:
+        850;
+}
+
+
+.project-stat-label {
+
+    display:
+        block;
+
+    color:
+        var(--project-muted);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        650;
 }
 
 
 /* =========================================================
-   22. ACTIVE NAVIGATION
+   09. SECTION HEADINGS
 ========================================================= */
 
-/*
-   Works with common PMAI Lab navigation structures.
+.projects-section-heading {
 
-   Add class="active" to the Projects navigation link
-   in projects.html if it is not automatically detected.
-*/
+    max-width:
+        760px;
 
-.navbar .nav-link.active,
-.navbar a.active,
-nav .nav-link.active,
-nav a.active {
-    color: var(--project-primary);
-}
+    margin:
+        0 auto 52px;
 
-.navbar .nav-link.active::after,
-.navbar a.active::after,
-nav .nav-link.active::after,
-nav a.active::after {
-    width: 100%;
+    text-align:
+        center;
 }
 
 
-/* =========================================================
-   23. ACCESSIBILITY
-========================================================= */
+.projects-section-heading .section-label {
 
-.project-btn:focus-visible,
-.project-card a:focus-visible,
-.research-project-card a:focus-visible {
-    outline: 3px solid rgba(37, 99, 235, 0.3);
-    outline-offset: 3px;
+    display:
+        inline-block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--project-primary);
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        0.12em;
 }
 
 
-/* =========================================================
-   24. TABLET — 1024px
-========================================================= */
+.projects-section-heading h2 {
 
-@media (max-width: 1024px) {
-
-    .projects-hero {
-        padding: 85px 20px 75px;
-    }
-
-    .projects-section {
-        padding: 75px 20px;
-    }
-
-    .projects-container {
-        width: min(940px, calc(100% - 35px));
-    }
-
-    .projects-intro {
-        gap: 35px;
-    }
-
-    .research-areas-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .project-workflow {
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: 35px;
-    }
-
-    .project-workflow::before {
-        display: none;
-    }
-
-    .student-projects-wrapper {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================================================
-   25. TABLET — 768px
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .projects-hero {
-        padding: 70px 18px 65px;
-    }
-
-    .projects-hero-description {
-        font-size: 0.96rem;
-    }
-
-    .projects-hero-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-
-        margin-top: 35px;
-    }
-
-    .projects-section {
-        padding: 65px 18px;
-    }
-
-    .projects-section-header {
-        margin-bottom: 40px;
-    }
-
-    .projects-intro {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .projects-intro-content h2,
-    .student-projects-content h2 {
-        font-size: 2rem;
-    }
-
-    .research-projects {
-        grid-template-columns: 1fr;
-    }
-
-    .project-workflow {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects-cta {
-        padding: 65px 18px;
-    }
-}
-
-
-/* =========================================================
-   26. MOBILE — 600px
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .projects-container {
-        width: calc(100% - 28px);
-    }
-
-    .projects-hero {
-        padding: 60px 14px 55px;
-    }
-
-    .projects-hero-badge {
-        font-size: 0.72rem;
-        padding: 7px 12px;
-    }
-
-    .projects-hero h1 {
-        font-size: 2.25rem;
-    }
-
-    .projects-hero-description {
-        font-size: 0.9rem;
-        line-height: 1.7;
-    }
-
-    .projects-hero-stats {
-        grid-template-columns: 1fr 1fr;
-        margin-top: 30px;
-    }
-
-    .project-stat-card {
-        padding: 18px 10px;
-    }
-
-    .project-stat-number {
-        font-size: 1.45rem;
-    }
-
-    .project-stat-label {
-        font-size: 0.72rem;
-    }
-
-    .projects-section {
-        padding: 55px 14px;
-    }
-
-    .projects-section-header h2 {
-        font-size: 1.8rem;
-    }
-
-    .projects-section-header p {
-        font-size: 0.88rem;
-    }
-
-    .research-areas-grid,
-    .projects-grid,
-    .research-projects {
-        grid-template-columns: 1fr;
-    }
-
-    .research-area-card {
-        padding: 26px 22px;
-    }
-
-    .project-card-body {
-        padding: 22px;
-    }
-
-    .project-card-top {
-        padding: 19px 22px 0;
-    }
-
-    .project-card h3 {
-        font-size: 1.15rem;
-    }
-
-    .project-card-footer {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .project-btn {
-        width: 100%;
-    }
-
-    .research-project-card {
-        padding: 25px 22px;
-    }
-
-    .student-project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-workflow {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .workflow-step {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .projects-cta {
-        padding: 55px 14px;
-    }
-
-    .projects-cta-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .projects-cta-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        max-width: 320px;
-        margin: 0 auto;
-    }
-
-    .projects-cta .project-btn {
-        width: 100%;
-    }
-}
-
-
-/* =========================================================
-   27. SMALL MOBILE — 420px
-========================================================= */
-
-@media (max-width: 420px) {
-
-    .projects-hero h1 {
-        font-size: 2rem;
-    }
-
-    .projects-hero-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .project-stat-card {
-        padding: 15px;
-    }
-
-    .projects-intro-content h2,
-    .student-projects-content h2 {
-        font-size: 1.75rem;
-    }
-
-    .project-card-top {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .project-category,
-    .project-status {
-        font-size: 0.68rem;
-    }
-
-    .project-tags {
-        gap: 5px;
-    }
-
-    .project-tag {
-        font-size: 0.68rem;
-    }
-}
-
-
-/* =========================================================
-   28. REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .projects-page *,
-    .projects-page *::before,
-    .projects-page *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-        animation: none !important;
-    }
-}
-
-
-/* =========================================================
-   END — PMAI LAB PROJECTS CSS
-========================================================= */
+    margin:
+       
