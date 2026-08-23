@@ -16,20 +16,20 @@
     --seminars-gray: #666666;
     --seminars-muted: #888888;
 
-    --seminars-light: #f7f7f7;
+    --seminars-light: #f6f6f6;
     --seminars-lighter: #fafafa;
 
     --seminars-white: #ffffff;
 
-    --seminars-border: #e5e5e5;
-    --seminars-border-dark: #333333;
+    --seminars-border: #e4e4e4;
+    --seminars-border-dark: #cccccc;
 
     --seminars-max-width: 1200px;
 
-    --seminars-radius: 14px;
+    --seminars-radius: 16px;
 
     --seminars-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.07);
+        0 10px 35px rgba(0, 0, 0, 0.07);
 
     --seminars-shadow-hover:
         0 18px 45px rgba(0, 0, 0, 0.11);
@@ -70,7 +70,7 @@
         linear-gradient(
             135deg,
             #ffffff 0%,
-            #f6f6f6 100%
+            #f5f5f5 100%
         );
 
     border-bottom:
@@ -92,30 +92,36 @@
     inset: 0;
 
     background-image:
+
         linear-gradient(
             rgba(0, 0, 0, 0.035) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
             rgba(0, 0, 0, 0.035) 1px,
             transparent 1px
         );
 
-    background-size: 45px 45px;
+    background-size:
+        45px 45px;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
 
-/* Hero content */
+/* Hero container */
 
 .seminars-hero .seminars-container {
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 1;
+    z-index:
+        1;
 
 }
 
@@ -126,19 +132,26 @@
 
 .section-label {
 
-    display: inline-block;
+    display:
+        inline-block;
 
-    margin: 0 0 15px;
+    margin:
+        0 0 14px;
 
-    font-size: 0.74rem;
+    font-size:
+        0.75rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 0.16em;
+    letter-spacing:
+        0.16em;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    color: var(--seminars-gray);
+    color:
+        var(--seminars-gray);
 
 }
 
@@ -149,23 +162,30 @@
 
 .seminars-hero h1 {
 
-    max-width: 900px;
+    max-width:
+        900px;
 
-    margin: 0 0 25px;
+    margin:
+        0 0 25px;
 
-    font-size: clamp(
-        3rem,
-        7vw,
-        5.8rem
-    );
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            5.8rem
+        );
 
-    line-height: 0.98;
+    line-height:
+        0.98;
 
-    letter-spacing: -0.055em;
+    letter-spacing:
+        -0.055em;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    color: var(--seminars-black);
+    color:
+        var(--seminars-black);
 
 }
 
@@ -176,15 +196,20 @@
 
 .seminars-hero-description {
 
-    max-width: 760px;
+    max-width:
+        760px;
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 1.1rem;
+    font-size:
+        1.1rem;
 
-    line-height: 1.85;
+    line-height:
+        1.85;
 
-    color: var(--seminars-gray);
+    color:
+        var(--seminars-gray);
 
 }
 
@@ -195,50 +220,67 @@
 
 .seminars-hero-actions {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 14px;
+    gap:
+        14px;
 
-    margin-top: 35px;
+    margin-top:
+        35px;
 
 }
 
 
 /* =========================================================
-   GENERAL BUTTONS
+   GLOBAL BUTTON SYSTEM
 ========================================================= */
 
 .btn {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    min-height: 48px;
+    min-height:
+        50px;
 
-    padding: 0 25px;
+    padding:
+        0 26px;
 
-    border-radius: 8px;
+    border-radius:
+        9px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 0.88rem;
+    font-size:
+        0.9rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    letter-spacing: 0.01em;
+    letter-spacing:
+        0.01em;
 
     transition:
         var(--seminars-transition);
 
+    cursor:
+        pointer;
+
 }
 
 
-/* Primary */
+/* PRIMARY BUTTON */
 
 .btn-primary {
 
@@ -251,6 +293,9 @@
     border:
         1px solid var(--seminars-black);
 
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.12);
+
 }
 
 
@@ -262,18 +307,24 @@
     border-color:
         #333333;
 
+    color:
+        #ffffff;
+
     transform:
-        translateY(-2px);
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.18);
 
 }
 
 
-/* Secondary */
+/* SECONDARY BUTTON */
 
 .btn-secondary {
 
     background:
-        transparent;
+        #ffffff;
 
     color:
         var(--seminars-black);
@@ -295,6 +346,25 @@
     border-color:
         var(--seminars-black);
 
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   SECTION COMMON
+========================================================= */
+
+.event-focus,
+.seminars-events,
+.event-types,
+.past-events,
+.seminar-contact {
+
+    padding:
+        100px 0;
+
 }
 
 
@@ -304,26 +374,32 @@
 
 .section-heading {
 
-    max-width: 760px;
+    max-width:
+        780px;
 
-    margin-bottom: 50px;
+    margin:
+        0 0 50px;
 
 }
 
 
 .section-heading h2 {
 
-    margin: 0 0 18px;
+    margin:
+        0 0 18px;
 
-    font-size: clamp(
-        2rem,
-        4vw,
-        3.2rem
-    );
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.2rem
+        );
 
-    line-height: 1.1;
+    line-height:
+        1.1;
 
-    letter-spacing: -0.035em;
+    letter-spacing:
+        -0.035em;
 
     color:
         var(--seminars-black);
@@ -331,13 +407,16 @@
 }
 
 
-.section-heading > p:last-child {
+.section-heading p:not(.section-label) {
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 1rem;
+    font-size:
+        1rem;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
     color:
         var(--seminars-gray);
@@ -351,8 +430,6 @@
 
 .event-focus {
 
-    padding: 100px 0;
-
     background:
         var(--seminars-white);
 
@@ -365,12 +442,14 @@
 
 .focus-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(3, 1fr);
 
-    gap: 20px;
+    gap:
+        22px;
 
 }
 
@@ -381,11 +460,17 @@
 
 .focus-card {
 
-    position: relative;
+    position:
+        relative;
 
-    padding: 32px;
+    padding:
+        32px;
 
-    min-height: 280px;
+    min-height:
+        230px;
+
+    background:
+        var(--seminars-white);
 
     border:
         1px solid var(--seminars-border);
@@ -393,13 +478,11 @@
     border-radius:
         var(--seminars-radius);
 
-    background:
-        var(--seminars-white);
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.025);
 
     transition:
         var(--seminars-transition);
-
-    overflow: hidden;
 
 }
 
@@ -407,13 +490,13 @@
 .focus-card:hover {
 
     transform:
-        translateY(-6px);
+        translateY(-7px);
+
+    border-color:
+        #cfcfcf;
 
     box-shadow:
         var(--seminars-shadow-hover);
-
-    border-color:
-        #cccccc;
 
 }
 
@@ -422,19 +505,26 @@
 
 .focus-number {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    width: 48px;
+    width:
+        52px;
 
-    height: 48px;
+    height:
+        52px;
 
-    margin-bottom: 30px;
+    margin-bottom:
+        24px;
 
-    border-radius: 10px;
+    border-radius:
+        12px;
 
     background:
         var(--seminars-black);
@@ -442,22 +532,30 @@
     color:
         var(--seminars-white);
 
-    font-size: 0.75rem;
+    font-size:
+        0.75rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.05em;
 
 }
 
 
-/* Title */
+/* Focus title */
 
 .focus-card h3 {
 
-    margin: 0 0 14px;
+    margin:
+        0 0 12px;
 
-    font-size: 1.2rem;
+    font-size:
+        1.25rem;
 
-    line-height: 1.3;
+    line-height:
+        1.3;
 
     color:
         var(--seminars-black);
@@ -465,15 +563,18 @@
 }
 
 
-/* Description */
+/* Focus description */
 
 .focus-card p {
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.92rem;
+    font-size:
+        0.94rem;
 
-    line-height: 1.75;
+    line-height:
+        1.75;
 
     color:
         var(--seminars-gray);
@@ -482,15 +583,13 @@
 
 
 /* =========================================================
-   UPCOMING EVENTS SECTION
+   UPCOMING EVENTS
 ========================================================= */
 
 .seminars-events {
 
-    padding: 100px 0;
-
     background:
-        var(--seminars-light);
+        #f7f7f7;
 
     border-top:
         1px solid var(--seminars-border);
@@ -507,20 +606,25 @@
 
 .event-card {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        110px
+        120px
         minmax(0, 1fr)
         auto;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 30px;
+    gap:
+        30px;
 
-    padding: 30px;
+    margin-bottom:
+        20px;
 
-    margin-bottom: 18px;
+    padding:
+        30px;
 
     background:
         var(--seminars-white);
@@ -531,6 +635,9 @@
     border-radius:
         var(--seminars-radius);
 
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.035);
+
     transition:
         var(--seminars-transition);
 
@@ -539,7 +646,8 @@
 
 .event-card:last-child {
 
-    margin-bottom: 0;
+    margin-bottom:
+        0;
 
 }
 
@@ -547,10 +655,10 @@
 .event-card:hover {
 
     transform:
-        translateY(-4px);
+        translateY(-5px);
 
     box-shadow:
-        var(--seminars-shadow);
+        var(--seminars-shadow-hover);
 
 }
 
@@ -561,47 +669,69 @@
 
 .event-date {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    flex-direction:
+        column;
 
-    justify-content: center;
+    align-items:
+        center;
 
-    min-height: 90px;
+    justify-content:
+        center;
 
-    padding-right: 25px;
+    min-height:
+        100px;
 
-    border-right:
+    padding:
+        15px;
+
+    background:
+        var(--seminars-light);
+
+    border:
         1px solid var(--seminars-border);
+
+    border-radius:
+        12px;
+
+    text-align:
+        center;
 
 }
 
 
 .event-date span {
 
-    display: inline-flex;
+    display:
+        block;
 
-    align-items: center;
+    margin-bottom:
+        6px;
 
-    justify-content: center;
+    font-size:
+        0.7rem;
 
-    min-width: 60px;
+    font-weight:
+        800;
 
-    padding: 9px 12px;
-
-    border-radius: 7px;
-
-    background:
-        var(--seminars-light);
+    letter-spacing:
+        0.13em;
 
     color:
         var(--seminars-gray);
 
-    font-size: 0.68rem;
+}
 
-    font-weight: 800;
 
-    letter-spacing: 0.12em;
+.event-date strong {
+
+    font-size:
+        1.1rem;
+
+    color:
+        var(--seminars-black);
 
 }
 
@@ -610,33 +740,56 @@
    EVENT CONTENT
 ========================================================= */
 
+.event-content {
+
+    min-width:
+        0;
+
+}
+
+
 .event-category {
 
-    display: inline-block;
+    display:
+        inline-block;
 
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 
-    font-size: 0.68rem;
+    padding:
+        5px 10px;
 
-    font-weight: 800;
+    border-radius:
+        5px;
 
-    letter-spacing: 0.14em;
-
-    text-transform: uppercase;
+    background:
+        #eeeeee;
 
     color:
-        var(--seminars-gray);
+        #555555;
+
+    font-size:
+        0.65rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
 
 }
 
 
 .event-content h3 {
 
-    margin: 0 0 10px;
+    margin:
+        0 0 11px;
 
-    font-size: 1.35rem;
+    font-size:
+        1.35rem;
 
-    line-height: 1.35;
+    line-height:
+        1.35;
 
     color:
         var(--seminars-black);
@@ -646,13 +799,17 @@
 
 .event-content p {
 
-    max-width: 720px;
+    max-width:
+        720px;
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.94rem;
+    font-size:
+        0.94rem;
 
-    line-height: 1.75;
+    line-height:
+        1.75;
 
     color:
         var(--seminars-gray);
@@ -666,22 +823,25 @@
 
 .event-meta {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 16px;
+    gap:
+        10px 18px;
 
-    margin-top: 16px;
+    margin-top:
+        17px;
 
 }
 
 
 .event-meta span {
 
-    font-size: 0.77rem;
-
-    line-height: 1.5;
+    font-size:
+        0.78rem;
 
     color:
         #777777;
@@ -690,39 +850,49 @@
 
 
 /* =========================================================
-   EVENT ACTION
+   EVENT BUTTON
 ========================================================= */
 
 .event-button {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    min-height: 44px;
+    min-height:
+        46px;
 
-    padding: 0 20px;
+    padding:
+        0 20px;
 
     border:
-        1px solid #cccccc;
+        1px solid var(--seminars-black);
 
-    border-radius: 7px;
+    border-radius:
+        8px;
 
     background:
-        var(--seminars-white);
-
-    color:
         var(--seminars-black);
 
-    text-decoration: none;
+    color:
+        var(--seminars-white);
 
-    font-size: 0.8rem;
+    text-decoration:
+        none;
 
-    font-weight: 700;
+    font-size:
+        0.82rem;
 
-    white-space: nowrap;
+    font-weight:
+        700;
+
+    white-space:
+        nowrap;
 
     transition:
         var(--seminars-transition);
@@ -733,13 +903,13 @@
 .event-button:hover {
 
     background:
-        var(--seminars-black);
+        #333333;
 
     border-color:
-        var(--seminars-black);
+        #333333;
 
-    color:
-        var(--seminars-white);
+    transform:
+        translateY(-2px);
 
 }
 
@@ -749,8 +919,6 @@
 ========================================================= */
 
 .event-types {
-
-    padding: 100px 0;
 
     background:
         var(--seminars-white);
@@ -764,12 +932,14 @@
 
 .types-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(3, 1fr);
 
-    gap: 20px;
+    gap:
+        22px;
 
 }
 
@@ -780,7 +950,11 @@
 
 .type-card {
 
-    padding: 32px;
+    padding:
+        30px;
+
+    background:
+        var(--seminars-white);
 
     border:
         1px solid var(--seminars-border);
@@ -797,33 +971,44 @@
 .type-card:hover {
 
     transform:
-        translateY(-5px);
+        translateY(-6px);
 
     box-shadow:
-        var(--seminars-shadow);
+        var(--seminars-shadow-hover);
+
+    border-color:
+        #cccccc;
 
 }
 
 
-/* Type label */
+/* Type badge */
 
 .type-card > span {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    min-width: 52px;
+    min-width:
+        48px;
 
-    height: 36px;
+    height:
+        42px;
 
-    margin-bottom: 24px;
+    margin-bottom:
+        20px;
 
-    padding: 0 10px;
+    padding:
+        0 12px;
 
-    border-radius: 6px;
+    border-radius:
+        8px;
 
     background:
         var(--seminars-black);
@@ -831,11 +1016,14 @@
     color:
         var(--seminars-white);
 
-    font-size: 0.68rem;
+    font-size:
+        0.65rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 0.08em;
+    letter-spacing:
+        0.08em;
 
 }
 
@@ -844,11 +1032,11 @@
 
 .type-card h3 {
 
-    margin: 0 0 12px;
+    margin:
+        0 0 12px;
 
-    font-size: 1.15rem;
-
-    line-height: 1.35;
+    font-size:
+        1.18rem;
 
     color:
         var(--seminars-black);
@@ -860,11 +1048,14 @@
 
 .type-card p {
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.9rem;
+    font-size:
+        0.92rem;
 
-    line-height: 1.75;
+    line-height:
+        1.75;
 
     color:
         var(--seminars-gray);
@@ -878,10 +1069,8 @@
 
 .past-events {
 
-    padding: 100px 0;
-
     background:
-        var(--seminars-light);
+        #f7f7f7;
 
     border-top:
         1px solid var(--seminars-border);
@@ -895,13 +1084,21 @@
 
 .archive-message {
 
-    max-width: 720px;
+    display:
+        grid;
 
-    margin: 0 auto;
+    grid-template-columns:
+        90px
+        1fr;
 
-    padding: 55px 40px;
+    align-items:
+        center;
 
-    text-align: center;
+    gap:
+        30px;
+
+    padding:
+        35px;
 
     background:
         var(--seminars-white);
@@ -913,7 +1110,7 @@
         var(--seminars-radius);
 
     box-shadow:
-        var(--seminars-shadow);
+        0 5px 20px rgba(0, 0, 0, 0.04);
 
 }
 
@@ -922,19 +1119,23 @@
 
 .archive-icon {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    width: 70px;
+    width:
+        80px;
 
-    height: 70px;
+    height:
+        80px;
 
-    margin: 0 auto 25px;
-
-    border-radius: 14px;
+    border-radius:
+        16px;
 
     background:
         var(--seminars-black);
@@ -942,11 +1143,14 @@
     color:
         var(--seminars-white);
 
-    font-size: 0.8rem;
+    font-size:
+        0.75rem;
 
-    font-weight: 800;
+    font-weight:
+        900;
 
-    letter-spacing: 0.08em;
+    letter-spacing:
+        0.08em;
 
 }
 
@@ -955,9 +1159,11 @@
 
 .archive-message h3 {
 
-    margin: 0 0 14px;
+    margin:
+        0 0 10px;
 
-    font-size: 1.45rem;
+    font-size:
+        1.35rem;
 
     color:
         var(--seminars-black);
@@ -965,17 +1171,21 @@
 }
 
 
-/* Archive description */
+/* Archive paragraph */
 
 .archive-message p {
 
-    max-width: 560px;
+    margin:
+        0;
 
-    margin: 0 auto;
+    max-width:
+        750px;
 
-    font-size: 0.94rem;
+    font-size:
+        0.94rem;
 
-    line-height: 1.8;
+    line-height:
+        1.75;
 
     color:
         var(--seminars-gray);
@@ -989,7 +1199,8 @@
 
 .invite-section {
 
-    padding: 110px 0;
+    padding:
+        110px 0;
 
     background:
         var(--seminars-black);
@@ -1006,15 +1217,18 @@
 
 .invite-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
-        minmax(420px, 0.85fr);
+        minmax(0, 0.95fr)
+        minmax(400px, 1.05fr);
 
-    gap: 70px;
+    gap:
+        60px;
 
-    align-items: start;
+    align-items:
+        start;
 
 }
 
@@ -1022,6 +1236,14 @@
 /* =========================================================
    INVITE CONTENT
 ========================================================= */
+
+.invite-content {
+
+    padding-top:
+        10px;
+
+}
+
 
 .invite-content .section-label {
 
@@ -1033,19 +1255,24 @@
 
 .invite-content h2 {
 
-    max-width: 760px;
+    max-width:
+        700px;
 
-    margin: 0 0 25px;
+    margin:
+        0 0 22px;
 
-    font-size: clamp(
-        2.2rem,
-        4vw,
-        3.6rem
-    );
+    font-size:
+        clamp(
+            2.2rem,
+            4vw,
+            3.6rem
+        );
 
-    line-height: 1.08;
+    line-height:
+        1.08;
 
-    letter-spacing: -0.04em;
+    letter-spacing:
+        -0.04em;
 
     color:
         var(--seminars-white);
@@ -1055,16 +1282,20 @@
 
 .invite-description {
 
-    max-width: 700px;
+    max-width:
+        680px;
 
-    margin: 0;
+    margin:
+        0 0 35px;
 
-    font-size: 1rem;
+    font-size:
+        1rem;
 
-    line-height: 1.85;
+    line-height:
+        1.85;
 
     color:
-        #bdbdbd;
+        #bcbcbc;
 
 }
 
@@ -1075,80 +1306,107 @@
 
 .invite-points {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    gap: 22px;
-
-    margin-top: 40px;
+    gap:
+        14px;
 
 }
 
 
 .invite-point {
 
-    display: flex;
+    display:
+        grid;
 
-    gap: 18px;
+    grid-template-columns:
+        45px
+        1fr;
 
-    align-items: flex-start;
+    gap:
+        16px;
+
+    padding:
+        18px;
+
+    background:
+        #181818;
+
+    border:
+        1px solid #303030;
+
+    border-radius:
+        10px;
 
 }
 
 
 .invite-point-number {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    flex-shrink: 0;
+    width:
+        40px;
 
-    width: 42px;
+    height:
+        40px;
 
-    height: 42px;
+    border-radius:
+        8px;
 
-    border:
-        1px solid #444444;
-
-    border-radius: 8px;
+    background:
+        #ffffff;
 
     color:
-        #cccccc;
+        #111111;
 
-    font-size: 0.7rem;
+    font-size:
+        0.7rem;
 
-    font-weight: 800;
+    font-weight:
+        900;
 
 }
 
 
 .invite-point strong {
 
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 
-    font-size: 0.95rem;
+    font-size:
+        0.95rem;
 
     color:
-        var(--seminars-white);
+        #ffffff;
 
 }
 
 
 .invite-point span {
 
-    display: block;
+    display:
+        block;
 
-    max-width: 560px;
+    font-size:
+        0.82rem;
 
-    font-size: 0.86rem;
-
-    line-height: 1.65;
+    line-height:
+        1.6;
 
     color:
         #999999;
@@ -1162,12 +1420,14 @@
 
 .invite-note {
 
-    margin-top: 40px;
+    margin-top:
+        22px;
 
-    padding: 22px 24px;
+    padding:
+        22px;
 
     border-left:
-        3px solid #666666;
+        3px solid #ffffff;
 
     background:
         #181818;
@@ -1177,25 +1437,31 @@
 
 .invite-note strong {
 
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 7px;
+    margin-bottom:
+        7px;
 
-    font-size: 0.9rem;
+    font-size:
+        0.9rem;
 
     color:
-        var(--seminars-white);
+        #ffffff;
 
 }
 
 
 .invite-note p {
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.83rem;
+    font-size:
+        0.8rem;
 
-    line-height: 1.7;
+    line-height:
+        1.7;
 
     color:
         #999999;
@@ -1204,21 +1470,28 @@
 
 
 /* =========================================================
-   INVITE FORM WRAPPER
+   FORM WRAPPER
 ========================================================= */
 
 .invite-form-wrapper {
 
-    padding: 38px;
+    padding:
+        35px;
 
     background:
-        var(--seminars-white);
+        #ffffff;
+
+    border:
+        1px solid #e5e5e5;
 
     border-radius:
-        var(--seminars-radius);
+        18px;
+
+    color:
+        #111111;
 
     box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.2);
+        0 25px 60px rgba(0, 0, 0, 0.20);
 
 }
 
@@ -1229,7 +1502,14 @@
 
 .form-header {
 
-    margin-bottom: 30px;
+    margin-bottom:
+        28px;
+
+    padding-bottom:
+        22px;
+
+    border-bottom:
+        1px solid #e5e5e5;
 
 }
 
@@ -1237,35 +1517,41 @@
 .form-header .section-label {
 
     color:
-        var(--seminars-gray);
+        #777777;
 
 }
 
 
 .form-header h3 {
 
-    margin: 0 0 12px;
+    margin:
+        0 0 10px;
 
-    font-size: 1.6rem;
+    font-size:
+        1.65rem;
 
-    line-height: 1.3;
+    line-height:
+        1.2;
 
     color:
-        var(--seminars-black);
+        #111111;
 
 }
 
 
 .form-header p:last-child {
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.86rem;
+    font-size:
+        0.88rem;
 
-    line-height: 1.7;
+    line-height:
+        1.7;
 
     color:
-        var(--seminars-gray);
+        #777777;
 
 }
 
@@ -1276,11 +1562,14 @@
 
 .invite-form {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    gap: 19px;
+    gap:
+        18px;
 
 }
 
@@ -1291,23 +1580,32 @@
 
 .form-group {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    gap: 8px;
+    gap:
+        7px;
 
 }
 
 
+/* =========================================================
+   FORM LABEL
+========================================================= */
+
 .form-group label {
 
-    font-size: 0.8rem;
+    font-size:
+        0.82rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
     color:
-        var(--seminars-black);
+        #222222;
 
 }
 
@@ -1321,72 +1619,45 @@
 
 
 /* =========================================================
-   INPUTS
+   INPUT / SELECT / TEXTAREA
 ========================================================= */
 
 .form-group input,
 .form-group select,
 .form-group textarea {
 
-    width: 100%;
+    width:
+        100%;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
-    padding: 13px 14px;
+    padding:
+        12px 14px;
 
     border:
         1px solid #d8d8d8;
 
-    border-radius: 7px;
+    border-radius:
+        8px;
 
     background:
         #ffffff;
 
     color:
-        var(--seminars-black);
+        #222222;
 
     font-family:
         inherit;
 
-    font-size: 0.86rem;
+    font-size:
+        0.88rem;
 
-    outline: none;
+    outline:
+        none;
 
     transition:
         var(--seminars-transition);
-
-}
-
-
-.form-group input,
-.form-group select {
-
-    min-height: 46px;
-
-}
-
-
-.form-group textarea {
-
-    resize:
-        vertical;
-
-    min-height:
-        120px;
-
-    line-height:
-        1.6;
-
-}
-
-
-/* Placeholder */
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-
-    color:
-        #999999;
 
 }
 
@@ -1398,10 +1669,23 @@
 .form-group textarea:focus {
 
     border-color:
-        var(--seminars-black);
+        #111111;
 
     box-shadow:
         0 0 0 3px rgba(0, 0, 0, 0.06);
+
+}
+
+
+/* Textarea */
+
+.form-group textarea {
+
+    resize:
+        vertical;
+
+    min-height:
+        120px;
 
 }
 
@@ -1412,46 +1696,78 @@
 
 .form-notice {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: flex-start;
+    gap:
+        12px;
 
-    gap: 10px;
-
-    padding: 14px;
-
-    border:
-        1px solid var(--seminars-border);
-
-    border-radius: 7px;
+    padding:
+        14px;
 
     background:
-        var(--seminars-light);
+        #f6f6f6;
+
+    border:
+        1px solid #e4e4e4;
+
+    border-radius:
+        8px;
 
 }
 
 
 .form-notice > span {
 
-    flex-shrink: 0;
+    flex:
+        0 0 auto;
 
-    font-size: 0.85rem;
+    display:
+        flex;
 
-    font-weight: 700;
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    border-radius:
+        50%;
+
+    background:
+        #111111;
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
 
 }
 
 
 .form-notice p {
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.74rem;
+    font-size:
+        0.75rem;
 
-    line-height: 1.6;
+    line-height:
+        1.6;
 
     color:
-        var(--seminars-gray);
+        #666666;
 
 }
 
@@ -1462,37 +1778,47 @@
 
 .form-submit {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    width: 100%;
+    width:
+        100%;
 
-    min-height: 50px;
+    min-height:
+        52px;
 
-    padding: 0 20px;
+    padding:
+        0 20px;
 
     border:
-        1px solid var(--seminars-black);
+        1px solid #111111;
 
-    border-radius: 7px;
+    border-radius:
+        9px;
 
     background:
-        var(--seminars-black);
+        #111111;
 
     color:
-        var(--seminars-white);
-
-    cursor: pointer;
+        #ffffff;
 
     font-family:
         inherit;
 
-    font-size: 0.85rem;
+    font-size:
+        0.88rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
 
     transition:
         var(--seminars-transition);
@@ -1511,21 +1837,23 @@
     transform:
         translateY(-2px);
 
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.16);
+
 }
 
 
 /* =========================================================
-   DIRECT CONTACT SECTION
+   DIRECT CONTACT
 ========================================================= */
 
 .seminar-contact {
 
-    padding: 100px 0;
-
-    text-align: center;
+    text-align:
+        center;
 
     background:
-        var(--seminars-light);
+        #f7f7f7;
 
     border-top:
         1px solid var(--seminars-border);
@@ -1535,28 +1863,35 @@
 
 .seminar-contact .seminars-container {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    align-items: center;
+    align-items:
+        center;
 
 }
 
 
 .seminar-contact h2 {
 
-    margin: 0 0 18px;
+    margin:
+        0 0 16px;
 
-    font-size: clamp(
-        2rem,
-        4vw,
-        3.1rem
-    );
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3rem
+        );
 
-    line-height: 1.1;
+    line-height:
+        1.1;
 
-    letter-spacing: -0.035em;
+    letter-spacing:
+        -0.035em;
 
     color:
         var(--seminars-black);
@@ -1566,13 +1901,17 @@
 
 .seminar-contact > .seminars-container > p:not(.section-label) {
 
-    max-width: 620px;
+    max-width:
+        650px;
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.98rem;
+    font-size:
+        1rem;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
     color:
         var(--seminars-gray);
@@ -1586,15 +1925,20 @@
 
 .contact-actions {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 14px;
+    gap:
+        14px;
 
-    margin-top: 30px;
+    margin-top:
+        30px;
 
 }
 
@@ -1605,7 +1949,8 @@
 
 #site-footer {
 
-    padding: 30px 0;
+    padding:
+        30px 0;
 
     background:
         var(--seminars-black);
@@ -1613,18 +1958,22 @@
     color:
         #999999;
 
-    text-align: center;
+    text-align:
+        center;
 
 }
 
 
 #site-footer p {
 
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 0.8rem;
+    font-size:
+        0.82rem;
 
-    line-height: 1.6;
+    line-height:
+        1.6;
 
 }
 
@@ -1653,9 +2002,16 @@
    TABLET
 ========================================================= */
 
-@media (max-width: 1050px) {
+@media (max-width: 1000px) {
 
-    .focus-grid,
+    .focus-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
     .types-grid {
 
         grid-template-columns:
@@ -1669,7 +2025,8 @@
         grid-template-columns:
             1fr;
 
-        gap: 55px;
+        gap:
+            50px;
 
     }
 
@@ -1685,10 +2042,11 @@
     .event-card {
 
         grid-template-columns:
-            85px
-            1fr;
+            90px
+            minmax(0, 1fr);
 
-        gap: 22px;
+        gap:
+            22px;
 
     }
 
@@ -1701,10 +2059,10 @@
     }
 
 
-    .event-date {
+    .event-button {
 
-        padding-right:
-            20px;
+        width:
+            fit-content;
 
     }
 
@@ -1751,9 +2109,6 @@
         font-size:
             1rem;
 
-        line-height:
-            1.75;
-
     }
 
 
@@ -1761,9 +2116,6 @@
 
         flex-direction:
             column;
-
-        align-items:
-            stretch;
 
     }
 
@@ -1782,8 +2134,8 @@
     .seminars-events,
     .event-types,
     .past-events,
-    .invite-section,
-    .seminar-contact {
+    .seminar-contact,
+    .invite-section {
 
         padding:
             75px 0;
@@ -1807,12 +2159,30 @@
             auto;
 
         padding:
-            28px;
+            27px;
 
     }
 
 
-    /* Event */
+    /* Types */
+
+    .types-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .type-card {
+
+        padding:
+            27px;
+
+    }
+
+
+    /* Events */
 
     .event-card {
 
@@ -1836,20 +2206,14 @@
 
     .event-date {
 
-        justify-content:
+        align-items:
             flex-start;
 
         min-height:
             auto;
 
         padding:
-            0 0 16px;
-
-        border-right:
-            none;
-
-        border-bottom:
-            1px solid var(--seminars-border);
+            14px;
 
     }
 
@@ -1870,17 +2234,15 @@
     }
 
 
-    /* Types */
+    /* Archive */
 
-    .types-grid {
+    .archive-message {
 
         grid-template-columns:
             1fr;
 
-    }
-
-
-    .type-card {
+        gap:
+            20px;
 
         padding:
             27px;
@@ -1888,38 +2250,23 @@
     }
 
 
-    /* Archive */
-
-    .archive-message {
-
-        padding:
-            40px 25px;
-
-    }
-
-
     /* Invite */
-
-    .invite-content h2 {
-
-        font-size:
-            2.3rem;
-
-    }
-
 
     .invite-form-wrapper {
 
         padding:
-            27px 22px;
+            25px;
+
+        border-radius:
+            14px;
 
     }
 
 
-    .invite-point {
+    .invite-content h2 {
 
-        gap:
-            14px;
+        font-size:
+            2.35rem;
 
     }
 
@@ -1948,7 +2295,7 @@
 
 
 /* =========================================================
-   SMALL MOBILE
+   VERY SMALL DEVICES
 ========================================================= */
 
 @media (max-width: 380px) {
@@ -1977,10 +2324,25 @@
     }
 
 
-    .invite-form-wrapper {
+    .invite-point {
+
+        grid-template-columns:
+            38px
+            1fr;
 
         padding:
-            24px 18px;
+            14px;
+
+    }
+
+
+    .invite-point-number {
+
+        width:
+            34px;
+
+        height:
+            34px;
 
     }
 
