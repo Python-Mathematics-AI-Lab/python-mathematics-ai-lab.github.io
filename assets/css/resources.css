@@ -2,34 +2,59 @@
    PMAI LAB — RESOURCES PAGE
    resources.css
    Python, Mathematics & Artificial Intelligence Lab
+   Version 2.0
 ========================================================= */
 
 
 /* =========================================================
-   RESOURCES HERO
+   GLOBAL RESOURCE CONTAINER
 ========================================================= */
 
-.resources-hero {
-    position: relative;
-    padding: 110px 20px 90px;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    overflow: hidden;
+.resources-container {
+
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 0 auto;
+
 }
 
 
-/* Subtle background grid */
+/* =========================================================
+   RESOURCE HERO
+========================================================= */
+
+.resources-hero {
+
+    position: relative;
+
+    padding: 120px 20px 95px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    overflow: hidden;
+
+}
+
+
+/* Background grid */
 
 .resources-hero::before {
+
     content: "";
+
     position: absolute;
+
     inset: 0;
 
     background-image:
+
         linear-gradient(
             rgba(15, 23, 42, 0.035) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
             rgba(15, 23, 42, 0.035) 1px,
@@ -39,36 +64,51 @@
     background-size: 40px 40px;
 
     pointer-events: none;
+
 }
 
 
 /* Decorative circle */
 
 .resources-hero::after {
+
     content: "";
+
     position: absolute;
 
-    width: 420px;
-    height: 420px;
+    width: 450px;
 
-    border: 1px solid rgba(15, 23, 42, 0.06);
+    height: 450px;
+
+    right: -200px;
+
+    top: -180px;
+
+    border: 1px solid rgba(15, 23, 42, 0.07);
+
     border-radius: 50%;
 
-    right: -180px;
-    top: -150px;
-
     pointer-events: none;
+
 }
 
 
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
+
 .resources-hero-container {
+
     position: relative;
+
     z-index: 2;
 
-    max-width: 1200px;
+    max-width: 900px;
+
     margin: 0 auto;
 
     text-align: center;
+
 }
 
 
@@ -77,61 +117,157 @@
 ========================================================= */
 
 .resources-label {
+
     display: inline-block;
 
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
     font-size: 0.78rem;
-    font-weight: 700;
 
-    letter-spacing: 0.14em;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+
     text-transform: uppercase;
 
     color: #475569;
+
 }
 
 
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
 .resources-hero h1 {
+
     margin: 0;
 
     font-size: clamp(2.8rem, 6vw, 5rem);
 
     font-weight: 800;
+
     line-height: 1.05;
 
-    letter-spacing: -0.04em;
+    letter-spacing: -0.045em;
 
     color: #0f172a;
+
 }
 
 
-.resources-hero h1 span {
-    display: block;
-
-    color: #334155;
-}
-
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
 
 .resources-hero-description {
+
     max-width: 760px;
 
     margin: 28px auto 0;
 
     font-size: 1.08rem;
+
     line-height: 1.8;
 
     color: #64748b;
+
 }
 
 
 /* =========================================================
-   RESOURCES CONTAINER
+   RESOURCE SEARCH
 ========================================================= */
 
-.resources-container {
-    width: min(1200px, calc(100% - 40px));
+.resource-search {
 
-    margin: 0 auto;
+    display: flex;
+
+    max-width: 680px;
+
+    margin: 38px auto 0;
+
+    padding: 6px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.07);
+
+}
+
+
+/* Search input */
+
+.resource-search input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 14px 17px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    color: #0f172a;
+
+}
+
+
+.resource-search input::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+/* Search button */
+
+.resource-search button {
+
+    padding: 13px 23px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #0f172a;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 0.88rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.resource-search button:hover {
+
+    background: #1e293b;
+
+    transform: translateY(-1px);
+
 }
 
 
@@ -140,44 +276,79 @@
 ========================================================= */
 
 .resources-intro {
-    padding: 80px 0 30px;
+
+    padding: 85px 0 35px;
+
 }
 
 
 .resources-intro-grid {
+
     display: grid;
 
     grid-template-columns:
         minmax(0, 1.5fr)
-        minmax(280px, 0.8fr);
+        minmax(260px, 0.7fr);
 
     gap: 60px;
 
     align-items: center;
+
 }
 
 
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.resources-section-label {
+
+    margin: 0 0 11px;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    color: #64748b;
+
+}
+
+
+/* =========================================================
+   INTRO HEADING
+========================================================= */
+
 .resources-intro h2 {
+
     margin: 0 0 20px;
 
-    font-size: 2.2rem;
+    font-size: 2.25rem;
+
     line-height: 1.2;
 
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
 
     color: #0f172a;
+
 }
 
 
 .resources-intro p {
+
     margin: 0;
 
     max-width: 760px;
 
     font-size: 1rem;
+
     line-height: 1.8;
 
     color: #64748b;
+
 }
 
 
@@ -186,12 +357,14 @@
 ========================================================= */
 
 .resources-stat-card {
-    padding: 30px;
+
+    padding: 35px 25px;
 
     background: #f8fafc;
 
     border: 1px solid #e2e8f0;
-    border-radius: 18px;
+
+    border-radius: 20px;
 
     text-align: center;
 
@@ -199,41 +372,53 @@
         transform 0.3s ease,
         box-shadow 0.3s ease,
         border-color 0.3s ease;
+
 }
 
 
 .resources-stat-card:hover {
+
     transform: translateY(-5px);
 
     border-color: #cbd5e1;
 
     box-shadow:
         0 18px 45px rgba(15, 23, 42, 0.08);
+
 }
 
 
 .resources-stat-number {
+
     display: block;
 
     margin-bottom: 8px;
 
-    font-size: 2.7rem;
+    font-size: 3rem;
+
     font-weight: 800;
 
-    letter-spacing: -0.04em;
+    line-height: 1;
+
+    letter-spacing: -0.05em;
 
     color: #0f172a;
+
 }
 
 
 .resources-stat-title {
-    font-size: 0.85rem;
-    font-weight: 700;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
 
     text-transform: uppercase;
-    letter-spacing: 0.1em;
 
     color: #64748b;
+
 }
 
 
@@ -242,48 +427,50 @@
 ========================================================= */
 
 .resources-section {
-    padding: 70px 0;
+
+    padding: 75px 0;
+
 }
 
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
 
 .resources-section-header {
-    margin-bottom: 35px;
-}
 
+    margin-bottom: 38px;
 
-.resources-section-label {
-    margin-bottom: 10px;
-
-    font-size: 0.75rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-
-    color: #64748b;
 }
 
 
 .resources-section-header h2 {
+
     margin: 0;
 
-    font-size: 2.1rem;
+    font-size: 2.2rem;
+
     line-height: 1.2;
 
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
 
     color: #0f172a;
+
 }
 
 
-.resources-section-header p {
+.resources-section-header > p:last-child {
+
     max-width: 720px;
 
-    margin: 15px 0 0;
+    margin: 16px 0 0;
+
+    font-size: 1rem;
 
     line-height: 1.75;
 
     color: #64748b;
+
 }
 
 
@@ -292,12 +479,14 @@
 ========================================================= */
 
 .resources-grid {
+
     display: grid;
 
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
     gap: 24px;
+
 }
 
 
@@ -306,18 +495,21 @@
 ========================================================= */
 
 .resources-card {
+
     position: relative;
 
     display: flex;
+
     flex-direction: column;
 
-    min-height: 280px;
+    min-height: 300px;
 
     padding: 30px;
 
     background: #ffffff;
 
     border: 1px solid #e2e8f0;
+
     border-radius: 18px;
 
     overflow: hidden;
@@ -326,41 +518,51 @@
         transform 0.3s ease,
         box-shadow 0.3s ease,
         border-color 0.3s ease;
+
 }
 
 
 .resources-card::before {
+
     content: "";
 
     position: absolute;
 
     top: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 3px;
 
     background: #0f172a;
 
     transform: scaleX(0);
+
     transform-origin: left;
 
     transition: transform 0.3s ease;
+
 }
 
 
 .resources-card:hover {
+
     transform: translateY(-7px);
 
     border-color: #cbd5e1;
 
     box-shadow:
         0 20px 50px rgba(15, 23, 42, 0.09);
+
 }
 
 
 .resources-card:hover::before {
+
     transform: scaleX(1);
+
 }
 
 
@@ -369,13 +571,16 @@
 ========================================================= */
 
 .resources-icon {
+
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    width: 56px;
-    height: 56px;
+    width: 58px;
+
+    height: 58px;
 
     margin-bottom: 22px;
 
@@ -385,42 +590,55 @@
 
     color: #ffffff;
 
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+
     font-weight: 800;
 
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
+
 }
 
 
 /* =========================================================
-   CARD CONTENT
+   RESOURCE CARD TITLE
 ========================================================= */
 
 .resources-card h3 {
+
     margin: 0 0 12px;
 
     font-size: 1.25rem;
+
     line-height: 1.35;
 
     color: #0f172a;
-}
 
-
-.resources-card p {
-    margin: 0;
-
-    font-size: 0.95rem;
-    line-height: 1.7;
-
-    color: #64748b;
 }
 
 
 /* =========================================================
-   RESOURCE BUTTON
+   RESOURCE CARD TEXT
+========================================================= */
+
+.resources-card p {
+
+    margin: 0;
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+
+    color: #64748b;
+
+}
+
+
+/* =========================================================
+   RESOURCE CARD LINK
 ========================================================= */
 
 .resources-card-link {
+
     display: inline-flex;
 
     align-items: center;
@@ -428,30 +646,37 @@
     gap: 8px;
 
     margin-top: auto;
-    padding-top: 24px;
+
+    padding-top: 25px;
 
     font-size: 0.88rem;
+
     font-weight: 700;
 
-    color: #0f172a;
-
     text-decoration: none;
+
+    color: #0f172a;
 
     transition:
         gap 0.25s ease,
         color 0.25s ease;
+
 }
 
 
 .resources-card-link:hover {
+
     gap: 13px;
 
     color: #475569;
+
 }
 
 
 .resources-card-link span {
+
     transition: transform 0.25s ease;
+
 }
 
 
@@ -460,6 +685,9 @@
 ========================================================= */
 
 .resources-featured {
+
+    position: relative;
+
     display: grid;
 
     grid-template-columns:
@@ -468,7 +696,7 @@
 
     gap: 45px;
 
-    padding: 45px;
+    padding: 50px;
 
     background: #0f172a;
 
@@ -478,59 +706,77 @@
 
     overflow: hidden;
 
-    position: relative;
 }
 
 
 .resources-featured::after {
+
     content: "";
 
     position: absolute;
 
-    width: 350px;
-    height: 350px;
+    width: 380px;
+
+    height: 380px;
+
+    right: -170px;
+
+    bottom: -210px;
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
     border-radius: 50%;
 
-    right: -150px;
-    bottom: -190px;
 }
 
 
+/* =========================================================
+   FEATURED CONTENT
+========================================================= */
+
 .resources-featured-content {
+
     position: relative;
+
     z-index: 2;
+
 }
 
 
 .resources-featured-label {
-    margin-bottom: 15px;
+
+    margin: 0 0 15px;
 
     font-size: 0.75rem;
+
     font-weight: 800;
 
     letter-spacing: 0.14em;
+
     text-transform: uppercase;
 
     color: #cbd5e1;
+
 }
 
 
 .resources-featured h2 {
+
     margin: 0 0 18px;
 
-    font-size: 2.2rem;
+    font-size: 2.3rem;
+
     line-height: 1.2;
 
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
 
     color: #ffffff;
+
 }
 
 
 .resources-featured p {
+
     margin: 0;
 
     max-width: 650px;
@@ -538,25 +784,31 @@
     line-height: 1.8;
 
     color: #cbd5e1;
+
 }
 
 
 /* =========================================================
-   FEATURED RESOURCE LIST
+   FEATURED LIST
 ========================================================= */
 
 .resources-featured-list {
+
     position: relative;
+
     z-index: 2;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 12px;
+
 }
 
 
 .resources-featured-item {
+
     display: flex;
 
     align-items: center;
@@ -578,24 +830,32 @@
     transition:
         background 0.25s ease,
         transform 0.25s ease;
+
 }
 
 
 .resources-featured-item:hover {
+
     background: rgba(255, 255, 255, 0.11);
 
     transform: translateX(5px);
+
 }
 
 
+/* Featured icon */
+
 .resources-featured-item-icon {
+
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    width: 38px;
-    height: 38px;
+    width: 40px;
+
+    height: 40px;
 
     flex-shrink: 0;
 
@@ -604,234 +864,181 @@
     background: rgba(255, 255, 255, 0.1);
 
     font-size: 0.72rem;
+
     font-weight: 800;
+
 }
 
 
 .resources-featured-item-text {
+
     font-size: 0.9rem;
+
     font-weight: 600;
+
 }
 
 
 /* =========================================================
-   RESOURCE CATEGORIES
+   RESOURCE LIBRARY
 ========================================================= */
 
-.resource-category-grid {
-    display: grid;
+.resource-library {
 
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+    padding: 35px 0 85px;
 
-    gap: 18px;
 }
 
 
-.resource-category {
-    padding: 25px;
+/* =========================================================
+   LIBRARY SECTION
+========================================================= */
+
+.resource-library-section {
+
+    display: grid;
+
+    grid-template-columns: 100px minmax(0, 1fr);
+
+    gap: 35px;
+
+    padding: 42px 0;
+
+    border-top: 1px solid #e2e8f0;
+
+}
+
+
+.resource-library-section:last-child {
+
+    border-bottom: 1px solid #e2e8f0;
+
+}
+
+
+/* =========================================================
+   LIBRARY NUMBER
+========================================================= */
+
+.library-number {
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+
+    color: #cbd5e1;
+
+}
+
+
+/* =========================================================
+   LIBRARY CONTENT
+========================================================= */
+
+.library-content h3 {
+
+    margin: 0 0 13px;
+
+    font-size: 1.55rem;
+
+    line-height: 1.3;
+
+    letter-spacing: -0.025em;
+
+    color: #0f172a;
+
+}
+
+
+.library-content > p:not(.resources-section-label) {
+
+    max-width: 760px;
+
+    margin: 0;
+
+    font-size: 0.97rem;
+
+    line-height: 1.75;
+
+    color: #64748b;
+
+}
+
+
+/* =========================================================
+   LIBRARY LINKS
+========================================================= */
+
+.library-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+}
+
+
+.library-links a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 9px 14px;
 
     background: #f8fafc;
 
     border: 1px solid #e2e8f0;
 
-    border-radius: 16px;
+    border-radius: 8px;
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+
+    color: #334155;
 
     text-decoration: none;
 
     transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+
 }
 
 
-.resource-category:hover {
-    transform: translateY(-5px);
+.library-links a:hover {
 
     background: #ffffff;
 
     border-color: #cbd5e1;
 
-    box-shadow:
-        0 15px 35px rgba(15, 23, 42, 0.07);
-}
+    transform: translateY(-2px);
 
-
-.resource-category-icon {
-    margin-bottom: 17px;
-
-    font-size: 1.4rem;
-    font-weight: 800;
-
-    color: #0f172a;
-}
-
-
-.resource-category h3 {
-    margin: 0 0 8px;
-
-    font-size: 1rem;
-
-    color: #0f172a;
-}
-
-
-.resource-category p {
-    margin: 0;
-
-    font-size: 0.86rem;
-    line-height: 1.6;
-
-    color: #64748b;
 }
 
 
 /* =========================================================
-   ACADEMIC MATERIAL LIST
+   FACULTY CONTRIBUTION
 ========================================================= */
 
-.academic-material-list {
-    display: flex;
-    flex-direction: column;
+.resource-contribution {
 
-    gap: 14px;
+    padding: 20px 0 30px;
+
 }
 
 
-.academic-material {
-    display: flex;
+.contribution-box {
 
-    align-items: center;
-
-    gap: 20px;
-
-    padding: 22px 25px;
-
-    background: #ffffff;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 14px;
-
-    text-decoration: none;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-}
-
-
-.academic-material:hover {
-    transform: translateX(5px);
-
-    border-color: #cbd5e1;
-
-    box-shadow:
-        0 12px 30px rgba(15, 23, 42, 0.07);
-}
-
-
-.academic-material-icon {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 48px;
-    height: 48px;
-
-    flex-shrink: 0;
-
-    border-radius: 10px;
-
-    background: #f1f5f9;
-
-    color: #0f172a;
-
-    font-size: 0.72rem;
-    font-weight: 800;
-}
-
-
-.academic-material-content {
-    flex: 1;
-}
-
-
-.academic-material-content h3 {
-    margin: 0 0 5px;
-
-    font-size: 1rem;
-
-    color: #0f172a;
-}
-
-
-.academic-material-content p {
-    margin: 0;
-
-    font-size: 0.86rem;
-    line-height: 1.5;
-
-    color: #64748b;
-}
-
-
-.academic-material-arrow {
-    font-size: 1.2rem;
-
-    color: #64748b;
-
-    transition:
-        transform 0.25s ease,
-        color 0.25s ease;
-}
-
-
-.academic-material:hover .academic-material-arrow {
-    transform: translateX(5px);
-
-    color: #0f172a;
-}
-
-
-/* =========================================================
-   DOWNLOAD / DOCUMENT BADGE
-========================================================= */
-
-.resource-badge {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 5px 9px;
-
-    margin-left: 8px;
-
-    border-radius: 6px;
-
-    background: #f1f5f9;
-
-    font-size: 0.68rem;
-    font-weight: 800;
-
-    letter-spacing: 0.06em;
-
-    color: #475569;
-}
-
-
-/* =========================================================
-   RESOURCE CTA
-========================================================= */
-
-.resources-cta {
-    margin: 40px 0 90px;
-
-    padding: 65px 40px;
+    padding: 55px;
 
     background: #f8fafc;
 
@@ -840,229 +1047,179 @@
     border-radius: 24px;
 
     text-align: center;
+
 }
 
 
-.resources-cta .section-label {
-    margin-bottom: 12px;
+.contribution-box h2 {
 
-    font-size: 0.75rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-
-    color: #64748b;
-}
-
-
-.resources-cta h2 {
     margin: 0 0 16px;
 
-    font-size: 2.2rem;
+    font-size: 2.1rem;
 
-    letter-spacing: -0.03em;
+    line-height: 1.2;
+
+    letter-spacing: -0.035em;
 
     color: #0f172a;
+
 }
 
 
-.resources-cta p {
-    max-width: 650px;
+.contribution-box p:not(.resources-section-label) {
+
+    max-width: 700px;
 
     margin: 0 auto 28px;
 
     line-height: 1.75;
 
     color: #64748b;
+
 }
 
 
 /* =========================================================
-   BUTTON
+   ACTION BUTTON
 ========================================================= */
 
-.resources-cta .btn {
+.resources-action-btn {
+
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 13px 24px;
 
+    border: 1px solid #0f172a;
+
     border-radius: 10px;
 
-    font-size: 0.9rem;
+    background: #0f172a;
+
+    color: #ffffff;
+
+    font-size: 0.88rem;
+
     font-weight: 700;
 
     text-decoration: none;
 
     transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
 }
 
 
-.resources-cta .btn-primary {
-    background: #0f172a;
+.resources-action-btn:hover {
 
-    color: #ffffff;
-
-    box-shadow:
-        0 8px 20px rgba(15, 23, 42, 0.12);
-}
-
-
-.resources-cta .btn-primary:hover {
     transform: translateY(-2px);
 
     box-shadow:
-        0 12px 28px rgba(15, 23, 42, 0.18);
+        0 10px 25px rgba(15, 23, 42, 0.15);
+
 }
 
 
 /* =========================================================
-   DIVIDER
+   RESOURCES CTA
 ========================================================= */
 
-.resources-divider {
-    width: 100%;
+.resources-cta {
 
-    height: 1px;
+    margin: 55px auto 90px;
 
-    margin: 20px 0;
+    padding: 70px 40px;
 
-    background: #e2e8f0;
-}
+    background: #ffffff;
 
+    border: 1px solid #e2e8f0;
 
-/* =========================================================
-   MOBILE RESPONSIVE
-========================================================= */
+    border-radius: 24px;
 
-@media (max-width: 1000px) {
-
-    .resources-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .resource-category-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .resources-featured {
-        grid-template-columns: 1fr;
-    }
+    text-align: center;
 
 }
 
 
-@media (max-width: 800px) {
+.resources-cta h2 {
 
-    .resources-hero {
-        padding: 85px 20px 70px;
-    }
+    margin: 0 0 16px;
 
-    .resources-intro-grid {
-        grid-template-columns: 1fr;
+    font-size: 2.25rem;
 
-        gap: 35px;
-    }
+    line-height: 1.2;
 
-    .resources-intro {
-        padding-top: 60px;
-    }
+    letter-spacing: -0.035em;
 
-    .resources-section {
-        padding: 55px 0;
-    }
+    color: #0f172a;
 
 }
 
 
-@media (max-width: 600px) {
+.resources-cta p:not(.resources-section-label) {
 
-    .resources-container {
-        width: min(100% - 30px, 1200px);
-    }
+    max-width: 650px;
 
+    margin: 0 auto 30px;
 
-    .resources-hero h1 {
-        font-size: 2.7rem;
-    }
+    line-height: 1.75;
 
+    color: #64748b;
 
-    .resources-hero-description {
-        font-size: 0.95rem;
-    }
+}
 
 
-    .resources-intro h2 {
-        font-size: 1.8rem;
-    }
+/* CTA buttons */
+
+.cta-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
 
 
-    .resources-grid {
-        grid-template-columns: 1fr;
-    }
+.resources-action-btn.secondary {
+
+    background: #ffffff;
+
+    color: #0f172a;
+
+}
 
 
-    .resource-category-grid {
-        grid-template-columns: 1fr;
-    }
+.resources-action-btn.secondary:hover {
 
-
-    .resources-featured {
-        padding: 30px 25px;
-
-        border-radius: 18px;
-    }
-
-
-    .resources-featured h2 {
-        font-size: 1.8rem;
-    }
-
-
-    .resources-cta {
-        padding: 45px 25px;
-
-        margin-bottom: 60px;
-    }
-
-
-    .resources-cta h2 {
-        font-size: 1.8rem;
-    }
-
-
-    .academic-material {
-        padding: 18px;
-
-        gap: 14px;
-    }
-
-
-    .academic-material-arrow {
-        display: none;
-    }
+    background: #f8fafc;
 
 }
 
 
 /* =========================================================
-   ACCESSIBILITY
+   FOCUS ACCESSIBILITY
 ========================================================= */
 
 .resources-card-link:focus-visible,
 .resources-featured-item:focus-visible,
-.resource-category:focus-visible,
-.academic-material:focus-visible,
-.resources-cta .btn:focus-visible {
+.library-links a:focus-visible,
+.resources-action-btn:focus-visible,
+.resource-search input:focus-visible,
+.resource-search button:focus-visible {
+
     outline: 3px solid #94a3b8;
+
     outline-offset: 3px;
+
 }
 
 
@@ -1073,13 +1230,286 @@
 @media (prefers-reduced-motion: reduce) {
 
     .resources-card,
-    .resources-stat-card,
-    .resource-category,
-    .academic-material,
-    .resources-featured-item,
     .resources-card-link,
-    .resources-cta .btn {
+    .resources-stat-card,
+    .resources-featured-item,
+    .library-links a,
+    .resources-action-btn,
+    .resource-search button {
+
         transition: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .resources-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .resources-featured {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .resources-hero {
+
+        padding: 90px 20px 75px;
+
+    }
+
+
+    .resources-intro-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .resources-intro {
+
+        padding-top: 65px;
+
+    }
+
+
+    .resources-section {
+
+        padding: 60px 0;
+
+    }
+
+
+    .resource-library-section {
+
+        grid-template-columns: 70px minmax(0, 1fr);
+
+        gap: 25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .resources-container {
+
+        width: min(100% - 30px, 1200px);
+
+    }
+
+
+    .resources-hero {
+
+        padding: 80px 15px 65px;
+
+    }
+
+
+    .resources-hero h1 {
+
+        font-size: 2.7rem;
+
+    }
+
+
+    .resources-hero-description {
+
+        font-size: 0.95rem;
+
+    }
+
+
+    .resource-search {
+
+        flex-direction: column;
+
+        padding: 7px;
+
+    }
+
+
+    .resource-search input {
+
+        padding: 13px;
+
+    }
+
+
+    .resource-search button {
+
+        width: 100%;
+
+    }
+
+
+    .resources-intro h2 {
+
+        font-size: 1.85rem;
+
+    }
+
+
+    .resources-section-header h2 {
+
+        font-size: 1.85rem;
+
+    }
+
+
+    .resources-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .resources-card {
+
+        min-height: 275px;
+
+        padding: 27px;
+
+    }
+
+
+    .resources-featured {
+
+        padding: 32px 25px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .resources-featured h2 {
+
+        font-size: 1.85rem;
+
+    }
+
+
+    .resource-library {
+
+        padding-bottom: 60px;
+
+    }
+
+
+    .resource-library-section {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding: 32px 0;
+
+    }
+
+
+    .library-number {
+
+        font-size: 1.5rem;
+
+    }
+
+
+    .library-content h3 {
+
+        font-size: 1.35rem;
+
+    }
+
+
+    .library-links {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .library-links a {
+
+        justify-content: space-between;
+
+    }
+
+
+    .contribution-box {
+
+        padding: 40px 25px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .contribution-box h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+    .resources-cta {
+
+        margin-bottom: 60px;
+
+        padding: 48px 25px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .resources-cta h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+    .cta-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .cta-buttons .resources-action-btn {
+
+        width: 100%;
+
     }
 
 }
