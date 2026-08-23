@@ -1,22 +1,311 @@
 /* =========================================================
-   PMAI LAB — YOUTUBE PAGE
-   Premium Academic Media Design
+   PMAI LAB — YOUTUBE HUB
+   Premium Academic Media Platform
+   Version 3.0
 ========================================================= */
 
 
 /* =========================================================
-   YOUTUBE HERO
+   PAGE VARIABLES
 ========================================================= */
 
-.youtube-hero {
+.youtube-page {
 
+    --yt-primary: var(--primary, #0f172a);
+    --yt-accent: var(--accent, #2563eb);
+
+    --yt-text: #0f172a;
+    --yt-muted: #64748b;
+
+    --yt-border: #e2e8f0;
+    --yt-surface: #f8fafc;
+    --yt-white: #ffffff;
+
+    --yt-blue-light: #eff6ff;
+    --yt-blue-border: #dbeafe;
+
+    --yt-red: #dc2626;
+    --yt-red-light: #fee2e2;
+
+    --yt-shadow-sm:
+        0 8px 25px rgba(15, 23, 42, 0.06);
+
+    --yt-shadow-md:
+        0 15px 40px rgba(15, 23, 42, 0.08);
+
+    --yt-shadow-lg:
+        0 25px 70px rgba(15, 23, 42, 0.12);
+
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.youtube-page * {
+    box-sizing: border-box;
+}
+
+
+.youtube-page {
+    overflow-x: hidden;
+}
+
+
+.youtube-page a {
+    text-decoration: none;
+}
+
+
+.youtube-page h1,
+.youtube-page h2,
+.youtube-page h3,
+.youtube-page p {
+    margin-top: 0;
+}
+
+
+.youtube-page h1,
+.youtube-page h2,
+.youtube-page h3 {
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+}
+
+
+.youtube-page .youtube-container {
+
+    width: min(
+        calc(100% - 40px),
+        1180px
+    );
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   COMMON SECTION
+========================================================= */
+
+.youtube-page section {
     position: relative;
+}
 
-    padding: 110px 20px 100px;
+
+.youtube-page .section-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+
+    color: var(--yt-accent);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+
+}
+
+
+.youtube-page .section-label::before {
+
+    content: "";
+
+    width: 24px;
+
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: var(--yt-accent);
+
+}
+
+
+.youtube-page .section-heading {
+
+    max-width: 760px;
+
+    margin-bottom: 48px;
+
+}
+
+
+.youtube-page .section-heading h2 {
+
+    margin-bottom: 16px;
+
+    color: var(--yt-primary);
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.1rem
+    );
+
+    line-height: 1.12;
+
+    letter-spacing: -1px;
+
+}
+
+
+.youtube-page .section-heading h2 span,
+.youtube-page h1 span,
+.youtube-page h2 span {
+
+    color: var(--yt-accent);
+
+}
+
+
+.youtube-page .section-heading > p:not(.section-label) {
+
+    color: var(--yt-muted);
+
+    font-size: 0.98rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.youtube-page .btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 48px;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+
+.youtube-page .btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+.youtube-page .btn-primary {
+
+    background: var(--yt-primary);
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(
+            15,
+            23,
+            42,
+            0.15
+        );
+
+}
+
+
+.youtube-page .btn-primary:hover {
+
+    background: var(--yt-accent);
+
+    box-shadow:
+        0 12px 25px rgba(
+            37,
+            99,
+            235,
+            0.22
+        );
+
+}
+
+
+.youtube-page .btn-secondary {
+
+    border: 1px solid var(--yt-border);
+
+    background: white;
+
+    color: var(--yt-primary);
+
+}
+
+
+.youtube-page .btn-secondary:hover {
+
+    border-color: var(--yt-accent);
+
+    color: var(--yt-accent);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.youtube-page .youtube-hero {
+
+    min-height: 700px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 105px 20px 90px;
 
     overflow: hidden;
 
     background:
+
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(37, 99, 235, 0.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 5% 90%,
+            rgba(59, 130, 246, 0.08),
+            transparent 25%
+        ),
+
         linear-gradient(
             135deg,
             #f8fafc 0%,
@@ -27,298 +316,288 @@
 }
 
 
-/* Decorative background */
-
-.youtube-hero::before {
+.youtube-page .youtube-hero::before {
 
     content: "";
 
     position: absolute;
 
-    width: 420px;
-    height: 420px;
+    width: 520px;
+    height: 520px;
 
-    top: -180px;
-    right: -120px;
+    top: -280px;
+    right: -180px;
 
     border-radius: 50%;
 
-    background: rgba(37, 99, 235, 0.06);
+    border: 1px solid rgba(
+        37,
+        99,
+        235,
+        0.08
+    );
 
 }
 
 
-.youtube-hero::after {
+.youtube-page .youtube-hero::after {
 
     content: "";
 
     position: absolute;
 
-    width: 280px;
-    height: 280px;
+    width: 340px;
+    height: 340px;
 
-    bottom: -150px;
-    left: -100px;
+    bottom: -220px;
+    left: -130px;
 
     border-radius: 50%;
 
-    background: rgba(15, 23, 42, 0.04);
+    background: rgba(
+        15,
+        23,
+        42,
+        0.035
+    );
 
 }
 
 
-.youtube-container {
-
-    width: 100%;
-
-    max-width: 1180px;
-
-    margin: 0 auto;
-
-}
-
-
-.youtube-hero-content {
+.youtube-page .youtube-hero .youtube-container {
 
     position: relative;
 
     z-index: 2;
 
-    max-width: 850px;
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(320px, 0.65fr);
+
+    gap: 70px;
+
+    align-items: center;
 
 }
 
 
-.youtube-hero .section-label {
+.youtube-page .youtube-hero-content {
 
-    margin-bottom: 16px;
+    max-width: 760px;
 
 }
 
 
-.youtube-hero h1 {
+.youtube-page .youtube-hero h1 {
 
-    max-width: 850px;
+    margin-bottom: 24px;
 
-    margin-bottom: 22px;
-
-    color: var(--primary);
+    color: var(--yt-primary);
 
     font-size: clamp(
         2.8rem,
         6vw,
-        5rem
+        5.1rem
     );
 
-    line-height: 1.05;
+    line-height: 1.02;
 
-    letter-spacing: -1.5px;
+    letter-spacing: -2.2px;
 
 }
 
 
-.youtube-hero-description {
+.youtube-page .youtube-hero-description {
 
-    max-width: 760px;
+    max-width: 720px;
 
     margin-bottom: 32px;
 
-    color: var(--text-light);
+    color: var(--yt-muted);
 
-    font-size: 1.08rem;
+    font-size: 1.04rem;
 
     line-height: 1.85;
 
 }
 
 
-.youtube-hero-actions {
+.youtube-page .youtube-hero-actions {
 
     display: flex;
 
     flex-wrap: wrap;
 
-    gap: 14px;
+    gap: 12px;
+
+    margin-bottom: 45px;
 
 }
 
 
 /* =========================================================
-   BUTTONS
+   HERO STATS
 ========================================================= */
 
-.youtube-page .btn,
-.youtube-hero .btn {
+.youtube-page .youtube-stats {
 
-    display: inline-flex;
+    display: grid;
 
-    align-items: center;
+    grid-template-columns:
+        repeat(4, 1fr);
 
-    justify-content: center;
+    max-width: 720px;
 
-    min-height: 46px;
+    border-top: 1px solid rgba(
+        148,
+        163,
+        184,
+        0.35
+    );
 
-    padding: 12px 22px;
+}
 
-    border-radius: 8px;
 
-    font-size: 0.82rem;
+.youtube-page .youtube-stat {
+
+    padding: 20px 18px 0;
+
+    border-right: 1px solid rgba(
+        148,
+        163,
+        184,
+        0.25
+    );
+
+}
+
+
+.youtube-page .youtube-stat:first-child {
+
+    padding-left: 0;
+
+}
+
+
+.youtube-page .youtube-stat:last-child {
+
+    border-right: none;
+
+}
+
+
+.youtube-page .youtube-stat strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.65rem;
 
     font-weight: 800;
 
+}
+
+
+.youtube-page .youtube-stat span {
+
+    color: var(--yt-muted);
+
+    font-size: 0.68rem;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================================
+   HERO CHANNEL CARD
+========================================================= */
+
+.youtube-page .youtube-channel-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.8
+    );
+
+    border-radius: 24px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.85
+    );
+
+    box-shadow: var(--yt-shadow-lg);
+
+    backdrop-filter: blur(18px);
+
+    transform: rotate(1deg);
+
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 
 }
 
 
-.youtube-hero .btn:hover {
+.youtube-page .youtube-channel-card:hover {
 
-    transform: translateY(-2px);
+    transform:
+        rotate(0deg)
+        translateY(-7px);
+
+    box-shadow:
+        0 30px 80px rgba(
+            15,
+            23,
+            42,
+            0.16
+        );
 
 }
 
 
-.youtube-hero .btn-primary {
+.youtube-page .channel-card-top {
 
-    background: var(--primary);
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e3a8a
+        );
 
     color: white;
 
 }
 
 
-.youtube-hero .btn-primary:hover {
+.youtube-page .channel-icon {
 
-    background: var(--accent);
-
-}
-
-
-.youtube-hero .btn-secondary {
-
-    border: 1px solid var(--border);
-
-    background: white;
-
-    color: var(--primary);
-
-}
-
-
-.youtube-hero .btn-secondary:hover {
-
-    border-color: var(--accent);
-
-    color: var(--accent);
-
-}
-
-
-/* =========================================================
-   CHANNEL INTRO
-========================================================= */
-
-.youtube-channel {
-
-    padding: 90px 20px;
-
-    background: white;
-
-}
-
-
-.youtube-channel-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.25fr)
-        minmax(300px, 0.75fr);
-
-    gap: 55px;
-
-    align-items: center;
-
-}
-
-
-.youtube-channel-content {
-
-    max-width: 720px;
-
-}
-
-
-.youtube-channel-content h2 {
-
-    margin: 10px 0 18px;
-
-    color: var(--primary);
-
-    font-size: clamp(
-        2rem,
-        4vw,
-        3rem
-    );
-
-    line-height: 1.15;
-
-}
-
-
-.youtube-channel-content > p:not(.section-label) {
-
-    color: var(--text-light);
-
-    line-height: 1.8;
-
-}
-
-
-.youtube-channel-content > p + p {
-
-    margin-top: 15px;
-
-}
-
-
-/* =========================================================
-   CHANNEL CARD
-========================================================= */
-
-.youtube-channel-card {
-
-    padding: 34px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f8fafc
-        );
-
-    box-shadow:
-        0 15px 45px rgba(
-            15,
-            23,
-            42,
-            0.07
-        );
-
-}
-
-
-.youtube-channel-icon {
-
-    width: 72px;
-    height: 72px;
+    width: 62px;
+    height: 62px;
 
     display: flex;
 
@@ -326,62 +605,141 @@
 
     justify-content: center;
 
-    margin-bottom: 22px;
+    flex-shrink: 0;
 
-    border-radius: 16px;
+    border-radius: 17px;
 
-    background: #fee2e2;
+    background: #dc2626;
 
-    color: #dc2626;
+    color: white;
 
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 
-    font-weight: 900;
-
-}
-
-
-.youtube-channel-card h3 {
-
-    margin-bottom: 8px;
-
-    color: var(--primary);
-
-    font-size: 1.25rem;
+    box-shadow:
+        0 10px 25px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
 
 }
 
 
-.youtube-channel-card p {
+.youtube-page .channel-card-top span {
 
-    margin-bottom: 22px;
+    display: block;
 
-    color: var(--text-light);
+    margin-bottom: 4px;
 
-    font-size: 0.88rem;
+    color: #93c5fd;
+
+    font-size: 0.63rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.youtube-page .channel-card-top h3 {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 1.35rem;
+
+}
+
+
+.youtube-page .channel-card-body {
+
+    padding: 28px 30px 24px;
+
+}
+
+
+.youtube-page .channel-card-body > p {
+
+    margin-bottom: 20px;
+
+    color: var(--yt-muted);
+
+    font-size: 0.86rem;
 
     line-height: 1.7;
 
 }
 
 
-.youtube-channel-link {
+.youtube-page .channel-card-line {
 
-    display: inline-flex;
+    width: 100%;
+
+    height: 1px;
+
+    margin-bottom: 20px;
+
+    background: var(--yt-border);
+
+}
+
+
+.youtube-page .channel-card-meta {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.youtube-page .channel-card-meta span {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    color: var(--yt-muted);
+
+    font-size: 0.62rem;
+
+}
+
+
+.youtube-page .channel-card-meta strong {
+
+    color: var(--yt-primary);
+
+    font-size: 1.05rem;
+
+}
+
+
+.youtube-page .channel-card-button {
+
+    display: flex;
 
     align-items: center;
 
-    gap: 8px;
+    justify-content: space-between;
 
-    padding: 11px 17px;
+    padding: 17px 30px;
 
-    border-radius: 8px;
+    background: #f8fafc;
 
-    background: var(--primary);
+    border-top: 1px solid var(--yt-border);
 
-    color: white;
+    color: var(--yt-primary);
 
-    font-size: 0.78rem;
+    font-size: 0.74rem;
 
     font-weight: 800;
 
@@ -390,66 +748,280 @@
 }
 
 
-.youtube-channel-link:hover {
+.youtube-page .channel-card-button:hover {
 
-    background: var(--accent);
+    background: var(--yt-blue-light);
 
-    transform: translateY(-2px);
+    color: var(--yt-accent);
+
+}
+
+
+.youtube-page .channel-card-button span {
+
+    font-size: 1rem;
 
 }
 
 
 /* =========================================================
-   CONTENT AREAS
+   INTRODUCTION
 ========================================================= */
 
-.youtube-content {
+.youtube-page .youtube-introduction {
 
-    padding: 90px 20px;
+    padding: 105px 20px;
 
-    background: var(--surface);
-
-}
-
-
-.youtube-section-heading {
-
-    max-width: 760px;
-
-    margin-bottom: 45px;
+    background: white;
 
 }
 
 
-.youtube-section-heading h2 {
+.youtube-page .youtube-introduction-grid {
 
-    margin: 10px 0 15px;
+    display: grid;
 
-    color: var(--primary);
+    grid-template-columns:
+        minmax(0, 0.85fr)
+        minmax(0, 1.15fr);
+
+    gap: 90px;
+
+    align-items: start;
+
+}
+
+
+.youtube-page .youtube-introduction h2 {
+
+    margin: 8px 0 0;
+
+    color: var(--yt-primary);
 
     font-size: clamp(
         2rem,
         4vw,
-        2.8rem
+        3.1rem
     );
+
+    line-height: 1.12;
 
 }
 
 
-.youtube-section-heading p:not(.section-label) {
+.youtube-page .youtube-introduction h2 span {
 
-    color: var(--text-light);
+    display: block;
 
-    line-height: 1.8;
+    color: var(--yt-accent);
+
+}
+
+
+.youtube-page .youtube-introduction-grid > div:last-child {
+
+    padding-left: 35px;
+
+    border-left: 3px solid var(--yt-blue-border);
+
+}
+
+
+.youtube-page .youtube-introduction-grid p:not(.section-label) {
+
+    margin-bottom: 18px;
+
+    color: var(--yt-muted);
+
+    font-size: 0.96rem;
+
+    line-height: 1.9;
 
 }
 
 
 /* =========================================================
-   CONTENT CATEGORY GRID
+   SYSTEM WORKFLOW
 ========================================================= */
 
-.youtube-category-grid {
+.youtube-page .youtube-system {
+
+    padding: 105px 20px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.youtube-page .youtube-system-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1fr auto
+        1fr;
+
+    gap: 12px;
+
+    align-items: stretch;
+
+}
+
+
+.youtube-page .system-card {
+
+    position: relative;
+
+    min-height: 280px;
+
+    padding: 30px 25px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow: var(--yt-shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.youtube-page .system-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -45px;
+    bottom: -45px;
+
+    border-radius: 50%;
+
+    background: var(--yt-blue-light);
+
+}
+
+
+.youtube-page .system-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: var(--yt-blue-border);
+
+    box-shadow: var(--yt-shadow-md);
+
+}
+
+
+.youtube-page .system-number {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #cbd5e1;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+.youtube-page .system-icon {
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+
+    background: var(--yt-blue-light);
+
+    font-size: 1.35rem;
+
+}
+
+
+.youtube-page .system-card h3 {
+
+    margin-bottom: 10px;
+
+    color: var(--yt-primary);
+
+    font-size: 1.05rem;
+
+}
+
+
+.youtube-page .system-card p {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: var(--yt-muted);
+
+    font-size: 0.78rem;
+
+    line-height: 1.75;
+
+}
+
+
+.youtube-page .system-arrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--yt-accent);
+
+    font-size: 1.25rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   LEARNING AREAS
+========================================================= */
+
+.youtube-page .youtube-areas {
+
+    padding: 105px 20px;
+
+    background: white;
+
+}
+
+
+.youtube-page .youtube-area-grid {
 
     display: grid;
 
@@ -461,133 +1033,64 @@
 }
 
 
-.youtube-category-card {
+.youtube-page .youtube-area-card {
 
     position: relative;
 
-    padding: 28px;
+    min-height: 300px;
 
-    border: 1px solid var(--border);
+    padding: 30px;
 
-    border-radius: 14px;
+    overflow: hidden;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 18px;
 
     background: white;
 
+    box-shadow: var(--yt-shadow-sm);
+
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 
 }
 
 
-.youtube-category-card:hover {
+.youtube-page .youtube-area-card:hover {
 
-    transform: translateY(-5px);
+    transform: translateY(-7px);
 
-    border-color: var(--accent);
+    border-color: var(--yt-blue-border);
 
-    box-shadow:
-        0 15px 35px rgba(
-            15,
-            23,
-            42,
-            0.08
-        );
+    box-shadow: var(--yt-shadow-md);
 
 }
 
 
-.youtube-category-number {
+.youtube-page .area-number {
 
-    display: inline-flex;
+    position: absolute;
 
-    align-items: center;
+    top: 25px;
 
-    justify-content: center;
+    right: 25px;
 
-    width: 42px;
-    height: 42px;
+    color: #cbd5e1;
 
-    margin-bottom: 18px;
-
-    border-radius: 10px;
-
-    background: #eff6ff;
-
-    color: var(--accent);
-
-    font-size: 0.72rem;
+    font-size: 0.68rem;
 
     font-weight: 900;
 
 }
 
 
-.youtube-category-card h3 {
+.youtube-page .area-icon {
 
-    margin-bottom: 9px;
-
-    color: var(--primary);
-
-    font-size: 1.05rem;
-
-}
-
-
-.youtube-category-card p {
-
-    color: var(--text-light);
-
-    font-size: 0.82rem;
-
-    line-height: 1.7;
-
-}
-
-
-/* =========================================================
-   WHY YOUTUBE / BENEFITS
-========================================================= */
-
-.youtube-benefits {
-
-    padding: 90px 20px;
-
-    background: white;
-
-}
-
-
-.youtube-benefits-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 16px;
-
-}
-
-
-.youtube-benefit-card {
-
-    padding: 25px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 12px;
-
-    background: #ffffff;
-
-}
-
-
-.youtube-benefit-icon {
-
-    width: 44px;
-    height: 44px;
+    width: 58px;
+    height: 58px;
 
     display: flex;
 
@@ -595,39 +1098,63 @@
 
     justify-content: center;
 
-    margin-bottom: 18px;
+    margin-bottom: 24px;
 
-    border-radius: 10px;
+    border-radius: 15px;
 
-    background: #f1f5f9;
+    background: var(--yt-primary);
 
-    color: var(--primary);
+    color: white;
+
+    font-size: 1.05rem;
+
+    font-weight: 800;
+
+}
+
+
+.youtube-page .youtube-area-card h3 {
+
+    margin-bottom: 10px;
+
+    color: var(--yt-primary);
+
+    font-size: 1.15rem;
+
+}
+
+
+.youtube-page .youtube-area-card p {
+
+    min-height: 90px;
+
+    margin-bottom: 20px;
+
+    color: var(--yt-muted);
+
+    font-size: 0.79rem;
+
+    line-height: 1.75;
+
+}
+
+
+.youtube-page .youtube-area-card a {
+
+    display: inline-flex;
+
+    color: var(--yt-accent);
 
     font-size: 0.72rem;
 
-    font-weight: 900;
+    font-weight: 800;
 
 }
 
 
-.youtube-benefit-card h3 {
+.youtube-page .youtube-area-card a:hover {
 
-    margin-bottom: 8px;
-
-    color: var(--primary);
-
-    font-size: 0.98rem;
-
-}
-
-
-.youtube-benefit-card p {
-
-    color: var(--text-light);
-
-    font-size: 0.78rem;
-
-    line-height: 1.65;
+    text-decoration: underline;
 
 }
 
@@ -636,57 +1163,85 @@
    FACULTY CONTRIBUTORS
 ========================================================= */
 
-.youtube-faculty {
+.youtube-page .youtube-contributors {
 
-    padding: 90px 20px;
+    padding: 105px 20px;
 
-    background: var(--surface);
+    background: var(--yt-surface);
 
 }
 
 
-.youtube-faculty-grid {
+.youtube-page .contributors-grid {
 
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 16px;
+    gap: 18px;
 
 }
 
 
-.youtube-faculty-card {
+.youtube-page .contributor-card {
 
-    padding: 24px;
+    position: relative;
 
-    text-align: center;
+    min-height: 275px;
 
-    border: 1px solid var(--border);
+    padding: 25px;
 
-    border-radius: 14px;
+    overflow: hidden;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 18px;
 
     background: white;
 
-    transition: 0.25s ease;
+    box-shadow: var(--yt-shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 
 }
 
 
-.youtube-faculty-card:hover {
+.youtube-page .contributor-card:hover {
 
-    transform: translateY(-4px);
+    transform: translateY(-7px);
 
-    border-color: var(--accent);
+    border-color: var(--yt-blue-border);
+
+    box-shadow: var(--yt-shadow-md);
 
 }
 
 
-.youtube-faculty-avatar {
+.youtube-page .contributor-number {
 
-    width: 64px;
-    height: 64px;
+    position: absolute;
+
+    top: 20px;
+
+    right: 22px;
+
+    color: #cbd5e1;
+
+    font-size: 0.68rem;
+
+    font-weight: 900;
+
+}
+
+
+.youtube-page .contributor-avatar {
+
+    width: 68px;
+    height: 68px;
 
     display: flex;
 
@@ -694,165 +1249,327 @@
 
     justify-content: center;
 
-    margin: 0 auto 15px;
-
-    border-radius: 50%;
-
-    background: var(--primary);
-
-    color: white;
-
-    font-size: 1rem;
-
-    font-weight: 900;
-
-}
-
-
-.youtube-faculty-card h3 {
-
-    margin-bottom: 5px;
-
-    color: var(--primary);
-
-    font-size: 0.95rem;
-
-}
-
-
-.youtube-faculty-card p {
-
-    color: var(--text-light);
-
-    font-size: 0.75rem;
-
-    line-height: 1.5;
-
-}
-
-
-/* =========================================================
-   CHANNEL GROWTH / MONETIZATION
-========================================================= */
-
-.youtube-growth {
-
-    padding: 90px 20px;
-
-    background: white;
-
-}
-
-
-.youtube-growth-box {
-
-    max-width: 950px;
-
-    margin: 0 auto;
-
-    padding: 45px;
+    margin-bottom: 22px;
 
     border-radius: 18px;
 
     background:
         linear-gradient(
             135deg,
-            var(--primary),
-            #1e3a8a
+            var(--yt-primary),
+            var(--yt-accent)
         );
 
     color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: 800;
 
     box-shadow:
-        0 20px 50px rgba(
-            15,
-            23,
-            42,
-            0.12
+        0 10px 25px rgba(
+            37,
+            99,
+            235,
+            0.15
         );
 
 }
 
 
-.youtube-growth-box .section-label {
+.youtube-page .contributor-label {
 
-    color: #93c5fd;
+    display: block;
 
-}
+    margin-bottom: 7px;
 
+    color: var(--yt-accent);
 
-.youtube-growth-box h2 {
+    font-size: 0.58rem;
 
-    margin: 10px 0 18px;
+    font-weight: 800;
 
-    color: white;
-
-    font-size: clamp(
-        2rem,
-        4vw,
-        2.8rem
-    );
+    letter-spacing: 1px;
 
 }
 
 
-.youtube-growth-box > p:not(.section-label) {
+.youtube-page .contributor-info h3 {
 
-    max-width: 720px;
+    margin-bottom: 7px;
 
-    margin-bottom: 28px;
+    color: var(--yt-primary);
 
-    color: #dbeafe;
-
-    line-height: 1.8;
+    font-size: 1rem;
 
 }
 
 
-.youtube-growth-list {
+.youtube-page .contributor-info p {
 
-    display: grid;
+    margin-bottom: 22px;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    color: var(--yt-muted);
 
-    gap: 12px;
-
-    margin-bottom: 30px;
-
-}
-
-
-.youtube-growth-item {
-
-    padding: 16px;
-
-    border: 1px solid rgba(
-        255,
-        255,
-        255,
-        0.12
-    );
-
-    border-radius: 9px;
-
-    background: rgba(
-        255,
-        255,
-        255,
-        0.06
-    );
-
-    color: #e2e8f0;
-
-    font-size: 0.82rem;
+    font-size: 0.73rem;
 
     line-height: 1.6;
 
 }
 
 
-.youtube-growth-box .btn {
+.youtube-page .contributor-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--yt-border);
+
+    color: #64748b;
+
+    font-size: 0.64rem;
+
+}
+
+
+.youtube-page .contributor-status span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 4px rgba(
+            34,
+            197,
+            94,
+            0.1
+        );
+
+}
+
+
+/* =========================================================
+   COURSE MAPPING
+========================================================= */
+
+.youtube-page .youtube-course-mapping {
+
+    padding: 105px 20px;
+
+    background: white;
+
+}
+
+
+.youtube-page .course-mapping-flow {
+
+    display: flex;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 35px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    box-shadow: var(--yt-shadow-sm);
+
+}
+
+
+.youtube-page .mapping-item {
+
+    flex: 1;
+
+    min-width: 130px;
+
+    padding: 20px 12px;
+
+    text-align: center;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 15px;
+
+    background: white;
+
+}
+
+
+.youtube-page .mapping-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 13px;
+
+    border-radius: 13px;
+
+    background: var(--yt-blue-light);
+
+    font-size: 1.15rem;
+
+}
+
+
+.youtube-page .mapping-item span {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--yt-accent);
+
+    font-size: 0.57rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+.youtube-page .mapping-item h3 {
+
+    margin: 0;
+
+    color: var(--yt-primary);
+
+    font-size: 0.86rem;
+
+}
+
+
+.youtube-page .mapping-line {
+
+    display: flex;
+
+    align-items: center;
+
+    color: var(--yt-accent);
+
+    font-size: 1.1rem;
+
+    font-weight: 900;
+
+}
+
+
+.youtube-page .course-mapping-note {
+
+    margin-top: 18px;
+
+    padding: 18px 22px;
+
+    border-left: 4px solid var(--yt-accent);
+
+    border-radius: 8px;
+
+    background: var(--yt-blue-light);
+
+    color: var(--yt-muted);
+
+    font-size: 0.78rem;
+
+    line-height: 1.7;
+
+}
+
+
+.youtube-page .course-mapping-note strong {
+
+    color: var(--yt-primary);
+
+}
+
+
+/* =========================================================
+   CONTENT MODEL
+========================================================= */
+
+.youtube-page .youtube-content-model {
+
+    padding: 105px 20px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.youtube-page .content-model-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.youtube-page .content-model-card {
+
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 30px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 17px;
+
+    background: white;
+
+    box-shadow: var(--yt-shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.youtube-page .content-model-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: var(--yt-shadow-md);
+
+}
+
+
+.youtube-page .content-model-card > span {
 
     display: inline-flex;
 
@@ -860,57 +1577,876 @@
 
     justify-content: center;
 
-    padding: 12px 20px;
+    width: 38px;
+    height: 38px;
 
-    border-radius: 8px;
+    margin-bottom: 20px;
 
-    background: white;
+    border-radius: 10px;
 
-    color: var(--primary);
+    background: var(--yt-primary);
 
-    font-size: 0.8rem;
+    color: white;
+
+    font-size: 0.65rem;
 
     font-weight: 800;
 
 }
 
 
-.youtube-growth-box .btn:hover {
+.youtube-page .content-model-card h3 {
 
-    background: #eff6ff;
+    margin-bottom: 10px;
+
+    color: var(--yt-primary);
+
+    font-size: 1rem;
+
+}
+
+
+.youtube-page .content-model-card p {
+
+    color: var(--yt-muted);
+
+    font-size: 0.78rem;
+
+    line-height: 1.75;
 
 }
 
 
 /* =========================================================
-   CTA
+   LATEST VIDEOS
 ========================================================= */
 
-.youtube-cta {
+.youtube-page .youtube-latest {
 
-    padding: 95px 20px;
+    padding: 105px 20px;
+
+    background: white;
+
+}
+
+
+.youtube-page .latest-video-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.youtube-page .latest-video-card {
+
+    overflow: hidden;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow: var(--yt-shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.youtube-page .latest-video-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: var(--yt-shadow-md);
+
+}
+
+
+.youtube-page .video-thumbnail {
+
+    position: relative;
+
+    height: 205px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e3a8a
+        );
+
+}
+
+
+.youtube-page .video-thumbnail::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(
+                255,
+                255,
+                255,
+                0.08
+            ),
+            transparent 40%
+        );
+
+}
+
+
+.youtube-page .video-thumbnail span {
+
+    position: absolute;
+
+    left: 18px;
+
+    top: 18px;
+
+    padding: 6px 9px;
+
+    border-radius: 6px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+
+    color: white;
+
+    font-size: 0.56rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.youtube-page .video-play {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding-left: 3px;
+
+    border-radius: 50%;
+
+    background: #dc2626;
+
+    color: white;
+
+    font-size: 1.2rem;
+
+    box-shadow:
+        0 10px 30px rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+    transition: transform 0.25s ease;
+
+}
+
+
+.youtube-page .latest-video-card:hover .video-play {
+
+    transform: scale(1.1);
+
+}
+
+
+.youtube-page .video-content {
+
+    padding: 24px;
+
+}
+
+
+.youtube-page .video-category {
+
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    color: var(--yt-accent);
+
+    font-size: 0.58rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+.youtube-page .video-content h3 {
+
+    margin-bottom: 10px;
+
+    color: var(--yt-primary);
+
+    font-size: 1rem;
+
+}
+
+
+.youtube-page .video-content p {
+
+    margin-bottom: 18px;
+
+    color: var(--yt-muted);
+
+    font-size: 0.76rem;
+
+    line-height: 1.7;
+
+}
+
+
+.youtube-page .video-content a {
+
+    color: var(--yt-accent);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+}
+
+
+.youtube-page .latest-video-action {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 35px;
+
+}
+
+
+/* =========================================================
+   SUBMISSION WORKFLOW
+========================================================= */
+
+.youtube-page .youtube-submission {
+
+    padding: 105px 20px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.youtube-page .submission-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.youtube-page .submission-step {
+
+    position: relative;
+
+    padding: 28px 20px;
 
     text-align: center;
 
-    background: var(--surface);
+    border: 1px solid var(--yt-border);
+
+    border-radius: 17px;
+
+    background: white;
+
+    box-shadow: var(--yt-shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
 }
 
 
-.youtube-cta-content {
+.youtube-page .submission-step:hover {
 
-    max-width: 720px;
+    transform: translateY(-6px);
 
-    margin: 0 auto;
+    box-shadow: var(--yt-shadow-md);
 
 }
 
 
-.youtube-cta h2 {
+.youtube-page .submission-step > span {
 
-    margin: 10px 0 16px;
+    position: absolute;
 
-    color: var(--primary);
+    top: 15px;
+
+    right: 16px;
+
+    color: #cbd5e1;
+
+    font-size: 0.62rem;
+
+    font-weight: 900;
+
+}
+
+
+.youtube-page .submission-step > div {
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 5px auto 18px;
+
+    border-radius: 15px;
+
+    background: var(--yt-blue-light);
+
+    font-size: 1.25rem;
+
+}
+
+
+.youtube-page .submission-step h3 {
+
+    margin-bottom: 8px;
+
+    color: var(--yt-primary);
+
+    font-size: 0.95rem;
+
+}
+
+
+.youtube-page .submission-step p {
+
+    color: var(--yt-muted);
+
+    font-size: 0.72rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   CHANNEL MANAGEMENT
+========================================================= */
+
+.youtube-page .youtube-management {
+
+    padding: 105px 20px;
+
+    background: white;
+
+}
+
+
+.youtube-page .management-box {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(300px, 0.9fr);
+
+    gap: 60px;
+
+    align-items: center;
+
+    padding: 60px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554
+        );
+
+    box-shadow: var(--yt-shadow-lg);
+
+}
+
+
+.youtube-page .management-content .section-label {
+
+    color: #93c5fd;
+
+}
+
+
+.youtube-page .management-content .section-label::before {
+
+    background: #60a5fa;
+
+}
+
+
+.youtube-page .management-content h2 {
+
+    margin-bottom: 20px;
+
+    color: white;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3rem
+    );
+
+    line-height: 1.12;
+
+}
+
+
+.youtube-page .management-content h2 span {
+
+    color: #60a5fa;
+
+}
+
+
+.youtube-page .management-content > p:not(.section-label) {
+
+    max-width: 650px;
+
+    margin-bottom: 30px;
+
+    color: #cbd5e1;
+
+    font-size: 0.88rem;
+
+    line-height: 1.85;
+
+}
+
+
+.youtube-page .management-points {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.youtube-page .management-points > div {
+
+    padding: 16px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+
+    border-radius: 12px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+
+}
+
+
+.youtube-page .management-points strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: white;
+
+    font-size: 1.35rem;
+
+}
+
+
+.youtube-page .management-points span {
+
+    color: #94a3b8;
+
+    font-size: 0.61rem;
+
+    line-height: 1.4;
+
+}
+
+
+.youtube-page .management-visual {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.youtube-page .management-circle {
+
+    width: 270px;
+    height: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                37,
+                99,
+                235,
+                0.35
+            ),
+            rgba(
+                15,
+                23,
+                42,
+                0.2
+            )
+        );
+
+    box-shadow:
+        inset 0 0 60px rgba(
+            255,
+            255,
+            255,
+            0.03
+        );
+
+}
+
+
+.youtube-page .management-main-icon {
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #dc2626;
+
+    color: white;
+
+    font-size: 1.3rem;
+
+}
+
+
+.youtube-page .management-circle strong {
+
+    margin-bottom: 5px;
+
+    color: white;
+
+    font-size: 1rem;
+
+}
+
+
+.youtube-page .management-circle span {
+
+    max-width: 140px;
+
+    color: #94a3b8;
+
+    font-size: 0.62rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CONTRIBUTION TRACKING
+========================================================= */
+
+.youtube-page .youtube-tracking {
+
+    padding: 105px 20px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.youtube-page .tracking-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.youtube-page .tracking-card {
+
+    padding: 30px 18px;
+
+    text-align: center;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 16px;
+
+    background: white;
+
+    box-shadow: var(--yt-shadow-sm);
+
+}
+
+
+.youtube-page .tracking-card strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 2rem;
+
+}
+
+
+.youtube-page .tracking-card span {
+
+    color: var(--yt-muted);
+
+    font-size: 0.65rem;
+
+}
+
+
+/* =========================================================
+   CHANNEL GROWTH
+========================================================= */
+
+.youtube-page .youtube-growth {
+
+    padding: 105px 20px;
+
+    background: white;
+
+}
+
+
+.youtube-page .growth-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.youtube-page .growth-card {
+
+    position: relative;
+
+    min-height: 250px;
+
+    padding: 30px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow: var(--yt-shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.youtube-page .growth-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: var(--yt-shadow-md);
+
+}
+
+
+.youtube-page .growth-card > span {
+
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    color: var(--yt-accent);
+
+    font-size: 0.6rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+.youtube-page .growth-card h3 {
+
+    margin-bottom: 12px;
+
+    color: var(--yt-primary);
+
+    font-size: 1rem;
+
+}
+
+
+.youtube-page .growth-card p {
+
+    color: var(--yt-muted);
+
+    font-size: 0.76rem;
+
+    line-height: 1.75;
+
+}
+
+
+/* =========================================================
+   ETHICAL MONETIZATION
+========================================================= */
+
+.youtube-page .youtube-monetization {
+
+    padding: 105px 20px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.youtube-page .monetization-box {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+
+    gap: 55px;
+
+    padding: 55px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 23px;
+
+    background: white;
+
+    box-shadow: var(--yt-shadow-md);
+
+}
+
+
+.youtube-page .monetization-box h2 {
+
+    margin-bottom: 17px;
+
+    color: var(--yt-primary);
 
     font-size: clamp(
         2rem,
@@ -918,21 +2454,151 @@
         2.8rem
     );
 
+    line-height: 1.1;
+
 }
 
 
-.youtube-cta p:not(.section-label) {
+.youtube-page .monetization-box h2 span {
 
-    margin-bottom: 28px;
+    color: var(--yt-accent);
 
-    color: var(--text-light);
+}
+
+
+.youtube-page .monetization-box > div:first-child > p:not(.section-label) {
+
+    color: var(--yt-muted);
+
+    font-size: 0.83rem;
 
     line-height: 1.8;
 
 }
 
 
-.youtube-cta-actions {
+.youtube-page .monetization-items {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.youtube-page .monetization-items > div {
+
+    padding: 22px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 14px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.youtube-page .monetization-items span {
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: #cbd5e1;
+
+    font-size: 0.62rem;
+
+    font-weight: 900;
+
+}
+
+
+.youtube-page .monetization-items strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--yt-primary);
+
+    font-size: 0.82rem;
+
+}
+
+
+.youtube-page .monetization-items p {
+
+    color: var(--yt-muted);
+
+    font-size: 0.67rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.youtube-page .youtube-cta {
+
+    padding: 115px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eff6ff
+        );
+
+}
+
+
+.youtube-page .youtube-cta .youtube-container {
+
+    max-width: 760px;
+
+}
+
+
+.youtube-page .youtube-cta h2 {
+
+    margin-bottom: 18px;
+
+    color: var(--yt-primary);
+
+    font-size: clamp(
+        2.2rem,
+        5vw,
+        3.5rem
+    );
+
+    line-height: 1.1;
+
+}
+
+
+.youtube-page .youtube-cta p:not(.section-label) {
+
+    margin-bottom: 30px;
+
+    color: var(--yt-muted);
+
+    font-size: 0.95rem;
+
+    line-height: 1.85;
+
+}
+
+
+.youtube-page .youtube-cta-actions {
 
     display: flex;
 
@@ -945,173 +2611,376 @@
 }
 
 
-.youtube-cta .btn {
+/* =========================================================
+   FOOTER
+========================================================= */
 
-    display: inline-flex;
+.youtube-page #site-footer {
+
+    padding: 45px 20px 25px;
+
+    border-top: 1px solid var(--yt-border);
+
+    background: white;
+
+}
+
+
+.youtube-page .footer-main {
+
+    display: flex;
 
     align-items: center;
 
-    justify-content: center;
+    justify-content: space-between;
 
-    min-height: 45px;
+    gap: 30px;
 
-    padding: 11px 20px;
+    padding-bottom: 25px;
 
-    border-radius: 8px;
+}
 
-    font-size: 0.8rem;
+
+.youtube-page .footer-main strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 0.95rem;
+
+}
+
+
+.youtube-page .footer-main p {
+
+    margin: 0;
+
+    color: var(--yt-muted);
+
+    font-size: 0.65rem;
+
+}
+
+
+.youtube-page .footer-main a {
+
+    color: var(--yt-accent);
+
+    font-size: 0.7rem;
 
     font-weight: 800;
 
 }
 
 
-.youtube-cta .btn-primary {
+.youtube-page .footer-bottom {
 
-    background: var(--primary);
+    padding-top: 20px;
 
-    color: white;
-
-}
-
-
-.youtube-cta .btn-primary:hover {
-
-    background: var(--accent);
-
-}
-
-
-.youtube-cta .btn-secondary {
-
-    border: 1px solid var(--border);
-
-    background: white;
-
-    color: var(--primary);
-
-}
-
-
-.youtube-cta .btn-secondary:hover {
-
-    border-color: var(--accent);
-
-    color: var(--accent);
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.youtube-footer {
-
-    padding: 30px 20px;
-
-    border-top: 1px solid var(--border);
-
-    background: white;
+    border-top: 1px solid var(--yt-border);
 
     text-align: center;
 
 }
 
 
-.youtube-footer p {
+.youtube-page .footer-bottom p {
 
-    color: var(--text-light);
+    margin: 0;
 
-    font-size: 0.75rem;
+    color: var(--yt-muted);
 
-}
-
-
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
-
-@media (max-width: 1000px) {
-
-    .youtube-category-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-
-    .youtube-benefits-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-
-    .youtube-faculty-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
+    font-size: 0.62rem;
 
 }
 
 
 /* =========================================================
-   RESPONSIVE — 900px
+   TABLET — 1100px
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
-    .youtube-channel-grid {
+
+    .youtube-page .youtube-hero .youtube-container {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(300px, 0.65fr);
+
+        gap: 40px;
+
+    }
+
+
+    .youtube-page .contributors-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .youtube-page .growth-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+}
+
+
+/* =========================================================
+   TABLET — 950px
+========================================================= */
+
+@media (max-width: 950px) {
+
+
+    .youtube-page .youtube-hero {
+
+        padding-top: 90px;
+
+    }
+
+
+    .youtube-page .youtube-hero .youtube-container {
 
         grid-template-columns: 1fr;
 
     }
 
 
-    .youtube-channel-card {
+    .youtube-page .youtube-hero-content {
 
-        max-width: 600px;
+        max-width: 850px;
 
     }
+
+
+    .youtube-page .youtube-channel-card {
+
+        width: min(
+            100%,
+            520px
+        );
+
+        margin: 0 auto;
+
+        transform: none;
+
+    }
+
+
+    .youtube-page .youtube-introduction-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .youtube-page .youtube-introduction-grid > div:last-child {
+
+        padding-left: 25px;
+
+    }
+
+
+    .youtube-page .youtube-system-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .youtube-page .system-arrow {
+
+        display: none;
+
+    }
+
+
+    .youtube-page .youtube-area-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .youtube-page .content-model-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .youtube-page .latest-video-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .youtube-page .submission-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .youtube-page .tracking-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .youtube-page .management-box {
+
+        grid-template-columns: 1fr;
+
+        padding: 45px;
+
+    }
+
+
+    .youtube-page .management-visual {
+
+        justify-content: flex-start;
+
+    }
+
+
+    .youtube-page .monetization-box {
+
+        grid-template-columns: 1fr;
+
+    }
+
 
 }
 
 
 /* =========================================================
-   RESPONSIVE — MOBILE
+   TABLET — 750px
+========================================================= */
+
+@media (max-width: 750px) {
+
+
+    .youtube-page .contributors-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .youtube-page .course-mapping-flow {
+
+        flex-direction: column;
+
+    }
+
+
+    .youtube-page .mapping-line {
+
+        justify-content: center;
+
+        transform: rotate(90deg);
+
+        min-height: 20px;
+
+    }
+
+
+    .youtube-page .mapping-item {
+
+        width: 100%;
+
+    }
+
+
+    .youtube-page .monetization-items {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .youtube-page .management-points {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+}
+
+
+/* =========================================================
+   MOBILE — 600px
 ========================================================= */
 
 @media (max-width: 600px) {
 
-    .youtube-hero {
 
-        padding: 75px 20px 70px;
+    .youtube-page .youtube-container {
 
-    }
-
-
-    .youtube-hero h1 {
-
-        font-size: 2.7rem;
-
-        letter-spacing: -0.8px;
+        width: min(
+            calc(100% - 30px),
+            1180px
+        );
 
     }
 
 
-    .youtube-hero-description {
+    .youtube-page .youtube-hero {
 
-        font-size: 0.95rem;
+        min-height: auto;
+
+        padding:
+            75px 15px
+            70px;
 
     }
 
 
-    .youtube-hero-actions {
+    .youtube-page .youtube-hero h1 {
+
+        font-size: 2.65rem;
+
+        letter-spacing: -1.2px;
+
+    }
+
+
+    .youtube-page .youtube-hero-description {
+
+        font-size: 0.9rem;
+
+        line-height: 1.75;
+
+    }
+
+
+    .youtube-page .youtube-hero-actions {
 
         flex-direction: column;
 
@@ -1120,118 +2989,121 @@
     }
 
 
-    .youtube-hero .btn {
+    .youtube-page .youtube-hero .btn {
 
         width: 100%;
 
     }
 
 
-    .youtube-channel,
-    .youtube-content,
-    .youtube-benefits,
-    .youtube-faculty,
-    .youtube-growth,
-    .youtube-cta {
+    .youtube-page .youtube-stats {
 
-        padding: 70px 20px;
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        border-top: none;
 
     }
 
 
-    .youtube-category-grid {
+    .youtube-page .youtube-stat {
 
-        grid-template-columns: 1fr;
+        padding: 15px 10px;
 
-    }
-
-
-    .youtube-benefits-grid {
-
-        grid-template-columns: 1fr;
+        border-top: 1px solid var(--yt-border);
 
     }
 
 
-    .youtube-faculty-grid {
+    .youtube-page .youtube-stat:first-child {
 
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .youtube-growth-list {
-
-        grid-template-columns: 1fr;
+        padding-left: 10px;
 
     }
 
 
-    .youtube-growth-box {
+    .youtube-page .youtube-stat:nth-child(2) {
 
-        padding: 30px 22px;
-
-    }
-
-
-    .youtube-channel-card {
-
-        padding: 26px;
+        border-right: none;
 
     }
 
 
-    .youtube-cta-actions {
+    .youtube-page .youtube-stat strong {
 
-        flex-direction: column;
+        font-size: 1.35rem;
+
+    }
+
+
+    .youtube-page .youtube-channel-card {
+
+        border-radius: 18px;
 
     }
 
 
-    .youtube-cta .btn {
+    .youtube-page .channel-card-top {
 
-        width: 100%;
-
-    }
-
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
-
-.youtube-page a:focus-visible,
-.youtube-page button:focus-visible {
-
-    outline: 3px solid rgba(
-        37,
-        99,
-        235,
-        0.35
-    );
-
-    outline-offset: 3px;
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .youtube-page *,
-    .youtube-page *::before,
-    .youtube-page *::after {
-
-        scroll-behavior: auto !important;
-
-        transition: none !important;
-
-        animation: none !important;
+        padding: 24px;
 
     }
 
-}
+
+    .youtube-page .channel-card-body {
+
+        padding: 24px;
+
+    }
+
+
+    .youtube-page .channel-card-button {
+
+        padding:
+            16px 24px;
+
+    }
+
+
+    .youtube-page .channel-card-meta {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .youtube-page .channel-card-meta span {
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding-bottom: 10px;
+
+        border-bottom: 1px solid var(--yt-border);
+
+    }
+
+
+    .youtube-page .channel-card-meta span:last-child {
+
+        padding-bottom: 0;
+
+        border-bottom: none;
+
+    }
+
+
+    .youtube-page .youtube-introduction,
+    .youtube-page .youtube-system,
+    .youtube-page .youtube-areas,
+    .youtube-page .youtube-contributors,
+    .youtube-page .youtube-course-mapping,
+    .youtube-page .youtube-content-model,
+    .youtube-page .youtube-latest,
+    .youtube-page .youtube-submission
