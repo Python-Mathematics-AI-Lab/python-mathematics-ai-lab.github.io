@@ -13,27 +13,44 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Python, Mathematics & Artificial Intelligence Lab — academic courses, learning resources, seminars, projects and research.">
+          content="Python, Mathematics & Artificial Intelligence Lab — an academic platform for Mathematics, Python, Artificial Intelligence, Machine Learning, Data Science, research, courses and collaborative learning.">
 
     <meta name="keywords"
-          content="Python, Mathematics, Artificial Intelligence, Machine Learning, Data Science, Mathematics Courses, Python Courses, AI Lab">
+          content="PMAI Lab, Python, Mathematics, Artificial Intelligence, Machine Learning, Data Science, AI Research, Mathematics Education, Python Programming, Academic Research">
 
     <meta name="author"
           content="Python, Mathematics & Artificial Intelligence Lab">
 
+    <meta name="robots"
+          content="index, follow">
+
 
     <!-- =====================================================
-         SEO / SOCIAL SHARING
+         CANONICAL URL
+    ====================================================== -->
+
+    <link rel="canonical"
+          href="https://python-mathematics-ai-lab.github.io/">
+
+
+    <!-- =====================================================
+         OPEN GRAPH / SOCIAL SHARING
     ====================================================== -->
 
     <meta property="og:title"
           content="Python, Mathematics & Artificial Intelligence Lab">
 
     <meta property="og:description"
-          content="Mathematics, Python, Artificial Intelligence and Data Science learning resources.">
+          content="An academic platform connecting Mathematics, Python, Artificial Intelligence, Machine Learning and Data Science.">
 
     <meta property="og:type"
           content="website">
+
+    <meta property="og:url"
+          content="https://python-mathematics-ai-lab.github.io/">
+
+    <meta property="og:site_name"
+          content="Python, Mathematics & Artificial Intelligence Lab">
 
 
     <!-- =====================================================
@@ -41,20 +58,26 @@
     ====================================================== -->
 
     <title>
-        Python, Mathematics & Artificial Intelligence Lab
+        PMAI Lab | Python, Mathematics & Artificial Intelligence
     </title>
 
 
     <!-- =====================================================
-         CSS
+         STYLESHEETS
     ====================================================== -->
 
     <link rel="stylesheet"
           href="assets/css/style.css">
+
     <link rel="stylesheet"
-      href="assets/css/navbar.css">
+          href="assets/css/navbar.css">
+
     <link rel="stylesheet"
-      href="assets/css/hero.css">
+          href="assets/css/hero.css">
+
+    <link rel="stylesheet"
+          href="assets/css/cards.css">
+
 
 </head>
 
@@ -63,193 +86,308 @@
 
 
     <!-- =====================================================
-                         WEBSITE HEADER
+                         SITE HEADER
     ====================================================== -->
 
-   <header id="site-header">
+    <header id="site-header">
 
-    <nav class="navbar">
+        <nav class="navbar"
+             aria-label="Main Navigation">
 
-        <div class="navbar-container">
-
-
-            <!-- =================================================
-                         LOGO
-            ================================================== -->
-
-          <a href="index.html" class="navbar-logo" aria-label="PMAI Lab Home">
-  <div class="logo-symbol">
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="pmaiGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#2563eb"/>
-          <stop offset="100%" stop-color="#7c3aed"/>
-        </linearGradient>
-      </defs>
-      <!-- Geometry / Network Symbol -->
-      <polygon points="50,15 85,50 50,85 15,50" stroke="url(#pmaiGlow)" stroke-width="6" fill="none"/>
-      <line x1="50" y1="15" x2="50" y2="85" stroke="url(#pmaiGlow)" stroke-width="3" stroke-dasharray="4 4"/>
-      <line x1="15" y1="50" x2="85" y2="50" stroke="url(#pmaiGlow)" stroke-width="3" stroke-dasharray="4 4"/>
-      <circle cx="50" cy="15" r="7" fill="#2563eb"/>
-      <circle cx="85" cy="50" r="7" fill="#6366f1"/>
-      <circle cx="50" cy="85" r="7" fill="#7c3aed"/>
-      <circle cx="15" cy="50" r="7" fill="#2563eb"/>
-      <circle cx="50" cy="50" r="8" fill="#0f172a"/>
-    </svg>
-  </div>
-
-  <div class="logo-text">
-    <span class="logo-main">PMAI <span class="accent">LAB</span></span>
-    <span class="logo-sub">Mathematics • Python • AI</span>
-  </div>
-</a>
+            <div class="navbar-container">
 
 
+                <!-- =================================================
+                             PMAI LAB LOGO
+                ================================================== -->
 
-            <!-- =================================================
+                <a href="index.html"
+                   class="navbar-logo"
+                   aria-label="PMAI Lab Home">
+
+
+                    <div class="logo-symbol">
+
+                        <svg
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+
+                            <defs>
+
+                                <linearGradient
+                                    id="pmaiGlow"
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="100%">
+
+                                    <stop
+                                        offset="0%"
+                                        stop-color="#2563eb"/>
+
+                                    <stop
+                                        offset="100%"
+                                        stop-color="#7c3aed"/>
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <!-- Main Geometry -->
+
+                            <polygon
+                                points="50,15 85,50 50,85 15,50"
+                                stroke="url(#pmaiGlow)"
+                                stroke-width="6"
+                                fill="none"/>
+
+
+                            <!-- Vertical Mathematical Axis -->
+
+                            <line
+                                x1="50"
+                                y1="15"
+                                x2="50"
+                                y2="85"
+                                stroke="url(#pmaiGlow)"
+                                stroke-width="3"
+                                stroke-dasharray="4 4"/>
+
+
+                            <!-- Horizontal Computational Axis -->
+
+                            <line
+                                x1="15"
+                                y1="50"
+                                x2="85"
+                                y2="50"
+                                stroke="url(#pmaiGlow)"
+                                stroke-width="3"
+                                stroke-dasharray="4 4"/>
+
+
+                            <!-- Network Nodes -->
+
+                            <circle
+                                cx="50"
+                                cy="15"
+                                r="7"
+                                fill="#2563eb"/>
+
+                            <circle
+                                cx="85"
+                                cy="50"
+                                r="7"
+                                fill="#6366f1"/>
+
+                            <circle
+                                cx="50"
+                                cy="85"
+                                r="7"
+                                fill="#7c3aed"/>
+
+                            <circle
+                                cx="15"
+                                cy="50"
+                                r="7"
+                                fill="#2563eb"/>
+
+
+                            <!-- AI Core -->
+
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="8"
+                                fill="#0f172a"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="logo-text">
+
+                        <span class="logo-main">
+
+                            PMAI
+                            <span class="accent">
+                                LAB
+                            </span>
+
+                        </span>
+
+                        <span class="logo-sub">
+
+                            Mathematics • Python • AI
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- =================================================
                          MOBILE MENU BUTTON
-            ================================================== -->
+                ================================================== -->
 
-            <button
-                class="menu-toggle"
-                id="menu-toggle"
-                aria-label="Open navigation menu"
-                aria-expanded="false">
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="nav-menu">
 
-                ☰
+                    ☰
 
-            </button>
+                </button>
 
 
 
-            <!-- =================================================
-                         NAVIGATION
-            ================================================== -->
+                <!-- =================================================
+                             MAIN NAVIGATION
+                ================================================== -->
 
-            <ul class="nav-menu"
-                id="nav-menu">
+                <ul class="nav-menu"
+                    id="nav-menu">
 
 
-                <li>
+                    <li>
 
-                    <a href="index.html"
-                       class="active">
+                        <a href="index.html"
+                           class="active">
 
-                        Home
+                            Home
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
 
-                <li>
+                    <li>
 
-                    <a href="about.html">
+                        <a href="about.html">
 
-                        About
+                            About
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
 
-                <li>
+                    <li>
 
-                    <a href="courses.html">
+                        <a href="courses.html">
 
-                        Courses
+                            Courses
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
 
-                <li>
+                    <li>
 
-                    <a href="faculty.html">
+                        <a href="faculty.html">
 
-                        Team
+                            Team
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
 
-                <li>
+                    <li>
 
-                    <a href="resources.html">
+                        <a href="resources.html">
 
-                        Resources
+                            Resources
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
 
-                <li>
+                    <li>
 
-                    <a href="seminars.html">
+                        <a href="blogs.html">
 
-                        Seminars
+                            Blogs
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
 
-                <li>
+                    <li>
 
-                    <a href="projects.html">
+                        <a href="seminars.html">
 
-                        Projects
+                            Seminars
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
 
-                <li>
+                    <li>
 
-                    <a href="contact.html">
+                        <a href="projects.html">
 
-                        Contact
+                            Projects
 
-                    </a>
+                        </a>
 
-                </li>
+                    </li>
 
-                 <li>
 
-                    <a href="youtube.html"
-                       class="active">
+                    <li>
 
-                        YouTube Channel
+                        <a href="contact.html">
 
-                    </a>
+                            Contact
 
-                </li>
+                        </a>
 
+                    </li>
 
-                <li>
 
-                    <a href="seminars.html"
-                       class="nav-cta">
+                    <li>
 
-                        Request Seminar
+                        <a href="youtube.html">
 
-                    </a>
+                            YouTube
 
-                </li>
+                        </a>
 
+                    </li>
 
-            </ul>
 
+                    <li>
 
-        </div>
+                        <a href="seminars.html"
+                           class="nav-cta">
 
-    </nav>
+                            Request Seminar
 
-</header>
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
 
 
 
@@ -260,718 +398,1362 @@
     <main>
 
 
-       <!-- =====================================================
-                     PREMIUM HERO
-====================================================== -->
+        <!-- =================================================
+                         HERO SECTION
+        ================================================== -->
 
-<section class="hero-section">
-
-    <div class="hero-container">
-
-
-        <!-- HERO CONTENT -->
-
-        <div class="hero-content">
-
-            <h1>
-
-                
-                <span>Python,</span>
-                Mathematics,
-                Artificial Intelligence.
-
-            </h1>
+        <section class="hero-section"
+                 aria-labelledby="hero-title">
 
 
-            <p class="hero-description">
-
-                A collaborative academic platform for
-                learning, teaching and exploring Mathematics,
-                Python, Artificial Intelligence, Machine
-                Learning and Data Science.
-
-            </p>
+            <div class="hero-container">
 
 
-            <div class="hero-buttons">
+                <!-- =================================================
+                         HERO CONTENT
+                ================================================== -->
 
-                <a href="courses.html"
-                   class="btn btn-primary">
-
-                    Explore Courses
-
-                </a>
+                <div class="hero-content">
 
 
-                <a href="faculty.html"
-                   class="btn btn-secondary">
+                    <p class="hero-label">
 
-                    Meet Our Team
+                        PMAI LAB
+                        <span>•</span>
+                        ACADEMIC & RESEARCH PLATFORM
 
-                </a>
-
-            </div>
-
-        </div>
+                    </p>
 
 
+                    <h1 id="hero-title">
 
-        <!-- HERO VISUAL -->
+                        Mathematics.
+                        <span>Python.</span>
+                        Artificial Intelligence.
 
-        <div class="hero-visual">
-
-            <div class="hero-visual-card">
-
-                <div class="ai-network">
-
-
-                    <div class="network-line line-1"></div>
-
-                    <div class="network-line line-2"></div>
-
-                    <div class="network-line line-3"></div>
-
-                    <div class="network-line line-4"></div>
+                    </h1>
 
 
-                    <div class="ai-node node-1">
-                        ∑
+                    <p class="hero-description">
+
+                        A collaborative academic platform connecting
+                        mathematical foundations, programming,
+                        artificial intelligence and data science
+                        through teaching, research and practical
+                        learning.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+
+                        <a href="courses.html"
+                           class="btn btn-primary">
+
+                            Explore Courses
+
+                        </a>
+
+
+                        <a href="faculty.html"
+                           class="btn btn-secondary">
+
+                            Meet Our Faculty
+
+                        </a>
+
+
                     </div>
 
 
-                    <div class="ai-node node-2">
-                        π
-                    </div>
+                    <!-- HERO TRUST / FOCUS -->
 
+                    <div class="hero-focus">
 
-                    <div class="ai-node node-3">
-                        &lt;/&gt;
-                    </div>
+                        <span>
+                            Mathematics
+                        </span>
 
+                        <span>
+                            Python
+                        </span>
 
-                    <div class="ai-node node-4">
-                        ML
-                    </div>
+                        <span>
+                            AI & ML
+                        </span>
 
+                        <span>
+                            Data Science
+                        </span>
 
-                    <div class="ai-core">
-                        AI
                     </div>
 
                 </div>
 
+
+
+                <!-- =================================================
+                         HERO VISUAL
+                ================================================== -->
+
+                <div class="hero-visual"
+                     aria-hidden="true">
+
+
+                    <div class="hero-visual-card">
+
+
+                        <div class="hero-visual-header">
+
+                            <span>
+                                PMAI LAB
+                            </span>
+
+                            <span>
+                                ACADEMIC SYSTEM
+                            </span>
+
+                        </div>
+
+
+                        <div class="ai-network">
+
+
+                            <!-- CONNECTION LINES -->
+
+                            <div class="network-line line-1"></div>
+
+                            <div class="network-line line-2"></div>
+
+                            <div class="network-line line-3"></div>
+
+                            <div class="network-line line-4"></div>
+
+
+                            <!-- OUTER NODES -->
+
+                            <div class="ai-node node-1">
+                                ∑
+                            </div>
+
+                            <div class="ai-node node-2">
+                                π
+                            </div>
+
+                            <div class="ai-node node-3">
+                                &lt;/&gt;
+                            </div>
+
+                            <div class="ai-node node-4">
+                                ML
+                            </div>
+
+
+                            <!-- CORE -->
+
+                            <div class="ai-core">
+                                AI
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="hero-visual-footer">
+
+                            <span>
+                                MATHEMATICS
+                            </span>
+
+                            <span>
+                                COMPUTING
+                            </span>
+
+                            <span>
+                                INTELLIGENCE
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
             </div>
 
-        </div>
+        </section>
 
 
-    </div>
 
-</section>
-        <link rel="stylesheet"
-      href="assets/css/cards.css">
-        <!-- =====================================================
-                 INTRODUCTION
-====================================================== -->
+        <!-- =================================================
+                     INTRODUCTION
+        ================================================== -->
 
-<section class="intro-section">
-
-    <div class="section-heading">
-
-        <p class="section-label">
-            ABOUT PMAI LAB
-        </p>
+        <section class="intro-section"
+                 aria-labelledby="intro-title">
 
 
-        <h2>
-            Connecting Mathematics, Computing & Intelligence
-        </h2>
+            <div class="section-heading">
 
 
-        <p>
-
-            The Python, Mathematics & Artificial Intelligence
-            Lab provides a collaborative academic environment
-            where students and educators can explore
-            mathematical foundations, programming,
-            artificial intelligence and data-driven
-            technologies.
-
-        </p>
-
-    </div>
+                <p class="section-label">
+                    ABOUT PMAI LAB
+                </p>
 
 
-    <div class="intro-stats">
+                <h2 id="intro-title">
+
+                    Connecting Mathematics,
+                    Computing & Intelligence
+
+                </h2>
 
 
-        <div class="stat-card">
+                <p>
 
-            <strong>
-                8+
-            </strong>
+                    The Python, Mathematics & Artificial Intelligence
+                    Lab is a collaborative academic platform where
+                    students, educators and researchers explore the
+                    foundations and applications of modern intelligent
+                    technologies.
 
-            <span>
-                Faculty Members
-            </span>
+                </p>
 
-        </div>
-
-
-        <div class="stat-card">
-
-            <strong>
-                4
-            </strong>
-
-            <span>
-                Core Academic Areas
-            </span>
-
-        </div>
+            </div>
 
 
-        <div class="stat-card">
-
-            <strong>
-                ∞
-            </strong>
-
-            <span>
-                Learning Possibilities
-            </span>
-
-        </div>
+            <div class="intro-stats">
 
 
-    </div>
+                <div class="stat-card">
 
-</section>
+                    <strong>
+                        8+
+                    </strong>
+
+                    <span>
+                        Faculty Members
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong>
+                        4
+                    </strong>
+
+                    <span>
+                        Core Disciplines
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong>
+                        ∞
+                    </strong>
+
+                    <span>
+                        Learning Possibilities
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
 
 
         <!-- =================================================
                      ACADEMIC AREAS
         ================================================== -->
 
-        <!-- =====================================================
-                 ACADEMIC AREAS
-====================================================== -->
-
-<section id="academic-areas">
-
-    <div class="section-heading">
-
-        <p class="section-label">
-            EXPLORE OUR DISCIPLINES
-        </p>
-
-        <h2>
-            Four Foundations of Modern Computing
-        </h2>
-
-        <p>
-            Build the mathematical, programming and
-            computational knowledge needed to understand
-            today's intelligent technologies.
-        </p>
-
-    </div>
+        <section id="academic-areas"
+                 aria-labelledby="academic-title">
 
 
-    <div class="area-grid">
+            <div class="section-heading">
 
 
-        <article class="area-card">
+                <p class="section-label">
+                    ACADEMIC FOUNDATIONS
+                </p>
 
-            <div class="area-icon">
-                ∑
+
+                <h2 id="academic-title">
+
+                    Four Foundations of Modern Computing
+
+                </h2>
+
+
+                <p>
+
+                    Build the mathematical, programming and
+                    computational knowledge required to understand
+                    today's intelligent technologies.
+
+                </p>
+
             </div>
 
-            <h3>
-                Mathematics
-            </h3>
 
-            <p>
-                Calculus, Linear Algebra, Discrete Mathematics,
-                Statistics, Numerical Methods and Mathematical
-                Modeling.
-            </p>
-
-            <a href="courses.html">
-                Explore Mathematics →
-            </a>
-
-        </article>
+            <div class="area-grid">
 
 
+                <!-- MATHEMATICS -->
 
-        <article class="area-card">
+                <article class="area-card">
 
-            <div class="area-icon">
-                &lt;/&gt;
+
+                    <div class="area-card-number">
+                        01
+                    </div>
+
+
+                    <div class="area-icon">
+                        ∑
+                    </div>
+
+
+                    <h3>
+                        Mathematics
+                    </h3>
+
+
+                    <p>
+
+                        Calculus, Linear Algebra, Discrete Mathematics,
+                        Statistics, Numerical Methods, Optimization
+                        and Mathematical Modeling.
+
+                    </p>
+
+
+                    <a href="courses.html">
+
+                        Explore Mathematics
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- PYTHON -->
+
+                <article class="area-card">
+
+
+                    <div class="area-card-number">
+                        02
+                    </div>
+
+
+                    <div class="area-icon">
+                        &lt;/&gt;
+                    </div>
+
+
+                    <h3>
+                        Python & Programming
+                    </h3>
+
+
+                    <p>
+
+                        Programming fundamentals, Python,
+                        computational thinking, automation and
+                        practical programming applications.
+
+                    </p>
+
+
+                    <a href="courses.html">
+
+                        Explore Programming
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- AI -->
+
+                <article class="area-card">
+
+
+                    <div class="area-card-number">
+                        03
+                    </div>
+
+
+                    <div class="area-icon">
+                        AI
+                    </div>
+
+
+                    <h3>
+                        Artificial Intelligence
+                    </h3>
+
+
+                    <p>
+
+                        Machine Learning, Deep Learning,
+                        Computer Vision, Natural Language Processing
+                        and intelligent systems.
+
+                    </p>
+
+
+                    <a href="courses.html">
+
+                        Explore AI
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- DATA SCIENCE -->
+
+                <article class="area-card">
+
+
+                    <div class="area-card-number">
+                        04
+                    </div>
+
+
+                    <div class="area-icon">
+                        DS
+                    </div>
+
+
+                    <h3>
+                        Data Science
+                    </h3>
+
+
+                    <p>
+
+                        Data Analytics, Statistics, Visualization,
+                        Machine Learning and real-world
+                        data-driven projects.
+
+                    </p>
+
+
+                    <a href="courses.html">
+
+                        Explore Data Science
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
             </div>
 
-            <h3>
-                Python & Programming
-            </h3>
-
-            <p>
-                Programming fundamentals, Python, computational
-                thinking and practical programming applications.
-            </p>
-
-            <a href="courses.html">
-                Explore Programming →
-            </a>
-
-        </article>
-
-
-
-        <article class="area-card">
-
-            <div class="area-icon">
-                AI
-            </div>
-
-            <h3>
-                Artificial Intelligence
-            </h3>
-
-            <p>
-                Artificial Intelligence, Machine Learning,
-                Deep Learning, Computer Vision and NLP.
-            </p>
-
-            <a href="courses.html">
-                Explore AI →
-            </a>
-
-        </article>
-
-
-
-        <article class="area-card">
-
-            <div class="area-icon">
-                DS
-            </div>
-
-            <h3>
-                Data Science
-            </h3>
-
-            <p>
-                Data Analytics, Statistics, Data Visualization,
-                Machine Learning and real-world data projects.
-            </p>
-
-            <a href="courses.html">
-                Explore Data Science →
-            </a>
-
-        </article>
-
-
-    </div>
-
-</section>
-        <!-- =====================================================
-                 FEATURED COURSES
-====================================================== -->
-
-<section id="featured-courses">
-
-    <div class="section-heading">
-
-        <p class="section-label">
-            LEARNING
-        </p>
-
-        <h2>
-            Featured Courses
-        </h2>
-
-        <p>
-            Access organized course materials, lecture notes,
-            assignments and practical resources.
-        </p>
-
-    </div>
-
-
-    <div class="course-preview-grid">
-
-
-        <article class="course-card">
-
-            <span class="course-category">
-                MATHEMATICS
-            </span>
-
-            <h3>
-                Calculus
-            </h3>
-
-            <p>
-                Develop the mathematical foundations required
-                for science, engineering and AI.
-            </p>
-
-            <a href="courses.html">
-                View Course →
-            </a>
-
-        </article>
-
-
-
-        <article class="course-card">
-
-            <span class="course-category">
-                PROGRAMMING
-            </span>
-
-            <h3>
-                Python Programming
-            </h3>
-
-            <p>
-                Learn Python from fundamentals to practical
-                programming applications.
-            </p>
-
-            <a href="courses.html">
-                View Course →
-            </a>
-
-        </article>
-
-
-
-        <article class="course-card">
-
-            <span class="course-category">
-                ARTIFICIAL INTELLIGENCE
-            </span>
-
-            <h3>
-                Machine Learning
-            </h3>
-
-            <p>
-                Explore supervised learning, model evaluation,
-                feature engineering and practical ML.
-            </p>
-
-            <a href="courses.html">
-                View Course →
-            </a>
-
-        </article>
-
-
-
-        <article class="course-card">
-
-            <span class="course-category">
-                DATA SCIENCE
-            </span>
-
-            <h3>
-                Data Analytics
-            </h3>
-
-            <p>
-                Transform data into meaningful insights using
-                statistics, visualization and analytics.
-            </p>
-
-            <a href="courses.html">
-                View Course →
-            </a>
-
-        </article>
-
-
-    </div>
-
-
-    <div class="section-action">
-
-        <a href="courses.html"
-           class="btn btn-primary">
-
-            View All Courses
-
-        </a>
-
-    </div>
-
-</section>
-        <!-- =====================================================
-                 WHY PMAI LAB
-====================================================== -->
-
-<section id="why-pmai">
-
-    <div class="section-heading">
-
-        <p class="section-label">
-            WHY PMAI LAB?
-        </p>
-
-        <h2>
-            Learn Beyond the Classroom
-        </h2>
-
-    </div>
-
-
-    <div class="why-grid">
-
-
-        <article class="why-card">
-
-            <h3>
-                Strong Foundations
-            </h3>
-
-            <p>
-                Understand the mathematics and programming
-                foundations behind modern AI and data science.
-            </p>
-
-        </article>
-
-
-        <article class="why-card">
-
-            <h3>
-                Practical Learning
-            </h3>
-
-            <p>
-                Learn through programming exercises, datasets,
-                projects and practical applications.
-            </p>
-
-        </article>
-
-
-        <article class="why-card">
-
-            <h3>
-                Collaborative Faculty
-            </h3>
-
-            <p>
-                Learn from faculty members working across
-                Mathematics, Computing, AI and Data Science.
-            </p>
-
-        </article>
-
-
-        <article class="why-card">
-
-            <h3>
-                Research & Innovation
-            </h3>
-
-            <p>
-                Explore research ideas and develop projects
-                that connect mathematics with intelligent systems.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
+        </section>
 
 
 
         <!-- =================================================
-                         FACULTY
+                     FEATURED COURSES
         ================================================== -->
 
-       <!-- =====================================================
-                 FACULTY PREVIEW
-====================================================== -->
-
-<section id="faculty-preview">
-
-    <div class="section-heading">
-
-        <p class="section-label">
-            OUR TEAM
-        </p>
-
-        <h2>
-            Meet Our Faculty
-        </h2>
-
-        <p>
-            Explore the academic expertise, courses and
-            research interests of our faculty members.
-        </p>
-
-    </div>
+        <section id="featured-courses"
+                 aria-labelledby="courses-title">
 
 
-    <div class="faculty-preview-box">
-
-        <div>
-
-            <strong>
-                8+
-            </strong>
-
-            <span>
-                Faculty Members
-            </span>
-
-        </div>
+            <div class="section-heading">
 
 
-        <div>
-
-            <strong>
-                Mathematics
-            </strong>
-
-            <span>
-                Programming • AI • Data Science
-            </span>
-
-        </div>
+                <p class="section-label">
+                    LEARNING
+                </p>
 
 
-        <a href="faculty.html"
-           class="btn btn-primary">
+                <h2 id="courses-title">
 
-            Meet the Faculty
+                    Learn With Structured Academic Content
 
-        </a>
+                </h2>
 
-    </div>
 
-</section>
+                <p>
+
+                    Access organized courses, lecture materials,
+                    assignments, quizzes, projects and practical
+                    learning resources.
+
+                </p>
+
+            </div>
+
+
+            <div class="course-preview-grid">
+
+
+                <!-- COURSE 01 -->
+
+                <article class="course-card">
+
+
+                    <span class="course-number">
+                        01
+                    </span>
+
+
+                    <span class="course-category">
+                        MATHEMATICS
+                    </span>
+
+
+                    <h3>
+                        Calculus
+                    </h3>
+
+
+                    <p>
+
+                        Develop the mathematical foundations required
+                        for science, engineering, computing and
+                        artificial intelligence.
+
+                    </p>
+
+
+                    <div class="course-focus">
+
+                        <span>
+                            Foundations
+                        </span>
+
+                        <span>
+                            Analysis
+                        </span>
+
+                    </div>
+
+
+                    <a href="courses.html">
+
+                        View Course
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- COURSE 02 -->
+
+                <article class="course-card">
+
+
+                    <span class="course-number">
+                        02
+                    </span>
+
+
+                    <span class="course-category">
+                        PROGRAMMING
+                    </span>
+
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+
+                    <p>
+
+                        Learn Python from programming fundamentals
+                        to practical computational and
+                        data-driven applications.
+
+                    </p>
+
+
+                    <div class="course-focus">
+
+                        <span>
+                            Python
+                        </span>
+
+                        <span>
+                            Computing
+                        </span>
+
+                    </div>
+
+
+                    <a href="courses.html">
+
+                        View Course
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- COURSE 03 -->
+
+                <article class="course-card">
+
+
+                    <span class="course-number">
+                        03
+                    </span>
+
+
+                    <span class="course-category">
+                        ARTIFICIAL INTELLIGENCE
+                    </span>
+
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+
+                    <p>
+
+                        Explore supervised learning, model
+                        evaluation, feature engineering and
+                        practical machine learning workflows.
+
+                    </p>
+
+
+                    <div class="course-focus">
+
+                        <span>
+                            ML
+                        </span>
+
+                        <span>
+                            Modeling
+                        </span>
+
+                    </div>
+
+
+                    <a href="courses.html">
+
+                        View Course
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- COURSE 04 -->
+
+                <article class="course-card">
+
+
+                    <span class="course-number">
+                        04
+                    </span>
+
+
+                    <span class="course-category">
+                        DATA SCIENCE
+                    </span>
+
+
+                    <h3>
+                        Data Analytics
+                    </h3>
+
+
+                    <p>
+
+                        Transform data into meaningful insights using
+                        statistics, visualization, analytics and
+                        practical datasets.
+
+                    </p>
+
+
+                    <div class="course-focus">
+
+                        <span>
+                            Analytics
+                        </span>
+
+                        <span>
+                            Visualization
+                        </span>
+
+                    </div>
+
+
+                    <a href="courses.html">
+
+                        View Course
+                        <span>→</span>
+
+                    </a>
+
+                </article>
+
+
+            </div>
+
+
+            <div class="section-action">
+
+                <a href="courses.html"
+                   class="btn btn-primary">
+
+                    View All Courses
+
+                </a>
+
+            </div>
+
+        </section>
+
 
 
         <!-- =================================================
-                         SEMINARS
+                     RESEARCH & INNOVATION
         ================================================== -->
 
-        <!-- =====================================================
-                 SEMINARS & WORKSHOPS
-====================================================== -->
-
-<section id="seminars-preview">
-
-    <div class="section-heading">
-
-        <p class="section-label">
-            SEMINARS & WORKSHOPS
-        </p>
-
-        <h2>
-            Bring PMAI Lab to Your Institution
-        </h2>
-
-        <p>
-            Schools, colleges and academic institutions can
-            contact our team to arrange educational seminars
-            and workshops.
-        </p>
-
-    </div>
+        <section id="research-preview"
+                 aria-labelledby="research-title">
 
 
-    <div class="seminar-topics">
-
-        <span>
-            Artificial Intelligence
-        </span>
-
-        <span>
-            Python
-        </span>
-
-        <span>
-            Mathematics
-        </span>
-
-        <span>
-            Machine Learning
-        </span>
-
-        <span>
-            Data Science
-        </span>
-
-    </div>
+            <div class="research-layout">
 
 
-    <a href="seminars.html"
-       class="btn btn-primary">
+                <div class="research-content">
 
-        Request a Seminar
 
-    </a>
+                    <p class="section-label">
+                        RESEARCH & INNOVATION
+                    </p>
 
-</section>
+
+                    <h2 id="research-title">
+
+                        From Mathematical Foundations
+                        to Intelligent Systems
+
+                    </h2>
+
+
+                    <p>
+
+                        PMAI Lab encourages interdisciplinary work
+                        connecting mathematics, computational
+                        methods and artificial intelligence to
+                        address real-world problems.
+
+                    </p>
+
+
+                    <p>
+
+                        Faculty members and students can develop
+                        research projects, computational models,
+                        machine learning systems and educational
+                        technologies through collaborative work.
+
+                    </p>
+
+
+                    <div class="research-actions">
+
+
+                        <a href="projects.html"
+                           class="btn btn-primary">
+
+                            Explore Projects
+
+                        </a>
+
+
+                        <a href="faculty.html"
+                           class="btn btn-secondary">
+
+                            Research Team
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="research-framework">
+
+
+                    <div class="framework-item">
+
+                        <span>
+                            01
+                        </span>
+
+                        <strong>
+                            Mathematical Modeling
+                        </strong>
+
+                        <small>
+                            Foundations & theory
+                        </small>
+
+                    </div>
+
+
+                    <div class="framework-item">
+
+                        <span>
+                            02
+                        </span>
+
+                        <strong>
+                            Computational Methods
+                        </strong>
+
+                        <small>
+                            Algorithms & programming
+                        </small>
+
+                    </div>
+
+
+                    <div class="framework-item">
+
+                        <span>
+                            03
+                        </span>
+
+                        <strong>
+                            Machine Intelligence
+                        </strong>
+
+                        <small>
+                            ML & intelligent systems
+                        </small>
+
+                    </div>
+
+
+                    <div class="framework-item">
+
+                        <span>
+                            04
+                        </span>
+
+                        <strong>
+                            Real-World Applications
+                        </strong>
+
+                        <small>
+                            Research & innovation
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+                     WHY PMAI LAB
+        ================================================== -->
+
+        <section id="why-pmai"
+                 aria-labelledby="why-title">
+
+
+            <div class="section-heading">
+
+
+                <p class="section-label">
+                    WHY PMAI LAB?
+                </p>
+
+
+                <h2 id="why-title">
+
+                    Learn Beyond the Classroom
+
+                </h2>
+
+
+                <p>
+
+                    A collaborative environment designed to connect
+                    academic foundations with practical skills,
+                    research and innovation.
+
+                </p>
+
+            </div>
+
+
+            <div class="why-grid">
+
+
+                <article class="why-card">
+
+                    <span class="why-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Strong Foundations
+                    </h3>
+
+                    <p>
+
+                        Understand the mathematics and programming
+                        foundations behind modern AI and
+                        data science.
+
+                    </p>
+
+                </article>
+
+
+                <article class="why-card">
+
+                    <span class="why-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Practical Learning
+                    </h3>
+
+                    <p>
+
+                        Learn through programming exercises,
+                        datasets, projects and practical
+                        applications.
+
+                    </p>
+
+                </article>
+
+
+                <article class="why-card">
+
+                    <span class="why-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Collaborative Faculty
+                    </h3>
+
+                    <p>
+
+                        Learn from faculty members working across
+                        Mathematics, Computing, AI and
+                        Data Science.
+
+                    </p>
+
+                </article>
+
+
+                <article class="why-card">
+
+                    <span class="why-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Research & Innovation
+                    </h3>
+
+                    <p>
+
+                        Explore research ideas and develop projects
+                        that connect mathematics with intelligent
+                        systems.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+                     FACULTY PREVIEW
+        ================================================== -->
+
+        <section id="faculty-preview"
+                 aria-labelledby="faculty-title">
+
+
+            <div class="section-heading">
+
+
+                <p class="section-label">
+                    OUR ACADEMIC TEAM
+                </p>
+
+
+                <h2 id="faculty-title">
+
+                    Collaborative Faculty,
+                    Shared Knowledge
+
+                </h2>
+
+
+                <p>
+
+                    Explore the academic expertise, courses,
+                    research interests and professional profiles
+                    of PMAI Lab faculty members.
+
+                </p>
+
+            </div>
+
+
+            <div class="faculty-preview-box">
+
+
+                <div class="faculty-preview-stat">
+
+                    <strong>
+                        8+
+                    </strong>
+
+                    <span>
+                        Faculty Members
+                    </span>
+
+                </div>
+
+
+                <div class="faculty-preview-focus">
+
+                    <strong>
+                        Mathematics
+                    </strong>
+
+                    <span>
+                        Programming • AI • Data Science
+                    </span>
+
+                </div>
+
+
+                <a href="faculty.html"
+                   class="btn btn-primary">
+
+                    Meet the Faculty
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+                     KNOWLEDGE PLATFORM
+        ================================================== -->
+
+        <section id="knowledge-platform"
+                 aria-labelledby="knowledge-title">
+
+
+            <div class="section-heading">
+
+
+                <p class="section-label">
+                    KNOWLEDGE PLATFORM
+                </p>
+
+
+                <h2 id="knowledge-title">
+
+                    Learn. Explore. Share.
+
+                </h2>
+
+
+                <p>
+
+                    Discover educational content, digital resources,
+                    research ideas and video learning from the
+                    PMAI Lab community.
+
+                </p>
+
+            </div>
+
+
+            <div class="knowledge-grid">
+
+
+                <a href="blogs.html"
+                   class="knowledge-card">
+
+                    <span class="knowledge-number">
+                        01
+                    </span>
+
+                    <strong>
+                        Blogs & Insights
+                    </strong>
+
+                    <span>
+                        Articles, tutorials and research perspectives
+                    </span>
+
+                    <b>
+                        Explore Blogs →
+                    </b>
+
+                </a>
+
+
+                <a href="resources.html"
+                   class="knowledge-card">
+
+                    <span class="knowledge-number">
+                        02
+                    </span>
+
+                    <strong>
+                        Learning Resources
+                    </strong>
+
+                    <span>
+                        Academic materials, tools and references
+                    </span>
+
+                    <b>
+                        Explore Resources →
+                    </b>
+
+                </a>
+
+
+                <a href="youtube.html"
+                   class="knowledge-card">
+
+                    <span class="knowledge-number">
+                        03
+                    </span>
+
+                    <strong>
+                        PMAI YouTube
+                    </strong>
+
+                    <span>
+                        Lectures, tutorials and educational videos
+                    </span>
+
+                    <b>
+                        Visit Channel →
+                    </b>
+
+                </a>
+
+
+                <a href="projects.html"
+                   class="knowledge-card">
+
+                    <span class="knowledge-number">
+                        04
+                    </span>
+
+                    <strong>
+                        Research Projects
+                    </strong>
+
+                    <span>
+                        Collaborative academic and technical projects
+                    </span>
+
+                    <b>
+                        View Projects →
+                    </b>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+                     SEMINARS & WORKSHOPS
+        ================================================== -->
+
+        <section id="seminars-preview"
+                 aria-labelledby="seminars-title">
+
+
+            <div class="section-heading">
+
+
+                <p class="section-label">
+                    SEMINARS & WORKSHOPS
+                </p>
+
+
+                <h2 id="seminars-title">
+
+                    Bring PMAI Lab to Your Institution
+
+                </h2>
+
+
+                <p>
+
+                    Schools, colleges and academic institutions can
+                    collaborate with PMAI Lab to arrange educational
+                    seminars, workshops and technical sessions.
+
+                </p>
+
+            </div>
+
+
+            <div class="seminar-topics">
+
+
+                <span>
+                    Artificial Intelligence
+                </span>
+
+                <span>
+                    Python
+                </span>
+
+                <span>
+                    Mathematics
+                </span>
+
+                <span>
+                    Machine Learning
+                </span>
+
+                <span>
+                    Data Science
+                </span>
+
+            </div>
+
+
+            <a href="seminars.html"
+               class="btn btn-primary">
+
+                Request a Seminar
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =================================================
+                     FINAL CTA
+        ================================================== -->
+
+        <section id="final-cta"
+                 aria-labelledby="cta-title">
+
+
+            <div class="section-heading">
+
+
+                <p class="section-label">
+                    PMAI LAB
+                </p>
+
+
+                <h2 id="cta-title">
+
+                    Explore. Learn. Build.
+
+                </h2>
+
+
+                <p>
+
+                    Build strong mathematical foundations,
+                    develop programming skills and explore the
+                    technologies shaping intelligent systems.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+
+                    <a href="courses.html"
+                       class="btn btn-primary">
+
+                        Explore Courses
+
+                    </a>
+
+
+                    <a href="contact.html"
+                       class="btn btn-secondary">
+
+                        Contact PMAI Lab
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
     </main>
-
-    <!-- =====================================================
-                 FINAL CALL TO ACTION
-====================================================== -->
-
-<section id="final-cta">
-
-    <div class="section-heading">
-
-        <p class="section-label">
-            START LEARNING
-        </p>
-
-        <h2>
-            Explore. Learn. Build.
-        </h2>
-
-        <p>
-            Access academic resources and discover courses
-            across Mathematics, Python, Artificial Intelligence
-            and Data Science.
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a href="courses.html"
-               class="btn btn-primary">
-
-                Explore Courses
-
-            </a>
-
-
-            <a href="contact.html"
-               class="btn btn-secondary">
-
-                Contact PMAI Lab
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 
@@ -981,10 +1763,32 @@
 
     <footer id="site-footer">
 
-        <p>
-            © 2026 Python, Mathematics & Artificial
-            Intelligence Lab. All Rights Reserved.
-        </p>
+
+        <div class="footer-inner">
+
+
+            <div class="footer-brand">
+
+                <strong>
+                    PMAI LAB
+                </strong>
+
+                <span>
+                    Mathematics • Python • Artificial Intelligence
+                </span>
+
+            </div>
+
+
+            <p>
+
+                © 2026 Python, Mathematics & Artificial
+                Intelligence Lab. All Rights Reserved.
+
+            </p>
+
+
+        </div>
 
     </footer>
 
@@ -995,6 +1799,7 @@
     ====================================================== -->
 
     <script src="assets/js/main.js"></script>
+
 
 </body>
 
