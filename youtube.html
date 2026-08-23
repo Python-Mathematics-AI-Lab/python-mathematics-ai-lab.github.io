@@ -1,2438 +1,3516 @@
+/* =========================================================
+   PMAI LAB — YOUTUBE HUB
+   Premium Academic Media Platform
+   Version 3.0
+========================================================= */
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
+/* =========================================================
+   GLOBAL YOUTUBE PAGE
+========================================================= */
 
-    <!-- =====================================================
-         BASIC SEO
-    ====================================================== -->
+.youtube-page {
 
-    <meta charset="UTF-8">
+    --yt-primary: var(--primary, #0f172a);
+    --yt-accent: var(--accent, #2563eb);
+    --yt-text: var(--text, #0f172a);
+    --yt-muted: var(--text-light, #64748b);
+    --yt-border: var(--border, #e2e8f0);
+    --yt-surface: var(--surface, #f8fafc);
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    background: #ffffff;
 
-    <title>YouTube | PMAI Lab — Mathematics, Python & AI</title>
+}
 
-    <meta name="description"
-          content="Official PMAI Lab YouTube Hub connecting eight faculty contributors, university courses, academic lectures, Mathematics, Python, Artificial Intelligence, Machine Learning and Data Science through one collaborative YouTube channel.">
 
-    <meta name="keywords"
-          content="PMAI Lab YouTube, Mathematics lectures, Python lectures, Artificial Intelligence, Machine Learning, Data Science, university lectures, academic YouTube channel Pakistan">
+/* =========================================================
+   COMMON CONTAINER
+========================================================= */
 
-    <meta name="author"
-          content="Python, Mathematics & Artificial Intelligence Lab">
+.youtube-page .youtube-container {
 
-    <meta name="robots"
-          content="index, follow">
+    width: 100%;
 
-    <link rel="canonical"
-          href="https://python-mathematics-ai-lab.github.io/courses/youtube.html">
+    max-width: 1180px;
 
+    margin: 0 auto;
 
-    <!-- =====================================================
-         OPEN GRAPH
-    ====================================================== -->
+    padding-left: 20px;
+    padding-right: 20px;
 
-    <meta property="og:title"
-          content="PMAI Lab YouTube | One Channel. Eight Faculty. One Learning Community.">
+}
 
-    <meta property="og:description"
-          content="A collaborative academic YouTube platform where PMAI Lab faculty contribute lectures, tutorials, projects and research content through one official channel.">
 
-    <meta property="og:type"
-          content="website">
+/* =========================================================
+   COMMON SECTION LABEL
+========================================================= */
 
-    <meta property="og:url"
-          content="https://python-mathematics-ai-lab.github.io/courses/youtube.html">
+.youtube-page .section-label {
 
-    <meta property="og:site_name"
-          content="Python, Mathematics & Artificial Intelligence Lab">
+    display: inline-flex;
 
+    align-items: center;
 
-    <!-- =====================================================
-         GOOGLE FONTS
-    ====================================================== -->
+    gap: 8px;
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    margin: 0 0 14px;
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    color: var(--yt-accent);
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
+    font-size: 0.72rem;
 
+    font-weight: 800;
 
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
+    letter-spacing: 1.5px;
 
-    <link rel="stylesheet"
-          href="assets/css/style.css">
+    text-transform: uppercase;
 
-    <link rel="stylesheet"
-          href="assets/css/navbar.css">
+}
 
-    <link rel="stylesheet"
-          href="assets/css/youtube.css">
 
-</head>
+.youtube-page .section-label::before {
 
+    content: "";
 
-<body class="youtube-page">
+    width: 24px;
 
+    height: 2px;
 
-    <!-- =====================================================
-                         NAVIGATION
-    ====================================================== -->
+    border-radius: 10px;
 
-    <header id="site-header">
+    background: var(--yt-accent);
 
-        <nav class="navbar">
+}
 
-            <div class="navbar-container">
 
+/* =========================================================
+   COMMON SECTION HEADING
+========================================================= */
 
-                <!-- LOGO -->
+.youtube-page .section-heading {
 
-                <a href="index.html"
-                   class="navbar-logo"
-                   aria-label="PMAI Lab Home">
-
-                    <span class="logo-symbol">
-                        PMAI
-                    </span>
+    max-width: 760px;
 
-                    <span class="logo-text">
+    margin-bottom: 48px;
 
-                        <span class="logo-main">
-                            PMAI LAB
-                        </span>
+}
 
-                        <span class="logo-sub">
-                            Mathematics • Python • AI
-                        </span>
 
-                    </span>
+.youtube-page .section-heading h2 {
 
-                </a>
+    margin: 0 0 16px;
 
+    color: var(--yt-primary);
 
-                <!-- MOBILE MENU -->
+    font-family: "Poppins", sans-serif;
 
-                <button
-                    class="menu-toggle"
-                    id="menu-toggle"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
+    font-size: clamp(
+        2rem,
+        4vw,
+        3rem
+    );
 
-                    ☰
+    line-height: 1.15;
 
-                </button>
+    letter-spacing: -1px;
 
+}
 
-                <!-- NAVIGATION -->
 
-                <ul class="nav-menu"
-                    id="nav-menu">
+.youtube-page .section-heading h2 span {
 
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
+    color: var(--yt-accent);
 
-                    <li>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </li>
+}
 
-                    <li>
-                        <a href="courses.html">
-                            Courses
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="faculty.html">
-                            Faculty
-                        </a>
-                    </li>
+.youtube-page .section-heading p:not(.section-label) {
 
-                    <li>
-                        <a href="resources.html">
-                            Resources
-                        </a>
-                    </li>
+    margin: 0;
 
-                    <li>
-                        <a href="blogs.html">
-                            Blogs
-                        </a>
-                    </li>
+    color: var(--yt-muted);
 
-                    <li>
-                        <a href="seminars.html">
-                            Seminars
-                        </a>
-                    </li>
+    font-size: 0.98rem;
 
-                    <li>
-                        <a href="projects.html">
-                            Projects
-                        </a>
-                    </li>
+    line-height: 1.8;
 
-                    <li>
-                        <a href="youtube.html"
-                           class="active">
-                            YouTube
-                        </a>
-                    </li>
+}
 
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
 
-                </ul>
+/* =========================================================
+   BUTTONS
+========================================================= */
 
-            </div>
+.youtube-page .btn {
 
-        </nav>
+    display: inline-flex;
 
-    </header>
+    align-items: center;
 
+    justify-content: center;
 
+    gap: 8px;
 
-    <!-- =====================================================
-                         MAIN CONTENT
-    ====================================================== -->
+    min-height: 48px;
 
-    <main>
+    padding: 13px 22px;
 
+    border-radius: 9px;
 
-        <!-- =================================================
-                         HERO
-        ================================================== -->
+    font-size: 0.8rem;
 
-        <section class="youtube-hero">
+    font-weight: 800;
 
-            <div class="youtube-container">
+    text-decoration: none;
 
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
 
-                <div class="youtube-hero-content">
+}
 
 
-                    <p class="section-label">
-                        PMAI LAB • OFFICIAL YOUTUBE HUB
-                    </p>
+.youtube-page .btn:hover {
 
+    transform: translateY(-3px);
 
-                    <h1>
+}
 
-                        One Channel.
-                        <span>Eight Faculty.</span>
-                        One Learning Community.
 
-                    </h1>
+.youtube-page .btn-primary {
 
+    background: var(--yt-primary);
 
-                    <p class="youtube-hero-description">
+    color: #ffffff;
 
-                        PMAI Lab brings together eight faculty
-                        contributors under one official academic
-                        YouTube channel to deliver university-level
-                        Mathematics, Python, Artificial Intelligence,
-                        Machine Learning and Data Science education.
+    box-shadow:
+        0 10px 25px rgba(
+            15,
+            23,
+            42,
+            0.12
+        );
 
-                    </p>
+}
 
 
-                    <div class="youtube-hero-actions">
+.youtube-page .btn-primary:hover {
 
+    background: var(--yt-accent);
 
-                        <!-- OFFICIAL CHANNEL -->
+    box-shadow:
+        0 14px 30px rgba(
+            37,
+            99,
+            235,
+            0.20
+        );
 
-                        <a
-                            href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                            class="btn btn-primary"
-                            target="_blank"
-                            rel="noopener noreferrer">
+}
 
-                            ▶ Visit PMAI Lab Channel
 
-                        </a>
+.youtube-page .btn-secondary {
 
+    border: 1px solid var(--yt-border);
 
-                        <a
-                            href="#contributors"
-                            class="btn btn-secondary">
+    background: rgba(
+        255,
+        255,
+        255,
+        0.9
+    );
 
-                            Meet Our Faculty
+    color: var(--yt-primary);
 
-                        </a>
+}
 
 
-                    </div>
+.youtube-page .btn-secondary:hover {
 
+    border-color: var(--yt-accent);
 
-                    <!-- CHANNEL STATS -->
+    color: var(--yt-accent);
 
-                    <div class="youtube-stats">
+}
 
 
-                        <div class="youtube-stat">
+/* =========================================================
+   HERO
+========================================================= */
 
-                            <strong>
-                                01
-                            </strong>
+.youtube-hero {
 
-                            <span>
-                                Official Channel
-                            </span>
+    position: relative;
 
-                        </div>
+    min-height: 680px;
 
+    display: flex;
 
-                        <div class="youtube-stat">
+    align-items: center;
 
-                            <strong>
-                                08
-                            </strong>
+    padding: 105px 20px 90px;
 
-                            <span>
-                                Faculty Contributors
-                            </span>
+    overflow: hidden;
 
-                        </div>
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(
+                37,
+                99,
+                235,
+                0.12
+            ),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(
+                15,
+                23,
+                42,
+                0.07
+            ),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #eff6ff 50%,
+            #ffffff 100%
+        );
 
+}
 
-                        <div class="youtube-stat">
 
-                            <strong>
-                                06+
-                            </strong>
+.youtube-hero::before {
 
-                            <span>
-                                Learning Areas
-                            </span>
+    content: "";
 
-                        </div>
+    position: absolute;
 
+    width: 600px;
 
-                        <div class="youtube-stat">
+    height: 600px;
 
-                            <strong>
-                                ∞
-                            </strong>
+    top: -300px;
 
-                            <span>
-                                Learning Opportunities
-                            </span>
+    right: -180px;
 
-                        </div>
+    border: 1px solid rgba(
+        37,
+        99,
+        235,
+        0.08
+    );
 
+    border-radius: 50%;
 
-                    </div>
+}
 
-                </div>
 
+.youtube-hero::after {
 
-                <!-- HERO CHANNEL CARD -->
+    content: "";
 
-                <div class="youtube-channel-card">
+    position: absolute;
 
-                    <div class="channel-card-top">
+    width: 350px;
 
-                        <div class="channel-icon">
-                            ▶
-                        </div>
+    height: 350px;
 
-                        <div>
+    bottom: -230px;
 
-                            <span>
-                                OFFICIAL CHANNEL
-                            </span>
+    left: -150px;
 
-                            <h3>
-                                PMAI Lab
-                            </h3>
+    border: 1px solid rgba(
+        15,
+        23,
+        42,
+        0.06
+    );
 
-                        </div>
+    border-radius: 50%;
 
-                    </div>
+}
 
 
-                    <div class="channel-card-body">
+.youtube-hero > .youtube-container {
 
-                        <p>
-                            Python, Mathematics &
-                            Artificial Intelligence Lab
-                        </p>
+    position: relative;
 
-                        <div class="channel-card-line"></div>
+    z-index: 2;
 
-                        <div class="channel-card-meta">
+    display: grid;
 
-                            <span>
-                                <strong>8</strong>
-                                Faculty
-                            </span>
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(320px, 0.65fr);
 
-                            <span>
-                                <strong>1</strong>
-                                Channel Manager
-                            </span>
+    gap: 65px;
 
-                            <span>
-                                <strong>1</strong>
-                                Official Channel
-                            </span>
+    align-items: center;
 
-                        </div>
+}
 
-                    </div>
 
+.youtube-hero-content {
 
-                    <a
-                        href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card-button">
+    max-width: 760px;
 
-                        Open YouTube Channel
-                        <span>→</span>
+}
 
-                    </a>
 
-                </div>
+.youtube-hero h1 {
 
-            </div>
+    margin: 0 0 24px;
 
-        </section>
+    color: var(--yt-primary);
 
+    font-family: "Poppins", sans-serif;
 
+    font-size: clamp(
+        2.8rem,
+        6vw,
+        5rem
+    );
 
-        <!-- =================================================
-                     CHANNEL INTRODUCTION
-        ================================================== -->
+    font-weight: 800;
 
-        <section class="youtube-introduction">
+    line-height: 1.04;
 
-            <div class="youtube-container">
+    letter-spacing: -2px;
 
-                <div class="youtube-introduction-grid">
+}
 
 
-                    <div>
+.youtube-hero h1 span {
 
-                        <p class="section-label">
-                            OUR DIGITAL CLASSROOM
-                        </p>
+    display: block;
 
-                        <h2>
-                            From University Classroom
-                            <span>to Global Classroom</span>
-                        </h2>
+    color: var(--yt-accent);
 
-                    </div>
+}
 
 
-                    <div>
+.youtube-hero-description {
 
-                        <p>
+    max-width: 720px;
 
-                            PMAI Lab's YouTube initiative extends
-                            university-level teaching beyond the
-                            physical classroom.
+    margin: 0 0 32px;
 
-                        </p>
+    color: var(--yt-muted);
 
-                        <p>
+    font-size: 1.03rem;
 
-                            Eight faculty members contribute
-                            educational content according to their
-                            areas of expertise. All content is
-                            organized and published through one
-                            official PMAI Lab YouTube channel.
+    line-height: 1.85;
 
-                        </p>
+}
 
-                        <p>
 
-                            A designated channel manager handles
-                            publishing, playlists, metadata,
-                            thumbnails and channel organization.
+.youtube-hero-actions {
 
-                        </p>
+    display: flex;
 
-                    </div>
+    flex-wrap: wrap;
 
-                </div>
+    gap: 12px;
 
-            </div>
+}
 
-        </section>
 
+/* =========================================================
+   HERO CHANNEL CARD
+========================================================= */
 
+.youtube-channel-card {
 
-        <!-- =================================================
-                     HOW THE SYSTEM WORKS
-        ================================================== -->
+    position: relative;
 
-        <section class="youtube-system">
+    overflow: hidden;
 
-            <div class="youtube-container">
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.7
+    );
 
+    border-radius: 22px;
 
-                <div class="section-heading">
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
 
-                    <p class="section-label">
-                        COLLABORATIVE MODEL
-                    </p>
+    box-shadow:
+        0 30px 70px rgba(
+            15,
+            23,
+            42,
+            0.12
+        );
 
-                    <h2>
-                        How PMAI Lab
-                        <span>YouTube Works</span>
-                    </h2>
+    backdrop-filter: blur(15px);
 
-                    <p>
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
-                        A simple academic workflow connecting
-                        faculty expertise with students through
-                        one professionally managed channel.
+}
 
-                    </p>
 
-                </div>
+.youtube-channel-card:hover {
 
+    transform: translateY(-7px);
 
-                <div class="youtube-system-grid">
+    box-shadow:
+        0 35px 80px rgba(
+            15,
+            23,
+            42,
+            0.16
+        );
 
+}
 
-                    <!-- STEP 01 -->
 
-                    <article class="system-card">
+.channel-card-top {
 
-                        <span class="system-number">
-                            01
-                        </span>
+    display: flex;
 
-                        <div class="system-icon">
-                            👨‍🏫
-                        </div>
+    align-items: center;
 
-                        <h3>
-                            Faculty Creates
-                        </h3>
+    gap: 18px;
 
-                        <p>
+    padding: 28px;
 
-                            Faculty members prepare lectures,
-                            tutorials, problem-solving sessions,
-                            demonstrations or research content.
+    border-bottom: 1px solid var(--yt-border);
 
-                        </p>
+}
 
-                    </article>
 
+.channel-icon {
 
-                    <div class="system-arrow">
-                        →
-                    </div>
+    width: 62px;
 
+    height: 62px;
 
-                    <!-- STEP 02 -->
+    display: flex;
 
-                    <article class="system-card">
+    align-items: center;
 
-                        <span class="system-number">
-                            02
-                        </span>
+    justify-content: center;
 
-                        <div class="system-icon">
-                            📝
-                        </div>
+    flex-shrink: 0;
 
-                        <h3>
-                            Content Submitted
-                        </h3>
+    border-radius: 16px;
 
-                        <p>
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
 
-                            Faculty provides the title, course,
-                            topic, description, thumbnail and
-                            required video information.
+    color: #ffffff;
 
-                        </p>
+    font-size: 1.3rem;
 
-                    </article>
+    box-shadow:
+        0 10px 25px rgba(
+            220,
+            38,
+            38,
+            0.22
+        );
 
+}
 
-                    <div class="system-arrow">
-                        →
-                    </div>
 
+.channel-card-top span {
 
-                    <!-- STEP 03 -->
+    display: block;
 
-                    <article class="system-card">
+    margin-bottom: 5px;
 
-                        <span class="system-number">
-                            03
-                        </span>
+    color: var(--yt-accent);
 
-                        <div class="system-icon">
-                            🧑‍💼
-                        </div>
+    font-size: 0.62rem;
 
-                        <h3>
-                            Manager Publishes
-                        </h3>
+    font-weight: 800;
 
-                        <p>
+    letter-spacing: 1.2px;
 
-                            One designated YouTube manager reviews,
-                            organizes and publishes the content.
+}
 
-                        </p>
 
-                    </article>
+.channel-card-top h3 {
 
+    margin: 0;
 
-                    <div class="system-arrow">
-                        →
-                    </div>
+    color: var(--yt-primary);
 
+    font-family: "Poppins", sans-serif;
 
-                    <!-- STEP 04 -->
+    font-size: 1.35rem;
 
-                    <article class="system-card">
+}
 
-                        <span class="system-number">
-                            04
-                        </span>
 
-                        <div class="system-icon">
-                            ▶
-                        </div>
+.channel-card-body {
 
-                        <h3>
-                            One Official Channel
-                        </h3>
+    padding: 26px 28px;
 
-                        <p>
+}
 
-                            All faculty contributions become part
-                            of the official PMAI Lab YouTube library.
 
-                        </p>
+.channel-card-body > p {
 
-                    </article>
+    margin: 0 0 20px;
 
+    color: var(--yt-muted);
 
-                </div>
+    font-size: 0.85rem;
 
-            </div>
+    line-height: 1.7;
 
-        </section>
+}
 
 
+.channel-card-line {
 
-        <!-- =================================================
-                         LEARNING AREAS
-        ================================================== -->
+    width: 100%;
 
-        <section class="youtube-areas">
+    height: 1px;
 
-            <div class="youtube-container">
+    margin-bottom: 20px;
 
+    background: var(--yt-border);
 
-                <div class="section-heading">
+}
 
-                    <p class="section-label">
-                        ACADEMIC CONTENT
-                    </p>
 
-                    <h2>
-                        What You Can
-                        <span>Learn</span>
-                    </h2>
+.channel-card-meta {
 
-                    <p>
+    display: grid;
 
-                        A growing academic library covering
-                        Mathematics, Programming, AI, Machine
-                        Learning, Data Science and Analytics.
+    grid-template-columns:
+        repeat(3, 1fr);
 
-                    </p>
+    gap: 10px;
 
-                </div>
+}
 
 
-                <div class="youtube-area-grid">
+.channel-card-meta span {
 
+    display: flex;
 
-                    <!-- MATHEMATICS -->
+    flex-direction: column;
 
-                    <article class="youtube-area-card">
+    gap: 4px;
 
-                        <span class="area-number">
-                            01
-                        </span>
+    color: var(--yt-muted);
 
-                        <div class="area-icon">
-                            ∑
-                        </div>
+    font-size: 0.65rem;
 
-                        <h3>
-                            Mathematics
-                        </h3>
+    line-height: 1.4;
 
-                        <p>
+}
 
-                            Calculus, Linear Algebra,
-                            Differential Equations, Discrete
-                            Mathematics, Numerical Methods and
-                            Mathematics for AI.
 
-                        </p>
+.channel-card-meta strong {
 
-                        <a
-                            href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                            target="_blank"
-                            rel="noopener noreferrer">
+    color: var(--yt-primary);
 
-                            View Mathematics Content →
+    font-size: 1rem;
 
-                        </a>
+}
 
-                    </article>
 
+.channel-card-button {
 
+    display: flex;
 
-                    <!-- PYTHON -->
+    align-items: center;
 
-                    <article class="youtube-area-card">
+    justify-content: space-between;
 
-                        <span class="area-number">
-                            02
-                        </span>
+    padding: 17px 28px;
 
-                        <div class="area-icon">
-                            &lt;/&gt;
-                        </div>
+    background: var(--yt-primary);
 
-                        <h3>
-                            Python & Programming
-                        </h3>
+    color: #ffffff;
 
-                        <p>
+    font-size: 0.78rem;
 
-                            Python fundamentals, problem solving,
-                            NumPy, Pandas, Matplotlib, automation
-                            and programming for AI.
+    font-weight: 800;
 
-                        </p>
+    text-decoration: none;
 
-                        <a
-                            href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                            target="_blank"
-                            rel="noopener noreferrer">
+    transition: 0.25s ease;
 
-                            View Python Content →
+}
 
-                        </a>
 
-                    </article>
+.channel-card-button:hover {
 
+    background: var(--yt-accent);
 
+}
 
-                    <!-- ARTIFICIAL INTELLIGENCE -->
 
-                    <article class="youtube-area-card">
+.channel-card-button span {
 
-                        <span class="area-number">
-                            03
-                        </span>
+    font-size: 1.1rem;
 
-                        <div class="area-icon">
-                            AI
-                        </div>
+}
 
-                        <h3>
-                            Artificial Intelligence
-                        </h3>
 
-                        <p>
+/* =========================================================
+   HERO STATS
+========================================================= */
 
-                            AI fundamentals, intelligent systems,
-                            Neural Networks, NLP, Generative AI
-                            and modern AI concepts.
+.youtube-stats {
 
-                        </p>
+    display: grid;
 
-                        <a
-                            href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                            target="_blank"
-                            rel="noopener noreferrer">
+    grid-template-columns:
+        repeat(4, 1fr);
 
-                            View AI Content →
+    max-width: 760px;
 
-                        </a>
+    margin-top: 48px;
 
-                    </article>
+    border-top: 1px solid rgba(
+        15,
+        23,
+        42,
+        0.1
+    );
 
+}
 
 
-                    <!-- MACHINE LEARNING -->
+.youtube-stat {
 
-                    <article class="youtube-area-card">
+    padding: 22px 16px 0;
 
-                        <span class="area-number">
-                            04
-                        </span>
+    border-right: 1px solid rgba(
+        15,
+        23,
+        42,
+        0.08
+    );
 
-                        <div class="area-icon">
-                            ML
-                        </div>
+}
 
-                        <h3>
-                            Machine Learning
-                        </h3>
 
-                        <p>
+.youtube-stat:last-child {
 
-                            Regression, classification, ensemble
-                            learning, model evaluation, feature
-                            engineering and practical ML.
+    border-right: none;
 
-                        </p>
+}
 
-                        <a
-                            href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                            target="_blank"
-                            rel="noopener noreferrer">
 
-                            View ML Content →
+.youtube-stat strong {
 
-                        </a>
+    display: block;
 
-                    </article>
+    margin-bottom: 5px;
 
+    color: var(--yt-primary);
 
+    font-family: "Poppins", sans-serif;
 
-                    <!-- DATA SCIENCE -->
+    font-size: 1.5rem;
 
-                    <article class="youtube-area-card">
+}
 
-                        <span class="area-number">
-                            05
-                        </span>
 
-                        <div class="area-icon">
-                            DS
-                        </div>
+.youtube-stat span {
 
-                        <h3>
-                            Data Science
-                        </h3>
+    display: block;
 
-                        <p>
+    color: var(--yt-muted);
 
-                            Data analysis, statistics,
-                            visualization, machine learning
-                            and practical data science workflows.
+    font-size: 0.66rem;
 
-                        </p>
+    line-height: 1.5;
 
-                        <a
-                            href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                            target="_blank"
-                            rel="noopener noreferrer">
+}
 
-                            View Data Science Content →
 
-                        </a>
+/* =========================================================
+   INTRODUCTION
+========================================================= */
 
-                    </article>
+.youtube-introduction {
 
+    padding: 100px 20px;
 
+    background: #ffffff;
 
-                    <!-- DATA ANALYTICS -->
+}
 
-                    <article class="youtube-area-card">
 
-                        <span class="area-number">
-                            06
-                        </span>
+.youtube-introduction-grid {
 
-                        <div class="area-icon">
-                            BI
-                        </div>
+    display: grid;
 
-                        <h3>
-                            Data Analytics
-                        </h3>
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
 
-                        <p>
+    gap: 70px;
 
-                            Power BI, Tableau, dashboards,
-                            business analytics and data-driven
-                            decision making.
+    align-items: start;
 
-                        </p>
+}
 
-                        <a
-                            href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                            target="_blank"
-                            rel="noopener noreferrer">
 
-                            View Analytics Content →
+.youtube-introduction h2 {
 
-                        </a>
+    margin: 0;
 
-                    </article>
+    color: var(--yt-primary);
 
+    font-family: "Poppins", sans-serif;
 
-                </div>
+    font-size: clamp(
+        2rem,
+        4vw,
+        3rem
+    );
 
-            </div>
+    line-height: 1.2;
 
-        </section>
+}
 
 
+.youtube-introduction h2 span {
 
-        <!-- =================================================
-                     FACULTY CONTRIBUTORS
-        ================================================== -->
+    display: block;
 
-        <section id="contributors"
-                 class="youtube-contributors">
+    color: var(--yt-accent);
 
-            <div class="youtube-container">
+}
 
 
-                <div class="section-heading">
+.youtube-introduction-grid > div:last-child {
 
-                    <p class="section-label">
-                        08 FACULTY CONTRIBUTORS
-                    </p>
+    padding: 30px;
 
-                    <h2>
-                        The People Behind
-                        <span>the Content</span>
-                    </h2>
+    border: 1px solid var(--yt-border);
 
-                    <p>
+    border-radius: 18px;
 
-                        Eight faculty members contribute their
-                        academic expertise to one shared PMAI Lab
-                        YouTube channel.
+    background: var(--yt-surface);
 
-                    </p>
+}
 
-                </div>
 
+.youtube-introduction-grid > div:last-child p {
 
-                <div class="contributors-grid">
+    margin: 0;
 
+    color: var(--yt-muted);
 
-                    <!-- FACULTY 01 -->
+    font-size: 0.9rem;
 
-                    <article class="contributor-card">
+    line-height: 1.8;
 
-                        <div class="contributor-number">
-                            01
-                        </div>
+}
 
-                        <div class="contributor-avatar">
-                            F1
-                        </div>
 
-                        <div class="contributor-info">
+.youtube-introduction-grid > div:last-child p + p {
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
+    margin-top: 16px;
 
-                            <h3>
-                                Faculty Member 01
-                            </h3>
+}
 
-                            <p>
-                                Mathematics • AI • Computing
-                            </p>
 
-                        </div>
+/* =========================================================
+   SYSTEM WORKFLOW
+========================================================= */
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+.youtube-system {
 
-                    </article>
+    padding: 100px 20px;
 
+    background: var(--yt-surface);
 
+}
 
-                    <!-- FACULTY 02 -->
 
-                    <article class="contributor-card">
+.youtube-system-grid {
 
-                        <div class="contributor-number">
-                            02
-                        </div>
+    display: grid;
 
-                        <div class="contributor-avatar">
-                            F2
-                        </div>
+    grid-template-columns:
+        1fr
+        auto
+        1fr
+        auto
+        1fr
+        auto
+        1fr;
 
-                        <div class="contributor-info">
+    gap: 12px;
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
+    align-items: stretch;
 
-                            <h3>
-                                Faculty Member 02
-                            </h3>
+}
 
-                            <p>
-                                Mathematics • Programming
-                            </p>
 
-                        </div>
+.system-card {
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+    position: relative;
 
-                    </article>
+    padding: 28px 24px;
 
+    border: 1px solid var(--yt-border);
 
+    border-radius: 18px;
 
-                    <!-- FACULTY 03 -->
+    background: #ffffff;
 
-                    <article class="contributor-card">
+    box-shadow:
+        0 10px 30px rgba(
+            15,
+            23,
+            42,
+            0.04
+        );
 
-                        <div class="contributor-number">
-                            03
-                        </div>
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 
-                        <div class="contributor-avatar">
-                            F3
-                        </div>
+}
 
-                        <div class="contributor-info">
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
+.system-card:hover {
 
-                            <h3>
-                                Faculty Member 03
-                            </h3>
+    transform: translateY(-6px);
 
-                            <p>
-                                Data Science • Statistics
-                            </p>
+    border-color: rgba(
+        37,
+        99,
+        235,
+        0.35
+    );
 
-                        </div>
+    box-shadow:
+        0 20px 40px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+}
 
-                    </article>
 
+.system-number {
 
+    position: absolute;
 
-                    <!-- FACULTY 04 -->
+    top: 16px;
 
-                    <article class="contributor-card">
+    right: 18px;
 
-                        <div class="contributor-number">
-                            04
-                        </div>
+    color: #cbd5e1;
 
-                        <div class="contributor-avatar">
-                            F4
-                        </div>
+    font-size: 0.68rem;
 
-                        <div class="contributor-info">
+    font-weight: 900;
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
+}
 
-                            <h3>
-                                Faculty Member 04
-                            </h3>
 
-                            <p>
-                                AI • Machine Learning
-                            </p>
+.system-icon {
 
-                        </div>
+    width: 52px;
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+    height: 52px;
 
-                    </article>
+    display: flex;
 
+    align-items: center;
 
+    justify-content: center;
 
-                    <!-- FACULTY 05 -->
+    margin-bottom: 20px;
 
-                    <article class="contributor-card">
+    border-radius: 14px;
 
-                        <div class="contributor-number">
-                            05
-                        </div>
+    background: #eff6ff;
 
-                        <div class="contributor-avatar">
-                            F5
-                        </div>
+    font-size: 1.3rem;
 
-                        <div class="contributor-info">
+}
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
 
-                            <h3>
-                                Faculty Member 05
-                            </h3>
+.system-card h3 {
 
-                            <p>
-                                Programming • Computing
-                            </p>
+    margin: 0 0 9px;
 
-                        </div>
+    color: var(--yt-primary);
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+    font-family: "Poppins", sans-serif;
 
-                    </article>
+    font-size: 1rem;
 
+}
 
 
-                    <!-- FACULTY 06 -->
+.system-card p {
 
-                    <article class="contributor-card">
+    margin: 0;
 
-                        <div class="contributor-number">
-                            06
-                        </div>
+    color: var(--yt-muted);
 
-                        <div class="contributor-avatar">
-                            F6
-                        </div>
+    font-size: 0.76rem;
 
-                        <div class="contributor-info">
+    line-height: 1.7;
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
+}
 
-                            <h3>
-                                Faculty Member 06
-                            </h3>
 
-                            <p>
-                                Mathematics • Data Analytics
-                            </p>
+.system-arrow {
 
-                        </div>
+    display: flex;
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+    align-items: center;
 
-                    </article>
+    justify-content: center;
 
+    color: var(--yt-accent);
 
+    font-size: 1.4rem;
 
-                    <!-- FACULTY 07 -->
+    font-weight: 800;
 
-                    <article class="contributor-card">
+}
 
-                        <div class="contributor-number">
-                            07
-                        </div>
 
-                        <div class="contributor-avatar">
-                            F7
-                        </div>
+/* =========================================================
+   LEARNING AREAS
+========================================================= */
 
-                        <div class="contributor-info">
+.youtube-areas {
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
+    padding: 100px 20px;
 
-                            <h3>
-                                Faculty Member 07
-                            </h3>
+    background: #ffffff;
 
-                            <p>
-                                AI • Data Science
-                            </p>
+}
 
-                        </div>
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+.youtube-area-grid {
 
-                    </article>
+    display: grid;
 
+    grid-template-columns:
+        repeat(3, 1fr);
 
+    gap: 18px;
 
-                    <!-- FACULTY 08 -->
+}
 
-                    <article class="contributor-card">
 
-                        <div class="contributor-number">
-                            08
-                        </div>
+.youtube-area-card {
 
-                        <div class="contributor-avatar">
-                            F8
-                        </div>
+    position: relative;
 
-                        <div class="contributor-info">
+    min-height: 250px;
 
-                            <span class="contributor-label">
-                                FACULTY CONTRIBUTOR
-                            </span>
+    padding: 30px;
 
-                            <h3>
-                                Faculty Member 08
-                            </h3>
+    overflow: hidden;
 
-                            <p>
-                                AI • Research • Computing
-                            </p>
+    border: 1px solid var(--yt-border);
 
-                        </div>
+    border-radius: 18px;
 
-                        <div class="contributor-status">
-                            <span></span>
-                            Contributing to PMAI Lab
-                        </div>
+    background: #ffffff;
 
-                    </article>
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 
+}
 
-                </div>
 
-            </div>
+.youtube-area-card::after {
 
-        </section>
+    content: "";
 
+    position: absolute;
 
+    width: 100px;
 
-        <!-- =================================================
-                     COURSE → VIDEO MAPPING
-        ================================================== -->
+    height: 100px;
 
-        <section class="youtube-course-mapping">
+    right: -45px;
 
-            <div class="youtube-container">
+    bottom: -45px;
 
+    border-radius: 50%;
 
-                <div class="section-heading">
+    background: rgba(
+        37,
+        99,
+        235,
+        0.06
+    );
 
-                    <p class="section-label">
-                        COURSE INTEGRATION
-                    </p>
+}
 
-                    <h2>
-                        Faculty Content
-                        <span>Becomes Course Content</span>
-                    </h2>
 
-                    <p>
+.youtube-area-card:hover {
 
-                        YouTube videos will not remain isolated.
-                        Each lecture can be connected with the
-                        corresponding PMAI Lab course.
+    transform: translateY(-7px);
 
-                    </p>
+    border-color: rgba(
+        37,
+        99,
+        235,
+        0.3
+    );
 
-                </div>
+    box-shadow:
+        0 20px 45px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
 
+}
 
-                <div class="course-mapping-flow">
 
+.area-number {
 
-                    <div class="mapping-item">
+    position: absolute;
 
-                        <div class="mapping-icon">
-                            👨‍🏫
-                        </div>
+    top: 22px;
 
-                        <span>
-                            FACULTY
-                        </span>
+    right: 24px;
 
-                        <h3>
-                            Contributor
-                        </h3>
+    color: #cbd5e1;
 
-                    </div>
+    font-size: 0.68rem;
 
+    font-weight: 900;
 
-                    <div class="mapping-line">
-                        →
-                    </div>
+}
 
 
-                    <div class="mapping-item">
+.area-icon {
 
-                        <div class="mapping-icon">
-                            📚
-                        </div>
+    width: 55px;
 
-                        <span>
-                            COURSE
-                        </span>
+    height: 55px;
 
-                        <h3>
-                            Calculus-I
-                        </h3>
+    display: flex;
 
-                    </div>
+    align-items: center;
 
+    justify-content: center;
 
-                    <div class="mapping-line">
-                        →
-                    </div>
+    margin-bottom: 20px;
 
+    border-radius: 14px;
 
-                    <div class="mapping-item">
+    background: #eff6ff;
 
-                        <div class="mapping-icon">
-                            🎥
-                        </div>
+    color: var(--yt-accent);
 
-                        <span>
-                            LECTURE
-                        </span>
+    font-size: 1rem;
 
-                        <h3>
-                            Video
-                        </h3>
+    font-weight: 900;
 
-                    </div>
+}
 
 
-                    <div class="mapping-line">
-                        →
-                    </div>
+.youtube-area-card h3 {
 
+    margin: 0 0 10px;
 
-                    <div class="mapping-item">
+    color: var(--yt-primary);
 
-                        <div class="mapping-icon">
-                            ▶
-                        </div>
+    font-family: "Poppins", sans-serif;
 
-                        <span>
-                            YOUTUBE
-                        </span>
+    font-size: 1.12rem;
 
-                        <h3>
-                            Playlist
-                        </h3>
+}
 
-                    </div>
 
+.youtube-area-card p {
 
-                    <div class="mapping-line">
-                        →
-                    </div>
+    margin: 0 0 20px;
 
+    color: var(--yt-muted);
 
-                    <div class="mapping-item">
+    font-size: 0.78rem;
 
-                        <div class="mapping-icon">
-                            🎓
-                        </div>
+    line-height: 1.7;
 
-                        <span>
-                            STUDENT
-                        </span>
+}
 
-                        <h3>
-                            Learning
-                        </h3>
 
-                    </div>
+.youtube-area-card a {
 
+    color: var(--yt-accent);
 
-                </div>
+    font-size: 0.72rem;
 
+    font-weight: 800;
 
-                <div class="course-mapping-note">
+    text-decoration: none;
 
-                    <strong>
-                        Example:
-                    </strong>
+}
 
-                    Calculus-I → Lecture 01 → Limits →
-                    PMAI Lab YouTube Playlist →
-                    Calculus-I Course Page
 
-                </div>
+.youtube-area-card a:hover {
 
-            </div>
+    text-decoration: underline;
 
-        </section>
+}
 
 
+/* =========================================================
+   FACULTY CONTRIBUTORS
+========================================================= */
 
-        <!-- =================================================
-                     CONTENT TYPES
-        ================================================== -->
+.youtube-contributors {
 
-        <section class="youtube-content-model">
+    padding: 100px 20px;
 
-            <div class="youtube-container">
+    background: var(--yt-surface);
 
+}
 
-                <div class="section-heading">
 
-                    <p class="section-label">
-                        CONTENT STRATEGY
-                    </p>
+.contributors-grid {
 
-                    <h2>
-                        Build a Complete
-                        <span>Academic Video Library</span>
-                    </h2>
+    display: grid;
 
-                    <p>
+    grid-template-columns:
+        repeat(4, 1fr);
 
-                        The channel will combine long-form academic
-                        teaching with short, practical and research
-                        oriented content.
+    gap: 18px;
 
-                    </p>
+}
 
-                </div>
 
+.contributor-card {
 
-                <div class="content-model-grid">
+    position: relative;
 
+    min-height: 245px;
 
-                    <article class="content-model-card">
+    display: flex;
 
-                        <span>
-                            01
-                        </span>
+    flex-direction: column;
 
-                        <h3>
-                            Complete Lectures
-                        </h3>
+    padding: 25px;
 
-                        <p>
-                            Full university lectures organized
-                            into structured course playlists.
-                        </p>
+    overflow: hidden;
 
-                    </article>
+    border: 1px solid var(--yt-border);
 
+    border-radius: 18px;
 
-                    <article class="content-model-card">
+    background: #ffffff;
 
-                        <span>
-                            02
-                        </span>
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 
-                        <h3>
-                            Concept Shorts
-                        </h3>
+}
 
-                        <p>
-                            Short explanations of important
-                            Mathematics, Python and AI concepts.
-                        </p>
 
-                    </article>
+.contributor-card:hover {
 
+    transform: translateY(-6px);
 
-                    <article class="content-model-card">
+    border-color: rgba(
+        37,
+        99,
+        235,
+        0.3
+    );
 
-                        <span>
-                            03
-                        </span>
+    box-shadow:
+        0 20px 45px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
 
-                        <h3>
-                            Problem Solving
-                        </h3>
+}
 
-                        <p>
-                            Step-by-step solutions to mathematical,
-                            programming and analytical problems.
-                        </p>
 
-                    </article>
+.contributor-number {
 
+    position: absolute;
 
-                    <article class="content-model-card">
+    top: 18px;
 
-                        <span>
-                            04
-                        </span>
+    right: 20px;
 
-                        <h3>
-                            Practical Projects
-                        </h3>
+    color: #cbd5e1;
 
-                        <p>
-                            Python, Machine Learning, Data Science
-                            and AI projects from concept to implementation.
-                        </p>
+    font-size: 0.68rem;
 
-                    </article>
+    font-weight: 900;
 
+}
 
-                    <article class="content-model-card">
 
-                        <span>
-                            05
-                        </span>
+.contributor-avatar {
 
-                        <h3>
-                            Research Discussions
-                        </h3>
+    width: 64px;
 
-                        <p>
-                            Research methodologies, papers,
-                            emerging technologies and academic discussions.
-                        </p>
+    height: 64px;
 
-                    </article>
+    display: flex;
 
+    align-items: center;
 
-                    <article class="content-model-card">
+    justify-content: center;
 
-                        <span>
-                            06
-                        </span>
+    margin-bottom: 20px;
 
-                        <h3>
-                            Academic Guidance
-                        </h3>
+    border-radius: 18px;
 
-                        <p>
-                            Study guidance, research skills,
-                            programming learning and academic development.
-                        </p>
+    background:
+        linear-gradient(
+            135deg,
+            var(--yt-primary),
+            #334155
+        );
 
-                    </article>
+    color: #ffffff;
 
+    font-family: "Poppins", sans-serif;
 
-                </div>
+    font-size: 0.95rem;
 
-            </div>
+    font-weight: 800;
 
-        </section>
+}
 
 
+.contributor-label {
 
-        <!-- =================================================
-                     LATEST VIDEOS
-        ================================================== -->
+    display: block;
 
-        <section class="youtube-latest">
+    margin-bottom: 5px;
 
-            <div class="youtube-container">
+    color: var(--yt-accent);
 
+    font-size: 0.58rem;
 
-                <div class="section-heading">
+    font-weight: 800;
 
-                    <p class="section-label">
-                        PMAI LAB VIDEO LIBRARY
-                    </p>
+    letter-spacing: 1px;
 
-                    <h2>
-                        Latest
-                        <span>Videos</span>
-                    </h2>
+}
 
-                    <p>
 
-                        New lectures and educational videos
-                        published on the official PMAI Lab channel.
+.contributor-info h3 {
 
-                    </p>
+    margin: 0 0 7px;
 
-                </div>
+    color: var(--yt-primary);
 
+    font-family: "Poppins", sans-serif;
 
-                <div class="latest-video-grid">
+    font-size: 1rem;
 
+}
 
-                    <!-- VIDEO 01 -->
 
-                    <article class="latest-video-card">
+.contributor-info p {
 
-                        <div class="video-thumbnail">
+    margin: 0;
 
-                            <div class="video-play">
-                                ▶
-                            </div>
+    color: var(--yt-muted);
 
-                            <span>
-                                PMAI LAB
-                            </span>
+    font-size: 0.72rem;
 
-                        </div>
+    line-height: 1.5;
 
-                        <div class="video-content">
+}
 
-                            <span class="video-category">
-                                MATHEMATICS
-                            </span>
 
-                            <h3>
-                                Latest PMAI Lab Lecture
-                            </h3>
+.contributor-status {
 
-                            <p>
-                                Featured educational content from
-                                a PMAI Lab faculty contributor.
-                            </p>
+    display: flex;
 
-                            <a
-                                href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                                target="_blank"
-                                rel="noopener noreferrer">
+    align-items: center;
 
-                                Watch on YouTube →
+    gap: 7px;
 
-                            </a>
+    margin-top: auto;
 
-                        </div>
+    padding-top: 20px;
 
-                    </article>
+    color: #64748b;
 
+    font-size: 0.62rem;
 
+}
 
-                    <!-- VIDEO 02 -->
 
-                    <article class="latest-video-card">
+.contributor-status span {
 
-                        <div class="video-thumbnail">
+    width: 7px;
 
-                            <div class="video-play">
-                                ▶
-                            </div>
+    height: 7px;
 
-                            <span>
-                                PMAI LAB
-                            </span>
+    border-radius: 50%;
 
-                        </div>
+    background: #22c55e;
 
-                        <div class="video-content">
+    box-shadow:
+        0 0 0 4px rgba(
+            34,
+            197,
+            94,
+            0.1
+        );
 
-                            <span class="video-category">
-                                PYTHON
-                            </span>
+}
 
-                            <h3>
-                                Python Programming Lecture
-                            </h3>
 
-                            <p>
-                                Practical programming content
-                                contributed by PMAI Lab faculty.
-                            </p>
+/* =========================================================
+   COURSE MAPPING
+========================================================= */
 
-                            <a
-                                href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                                target="_blank"
-                                rel="noopener noreferrer">
+.youtube-course-mapping {
 
-                                Watch on YouTube →
+    padding: 100px 20px;
 
-                            </a>
+    background: #ffffff;
 
-                        </div>
+}
 
-                    </article>
 
+.course-mapping-flow {
 
+    display: grid;
 
-                    <!-- VIDEO 03 -->
+    grid-template-columns:
+        1fr
+        auto
+        1fr
+        auto
+        1fr
+        auto
+        1fr
+        auto
+        1fr;
 
-                    <article class="latest-video-card">
+    gap: 12px;
 
-                        <div class="video-thumbnail">
+    align-items: center;
 
-                            <div class="video-play">
-                                ▶
-                            </div>
+}
 
-                            <span>
-                                PMAI LAB
-                            </span>
 
-                        </div>
+.mapping-item {
 
-                        <div class="video-content">
+    min-height: 170px;
 
-                            <span class="video-category">
-                                AI & ML
-                            </span>
+    display: flex;
 
-                            <h3>
-                                Artificial Intelligence Lecture
-                            </h3>
+    flex-direction: column;
 
-                            <p>
-                                AI and Machine Learning content
-                                from the PMAI Lab academic network.
-                            </p>
+    align-items: center;
 
-                            <a
-                                href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                                target="_blank"
-                                rel="noopener noreferrer">
+    justify-content: center;
 
-                                Watch on YouTube →
+    padding: 20px;
 
-                            </a>
+    text-align: center;
 
-                        </div>
+    border: 1px solid var(--yt-border);
 
-                    </article>
+    border-radius: 18px;
 
+    background: var(--yt-surface);
 
-                </div>
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 
+}
 
-                <div class="latest-video-action">
 
-                    <a
-                        href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                        class="btn btn-primary"
-                        target="_blank"
-                        rel="noopener noreferrer">
+.mapping-item:hover {
 
-                        View All Videos →
+    transform: translateY(-5px);
 
-                    </a>
+    box-shadow:
+        0 15px 35px rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
 
-                </div>
+}
 
-            </div>
 
-        </section>
+.mapping-icon {
 
+    width: 50px;
 
+    height: 50px;
 
-        <!-- =================================================
-                     FACULTY SUBMISSION WORKFLOW
-        ================================================== -->
+    display: flex;
 
-        <section class="youtube-submission">
+    align-items: center;
 
-            <div class="youtube-container">
+    justify-content: center;
 
+    margin-bottom: 13px;
 
-                <div class="section-heading">
+    border-radius: 14px;
 
-                    <p class="section-label">
-                        FACULTY CONTRIBUTION SYSTEM
-                    </p>
+    background: #ffffff;
 
-                    <h2>
-                        How Faculty
-                        <span>Submit Videos</span>
-                    </h2>
+    box-shadow:
+        0 5px 15px rgba(
+            15,
+            23,
+            42,
+            0.05
+        );
 
-                    <p>
+    font-size: 1.25rem;
 
-                        Faculty members focus on teaching and content
-                        creation while the designated channel manager
-                        handles YouTube publishing and organization.
+}
 
-                    </p>
 
-                </div>
+.mapping-item > span {
 
+    margin-bottom: 4px;
 
-                <div class="submission-grid">
+    color: var(--yt-accent);
 
+    font-size: 0.58rem;
 
-                    <div class="submission-step">
+    font-weight: 900;
 
-                        <span>
-                            01
-                        </span>
+    letter-spacing: 1px;
 
-                        <div>
-                            👨‍🏫
-                        </div>
+}
 
-                        <h3>
-                            Create
-                        </h3>
 
-                        <p>
-                            Faculty records the lecture,
-                            tutorial or educational video.
-                        </p>
+.mapping-item h3 {
 
-                    </div>
+    margin: 0;
 
+    color: var(--yt-primary);
 
-                    <div class="submission-step">
+    font-family: "Poppins", sans-serif;
 
-                        <span>
-                            02
-                        </span>
+    font-size: 0.85rem;
 
-                        <div>
-                            📝
-                        </div>
+}
 
-                        <h3>
-                            Submit
-                        </h3>
 
-                        <p>
-                            Faculty submits video details,
-                            course, topic and description.
-                        </p>
+.mapping-line {
 
-                    </div>
+    color: var(--yt-accent);
 
+    font-size: 1.25rem;
 
-                    <div class="submission-step">
+    font-weight: 800;
 
-                        <span>
-                            03
-                        </span>
+}
 
-                        <div>
-                            🔍
-                        </div>
 
-                        <h3>
-                            Review
-                        </h3>
+.course-mapping-note {
 
-                        <p>
-                            Content is checked for quality,
-                            organization and academic relevance.
-                        </p>
+    max-width: 900px;
 
-                    </div>
+    margin: 30px auto 0;
 
+    padding: 18px 22px;
 
-                    <div class="submission-step">
+    border: 1px solid rgba(
+        37,
+        99,
+        235,
+        0.15
+    );
 
-                        <span>
-                            04
-                        </span>
+    border-radius: 12px;
 
-                        <div>
-                            🧑‍💼
-                        </div>
+    background: #eff6ff;
 
-                        <h3>
-                            Upload
-                        </h3>
+    color: #475569;
 
-                        <p>
-                            The designated YouTube manager uploads
-                            and organizes the video.
-                        </p>
+    font-size: 0.78rem;
 
-                    </div>
+    line-height: 1.7;
 
+    text-align: center;
 
-                    <div class="submission-step">
+}
 
-                        <span>
-                            05
-                        </span>
 
-                        <div>
-                            🔗
-                        </div>
+.course-mapping-note strong {
 
-                        <h3>
-                            Connect
-                        </h3>
+    color: var(--yt-primary);
 
-                        <p>
-                            The published video is connected
-                            to the relevant PMAI Lab course.
-                        </p>
+}
 
-                    </div>
 
+/* =========================================================
+   CONTENT MODEL
+========================================================= */
 
-                </div>
+.youtube-content-model {
 
-            </div>
+    padding: 100px 20px;
 
-        </section>
+    background: var(--yt-surface);
 
+}
 
 
-        <!-- =================================================
-                     CHANNEL MANAGEMENT
-        ================================================== -->
+.content-model-grid {
 
-        <section class="youtube-management">
+    display: grid;
 
-            <div class="youtube-container">
+    grid-template-columns:
+        repeat(3, 1fr);
 
+    gap: 18px;
 
-                <div class="management-box">
+}
 
 
-                    <div class="management-content">
+.content-model-card {
 
-                        <p class="section-label">
-                            CHANNEL GOVERNANCE
-                        </p>
+    position: relative;
 
-                        <h2>
-                            One Channel.
-                            <span>One Management System.</span>
-                        </h2>
+    min-height: 190px;
 
-                        <p>
+    padding: 30px;
 
-                            PMAI Lab will maintain one official YouTube
-                            channel. Faculty members contribute content,
-                            while one designated channel manager is
-                            responsible for publishing, playlists,
-                            thumbnails, descriptions and channel
-                            organization.
+    border: 1px solid var(--yt-border);
 
-                        </p>
+    border-radius: 18px;
 
+    background: #ffffff;
 
-                        <div class="management-points">
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 
+}
 
-                            <div>
-                                <strong>
-                                    08
-                                </strong>
 
-                                <span>
-                                    Faculty Contributors
-                                </span>
-                            </div>
+.content-model-card:hover {
 
+    transform: translateY(-5px);
 
-                            <div>
-                                <strong>
-                                    01
-                                </strong>
+    box-shadow:
+        0 18px 40px rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
 
-                                <span>
-                                    Channel Manager
-                                </span>
-                            </div>
+}
 
 
-                            <div>
-                                <strong>
-                                    01
-                                </strong>
+.content-model-card > span {
 
-                                <span>
-                                    Official Channel
-                                </span>
-                            </div>
+    display: inline-flex;
 
+    align-items: center;
 
-                        </div>
+    justify-content: center;
 
-                    </div>
+    width: 34px;
 
+    height: 34px;
 
-                    <div class="management-visual">
+    margin-bottom: 20px;
 
-                        <div class="management-circle">
+    border-radius: 9px;
 
-                            <div class="management-main-icon">
-                                ▶
-                            </div>
+    background: #eff6ff;
 
-                            <strong>
-                                PMAI LAB
-                            </strong>
+    color: var(--yt-accent);
 
-                            <span>
-                                Official YouTube Channel
-                            </span>
+    font-size: 0.65rem;
 
-                        </div>
+    font-weight: 900;
 
-                    </div>
+}
 
-                </div>
 
-            </div>
+.content-model-card h3 {
 
-        </section>
+    margin: 0 0 10px;
 
+    color: var(--yt-primary);
 
+    font-family: "Poppins", sans-serif;
 
-        <!-- =================================================
-                     CONTRIBUTION TRACKING
-        ================================================== -->
+    font-size: 1rem;
 
-        <section class="youtube-tracking">
+}
 
-            <div class="youtube-container">
 
+.content-model-card p {
 
-                <div class="section-heading">
+    margin: 0;
 
-                    <p class="section-label">
-                        ACADEMIC CONTRIBUTION
-                    </p>
+    color: var(--yt-muted);
 
-                    <h2>
-                        Faculty
-                        <span>Contribution Tracking</span>
-                    </h2>
+    font-size: 0.76rem;
 
-                    <p>
+    line-height: 1.7;
 
-                        As the channel grows, PMAI Lab can maintain
-                        a transparent record of faculty contributions,
-                        courses and published educational content.
+}
 
-                    </p>
 
-                </div>
+/* =========================================================
+   LATEST VIDEOS
+========================================================= */
 
+.youtube-latest {
 
-                <div class="tracking-grid">
+    padding: 100px 20px;
 
+    background: #ffffff;
 
-                    <div class="tracking-card">
+}
 
-                        <strong>
-                            08
-                        </strong>
 
-                        <span>
-                            Faculty Contributors
-                        </span>
+.latest-video-grid {
 
-                    </div>
+    display: grid;
 
+    grid-template-columns:
+        repeat(3, 1fr);
 
-                    <div class="tracking-card">
+    gap: 20px;
 
-                        <strong>
-                            00
-                        </strong>
+}
 
-                        <span>
-                            Courses Connected
-                        </span>
 
-                    </div>
+.latest-video-card {
 
+    overflow: hidden;
 
-                    <div class="tracking-card">
+    border: 1px solid var(--yt-border);
 
-                        <strong>
-                            00
-                        </strong>
+    border-radius: 18px;
 
-                        <span>
-                            Videos Published
-                        </span>
+    background: #ffffff;
 
-                    </div>
+    box-shadow:
+        0 8px 25px rgba(
+            15,
+            23,
+            42,
+            0.04
+        );
 
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
-                    <div class="tracking-card">
+}
 
-                        <strong>
-                            00
-                        </strong>
 
-                        <span>
-                            Playlists Created
-                        </span>
+.latest-video-card:hover {
 
-                    </div>
+    transform: translateY(-7px);
 
+    box-shadow:
+        0 20px 45px rgba(
+            15,
+            23,
+            42,
+            0.1
+        );
 
-                    <div class="tracking-card">
+}
 
-                        <strong>
-                            00
-                        </strong>
 
-                        <span>
-                            Student Resources
-                        </span>
+.video-thumbnail {
 
-                    </div>
+    position: relative;
 
+    height: 205px;
 
-                </div>
+    display: flex;
 
-            </div>
+    align-items: center;
 
-        </section>
+    justify-content: center;
 
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e3a8a
+        );
 
+    overflow: hidden;
 
-        <!-- =================================================
-                     CHANNEL GROWTH
-        ================================================== -->
+}
 
-        <section class="youtube-growth">
 
-            <div class="youtube-container">
+.video-thumbnail::before {
 
+    content: "";
 
-                <div class="section-heading">
+    position: absolute;
 
-                    <p class="section-label">
-                        LONG-TERM VISION
-                    </p>
+    width: 170px;
 
-                    <h2>
-                        Grow an
-                        <span>Academic YouTube Channel</span>
-                    </h2>
+    height: 170px;
 
-                    <p>
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
 
-                        The goal is not simply to upload videos.
-                        The goal is to build a searchable, organized
-                        and sustainable academic learning library.
+    border-radius: 50%;
 
-                    </p>
+}
 
-                </div>
 
+.video-thumbnail span {
 
-                <div class="growth-grid">
+    position: absolute;
 
+    top: 15px;
 
-                    <article class="growth-card">
+    left: 16px;
 
-                        <span>
-                            PHASE 01
-                        </span>
+    padding: 5px 8px;
 
-                        <h3>
-                            Build the Foundation
-                        </h3>
+    border-radius: 5px;
 
-                        <p>
-                            Establish consistent branding,
-                            playlists, lecture naming and
-                            faculty contribution standards.
-                        </p>
+    background: rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
 
-                    </article>
+    color: #ffffff;
 
+    font-size: 0.55rem;
 
-                    <article class="growth-card">
+    font-weight: 800;
 
-                        <span>
-                            PHASE 02
-                        </span>
+    letter-spacing: 1px;
 
-                        <h3>
-                            Build the Library
-                        </h3>
+}
 
-                        <p>
-                            Publish complete courses, lecture
-                            series, tutorials and practical projects.
-                        </p>
 
-                    </article>
+.video-play {
 
+    position: relative;
 
-                    <article class="growth-card">
+    z-index: 2;
 
-                        <span>
-                            PHASE 03
-                        </span>
+    width: 58px;
 
-                        <h3>
-                            Reach Students
-                        </h3>
+    height: 58px;
 
-                        <p>
-                            Use Shorts, concept videos, playlists
-                            and course links to increase discovery.
-                        </p>
+    display: flex;
 
-                    </article>
+    align-items: center;
 
+    justify-content: center;
 
-                    <article class="growth-card">
+    border-radius: 50%;
 
-                        <span>
-                            PHASE 04
-                        </span>
+    background: #ffffff;
 
-                        <h3>
-                            Build Academic Authority
-                        </h3>
+    color: #dc2626;
 
-                        <p>
-                            Add seminars, research discussions,
-                            workshops, guest lectures and projects.
-                        </p>
+    font-size: 1rem;
 
-                    </article>
+    box-shadow:
+        0 10px 25px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
 
+}
 
-                </div>
 
-            </div>
+.video-content {
 
-        </section>
+    padding: 25px;
 
+}
 
 
-        <!-- =================================================
-                     ETHICAL MONETIZATION
-        ================================================== -->
+.video-category {
 
-        <section class="youtube-monetization">
+    display: block;
 
-            <div class="youtube-container">
+    margin-bottom: 8px;
 
+    color: var(--yt-accent);
 
-                <div class="monetization-box">
+    font-size: 0.6rem;
 
+    font-weight: 900;
 
-                    <div>
+    letter-spacing: 1px;
 
-                        <p class="section-label">
-                            SUSTAINABLE MODEL
-                        </p>
+}
 
-                        <h2>
-                            Ethical
-                            <span>Monetization</span>
-                        </h2>
 
-                        <p>
+.video-content h3 {
 
-                            If the channel becomes eligible for
-                            monetization, revenue can support the
-                            educational mission of PMAI Lab.
+    margin: 0 0 10px;
 
-                        </p>
+    color: var(--yt-primary);
 
-                    </div>
+    font-family: "Poppins", sans-serif;
 
+    font-size: 1rem;
 
-                    <div class="monetization-items">
+    line-height: 1.4;
 
+}
 
-                        <div>
-                            <span>01</span>
-                            <strong>Free Education</strong>
-                            <p>
-                                Keep core academic learning
-                                accessible to students.
-                            </p>
-                        </div>
 
+.video-content p {
 
-                        <div>
-                            <span>02</span>
-                            <strong>Channel Development</strong>
-                            <p>
-                                Support recording, editing,
-                                software and equipment.
-                            </p>
-                        </div>
+    margin: 0 0 18px;
 
+    color: var(--yt-muted);
 
-                        <div>
-                            <span>03</span>
-                            <strong>Academic Projects</strong>
-                            <p>
-                                Support student projects,
-                                workshops and educational activities.
-                            </p>
-                        </div>
+    font-size: 0.75rem;
 
+    line-height: 1.65;
 
-                    </div>
+}
 
-                </div>
 
-            </div>
+.video-content a {
 
-        </section>
+    color: var(--yt-accent);
 
+    font-size: 0.72rem;
 
+    font-weight: 800;
 
-        <!-- =================================================
-                         FINAL CTA
-        ================================================== -->
+    text-decoration: none;
 
-        <section class="youtube-cta">
+}
 
-            <div class="youtube-container">
 
+.video-content a:hover {
 
-                <p class="section-label">
-                    JOIN THE PMAI LAB COMMUNITY
-                </p>
+    text-decoration: underline;
 
+}
 
-                <h2>
-                    Learn. Teach. Build.
-                    <span>Together.</span>
-                </h2>
 
+.latest-video-action {
 
-                <p>
+    display: flex;
 
-                    Subscribe to the official PMAI Lab YouTube
-                    channel and become part of a growing academic
-                    community built around Mathematics, Python,
-                    Artificial Intelligence, Machine Learning
-                    and Data Science.
+    justify-content: center;
 
-                </p>
+    margin-top: 40px;
 
+}
 
-                <div class="youtube-cta-actions">
 
+/* =========================================================
+   FACULTY SUBMISSION WORKFLOW
+========================================================= */
 
-                    <a
-                        href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                        class="btn btn-primary"
-                        target="_blank"
-                        rel="noopener noreferrer">
+.youtube-submission {
 
-                        ▶ Subscribe to PMAI Lab
+    padding: 100px 20px;
 
-                    </a>
+    background: var(--yt-surface);
 
+}
 
-                    <a
-                        href="contact.html"
-                        class="btn btn-secondary">
 
-                        Collaborate With PMAI Lab
+.submission-grid {
 
-                    </a>
+    display: grid;
 
+    grid-template-columns:
+        repeat(5, 1fr);
 
-                </div>
+    gap: 15px;
 
-            </div>
+}
 
-        </section>
 
+.submission-step {
 
-    </main>
+    position: relative;
 
+    min-height: 220px;
 
+    padding: 25px;
 
-    <!-- =====================================================
-                         FOOTER
-    ====================================================== -->
+    border: 1px solid var(--yt-border);
 
-    <footer id="site-footer">
+    border-radius: 18px;
 
-        <div class="youtube-container">
+    background: #ffffff;
 
-            <div class="footer-main">
+    text-align: center;
 
-                <div>
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 
-                    <strong>
-                        PMAI LAB
-                    </strong>
+}
 
-                    <p>
-                        Python • Mathematics • Artificial Intelligence
-                        • Data Science
-                    </p>
 
-                </div>
+.submission-step:hover {
 
+    transform: translateY(-5px);
 
-                <div>
+    box-shadow:
+        0 18px 40px rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
 
-                    <a
-                        href="https://www.youtube.com/channel/UC494vuZRfJIxAhib4BJu_DA"
-                        target="_blank"
-                        rel="noopener noreferrer">
+}
 
-                        Official YouTube Channel →
 
-                    </a>
+.submission-step > span {
 
-                </div>
+    position: absolute;
 
-            </div>
+    top: 15px;
 
+    right: 17px;
 
-            <div class="footer-bottom">
+    color: #cbd5e1;
 
-                <p>
-                    © 2026 Python, Mathematics & Artificial
-                    Intelligence Lab. All Rights Reserved.
-                </p>
+    font-size: 0.65rem;
 
-            </div>
+    font-weight: 900;
 
-        </div>
+}
 
-    </footer>
 
+.submission-step > div {
 
+    width: 52px;
 
-    <!-- =====================================================
-                         JAVASCRIPT
-    ====================================================== -->
+    height: 52px;
 
-    <script src="assets/js/main.js"></script>
+    display: flex;
 
+    align-items: center;
 
-</body>
+    justify-content: center;
 
-</html>
-```
+    margin: 15px auto 18px;
+
+    border-radius: 14px;
+
+    background: #eff6ff;
+
+    font-size: 1.25rem;
+
+}
+
+
+.submission-step h3 {
+
+    margin: 0 0 9px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 0.95rem;
+
+}
+
+
+.submission-step p {
+
+    margin: 0;
+
+    color: var(--yt-muted);
+
+    font-size: 0.72rem;
+
+    line-height: 1.65;
+
+}
+
+
+/* =========================================================
+   CHANNEL MANAGEMENT
+========================================================= */
+
+.youtube-management {
+
+    padding: 100px 20px;
+
+    background: #ffffff;
+
+}
+
+
+.management-box {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(300px, 0.85fr);
+
+    gap: 50px;
+
+    align-items: center;
+
+    padding: 55px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554
+        );
+
+    box-shadow:
+        0 25px 60px rgba(
+            15,
+            23,
+            42,
+            0.14
+        );
+
+    overflow: hidden;
+
+}
+
+
+.management-content .section-label {
+
+    color: #93c5fd;
+
+}
+
+
+.management-content .section-label::before {
+
+    background: #60a5fa;
+
+}
+
+
+.management-content h2 {
+
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3rem
+    );
+
+    line-height: 1.15;
+
+}
+
+
+.management-content h2 span {
+
+    display: block;
+
+    color: #60a5fa;
+
+}
+
+
+.management-content > p:not(.section-label) {
+
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #cbd5e1;
+
+    font-size: 0.88rem;
+
+    line-height: 1.8;
+
+}
+
+
+.management-points {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+}
+
+
+.management-points > div {
+
+    padding: 17px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+
+    border-radius: 12px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+
+}
+
+
+.management-points strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    font-size: 1.35rem;
+
+}
+
+
+.management-points span {
+
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 0.6rem;
+
+    line-height: 1.5;
+
+}
+
+
+.management-visual {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.management-circle {
+
+    width: 270px;
+
+    height: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.12
+    );
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                37,
+                99,
+                235,
+                0.3
+            ),
+            rgba(
+                255,
+                255,
+                255,
+                0.03
+            )
+        );
+
+    box-shadow:
+        0 0 80px rgba(
+            37,
+            99,
+            235,
+            0.18
+        );
+
+}
+
+
+.management-main-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    color: #dc2626;
+
+    font-size: 1.2rem;
+
+}
+
+
+.management-circle strong {
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.05rem;
+
+}
+
+
+.management-circle span {
+
+    margin-top: 5px;
+
+    color: #94a3b8;
+
+    font-size: 0.6rem;
+
+}
+
+
+/* =========================================================
+   CONTRIBUTION TRACKING
+========================================================= */
+
+.youtube-tracking {
+
+    padding: 100px 20px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.tracking-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.tracking-card {
+
+    padding: 30px 20px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.tracking-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
+
+}
+
+
+.tracking-card strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--yt-accent);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 2rem;
+
+}
+
+
+.tracking-card span {
+
+    color: var(--yt-muted);
+
+    font-size: 0.65rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CHANNEL GROWTH
+========================================================= */
+
+.youtube-growth {
+
+    padding: 100px 20px;
+
+    background: #ffffff;
+
+}
+
+
+.growth-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.growth-card {
+
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 30px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.growth-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 40px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+
+}
+
+
+.growth-card > span {
+
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: var(--yt-accent);
+
+    font-size: 0.6rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+.growth-card h3 {
+
+    margin: 0 0 12px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1rem;
+
+}
+
+
+.growth-card p {
+
+    margin: 0;
+
+    color: var(--yt-muted);
+
+    font-size: 0.75rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   ETHICAL MONETIZATION
+========================================================= */
+
+.youtube-monetization {
+
+    padding: 100px 20px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.monetization-box {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+
+    gap: 55px;
+
+    align-items: center;
+
+    padding: 50px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 20px 50px rgba(
+            15,
+            23,
+            42,
+            0.06
+        );
+
+}
+
+
+.monetization-box h2 {
+
+    margin: 0 0 18px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        2.8rem
+    );
+
+    line-height: 1.15;
+
+}
+
+
+.monetization-box h2 span {
+
+    display: block;
+
+    color: var(--yt-accent);
+
+}
+
+
+.monetization-box > div:first-child > p:not(.section-label) {
+
+    margin: 0;
+
+    color: var(--yt-muted);
+
+    font-size: 0.86rem;
+
+    line-height: 1.8;
+
+}
+
+
+.monetization-items {
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+
+.monetization-items > div {
+
+    display: grid;
+
+    grid-template-columns:
+        42px
+        1fr;
+
+    column-gap: 14px;
+
+    padding: 18px;
+
+    border: 1px solid var(--yt-border);
+
+    border-radius: 13px;
+
+    background: var(--yt-surface);
+
+}
+
+
+.monetization-items span {
+
+    grid-row: span 2;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eff6ff;
+
+    color: var(--yt-accent);
+
+    font-size: 0.62rem;
+
+    font-weight: 900;
+
+}
+
+
+.monetization-items strong {
+
+    margin-bottom: 3px;
+
+    color: var(--yt-primary);
+
+    font-size: 0.82rem;
+
+}
+
+
+.monetization-items p {
+
+    margin: 0;
+
+    color: var(--yt-muted);
+
+    font-size: 0.7rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.youtube-cta {
+
+    position: relative;
+
+    padding: 110px 20px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eff6ff
+        );
+
+}
+
+
+.youtube-cta::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    top: -260px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(
+        37,
+        99,
+        235,
+        0.08
+    );
+
+}
+
+
+.youtube-cta > .youtube-container {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.youtube-cta h2 {
+
+    margin: 0 0 18px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(
+        2.2rem,
+        5vw,
+        3.6rem
+    );
+
+    line-height: 1.1;
+
+}
+
+
+.youtube-cta h2 span {
+
+    color: var(--yt-accent);
+
+}
+
+
+.youtube-cta p:not(.section-label) {
+
+    max-width: 700px;
+
+    margin: 0 auto 30px;
+
+    color: var(--yt-muted);
+
+    font-size: 0.92rem;
+
+    line-height: 1.8;
+
+}
+
+
+.youtube-cta-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+#site-footer {
+
+    border-top: 1px solid var(--yt-border);
+
+    background: #ffffff;
+
+}
+
+
+#site-footer .youtube-container {
+
+    padding-top: 32px;
+
+    padding-bottom: 25px;
+
+}
+
+
+.footer-main {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-bottom: 25px;
+
+}
+
+
+.footer-main strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--yt-primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 0.95rem;
+
+}
+
+
+.footer-main p {
+
+    margin: 0;
+
+    color: var(--yt-muted);
+
+    font-size: 0.68rem;
+
+}
+
+
+.footer-main a {
+
+    color: var(--yt-accent);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+}
+
+
+.footer-main a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+.footer-bottom {
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--yt-border);
+
+    text-align: center;
+
+}
+
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color: var(--yt-muted);
+
+    font-size: 0.65rem;
+
+}
+
+
+/* =========================================================
+   TABLET — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+
+    .youtube-hero > .youtube-container {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(300px, 0.7fr);
+
+        gap: 35px;
+
+    }
+
+
+    .contributors-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .growth-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .tracking-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .submission-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .course-mapping-flow {
+
+        grid-template-columns:
+            repeat(5, 1fr);
+
+    }
+
+
+    .course-mapping-flow .mapping-line {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET — 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .youtube-hero {
+
+        min-height: auto;
+
+        padding-top: 85px;
+
+    }
+
+
+    .youtube-hero > .youtube-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .youtube-channel-card {
+
+        max-width: 560px;
+
+    }
+
+
+    .youtube-introduction-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .youtube-system-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .system-arrow {
+
+        display: none;
+
+    }
+
+
+    .youtube-area-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .content-model-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .latest-video-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .management-box {
+
+        grid-template-columns: 1fr;
+
+        padding: 40px;
+
+    }
+
+
+    .management-visual {
+
+        padding-top: 10px;
+
+    }
+
+
+    .monetization-box {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 40px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — 650px
+========================================================= */
+
+@media (max-width: 650px) {
+
+
+    .youtube-page .youtube-container {
+
+        padding-left: 16px;
+
+        padding-right: 16px;
+
+    }
+
+
+    .youtube-hero {
+
+        padding: 70px 16px;
+
+    }
+
+
+    .youtube-hero h1 {
+
+        font-size: 2.65rem;
+
+        letter-spacing: -1.2px;
+
+    }
+
+
+    .youtube-hero-description {
+
+        font-size: 0.9rem;
+
+        line-height: 1.75;
+
+    }
+
+
+    .youtube-hero-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .youtube-page .btn {
+
+        width: 100%;
+
+    }
+
+
+    .youtube-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        margin-top: 35px;
+
+    }
+
+
+    .youtube-stat {
+
+        padding: 18px 12px;
+
+        border-bottom: 1px solid rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+
+    }
+
+
+    .youtube-stat:nth-child(2) {
+
+        border-right: none;
+
+    }
+
+
+    .youtube-stat:nth-child(3) {
+
+        border-bottom: none;
+
+    }
+
+
+    .youtube-stat:nth-child(4) {
+
+        border-right: none;
+
+        border-bottom: none;
+
+    }
+
+
+    .channel-card-meta {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .youtube-introduction,
+    .youtube-system,
+    .youtube-areas,
+    .youtube-contributors,
+    .youtube-course-mapping,
+    .youtube-content-model,
+    .youtube-latest,
+    .youtube-submission,
+    .youtube-management,
+    .youtube-tracking,
+    .youtube-growth,
+    .youtube-monetization,
+    .youtube-cta {
+
+        padding-top: 75px;
+
+        padding-bottom: 75px;
+
+    }
+
+
+    .youtube-page .section-heading {
+
+        margin-bottom: 35px;
+
+    }
+
+
+    .youtube-page .section-heading h2 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .youtube-system-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .youtube-area-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .contributors-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .course-mapping-flow {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .mapping-item {
+
+        min-height: 135px;
+
+    }
+
+
+    .mapping-line {
+
+        display: none;
+
+    }
+
+
+    .content-model-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .latest-video-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .submission-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .tracking-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .tracking-card:last-child {
+
+        grid-column: span 2;
+
+    }
+
+
+    .growth-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .management-box {
+
+        padding: 30px 22px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .management-points {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .management-circle {
+
+        width: 220px;
+
+        height: 220px;
+
+    }
+
+
+    .monetization-box {
+
+        padding: 30px 22px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .youtube-cta-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .footer-main {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 420px
+========================================================= */
+
+@media (max-width: 420px) {
+
+
+    .youtube-hero h1 {
+
+        font-size: 2.25rem;
+
+    }
+
+
+    .youtube-channel-card {
+
+        border-radius: 17px;
+
+    }
+
+
+    .channel-card-top,
+    .channel-card-body {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    .channel-card-button {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    .youtube-stat strong {
+
+        font-size: 1.25rem;
+
+    }
+
+
+    .tracking-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .tracking-card:last-child {
+
+        grid-column: auto;
+
+    }
+
+
+    .management-circle {
+
+        width: 190px;
+
+        height: 190px;
+
+    }
+
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.youtube-page a:focus-visible,
+.youtube-page button:focus-visible {
+
+    outline: 3px solid rgba(
+        37,
+        99,
+        235,
+        0.35
+    );
+
+    outline-offset: 3px;
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .youtube-page *,
+    .youtube-page *::before,
+    .youtube-page *::after {
+
+        scroll-behavior: auto !important;
+
+        transition: none !important;
+
+        animation: none !important;
+
+    }
+
+}
