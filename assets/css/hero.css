@@ -1,12 +1,20 @@
 /* =========================================================
-   PMAI LAB — PREMIUM HERO SECTION
+   PMAI LAB — PREMIUM HERO
+   File: assets/css/hero.css
+   Version: 3.0
+   Theme: Mathematics • Python • AI • Data Science
+========================================================= */
+
+
+/* =========================================================
+   HERO SECTION
 ========================================================= */
 
 .hero-section {
 
     position: relative;
 
-    min-height: 680px;
+    min-height: 720px;
 
     display: flex;
 
@@ -14,13 +22,103 @@
 
     overflow: hidden;
 
+    isolation: isolate;
+
     background:
+        radial-gradient(
+            circle at 78% 35%,
+            rgba(37, 99, 235, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(124, 58, 237, 0.06),
+            transparent 25%
+        ),
         linear-gradient(
             135deg,
             #f8fafc 0%,
-            #ffffff 50%,
+            #ffffff 48%,
             #eff6ff 100%
         );
+
+}
+
+
+/* =========================================================
+   HERO DECORATIVE GRID
+========================================================= */
+
+.hero-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background-image:
+        linear-gradient(
+            rgba(37, 99, 235, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(37, 99, 235, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        42px 42px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 80%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   HERO GLOW
+========================================================= */
+
+.hero-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+
+    height: 520px;
+
+    right: -190px;
+
+    top: -180px;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.10),
+            rgba(124, 58, 237, 0.04) 45%,
+            transparent 70%
+        );
+
+    filter:
+        blur(10px);
+
+    pointer-events: none;
 
 }
 
@@ -31,18 +129,25 @@
 
 .hero-container {
 
-    width: 100%;
+    position: relative;
 
-    max-width: 1200px;
+    width: min(
+        calc(100% - 40px),
+        1240px
+    );
+
+    min-height: 720px;
 
     margin: 0 auto;
 
-    padding: 90px 20px;
+    padding:
+        90px 0;
 
     display: grid;
 
     grid-template-columns:
-        1.15fr 0.85fr;
+        minmax(0, 1.08fr)
+        minmax(420px, 0.92fr);
 
     align-items: center;
 
@@ -57,10 +162,16 @@
 
 .hero-content {
 
+    position: relative;
+
     max-width: 720px;
 
 }
 
+
+/* =========================================================
+   OPTIONAL HERO LABEL
+========================================================= */
 
 .hero-label {
 
@@ -68,64 +179,139 @@
 
     align-items: center;
 
-    gap: 8px;
+    gap: 9px;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
-    padding: 7px 14px;
+    padding:
+        8px 14px;
 
-    border-radius: 30px;
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.16);
 
-    background: #dbeafe;
+    border-radius:
+        999px;
 
-    color: var(--accent);
+    background:
+        rgba(239, 246, 255, 0.85);
 
-    font-size: 0.78rem;
+    color:
+        #2563eb;
 
-    font-weight: 800;
+    font-size:
+        0.72rem;
 
-    letter-spacing: 1.5px;
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
 
 }
 
+
+/* =========================================================
+   HERO LABEL DOT
+========================================================= */
+
+.hero-label::before {
+
+    content: "";
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #2563eb;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(
+            37,
+            99,
+            235,
+            0.10
+        );
+
+}
+
+
+/* =========================================================
+   HERO HEADING
+========================================================= */
 
 .hero-content h1 {
 
-    margin-bottom: 25px;
+    max-width:
+        760px;
 
-    font-size: clamp(
-        2.6rem,
-        5vw,
-        4.6rem
-    );
+    margin:
+        0 0 26px;
 
-    line-height: 1.05;
+    color:
+        #0b1f3a;
 
-    letter-spacing: -2px;
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            5.25rem
+        );
 
-    color: var(--primary);
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -0.055em;
+
+    font-weight:
+        850;
 
 }
 
+
+/* =========================================================
+   HERO HEADING HIGHLIGHT
+========================================================= */
 
 .hero-content h1 span {
 
-    color: var(--accent);
+    color:
+        #2563eb;
 
 }
 
 
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
 .hero-description {
 
-    max-width: 650px;
+    max-width:
+        680px;
 
-    margin-bottom: 35px;
+    margin:
+        0 0 36px;
 
-    color: var(--text-light);
+    color:
+        #64748b;
 
-    font-size: 1.12rem;
+    font-size:
+        1.08rem;
 
-    line-height: 1.8;
+    line-height:
+        1.85;
 
 }
 
@@ -136,18 +322,148 @@
 
 .hero-buttons {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    align-items:
+        center;
 
-    gap: 14px;
+    flex-wrap:
+        wrap;
+
+    gap:
+        13px;
 
 }
 
 
+/* =========================================================
+   HERO BUTTON BASE
+========================================================= */
+
 .hero-buttons .btn {
 
-    padding: 14px 24px;
+    min-height:
+        50px;
+
+    padding:
+        13px 22px;
+
+    border-radius:
+        10px;
+
+    font-size:
+        0.92rem;
+
+    font-weight:
+        750;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+
+/* =========================================================
+   PRIMARY HERO BUTTON
+========================================================= */
+
+.hero-buttons .btn-primary {
+
+    background:
+        #0b1f3a;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid
+        #0b1f3a;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            11,
+            31,
+            58,
+            0.15
+        );
+
+}
+
+
+.hero-buttons .btn-primary:hover {
+
+    background:
+        #2563eb;
+
+    border-color:
+        #2563eb;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(
+            37,
+            99,
+            235,
+            0.22
+        );
+
+}
+
+
+/* =========================================================
+   SECONDARY HERO BUTTON
+========================================================= */
+
+.hero-buttons .btn-secondary {
+
+    border:
+        1px solid
+        #dbe2ea;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.85
+        );
+
+    color:
+        #0b1f3a;
+
+    box-shadow:
+        0 5px 18px
+        rgba(
+            15,
+            23,
+            42,
+            0.04
+        );
+
+}
+
+
+.hero-buttons .btn-secondary:hover {
+
+    border-color:
+        #93c5fd;
+
+    background:
+        #eff6ff;
+
+    color:
+        #2563eb;
+
+    transform:
+        translateY(-3px);
 
 }
 
@@ -158,303 +474,1119 @@
 
 .hero-visual {
 
-    display: flex;
+    position:
+        relative;
 
-    justify-content: center;
+    min-height:
+        500px;
 
-    align-items: center;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
 }
 
 
+/* =========================================================
+   VISUAL BACKGROUND GLOW
+========================================================= */
+
+.hero-visual::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    width:
+        430px;
+
+    height:
+        430px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                37,
+                99,
+                235,
+                0.12
+            ),
+            transparent 68%
+        );
+
+    filter:
+        blur(10px);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   HERO VISUAL CARD
+========================================================= */
+
 .hero-visual-card {
 
-    width: 360px;
+    position:
+        relative;
 
-    height: 360px;
+    width:
+        410px;
 
-    position: relative;
+    height:
+        410px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 30px;
+    border:
+        1px solid
+        rgba(
+            148,
+            163,
+            184,
+            0.28
+        );
 
-    background: white;
+    border-radius:
+        32px;
 
-    border: 1px solid var(--border);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.96
+            ),
+            rgba(
+                248,
+                250,
+                252,
+                0.90
+            )
+        );
 
     box-shadow:
-        0 30px 80px rgba(
+        0 35px 80px
+        rgba(
             15,
             23,
             42,
-            0.12
+            0.11
+        ),
+        inset 0 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.90
+        );
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   VISUAL CARD GRID
+========================================================= */
+
+.hero-visual-card::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background-image:
+        linear-gradient(
+            rgba(
+                37,
+                99,
+                235,
+                0.035
+            ) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(
+                37,
+                99,
+                235,
+                0.035
+            ) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        32px 32px;
+
+    opacity:
+        0.8;
+
+}
+
+
+/* =========================================================
+   VISUAL CARD TOP LINE
+========================================================= */
+
+.hero-visual-card::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        18px;
+
+    left:
+        18px;
+
+    right:
+        18px;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                37,
+                99,
+                235,
+                0.15
+            ),
+            transparent
         );
 
 }
 
 
 /* =========================================================
-   AI NETWORK VISUAL
+   AI NETWORK
 ========================================================= */
 
 .ai-network {
 
-    width: 250px;
+    position:
+        relative;
 
-    height: 250px;
+    z-index:
+        3;
 
-    position: relative;
+    width:
+        280px;
 
-}
-
-
-.ai-node {
-
-    position: absolute;
-
-    width: 48px;
-
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: var(--primary);
-
-    color: white;
-
-    font-weight: 800;
-
-    box-shadow:
-        0 10px 30px rgba(
-            11,
-            31,
-            58,
-            0.2
-        );
-
-}
-
-
-.node-1 {
-    top: 15px;
-    left: 100px;
-}
-
-.node-2 {
-    top: 95px;
-    left: 20px;
-}
-
-.node-3 {
-    top: 95px;
-    right: 20px;
-}
-
-.node-4 {
-    bottom: 20px;
-    left: 100px;
-}
-
-
-.ai-core {
-
-    position: absolute;
-
-    top: 95px;
-
-    left: 100px;
-
-    width: 50px;
-
-    height: 50px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background: var(--accent);
-
-    color: white;
-
-    font-size: 0.75rem;
-
-    font-weight: 800;
-
-    box-shadow:
-        0 15px 40px rgba(
-            37,
-            99,
-            235,
-            0.35
-        );
+    height:
+        280px;
 
 }
 
 
 /* =========================================================
-   DECORATIVE LINES
+   NETWORK OUTER RINGS
+========================================================= */
+
+.ai-network::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    width:
+        235px;
+
+    height:
+        235px;
+
+    left:
+        22px;
+
+    top:
+        22px;
+
+    border:
+        1px dashed
+        rgba(
+            37,
+            99,
+            235,
+            0.18
+        );
+
+    border-radius:
+        50%;
+
+}
+
+
+.ai-network::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    width:
+        175px;
+
+    height:
+        175px;
+
+    left:
+        52px;
+
+    top:
+        52px;
+
+    border:
+        1px solid
+        rgba(
+            124,
+            58,
+            237,
+            0.10
+        );
+
+    border-radius:
+        50%;
+
+}
+
+
+/* =========================================================
+   AI NODES
+========================================================= */
+
+.ai-node {
+
+    position:
+        absolute;
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.35
+        );
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1f3a,
+            #1e3a5f
+        );
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        850;
+
+    box-shadow:
+        0 12px 28px
+        rgba(
+            11,
+            31,
+            58,
+            0.20
+        );
+
+    z-index:
+        5;
+
+}
+
+
+/* =========================================================
+   NODE 1 — MATHEMATICS
+========================================================= */
+
+.node-1 {
+
+    top:
+        6px;
+
+    left:
+        111px;
+
+}
+
+
+/* =========================================================
+   NODE 2 — PI
+========================================================= */
+
+.node-2 {
+
+    top:
+        101px;
+
+    left:
+        8px;
+
+}
+
+
+/* =========================================================
+   NODE 3 — PYTHON
+========================================================= */
+
+.node-3 {
+
+    top:
+        101px;
+
+    right:
+        8px;
+
+}
+
+
+/* =========================================================
+   NODE 4 — MACHINE LEARNING
+========================================================= */
+
+.node-4 {
+
+    bottom:
+        8px;
+
+    left:
+        111px;
+
+}
+
+
+/* =========================================================
+   AI CORE
+========================================================= */
+
+.ai-core {
+
+    position:
+        absolute;
+
+    top:
+        104px;
+
+    left:
+        104px;
+
+    width:
+        72px;
+
+    height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        4px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.85
+        );
+
+    border-radius:
+        20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #6366f1,
+            #7c3aed
+        );
+
+    color:
+        #ffffff;
+
+    font-size:
+        1rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.05em;
+
+    box-shadow:
+        0 18px 45px
+        rgba(
+            37,
+            99,
+            235,
+            0.30
+        );
+
+    z-index:
+        10;
+
+}
+
+
+/* =========================================================
+   CORE GLOW
+========================================================= */
+
+.ai-core::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    inset:
+        -12px;
+
+    border-radius:
+        24px;
+
+    border:
+        1px solid
+        rgba(
+            37,
+            99,
+            235,
+            0.20
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(
+            37,
+            99,
+            235,
+            0.12
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   NETWORK LINES
 ========================================================= */
 
 .network-line {
 
-    position: absolute;
+    position:
+        absolute;
 
-    height: 2px;
+    height:
+        2px;
 
-    background: #bfdbfe;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(
+                37,
+                99,
+                235,
+                0.12
+            ),
+            rgba(
+                37,
+                99,
+                235,
+                0.50
+            )
+        );
 
-    transform-origin: left center;
+    transform-origin:
+        left center;
 
-}
-
-
-.line-1 {
-
-    width: 90px;
-
-    top: 90px;
-
-    left: 60px;
-
-    transform: rotate(35deg);
-
-}
-
-
-.line-2 {
-
-    width: 90px;
-
-    top: 90px;
-
-    right: 60px;
-
-    transform: rotate(145deg);
-
-}
-
-
-.line-3 {
-
-    width: 90px;
-
-    top: 140px;
-
-    left: 60px;
-
-    transform: rotate(-35deg);
-
-}
-
-
-.line-4 {
-
-    width: 90px;
-
-    top: 140px;
-
-    right: 60px;
-
-    transform: rotate(35deg);
+    z-index:
+        2;
 
 }
 
 
 /* =========================================================
-   HERO RESPONSIVE
+   LINE 1
 ========================================================= */
 
-@media (max-width: 900px) {
+.line-1 {
 
-    .hero-container {
+    width:
+        105px;
 
-        grid-template-columns: 1fr;
+    top:
+        115px;
 
-        text-align: center;
+    left:
+        55px;
 
-        gap: 50px;
-
-    }
-
-
-    .hero-content {
-
-        margin: 0 auto;
-
-    }
-
-
-    .hero-buttons {
-
-        justify-content: center;
-
-    }
-
-
-    .hero-visual-card {
-
-        width: 300px;
-
-        height: 300px;
-
-    }
+    transform:
+        rotate(
+            31deg
+        );
 
 }
 
 
-@media (max-width: 600px) {
+/* =========================================================
+   LINE 2
+========================================================= */
 
-    .hero-section {
+.line-2 {
 
-        min-height: auto;
+    width:
+        105px;
 
-    }
+    top:
+        115px;
 
+    right:
+        55px;
+
+    transform:
+        rotate(
+            149deg
+        );
+
+}
+
+
+/* =========================================================
+   LINE 3
+========================================================= */
+
+.line-3 {
+
+    width:
+        105px;
+
+    top:
+        165px;
+
+    left:
+        55px;
+
+    transform:
+        rotate(
+            -31deg
+        );
+
+}
+
+
+/* =========================================================
+   LINE 4
+========================================================= */
+
+.line-4 {
+
+    width:
+        105px;
+
+    top:
+        165px;
+
+    right:
+        55px;
+
+    transform:
+        rotate(
+            31deg
+        );
+
+}
+
+
+/* =========================================================
+   VISUAL FLOATING LABELS
+   Works if labels are added later
+========================================================= */
+
+.hero-visual-card .visual-label {
+
+    position:
+        absolute;
+
+    z-index:
+        8;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid
+        #e2e8f0;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.92
+        );
+
+    color:
+        #475569;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        750;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
+
+}
+
+
+/* =========================================================
+   HERO RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
 
     .hero-container {
 
-        padding:
-            70px 20px;
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(340px, 0.75fr);
+
+        gap:
+            45px;
 
     }
 
 
     .hero-content h1 {
 
-        font-size: 2.5rem;
-
-        letter-spacing: -1px;
-
-    }
-
-
-    .hero-description {
-
-        font-size: 1rem;
+        font-size:
+            clamp(
+                2.8rem,
+                5.5vw,
+                4.5rem
+            );
 
     }
 
 
     .hero-visual-card {
 
-        width: 270px;
+        width:
+            350px;
 
-        height: 270px;
+        height:
+            350px;
+
+    }
+
+
+    .hero-visual {
+
+        min-height:
+            430px;
+
+    }
+
+}
+
+
+/* =========================================================
+   HERO RESPONSIVE — MOBILE/TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .hero-section {
+
+        min-height:
+            auto;
+
+    }
+
+
+    .hero-container {
+
+        width:
+            min(
+                calc(100% - 32px),
+                760px
+            );
+
+        min-height:
+            auto;
+
+        padding:
+            80px 0;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            60px;
+
+        text-align:
+            center;
+
+    }
+
+
+    .hero-content {
+
+        max-width:
+            760px;
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .hero-content h1 {
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+
+    }
+
+
+    .hero-description {
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+
+    }
+
+
+    .hero-buttons {
+
+        justify-content:
+            center;
+
+    }
+
+
+    .hero-visual {
+
+        min-height:
+            400px;
+
+    }
+
+
+    .hero-visual-card {
+
+        width:
+            360px;
+
+        height:
+            360px;
+
+    }
+
+}
+
+
+/* =========================================================
+   HERO RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero-container {
+
+        width:
+            min(
+                calc(100% - 28px),
+                600px
+            );
+
+        padding:
+            70px 0;
+
+        gap:
+            45px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size:
+            clamp(
+                2.45rem,
+                11vw,
+                3.6rem
+            );
+
+        line-height:
+            1.02;
+
+        letter-spacing:
+            -0.045em;
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+            1rem;
+
+        line-height:
+            1.75;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        width:
+            100%;
+
+        max-width:
+            340px;
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .hero-buttons .btn {
+
+        width:
+            100%;
+
+        text-align:
+            center;
+
+    }
+
+
+    .hero-visual {
+
+        min-height:
+            330px;
+
+    }
+
+
+    .hero-visual-card {
+
+        width:
+            300px;
+
+        height:
+            300px;
+
+        border-radius:
+            26px;
+
+    }
+
+
+    .ai-network {
+
+        transform:
+            scale(
+                0.82
+            );
+
+    }
+
+
+    .hero-visual::before {
+
+        width:
+            330px;
+
+        height:
+            330px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero-container {
+
+        padding:
+            60px 0;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size:
+            2.35rem;
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+            0.95rem;
+
+    }
+
+
+    .hero-visual {
+
+        min-height:
+            290px;
+
+    }
+
+
+    .hero-visual-card {
+
+        width:
+            270px;
+
+        height:
+            270px;
+
+        border-radius:
+            22px;
+
+    }
+
+
+    .ai-network {
+
+        transform:
+            scale(
+                0.70
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.hero-buttons .btn:focus-visible {
+
+    outline:
+        3px solid
+        rgba(
+            37,
+            99,
+            235,
+            0.28
+        );
+
+    outline-offset:
+        4px;
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-buttons .btn {
+
+        transition:
+            none;
 
     }
 
