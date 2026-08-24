@@ -5,7 +5,8 @@
 
     <!-- =====================================================
          PMAI LAB — FACULTY LOGIN
-         Version 1.0
+         Version 2.0
+         Supabase Authentication
     ====================================================== -->
 
     <meta charset="UTF-8">
@@ -53,7 +54,14 @@
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/faculty-login.css">
+
+
+    <!-- =====================================================
+         SUPABASE
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 </head>
 
@@ -441,7 +449,9 @@
 
 
 
-                        <!-- LOGIN FORM -->
+                        <!-- =================================================
+                             LOGIN FORM
+                        ================================================== -->
 
                         <form
                             id="facultyLoginForm"
@@ -454,9 +464,7 @@
                             <div class="form-group">
 
                                 <label for="faculty-name">
-
                                     Faculty Name
-
                                 </label>
 
 
@@ -478,14 +486,12 @@
 
 
 
-                            <!-- SUBJECT / COURSE -->
+                            <!-- ASSIGNED COURSE -->
 
                             <div class="form-group">
 
                                 <label for="faculty-course">
-
                                     Assigned Course
-
                                 </label>
 
 
@@ -547,9 +553,7 @@
                             <div class="form-group">
 
                                 <label for="faculty-email">
-
                                     Faculty Email
-
                                 </label>
 
 
@@ -578,9 +582,7 @@
                                 <div class="password-label-row">
 
                                     <label for="faculty-password">
-
                                         Password
-
                                     </label>
 
                                     <a href="#"
@@ -647,13 +649,17 @@
 
                             <button
                                 type="submit"
-                                class="login-submit">
+                                class="login-submit"
+                                id="loginSubmit">
 
-                                <span>
+                                <span id="loginButtonText">
                                     Sign In to Faculty Portal
                                 </span>
 
-                                <i class="fa-solid fa-arrow-right"></i>
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    id="loginButtonIcon">
+                                </i>
 
                             </button>
 
@@ -682,8 +688,8 @@
                             <p>
 
                                 Faculty access is restricted.
-                                Your account will be connected
-                                to the PMAI Lab academic system.
+                                Authentication is securely handled
+                                through the PMAI Lab authentication system.
 
                             </p>
 
@@ -890,7 +896,7 @@
 
                             Only authorized faculty members should
                             access the publishing system. Login
-                            credentials must never be stored directly
+                            credentials are never stored directly
                             inside frontend HTML or JavaScript.
 
                         </p>
@@ -1000,13 +1006,47 @@
 
 
     <!-- =====================================================
-                         JAVASCRIPT
+                     SUPABASE AUTHENTICATION
     ====================================================== -->
 
     <script>
 
         /* =====================================================
-           MOBILE NAVIGATION
+           PMAI LAB — SUPABASE CONFIGURATION
+        ===================================================== */
+
+        const SUPABASE_URL =
+            "https://gadjlmdtqqzpxmzjmgik.supabase.co";
+
+
+        /*
+         * IMPORTANT:
+         *
+         * Replace the value below with the actual
+         * Supabase PUBLISHABLE KEY.
+         *
+         * Do NOT use the service_role / secret key.
+         */
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+
+
+        const {
+            createClient
+        } = window.supabase;
+
+
+        const supabaseClient =
+            createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+
+
+        /* =====================================================
+           DOM ELEMENTS
         ===================================================== */
 
         const menuToggle =
@@ -1015,6 +1055,47 @@
         const navMenu =
             document.getElementById("nav-menu");
 
+        const passwordToggle =
+            document.getElementById("passwordToggle");
+
+        const passwordInput =
+            document.getElementById("faculty-password");
+
+        const loginForm =
+            document.getElementById("facultyLoginForm");
+
+        const loginMessage =
+            document.getElementById("loginMessage");
+
+        const loginSubmit =
+            document.getElementById("loginSubmit");
+
+        const loginButtonText =
+            document.getElementById("loginButtonText");
+
+        const loginButtonIcon =
+            document.getElementById("loginButtonIcon");
+
+        const forgotPassword =
+            document.getElementById("forgotPassword");
+
+        const facultyNameInput =
+            document.getElementById("faculty-name");
+
+        const facultyCourseInput =
+            document.getElementById("faculty-course");
+
+        const facultyEmailInput =
+            document.getElementById("faculty-email");
+
+        const rememberMe =
+            document.getElementById("remember-me");
+
+
+
+        /* =====================================================
+           MOBILE NAVIGATION
+        ===================================================== */
 
         if (menuToggle && navMenu) {
 
@@ -1041,13 +1122,6 @@
            PASSWORD VISIBILITY
         ===================================================== */
 
-        const passwordToggle =
-            document.getElementById("passwordToggle");
-
-        const passwordInput =
-            document.getElementById("faculty-password");
-
-
         if (passwordToggle && passwordInput) {
 
             passwordToggle.addEventListener(
@@ -1057,8 +1131,11 @@
                     const isPassword =
                         passwordInput.type === "password";
 
+
                     passwordInput.type =
-                        isPassword ? "text" : "password";
+                        isPassword
+                            ? "text"
+                            : "password";
 
 
                     const icon =
@@ -1090,35 +1167,757 @@
 
 
         /* =====================================================
-           LOGIN FORM — DEMO STATE
-           
-           IMPORTANT:
-           This does NOT authenticate a real user.
-           Real authentication will be connected later.
+           LOGIN MESSAGE
         ===================================================== */
 
-        const loginForm =
-            document.getElementById("facultyLoginForm");
+        function showLoginMessage(
+            message,
+            type = "info"
+        ) {
 
-        const loginMessage =
-            document.getElementById("loginMessage");
+            if (!loginMessage) {
+                return;
+            }
 
+
+            loginMessage.className =
+                "login-message " + type;
+
+
+            loginMessage.textContent =
+                message;
+
+        }
+
+
+
+        /* =====================================================
+           LOGIN BUTTON STATE
+        ===================================================== */
+
+        function setLoginLoading(
+            loading
+        ) {
+
+            if (!loginSubmit) {
+                return;
+            }
+
+
+            loginSubmit.disabled =
+                loading;
+
+
+            if (loading) {
+
+                loginButtonText.textContent =
+                    "Authenticating...";
+
+
+                loginButtonIcon.className =
+                    "fa-solid fa-spinner fa-spin";
+
+            } else {
+
+                loginButtonText.textContent =
+                    "Sign In to Faculty Portal";
+
+
+                loginButtonIcon.className =
+                    "fa-solid fa-arrow-right";
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           FRIENDLY SUPABASE ERROR
+        ===================================================== */
+
+        function getFriendlyAuthError(
+            error
+        ) {
+
+            if (!error) {
+
+                return "Unable to sign in.";
+
+            }
+
+
+            const message =
+                error.message || "";
+
+
+            if (
+                message.toLowerCase()
+                    .includes("invalid login credentials")
+            ) {
+
+                return "Incorrect email or password.";
+
+            }
+
+
+            if (
+                message.toLowerCase()
+                    .includes("email not confirmed")
+            ) {
+
+                return "Your email address has not been confirmed.";
+
+            }
+
+
+            if (
+                message.toLowerCase()
+                    .includes("too many requests")
+            ) {
+
+                return "Too many login attempts. Please wait and try again.";
+
+            }
+
+
+            return message ||
+                "Authentication failed. Please try again.";
+
+        }
+
+
+
+        /* =====================================================
+           CHECK EXISTING SESSION
+        ===================================================== */
+
+        async function checkExistingSession() {
+
+            try {
+
+                const {
+                    data,
+                    error
+                } =
+                    await supabaseClient.auth.getSession();
+
+
+                if (error) {
+
+                    console.error(
+                        "Session error:",
+                        error
+                    );
+
+                    return;
+
+                }
+
+
+                const session =
+                    data.session;
+
+
+                if (!session) {
+                    return;
+                }
+
+
+                /*
+                 * A session already exists.
+                 *
+                 * Check the faculty record before
+                 * redirecting.
+                 */
+
+                const {
+                    data: faculty,
+                    error: facultyError
+                } =
+                    await supabaseClient
+                        .from("faculty")
+                        .select(`
+                            id,
+                            faculty_name,
+                            faculty_email,
+                            designation,
+                            department,
+                            profile_photo,
+                            role,
+                            is_active
+                        `)
+                        .eq("id", session.user.id)
+                        .single();
+
+
+                if (
+                    facultyError ||
+                    !faculty
+                ) {
+
+                    await supabaseClient.auth.signOut();
+
+                    return;
+
+                }
+
+
+                if (!faculty.is_active) {
+
+                    await supabaseClient.auth.signOut();
+
+                    showLoginMessage(
+                        "Your faculty account is currently inactive.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * User is already authenticated.
+                 */
+
+                window.location.href =
+                    "faculty-dashboard.html";
+
+            } catch (error) {
+
+                console.error(
+                    "Session check failed:",
+                    error
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           VERIFY FACULTY PROFILE
+        ===================================================== */
+
+        async function getFacultyProfile(
+            userId
+        ) {
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient
+                    .from("faculty")
+                    .select(`
+                        id,
+                        faculty_name,
+                        faculty_email,
+                        designation,
+                        department,
+                        profile_photo,
+                        github_username,
+                        github_profile_url,
+                        bio,
+                        role,
+                        is_active
+                    `)
+                    .eq("id", userId)
+                    .single();
+
+
+            if (error) {
+
+                console.error(
+                    "Faculty profile error:",
+                    error
+                );
+
+
+                throw new Error(
+                    "Your faculty profile could not be found."
+                );
+
+            }
+
+
+            return data;
+
+        }
+
+
+
+        /* =====================================================
+           VERIFY SELECTED COURSE
+        ===================================================== */
+
+        async function verifyAssignedCourse(
+            facultyId,
+            selectedCourse
+        ) {
+
+            /*
+             * "other" is allowed for now.
+             *
+             * Later, courses will be loaded
+             * dynamically from the database.
+             */
+
+            if (
+                !selectedCourse ||
+                selectedCourse === "other"
+            ) {
+
+                return true;
+
+            }
+
+
+            /*
+             * The current HTML course values are
+             * slugs, while the database uses course IDs.
+             *
+             * We therefore look up the course code
+             * according to the selected option.
+             */
+
+            const courseMap = {
+
+                "calculus-i":
+                    "MATH-101",
+
+                "linear-algebra":
+                    "MATH-201",
+
+                "discrete-mathematics":
+                    "MATH-202",
+
+                "programming-fundamentals":
+                    "CS-101",
+
+                "python-programming":
+                    "CS-201",
+
+                "data-science":
+                    "DS-301",
+
+                "machine-learning":
+                    "AI-301"
+
+            };
+
+
+            const courseCode =
+                courseMap[selectedCourse];
+
+
+            if (!courseCode) {
+
+                return true;
+
+            }
+
+
+            const {
+                data: course,
+                error: courseError
+            } =
+                await supabaseClient
+                    .from("courses")
+                    .select("id")
+                    .eq(
+                        "course_code",
+                        courseCode
+                    )
+                    .maybeSingle();
+
+
+            if (courseError) {
+
+                console.error(
+                    "Course lookup error:",
+                    courseError
+                );
+
+                /*
+                 * Do not block authentication
+                 * because a course has not yet
+                 * been inserted into the database.
+                 */
+
+                return true;
+
+            }
+
+
+            if (!course) {
+
+                /*
+                 * Course is not yet in database.
+                 * We'll allow login for now.
+                 */
+
+                return true;
+
+            }
+
+
+            const {
+                data: assignment,
+                error: assignmentError
+            } =
+                await supabaseClient
+                    .from("faculty_courses")
+                    .select("id")
+                    .eq(
+                        "faculty_id",
+                        facultyId
+                    )
+                    .eq(
+                        "course_id",
+                        course.id
+                    )
+                    .maybeSingle();
+
+
+            if (assignmentError) {
+
+                console.error(
+                    "Assignment verification error:",
+                    assignmentError
+                );
+
+                return false;
+
+            }
+
+
+            return Boolean(assignment);
+
+        }
+
+
+
+        /* =====================================================
+           FACULTY LOGIN
+        ===================================================== */
+
+        async function loginFaculty(
+            email,
+            password,
+            facultyName,
+            selectedCourse
+        ) {
+
+            /*
+             * Authenticate with Supabase.
+             */
+
+            const {
+                data: authData,
+                error: authError
+            } =
+                await supabaseClient.auth
+                    .signInWithPassword({
+
+                        email: email,
+
+                        password: password
+
+                    });
+
+
+            if (authError) {
+
+                throw authError;
+
+            }
+
+
+            const user =
+                authData.user;
+
+
+            if (!user) {
+
+                throw new Error(
+                    "Authentication failed."
+                );
+
+            }
+
+
+            /*
+             * Get faculty profile.
+             */
+
+            const faculty =
+                await getFacultyProfile(
+                    user.id
+                );
+
+
+            /*
+             * Account active check.
+             */
+
+            if (!faculty.is_active) {
+
+                await supabaseClient.auth.signOut();
+
+                throw new Error(
+                    "Your faculty account is currently inactive. Please contact PMAI Lab administration."
+                );
+
+            }
+
+
+            /*
+             * Optional faculty-name verification.
+             *
+             * We don't use the name as authentication.
+             * Password + email remain the real credentials.
+             */
+
+            if (
+                facultyName &&
+                faculty.faculty_name &&
+                facultyName.trim()
+                    .toLowerCase() !==
+                faculty.faculty_name
+                    .trim()
+                    .toLowerCase()
+            ) {
+
+                await supabaseClient.auth.signOut();
+
+                throw new Error(
+                    "The faculty name does not match your registered account."
+                );
+
+            }
+
+
+            /*
+             * Verify selected course if the course
+             * already exists in the database.
+             */
+
+            const courseAllowed =
+                await verifyAssignedCourse(
+                    user.id,
+                    selectedCourse
+                );
+
+
+            if (!courseAllowed) {
+
+                await supabaseClient.auth.signOut();
+
+                throw new Error(
+                    "You are not assigned to the selected course."
+                );
+
+            }
+
+
+            /*
+             * Save small non-sensitive information
+             * for the dashboard.
+             *
+             * NEVER store the password.
+             */
+
+            try {
+
+                sessionStorage.setItem(
+                    "pmai_faculty_role",
+                    faculty.role
+                );
+
+                sessionStorage.setItem(
+                    "pmai_faculty_name",
+                    faculty.faculty_name
+                );
+
+                sessionStorage.setItem(
+                    "pmai_faculty_email",
+                    faculty.faculty_email
+                );
+
+            } catch (storageError) {
+
+                console.warn(
+                    "Session storage unavailable:",
+                    storageError
+                );
+
+            }
+
+
+            /*
+             * Role-based routing.
+             *
+             * Currently both roles use the same
+             * faculty dashboard.
+             */
+
+            if (
+                faculty.role === "admin" ||
+                faculty.role === "faculty"
+            ) {
+
+                window.location.href =
+                    "faculty-dashboard.html";
+
+                return;
+
+            }
+
+
+            /*
+             * Invalid role.
+             */
+
+            await supabaseClient.auth.signOut();
+
+            throw new Error(
+                "Your account has an invalid PMAI Lab role."
+            );
+
+        }
+
+
+
+        /* =====================================================
+           LOGIN FORM
+        ===================================================== */
 
         if (loginForm) {
 
             loginForm.addEventListener(
                 "submit",
-                function (event) {
+                async function (event) {
 
                     event.preventDefault();
 
 
-                    loginMessage.className =
-                        "login-message info";
+                    const facultyName =
+                        facultyNameInput
+                            ? facultyNameInput.value.trim()
+                            : "";
 
 
-                    loginMessage.textContent =
-                        "Faculty authentication will be connected in the next stage. Please do not enter real passwords yet.";
+                    const selectedCourse =
+                        facultyCourseInput
+                            ? facultyCourseInput.value
+                            : "";
+
+
+                    const email =
+                        facultyEmailInput
+                            ? facultyEmailInput.value
+                                .trim()
+                                .toLowerCase()
+                            : "";
+
+
+                    const password =
+                        passwordInput
+                            ? passwordInput.value
+                            : "";
+
+
+                    /*
+                     * Basic validation.
+                     */
+
+                    if (!facultyName) {
+
+                        showLoginMessage(
+                            "Please enter your faculty name.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    if (!selectedCourse) {
+
+                        showLoginMessage(
+                            "Please select your assigned course.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    if (!email) {
+
+                        showLoginMessage(
+                            "Please enter your faculty email.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    if (!password) {
+
+                        showLoginMessage(
+                            "Please enter your password.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    setLoginLoading(true);
+
+
+                    showLoginMessage(
+                        "Authenticating your faculty account...",
+                        "info"
+                    );
+
+
+                    try {
+
+                        await loginFaculty(
+                            email,
+                            password,
+                            facultyName,
+                            selectedCourse
+                        );
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Faculty login error:",
+                            error
+                        );
+
+
+                        showLoginMessage(
+                            getFriendlyAuthError(error),
+                            "error"
+                        );
+
+
+                        setLoginLoading(false);
+
+                    }
 
                 }
             );
@@ -1131,28 +1930,150 @@
            FORGOT PASSWORD
         ===================================================== */
 
-        const forgotPassword =
-            document.getElementById("forgotPassword");
-
-
         if (forgotPassword) {
 
             forgotPassword.addEventListener(
                 "click",
-                function (event) {
+                async function (event) {
 
                     event.preventDefault();
 
-                    loginMessage.className =
-                        "login-message info";
 
-                    loginMessage.textContent =
-                        "Please contact PMAI Lab administration to reset or request faculty access.";
+                    const email =
+                        facultyEmailInput
+                            ? facultyEmailInput.value
+                                .trim()
+                                .toLowerCase()
+                            : "";
+
+
+                    if (!email) {
+
+                        showLoginMessage(
+                            "Enter your faculty email first, then click Forgot password.",
+                            "info"
+                        );
+
+                        if (facultyEmailInput) {
+
+                            facultyEmailInput.focus();
+
+                        }
+
+                        return;
+
+                    }
+
+
+                    try {
+
+                        showLoginMessage(
+                            "Sending password reset email...",
+                            "info"
+                        );
+
+
+                        const {
+                            error
+                        } =
+                            await supabaseClient
+                                .auth
+                                .resetPasswordForEmail(
+                                    email,
+                                    {
+                                        redirectTo:
+                                            window.location.origin +
+                                            "/faculty-reset-password.html"
+                                    }
+                                );
+
+
+                        if (error) {
+
+                            throw error;
+
+                        }
+
+
+                        showLoginMessage(
+                            "Password reset instructions have been sent to your email.",
+                            "success"
+                        );
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Password reset error:",
+                            error
+                        );
+
+
+                        showLoginMessage(
+                            error.message ||
+                            "Unable to send password reset email.",
+                            "error"
+                        );
+
+                    }
 
                 }
             );
 
         }
+
+
+
+        /* =====================================================
+           AUTH STATE LISTENER
+        ===================================================== */
+
+        supabaseClient.auth.onAuthStateChange(
+            function (event, session) {
+
+                console.log(
+                    "Supabase Auth Event:",
+                    event
+                );
+
+
+                if (event === "SIGNED_OUT") {
+
+                    try {
+
+                        sessionStorage.removeItem(
+                            "pmai_faculty_role"
+                        );
+
+                        sessionStorage.removeItem(
+                            "pmai_faculty_name"
+                        );
+
+                        sessionStorage.removeItem(
+                            "pmai_faculty_email"
+                        );
+
+                    } catch (error) {
+
+                        console.warn(
+                            "Storage cleanup failed:",
+                            error
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           INITIALIZATION
+        ===================================================== */
+
+        checkExistingSession();
 
     </script>
 
