@@ -80,97 +80,277 @@
             <div class="navbar-container">
 
 
-                <!-- LOGO -->
+              
+                <!-- =================================================
+                             PMAI LAB LOGO
+                ================================================== -->
 
                 <a href="index.html"
                    class="navbar-logo"
                    aria-label="PMAI Lab Home">
 
-                    <span class="logo-symbol">
-                        PMAI
-                    </span>
 
-                    <span class="logo-text">
+                    <div class="logo-symbol">
+
+                        <svg
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+
+
+                            <defs>
+
+                                <linearGradient
+                                    id="pmaiGlow"
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="100%">
+
+                                    <stop
+                                        offset="0%"
+                                        stop-color="#2563eb"/>
+
+                                    <stop
+                                        offset="100%"
+                                        stop-color="#7c3aed"/>
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <!-- Geometry -->
+
+                            <polygon
+                                points="50,15 85,50 50,85 15,50"
+                                stroke="url(#pmaiGlow)"
+                                stroke-width="6"
+                                fill="none"/>
+
+
+                            <!-- Network Lines -->
+
+                            <line
+                                x1="50"
+                                y1="15"
+                                x2="50"
+                                y2="85"
+                                stroke="url(#pmaiGlow)"
+                                stroke-width="3"
+                                stroke-dasharray="4 4"/>
+
+
+                            <line
+                                x1="15"
+                                y1="50"
+                                x2="85"
+                                y2="50"
+                                stroke="url(#pmaiGlow)"
+                                stroke-width="3"
+                                stroke-dasharray="4 4"/>
+
+
+                            <!-- Nodes -->
+
+                            <circle
+                                cx="50"
+                                cy="15"
+                                r="7"
+                                fill="#2563eb"/>
+
+
+                            <circle
+                                cx="85"
+                                cy="50"
+                                r="7"
+                                fill="#6366f1"/>
+
+
+                            <circle
+                                cx="50"
+                                cy="85"
+                                r="7"
+                                fill="#7c3aed"/>
+
+
+                            <circle
+                                cx="15"
+                                cy="50"
+                                r="7"
+                                fill="#2563eb"/>
+
+
+                            <!-- Core -->
+
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="8"
+                                fill="#0f172a"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="logo-text">
 
                         <span class="logo-main">
-                            PMAI LAB
+                            PMAI <span class="accent">LAB</span>
                         </span>
 
                         <span class="logo-sub">
-                            Mathematics • Python • AI
+                          Python • Mathematics • AI
                         </span>
 
-                    </span>
+                    </div>
 
                 </a>
 
 
-                <!-- MOBILE MENU -->
+                <!-- =================================================
+                         MOBILE MENU BUTTON
+                ================================================== -->
 
                 <button
                     class="menu-toggle"
                     id="menu-toggle"
+                    type="button"
                     aria-label="Open navigation menu"
-                    aria-expanded="false">
+                    aria-expanded="false"
+                    aria-controls="nav-menu">
 
                     ☰
 
                 </button>
 
 
-                <!-- NAVIGATION -->
+                <!-- =================================================
+                             MAIN NAVIGATION
+                ================================================== -->
 
                 <ul class="nav-menu"
                     id="nav-menu">
 
+
                     <li>
-                        <a href="index.html">
+
+                        <a href="index.html"
+                           class="active"
+                           aria-current="page">
+
                             Home
+
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="about.html">
+
                             About
+
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="courses.html">
+
                             Courses
+
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="faculty.html">
-                            Faculty
+
+                            Team
+
+                        </a>
+
+                    </li>
+
+                      <li>
+                        <a href="blogs.html">
+                            Blogs
                         </a>
                     </li>
 
+
                     <li>
+
                         <a href="resources.html">
+
                             Resources
+
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="seminars.html">
+
                             Seminars
+
                         </a>
+
                     </li>
 
+
                     <li>
-                        <a href="projects.html"
-                           class="active">
+
+                        <a href="projects.html">
+
                             Projects
+
                         </a>
+
+                    </li>
+                    <li>
+
+                        <a href="youtube.html">
+
+                            YouTube
+
+                        </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="contact.html">
+
                             Contact
+
                         </a>
+
                     </li>
+                    
+
+                    <li>
+
+                        <a href="seminars.html"
+                           class="nav-cta">
+
+                            Request Seminar
+
+                        </a>
+
+                    </li>
+
 
                 </ul>
 
