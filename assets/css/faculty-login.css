@@ -1,0 +1,1203 @@
+/* =========================================================
+   PMAI LAB — FACULTY LOGIN
+   Premium Academic Faculty Portal
+   Version 1.0
+========================================================= */
+
+
+/* =========================================================
+   PAGE VARIABLES
+========================================================= */
+
+:root {
+
+    --faculty-primary: #0f172a;
+    --faculty-primary-soft: #1e293b;
+
+    --faculty-accent: #2563eb;
+    --faculty-accent-dark: #1d4ed8;
+    --faculty-accent-light: #dbeafe;
+
+    --faculty-text: #0f172a;
+    --faculty-text-light: #64748b;
+
+    --faculty-border: #e2e8f0;
+    --faculty-surface: #f8fafc;
+
+    --faculty-white: #ffffff;
+
+    --faculty-success: #15803d;
+    --faculty-danger: #dc2626;
+
+    --faculty-radius: 16px;
+
+    --faculty-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.10);
+
+    --faculty-shadow-hover:
+        0 25px 60px rgba(15, 23, 42, 0.14);
+
+}
+
+
+/* =========================================================
+   PAGE BACKGROUND
+========================================================= */
+
+.faculty-login-page {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(37, 99, 235, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(14, 165, 233, 0.08),
+            transparent 30%
+        ),
+        #f8fafc;
+
+}
+
+
+/* =========================================================
+   LOGIN MAIN AREA
+========================================================= */
+
+.faculty-login-main {
+
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 70px 20px;
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.faculty-login-container {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   LOGIN GRID
+========================================================= */
+
+.faculty-login-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(0, 1.05fr);
+
+    gap: 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--faculty-border);
+
+    border-radius:
+        24px;
+
+    background:
+        var(--faculty-white);
+
+    box-shadow:
+        var(--faculty-shadow);
+
+}
+
+
+/* =========================================================
+   LEFT INFORMATION PANEL
+========================================================= */
+
+.faculty-login-info {
+
+    position: relative;
+
+    padding: 55px 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0f172a,
+            #172554
+        );
+
+    color: white;
+
+    overflow: hidden;
+
+}
+
+
+/* Decorative background */
+
+.faculty-login-info::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    top: -130px;
+
+    right: -100px;
+
+    background:
+        rgba(37, 99, 235, 0.25);
+
+}
+
+
+.faculty-login-info::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    bottom: -120px;
+
+    left: -100px;
+
+    background:
+        rgba(14, 165, 233, 0.16);
+
+}
+
+
+/* =========================================================
+   BRAND MARK
+========================================================= */
+
+.faculty-brand-mark {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 58px;
+
+    height: 58px;
+
+    margin-bottom: 30px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid rgba(255,255,255,0.16);
+
+    color: white;
+
+    font-size: 0.85rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   INFO CONTENT
+========================================================= */
+
+.faculty-login-info-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.faculty-login-info .section-label {
+
+    margin-bottom: 12px;
+
+    color: #93c5fd;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.faculty-login-info h1 {
+
+    margin-bottom: 18px;
+
+    color: white;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.2rem
+        );
+
+    line-height: 1.08;
+
+}
+
+
+.faculty-login-info-description {
+
+    max-width: 460px;
+
+    margin-bottom: 35px;
+
+    color: #cbd5e1;
+
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.faculty-benefits {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+
+}
+
+
+.faculty-benefit {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+}
+
+
+.faculty-benefit-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    color: #bfdbfe;
+
+    font-size: 0.72rem;
+
+    font-weight: 900;
+
+}
+
+
+.faculty-benefit-content strong {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: white;
+
+    font-size: 0.84rem;
+
+}
+
+
+.faculty-benefit-content span {
+
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 0.74rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   RIGHT LOGIN PANEL
+========================================================= */
+
+.faculty-login-panel {
+
+    padding: 55px 50px;
+
+    background:
+        white;
+
+}
+
+
+/* =========================================================
+   LOGIN HEADER
+========================================================= */
+
+.faculty-login-header {
+
+    margin-bottom: 30px;
+
+}
+
+
+.faculty-login-header .section-label {
+
+    margin-bottom: 10px;
+
+    color: var(--faculty-accent);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+}
+
+
+.faculty-login-header h2 {
+
+    margin-bottom: 9px;
+
+    color: var(--faculty-primary);
+
+    font-size: 2rem;
+
+    line-height: 1.15;
+
+}
+
+
+.faculty-login-header p {
+
+    color: var(--faculty-text-light);
+
+    font-size: 0.84rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   LOGIN FORM
+========================================================= */
+
+.faculty-login-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 19px;
+
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.faculty-form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.faculty-form-group label {
+
+    color: var(--faculty-primary);
+
+    font-size: 0.76rem;
+
+    font-weight: 750;
+
+}
+
+
+.faculty-form-group label span {
+
+    color: var(--faculty-danger);
+
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.faculty-form-group input,
+.faculty-form-group select {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding:
+        12px 14px;
+
+    border:
+        1px solid var(--faculty-border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--faculty-text);
+
+    font-family: inherit;
+
+    font-size: 0.84rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.faculty-form-group input::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+.faculty-form-group input:hover,
+.faculty-form-group select:hover {
+
+    border-color:
+        #cbd5e1;
+
+}
+
+
+.faculty-form-group input:focus,
+.faculty-form-group select:focus {
+
+    border-color:
+        var(--faculty-accent);
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.10);
+
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.faculty-form-group select {
+
+    cursor: pointer;
+
+    appearance: auto;
+
+}
+
+
+/* =========================================================
+   PASSWORD WRAPPER
+========================================================= */
+
+.password-wrapper {
+
+    position: relative;
+
+}
+
+
+.password-wrapper input {
+
+    padding-right: 48px;
+
+}
+
+
+.password-toggle {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 12px;
+
+    transform:
+        translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+}
+
+
+.password-toggle:hover {
+
+    color:
+        var(--faculty-accent);
+
+}
+
+
+/* =========================================================
+   FORM HELP TEXT
+========================================================= */
+
+.faculty-form-help {
+
+    margin-top: 3px;
+
+    color:
+        var(--faculty-text-light);
+
+    font-size: 0.68rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   REMEMBER / FORGOT
+========================================================= */
+
+.faculty-login-options {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: -2px;
+
+}
+
+
+.faculty-remember {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        var(--faculty-text-light);
+
+    font-size: 0.72rem;
+
+}
+
+
+.faculty-remember input {
+
+    width: 15px;
+
+    height: 15px;
+
+    accent-color:
+        var(--faculty-accent);
+
+}
+
+
+.faculty-forgot {
+
+    color:
+        var(--faculty-accent);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+}
+
+
+.faculty-forgot:hover {
+
+    color:
+        var(--faculty-accent-dark);
+
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.faculty-login-button {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--faculty-accent),
+            var(--faculty-accent-dark)
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.2px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(37, 99, 235, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.faculty-login-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(37, 99, 235, 0.28);
+
+}
+
+
+.faculty-login-button:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   SECURITY NOTICE
+========================================================= */
+
+.faculty-security-notice {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    border:
+        1px solid #dbeafe;
+
+    border-radius: 9px;
+
+    background:
+        #eff6ff;
+
+}
+
+
+.faculty-security-icon {
+
+    flex-shrink: 0;
+
+    color:
+        var(--faculty-accent);
+
+    font-size: 0.85rem;
+
+    font-weight: 900;
+
+}
+
+
+.faculty-security-notice p {
+
+    margin: 0;
+
+    color:
+        #475569;
+
+    font-size: 0.68rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   REGISTER / ACCESS REQUEST
+========================================================= */
+
+.faculty-access-request {
+
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top:
+        1px solid var(--faculty-border);
+
+    text-align: center;
+
+}
+
+
+.faculty-access-request p {
+
+    margin-bottom: 9px;
+
+    color:
+        var(--faculty-text-light);
+
+    font-size: 0.72rem;
+
+}
+
+
+.faculty-access-request a {
+
+    color:
+        var(--faculty-accent);
+
+    font-size: 0.76rem;
+
+    font-weight: 800;
+
+}
+
+
+.faculty-access-request a:hover {
+
+    color:
+        var(--faculty-accent-dark);
+
+}
+
+
+/* =========================================================
+   STATUS MESSAGE
+========================================================= */
+
+.faculty-login-message {
+
+    display: none;
+
+    margin-bottom: 20px;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    font-size: 0.75rem;
+
+    line-height: 1.5;
+
+}
+
+
+.faculty-login-message.success {
+
+    display: block;
+
+    border:
+        1px solid #bbf7d0;
+
+    background:
+        #f0fdf4;
+
+    color:
+        var(--faculty-success);
+
+}
+
+
+.faculty-login-message.error {
+
+    display: block;
+
+    border:
+        1px solid #fecaca;
+
+    background:
+        #fef2f2;
+
+    color:
+        var(--faculty-danger);
+
+}
+
+
+/* =========================================================
+   LOADING STATE
+========================================================= */
+
+.faculty-login-button.loading {
+
+    position: relative;
+
+    color: transparent;
+
+    pointer-events: none;
+
+}
+
+
+.faculty-login-button.loading::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 18px;
+
+    height: 18px;
+
+    margin:
+        -9px 0 0 -9px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.35);
+
+    border-top-color:
+        white;
+
+    border-radius: 50%;
+
+    animation:
+        facultySpin 0.7s linear infinite;
+
+}
+
+
+@keyframes facultySpin {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER NOTE
+========================================================= */
+
+.faculty-login-footer-note {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color:
+        #94a3b8;
+
+    font-size: 0.65rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .faculty-login-main {
+
+        padding:
+            50px 20px;
+
+    }
+
+
+    .faculty-login-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .faculty-login-info {
+
+        padding:
+            45px 40px;
+
+    }
+
+
+    .faculty-login-panel {
+
+        padding:
+            45px 40px;
+
+    }
+
+
+    .faculty-benefits {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .faculty-login-main {
+
+        min-height:
+            calc(100vh - 65px);
+
+        padding:
+            30px 15px;
+
+    }
+
+
+    .faculty-login-grid {
+
+        border-radius:
+            18px;
+
+    }
+
+
+    .faculty-login-info {
+
+        padding:
+            35px 25px;
+
+    }
+
+
+    .faculty-login-panel {
+
+        padding:
+            35px 25px;
+
+    }
+
+
+    .faculty-login-info h1 {
+
+        font-size:
+            2.1rem;
+
+    }
+
+
+    .faculty-login-header h2 {
+
+        font-size:
+            1.7rem;
+
+    }
+
+
+    .faculty-benefits {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .faculty-login-options {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.faculty-login-button:focus-visible,
+.faculty-form-group input:focus-visible,
+.faculty-form-group select:focus-visible,
+.password-toggle:focus-visible,
+.faculty-forgot:focus-visible,
+.faculty-access-request a:focus-visible {
+
+    outline:
+        3px solid
+        rgba(37, 99, 235, 0.25);
+
+    outline-offset:
+        2px;
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .faculty-login-button,
+    .faculty-form-group input,
+    .faculty-form-group select {
+
+        transition:
+            none;
+
+    }
+
+    .faculty-login-button:hover {
+
+        transform:
+            none;
+
+    }
+
+    .faculty-login-button.loading::after {
+
+        animation:
+            none;
+
+    }
+
+}
