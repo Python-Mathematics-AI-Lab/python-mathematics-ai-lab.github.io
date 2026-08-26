@@ -7,20 +7,22 @@
 
 /* =========================================================
    NAVBAR
-========================================================= */
+   PMAI LAB — FIXED/STICKY TOP NAVIGATION
+   ========================================================= */
 
 .navbar {
-
     position: sticky;
+    position: -webkit-sticky;
 
     top: 0;
-
-    z-index: 1000;
+    left: 0;
 
     width: 100%;
 
+    z-index: 9999;
+
     background:
-        rgba(255, 255, 255, 0.88);
+        rgba(255, 255, 255, 0.92);
 
     backdrop-filter:
         blur(18px);
@@ -29,18 +31,18 @@
         blur(18px);
 
     border-bottom:
-        1px solid rgba(226, 232, 240, 0.85);
+        1px solid
+        rgba(226, 232, 240, 0.85);
 
     box-shadow:
-        0 4px 20px rgba(15, 23, 42, 0.04);
+        0 4px 20px
+        rgba(15, 23, 42, 0.05);
 
     transition:
         background 0.3s ease,
         box-shadow 0.3s ease,
         border-color 0.3s ease;
-
 }
-
 
 /* =========================================================
    NAVBAR CONTAINER
@@ -1040,41 +1042,4 @@
 
 }
 
-/* =========================================================
-   NAVBAR
-   PMAI LAB — FIXED/STICKY TOP NAVIGATION
-   ========================================================= */
 
-.navbar {
-    position: sticky;
-    position: -webkit-sticky;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    z-index: 9999;
-
-    background:
-        rgba(255, 255, 255, 0.92);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-
-    border-bottom:
-        1px solid
-        rgba(226, 232, 240, 0.85);
-
-    box-shadow:
-        0 4px 20px
-        rgba(15, 23, 42, 0.05);
-
-    transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
