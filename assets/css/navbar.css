@@ -1520,3 +1520,103 @@
             rotateY(35deg);
     }
 }
+/* =========================================================
+   PMAI LOGO — BLUE WEBSITE COLOR MATCH
+========================================================= */
+
+/* FRONT FACE */
+.pyramid-front .navbar-pyramid-face {
+    background: linear-gradient(
+        145deg,
+        #60a5fa 0%,
+        #3b82f6 45%,
+        #2563eb 100%
+    );
+}
+
+
+/* BACK FACE */
+.pyramid-back .navbar-pyramid-face {
+    background: linear-gradient(
+        145deg,
+        #102b4e 0%,
+        #1e4f91 50%,
+        #2563eb 100%
+    );
+}
+
+
+/* RIGHT FACE */
+.pyramid-right .navbar-pyramid-face {
+    background: linear-gradient(
+        145deg,
+        #4da3f5 0%,
+        #3488e5 48%,
+        #1d4ed8 100%
+    );
+}
+
+
+/* LEFT FACE */
+.pyramid-left .navbar-pyramid-face {
+    background: linear-gradient(
+        145deg,
+        #102b4e 0%,
+        #174f87 52%,
+        #2878c7 100%
+    );
+}
+
+
+/* PYRAMID BASE */
+.navbar-pyramid-base {
+    background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #3b82f6
+    );
+}
+
+
+/* PMAI TEXT */
+.navbar-pmai {
+    background: linear-gradient(
+        90deg,
+        #102b4e 0%,
+        #174f87 45%,
+        #2563eb 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* LAB TEXT — BRIGHTER BLUE */
+.navbar-lab {
+    background: linear-gradient(
+        90deg,
+        #2563eb 0%,
+        #3b82f6 50%,
+        #60a5fa 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* LINE BELOW TEXT */
+.navbar-logo-line {
+    background: linear-gradient(
+        90deg,
+        #1d4ed8,
+        #60a5fa
+    );
+}
