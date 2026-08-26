@@ -1,16 +1,27 @@
+```css
 /* =========================================================
    PMAI LAB — PREMIUM NAVBAR
    File: assets/css/navbar.css
-   Version: 2.0
+   Version: 3.0
+   ---------------------------------------------------------
+   Features:
+   • Sticky / fixed-style navigation
+   • Premium glass effect
+   • Animated 3D pyramid logo
+   • PMAI LAB branding
+   • PYTHON · MATHEMATICS · AI subtitle
+   • Responsive desktop / tablet / mobile navigation
+   • Mobile menu support
+   • Accessibility / reduced motion
 ========================================================= */
 
 
 /* =========================================================
    NAVBAR
-   PMAI LAB — FIXED/STICKY TOP NAVIGATION
-   ========================================================= */
+========================================================= */
 
 .navbar {
+
     position: sticky;
     position: -webkit-sticky;
 
@@ -44,63 +55,77 @@
         border-color 0.3s ease;
 }
 
+
 /* =========================================================
    NAVBAR CONTAINER
 ========================================================= */
 
 .navbar-container {
 
-    width: min(
-        calc(100% - 40px),
-        1240px
-    );
+    width:
+        min(
+            calc(100% - 40px),
+            1240px
+        );
 
-    min-height: 78px;
+    min-height:
+        78px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    gap: 30px;
-
+    gap:
+        30px;
 }
 
 
 /* =========================================================
-   PREMIUM LOGO
+   PMAI LAB LOGO
 ========================================================= */
 
 .navbar-logo {
 
-    display: inline-flex;
+    --pyramid-base: 42px;
+    --pyramid-height: 48px;
+    --pyramid-slant: 52.39px;
+    --pyramid-angle: 23.63deg;
 
-    align-items: center;
+    display:
+        inline-flex;
 
-    gap: 12px;
+    align-items:
+        center;
 
-    flex-shrink: 0;
+    gap:
+        0;
 
-    height: 50px;
+    height:
+        54px;
 
-    text-decoration: none;
+    flex-shrink:
+        0;
+
+    text-decoration:
+        none;
 
     font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
         "Segoe UI",
-        Roboto,
         Arial,
+        Helvetica,
         sans-serif;
 
     transition:
         transform 0.25s ease,
         opacity 0.25s ease;
-
 }
 
 
@@ -109,192 +134,548 @@
     transform:
         translateY(-1px);
 
-    opacity: 0.95;
-
+    opacity:
+        0.96;
 }
 
 
 /* =========================================================
-   LOGO SYMBOL
+   PYRAMID SCENE
 ========================================================= */
 
-.logo-symbol {
+.navbar-pyramid-scene {
 
-    position: relative;
+    position:
+        relative;
 
-    width: 44px;
+    width:
+        58px;
 
-    height: 44px;
+    height:
+        54px;
 
     flex:
-        0 0 44px;
+        0 0 58px;
 
-    display: flex;
+    perspective:
+        500px;
 
-    align-items: center;
+    perspective-origin:
+        50% 43%;
 
-    justify-content: center;
+    overflow:
+        visible;
+}
 
-    padding: 6px;
+
+/* =========================================================
+   PYRAMID SHADOW
+========================================================= */
+
+.navbar-pyramid-shadow {
+
+    position:
+        absolute;
+
+    width:
+        34px;
+
+    height:
+        6px;
+
+    left:
+        50%;
+
+    bottom:
+        2px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(
+            22,
+            50,
+            92,
+            0.13
+        );
+
+    filter:
+        blur(3px);
+}
+
+
+/* =========================================================
+   COMPLETE PYRAMID
+========================================================= */
+
+.navbar-pyramid {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        48%;
+
+    width:
+        0;
+
+    height:
+        0;
+
+    transform-style:
+        preserve-3d;
+
+    animation:
+        navbarPyramidRotate
+        12s
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   PYRAMID FACE HOLDERS
+========================================================= */
+
+.navbar-pyramid-holder {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        0;
+
+    height:
+        0;
+
+    transform-style:
+        preserve-3d;
+}
+
+
+/* =========================================================
+   PYRAMID FACES
+========================================================= */
+
+.navbar-pyramid-face {
+
+    position:
+        absolute;
+
+    width:
+        var(--pyramid-base);
+
+    height:
+        var(--pyramid-slant);
+
+    left:
+        calc(
+            var(--pyramid-base) / -2
+        );
+
+    top:
+        calc(
+            var(--pyramid-slant) * -1
+        );
+
+    clip-path:
+        polygon(
+            50% 0%,
+            0% 100%,
+            100% 100%
+        );
+
+    transform-origin:
+        50% 100%;
 
     border:
-        1px solid rgba(37, 99, 235, 0.12);
+        none;
 
-    border-radius: 12px;
+    backface-visibility:
+        visible;
+
+    -webkit-backface-visibility:
+        visible;
+}
+
+
+/* =========================================================
+   FRONT FACE
+========================================================= */
+
+.pyramid-front {
+
+    transform:
+        translate3d(
+            0,
+            calc(
+                var(--pyramid-height) / 2
+            ),
+            calc(
+                var(--pyramid-base) / 2
+            )
+        )
+        rotateX(
+            var(--pyramid-angle)
+        );
+}
+
+
+.pyramid-front
+.navbar-pyramid-face {
 
     background:
         linear-gradient(
             145deg,
-            rgba(239, 246, 255, 0.95),
-            rgba(248, 250, 252, 0.95)
+            #93c5fd 0%,
+            #60a5fa 42%,
+            #2563eb 100%
         );
-
-    box-shadow:
-        0 6px 18px rgba(
-            37,
-            99,
-            235,
-            0.08
-        );
-
-    overflow: hidden;
-
 }
 
 
-.logo-symbol::after {
+/* =========================================================
+   BACK FACE
+========================================================= */
 
-    content: "";
+.pyramid-back {
 
-    position: absolute;
+    transform:
+        translate3d(
+            0,
+            calc(
+                var(--pyramid-height) / 2
+            ),
+            calc(
+                var(--pyramid-base) / -2
+            )
+        )
+        rotateX(
+            calc(
+                var(--pyramid-angle) * -1
+            )
+        );
+}
 
-    inset: 0;
 
-    border-radius: inherit;
+.pyramid-back
+.navbar-pyramid-face {
+
+    background:
+        linear-gradient(
+            145deg,
+            #16325c 0%,
+            #1e4f91 50%,
+            #1d4ed8 100%
+        );
+}
+
+
+/* =========================================================
+   RIGHT FACE
+========================================================= */
+
+.pyramid-right {
+
+    transform:
+        translate3d(
+            calc(
+                var(--pyramid-base) / 2
+            ),
+            calc(
+                var(--pyramid-height) / 2
+            ),
+            0
+        )
+        rotateY(90deg)
+        rotateX(
+            var(--pyramid-angle)
+        );
+}
+
+
+.pyramid-right
+.navbar-pyramid-face {
+
+    background:
+        linear-gradient(
+            145deg,
+            #60a5fa 0%,
+            #3b82f6 48%,
+            #1d4ed8 100%
+        );
+}
+
+
+/* =========================================================
+   LEFT FACE
+========================================================= */
+
+.pyramid-left {
+
+    transform:
+        translate3d(
+            calc(
+                var(--pyramid-base) / -2
+            ),
+            calc(
+                var(--pyramid-height) / 2
+            ),
+            0
+        )
+        rotateY(-90deg)
+        rotateX(
+            var(--pyramid-angle)
+        );
+}
+
+
+.pyramid-left
+.navbar-pyramid-face {
+
+    background:
+        linear-gradient(
+            145deg,
+            #16325c 0%,
+            #245b9e 52%,
+            #3b82f6 100%
+        );
+}
+
+
+/* =========================================================
+   PYRAMID BASE
+========================================================= */
+
+.navbar-pyramid-base {
+
+    position:
+        absolute;
+
+    width:
+        var(--pyramid-base);
+
+    height:
+        var(--pyramid-base);
+
+    left:
+        calc(
+            var(--pyramid-base) / -2
+        );
+
+    top:
+        calc(
+            var(--pyramid-base) / -2
+        );
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,0.7),
-            transparent
+            #1d4ed8,
+            #60a5fa
         );
 
-    pointer-events: none;
+    transform:
+        translateY(
+            calc(
+                var(--pyramid-height) / 2
+            )
+        )
+        rotateX(90deg);
 
-}
+    opacity:
+        0.88;
 
+    backface-visibility:
+        visible;
 
-.logo-symbol svg {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-}
-
-
-/* =========================================================
-   LOGO TEXT
-========================================================= */
-
-.logo-text {
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    min-width: 0;
-
-    line-height: 1.1;
-
+    -webkit-backface-visibility:
+        visible;
 }
 
 
 /* =========================================================
-   LOGO MAIN
+   PYRAMID ROTATION
 ========================================================= */
 
-.logo-main {
+@keyframes navbarPyramidRotate {
 
-    display: block;
+    from {
 
-    color:
-        #0f172a;
+        transform:
+            rotateX(-13deg)
+            rotateY(0deg);
+    }
 
-    font-size:
-        1.22rem;
+    to {
 
-    font-weight:
-        850;
+        transform:
+            rotateX(-13deg)
+            rotateY(360deg);
+    }
+}
 
-    letter-spacing:
-        -0.035em;
+
+/* =========================================================
+   BRAND TEXT AREA
+========================================================= */
+
+.navbar-brand-text {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    margin-left:
+        -3px;
+
+    min-width:
+        0;
+}
+
+
+/* =========================================================
+   BRAND MAIN LINE
+========================================================= */
+
+.navbar-brand-line {
+
+    display:
+        flex;
+
+    align-items:
+        baseline;
+
+    line-height:
+        1;
 
     white-space:
         nowrap;
-
 }
 
 
 /* =========================================================
-   LOGO ACCENT
+   PMAI
 ========================================================= */
 
-.logo-main .accent {
+.navbar-pmai {
+
+    font-size:
+        1.28rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.045em;
 
     background:
         linear-gradient(
-            135deg,
-            #2563eb 0%,
-            #6366f1 50%,
-            #7c3aed 100%
+            90deg,
+            #16325c 0%,
+            #1e4f91 50%,
+            #2563eb 100%
         );
-
-    -webkit-background-clip:
-        text;
 
     background-clip:
         text;
 
-    -webkit-text-fill-color:
-        transparent;
+    -webkit-background-clip:
+        text;
 
     color:
         transparent;
 
+    -webkit-text-fill-color:
+        transparent;
+}
+
+
+/* =========================================================
+   LAB
+========================================================= */
+
+.navbar-lab {
+
+    margin-left:
+        7px;
+
+    font-size:
+        1.28rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.035em;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb 0%,
+            #3b82f6 55%,
+            #60a5fa 100%
+        );
+
+    background-clip:
+        text;
+
+    -webkit-background-clip:
+        text;
+
+    color:
+        transparent;
+
+    -webkit-text-fill-color:
+        transparent;
 }
 
 
 /* =========================================================
    LOGO SUBTITLE
+   PYTHON · MATHEMATICS · AI
 ========================================================= */
 
-.logo-sub {
+.navbar-logo-subtitle {
 
-    display: block;
+    display:
+        block;
 
     margin-top:
-        4px;
+        5px;
 
     color:
         #64748b;
 
     font-size:
-        0.60rem;
+        0.48rem;
 
     font-weight:
-        650;
+        700;
 
     letter-spacing:
-        0.075em;
+        0.105em;
+
+    line-height:
+        1.2;
 
     text-transform:
         uppercase;
@@ -302,6 +683,11 @@
     white-space:
         nowrap;
 
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
 }
 
 
@@ -311,20 +697,26 @@
 
 .nav-menu {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: flex-end;
+    justify-content:
+        flex-end;
 
-    gap: 3px;
+    gap:
+        3px;
 
-    margin: 0;
+    margin:
+        0;
 
-    padding: 0;
+    padding:
+        0;
 
-    list-style: none;
-
+    list-style:
+        none;
 }
 
 
@@ -334,8 +726,8 @@
 
 .nav-menu li {
 
-    position: relative;
-
+    position:
+        relative;
 }
 
 
@@ -345,15 +737,20 @@
 
 .nav-menu a {
 
-    position: relative;
+    position:
+        relative;
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    min-height: 42px;
+    min-height:
+        42px;
 
     padding:
         8px 12px;
@@ -380,7 +777,6 @@
         color 0.25s ease,
         background 0.25s ease,
         transform 0.25s ease;
-
 }
 
 
@@ -398,7 +794,6 @@
 
     transform:
         translateY(-1px);
-
 }
 
 
@@ -418,7 +813,6 @@
             235,
             0.07
         );
-
 }
 
 
@@ -428,9 +822,11 @@
 
 .nav-menu a.active::after {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
     left:
         12px;
@@ -453,7 +849,6 @@
             #2563eb,
             #7c3aed
         );
-
 }
 
 
@@ -499,7 +894,6 @@
         border-color 0.25s ease,
         box-shadow 0.25s ease,
         transform 0.25s ease;
-
 }
 
 
@@ -525,7 +919,6 @@
             235,
             0.20
         );
-
 }
 
 
@@ -535,7 +928,8 @@
 
 .menu-toggle {
 
-    display: none;
+    display:
+        none;
 
     width:
         44px;
@@ -582,7 +976,6 @@
         border-color 0.25s ease,
         color 0.25s ease,
         transform 0.25s ease;
-
 }
 
 
@@ -599,7 +992,6 @@
 
     transform:
         translateY(-1px);
-
 }
 
 
@@ -620,7 +1012,6 @@
 
     outline-offset:
         3px;
-
 }
 
 
@@ -640,7 +1031,6 @@
 
         gap:
             18px;
-
     }
 
 
@@ -648,7 +1038,6 @@
 
         gap:
             1px;
-
     }
 
 
@@ -659,7 +1048,6 @@
 
         font-size:
             0.82rem;
-
     }
 
 
@@ -670,7 +1058,6 @@
 
         margin-left:
             4px;
-
     }
 
 }
@@ -686,7 +1073,6 @@
 
         min-height:
             72px;
-
     }
 
 
@@ -694,7 +1080,6 @@
 
         display:
             inline-flex;
-
     }
 
 
@@ -756,7 +1141,6 @@
                 42,
                 0.10
             );
-
     }
 
 
@@ -764,7 +1148,6 @@
 
         display:
             flex;
-
     }
 
 
@@ -772,7 +1155,6 @@
 
         width:
             100%;
-
     }
 
 
@@ -795,7 +1177,6 @@
 
         font-size:
             0.94rem;
-
     }
 
 
@@ -803,7 +1184,6 @@
 
         transform:
             none;
-
     }
 
 
@@ -811,7 +1191,6 @@
 
         background:
             #eff6ff;
-
     }
 
 
@@ -837,7 +1216,6 @@
 
         border-radius:
             50%;
-
     }
 
 
@@ -851,7 +1229,6 @@
 
         padding:
             12px 16px;
-
     }
 
 }
@@ -870,51 +1247,59 @@
                 calc(100% - 28px),
                 1240px
             );
-
     }
 
 
-    .logo-symbol {
+    .navbar-logo {
 
-        width:
-            40px;
+        --pyramid-base: 38px;
+        --pyramid-height: 43px;
+        --pyramid-slant: 47px;
+        --pyramid-angle: 23.84deg;
 
         height:
-            40px;
+            48px;
+    }
+
+
+    .navbar-pyramid-scene {
+
+        width:
+            52px;
+
+        height:
+            50px;
 
         flex-basis:
-            40px;
-
+            52px;
     }
 
 
-    .logo-main {
+    .navbar-pmai,
+    .navbar-lab {
 
         font-size:
-            1.05rem;
-
+            1.08rem;
     }
 
 
-    .logo-sub {
+    .navbar-lab {
+
+        margin-left:
+            6px;
+    }
+
+
+    .navbar-logo-subtitle {
 
         font-size:
-            0.53rem;
+            0.42rem;
 
         letter-spacing:
-            0.055em;
+            0.075em;
 
-    }
-
-
-    .nav-menu {
-
-        top:
-            72px;
-
-        padding:
-            12px 14px 18px;
-
+        margin-top:
+            4px;
     }
 
 }
@@ -930,54 +1315,59 @@
 
         min-height:
             68px;
-
     }
 
 
-    .logo-symbol {
+    .navbar-logo {
 
-        width:
-            37px;
+        --pyramid-base: 34px;
+        --pyramid-height: 39px;
+        --pyramid-slant: 42.54px;
+        --pyramid-angle: 23.56deg;
 
         height:
-            37px;
+            44px;
+    }
+
+
+    .navbar-pyramid-scene {
+
+        width:
+            47px;
+
+        height:
+            46px;
 
         flex-basis:
-            37px;
-
-        padding:
-            5px;
-
-        border-radius:
-            10px;
-
+            47px;
     }
 
 
-    .logo-text {
-
-        max-width:
-            190px;
-
-    }
-
-
-    .logo-main {
+    .navbar-pmai,
+    .navbar-lab {
 
         font-size:
-            0.94rem;
-
+            0.96rem;
     }
 
 
-    .logo-sub {
+    .navbar-lab {
+
+        margin-left:
+            5px;
+    }
+
+
+    .navbar-logo-subtitle {
+
+        font-size:
+            0.37rem;
+
+        letter-spacing:
+            0.055em;
 
         margin-top:
             3px;
-
-        font-size:
-            0.48rem;
-
     }
 
 
@@ -988,7 +1378,6 @@
 
         height:
             40px;
-
     }
 
 
@@ -996,7 +1385,6 @@
 
         top:
             68px;
-
     }
 
 }
@@ -1019,7 +1407,6 @@
 
     outline-offset:
         3px;
-
 }
 
 
@@ -1037,923 +1424,17 @@
 
         transition:
             none;
-
     }
 
-}
-
-
-/* =========================================================
-   PMAI LAB — ROTATING PYRAMID LOGO
-========================================================= */
-
-.navbar-logo {
-    --pyramid-base: 42px;
-    --pyramid-height: 48px;
-    --pyramid-slant: 52.39px;
-    --pyramid-angle: 23.63deg;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0;
-    height: 54px;
-    flex-shrink: 0;
-
-    text-decoration: none;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        Helvetica,
-        sans-serif;
-}
-
-
-/* =========================================================
-   PYRAMID AREA
-========================================================= */
-
-.navbar-pyramid-scene {
-    position: relative;
-
-    width: 58px;
-    height: 54px;
-
-    flex: 0 0 58px;
-
-    perspective: 500px;
-    perspective-origin: 50% 43%;
-
-    overflow: visible;
-}
-
-
-/* Soft shadow */
-
-.navbar-pyramid-shadow {
-    position: absolute;
-
-    width: 34px;
-    height: 6px;
-
-    left: 50%;
-    bottom: 2px;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background: rgba(15, 43, 78, 0.12);
-
-    filter: blur(3px);
-}
-
-
-/* =========================================================
-   COMPLETE PYRAMID
-========================================================= */
-
-.navbar-pyramid {
-    position: absolute;
-
-    left: 50%;
-    top: 48%;
-
-    width: 0;
-    height: 0;
-
-    transform-style: preserve-3d;
-
-    animation:
-        navbarPyramidRotate
-        12s
-        linear
-        infinite;
-}
-
-
-/* =========================================================
-   FACE HOLDERS
-========================================================= */
-
-.navbar-pyramid-holder {
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 0;
-    height: 0;
-
-    transform-style: preserve-3d;
-}
-
-
-/* =========================================================
-   PYRAMID FACES
-========================================================= */
-
-.navbar-pyramid-face {
-    position: absolute;
-
-    width: var(--pyramid-base);
-    height: var(--pyramid-slant);
-
-    left: calc(var(--pyramid-base) / -2);
-    top: calc(var(--pyramid-slant) * -1);
-
-    clip-path: polygon(
-        50% 0%,
-        0% 100%,
-        100% 100%
-    );
-
-    transform-origin: 50% 100%;
-
-    border: none;
-
-    backface-visibility: visible;
-    -webkit-backface-visibility: visible;
-}
-
-
-/* =========================================================
-   FRONT FACE
-========================================================= */
-
-.pyramid-front {
-    transform:
-        translate3d(
-            0,
-            calc(var(--pyramid-height) / 2),
-            calc(var(--pyramid-base) / 2)
-        )
-        rotateX(var(--pyramid-angle));
-}
-
-.pyramid-front .navbar-pyramid-face {
-    background:
-        linear-gradient(
-            145deg,
-            #4db4ef 0%,
-            #238edc 45%,
-            #1769d2 100%
-        );
-}
-
-
-/* =========================================================
-   BACK FACE
-========================================================= */
-
-.pyramid-back {
-    transform:
-        translate3d(
-            0,
-            calc(var(--pyramid-height) / 2),
-            calc(var(--pyramid-base) / -2)
-        )
-        rotateX(
-            calc(var(--pyramid-angle) * -1)
-        );
-}
-
-.pyramid-back .navbar-pyramid-face {
-    background:
-        linear-gradient(
-            145deg,
-            #102b4e 0%,
-            #185794 52%,
-            #1769d2 100%
-        );
-}
-
-
-/* =========================================================
-   RIGHT FACE
-========================================================= */
-
-.pyramid-right {
-    transform:
-        translate3d(
-            calc(var(--pyramid-base) / 2),
-            calc(var(--pyramid-height) / 2),
-            0
-        )
-        rotateY(90deg)
-        rotateX(var(--pyramid-angle));
-}
-
-.pyramid-right .navbar-pyramid-face {
-    background:
-        linear-gradient(
-            145deg,
-            #18c7c8 0%,
-            #0ea4b5 48%,
-            #1676c8 100%
-        );
-}
-
-
-/* =========================================================
-   LEFT FACE
-========================================================= */
-
-.pyramid-left {
-    transform:
-        translate3d(
-            calc(var(--pyramid-base) / -2),
-            calc(var(--pyramid-height) / 2),
-            0
-        )
-        rotateY(-90deg)
-        rotateX(var(--pyramid-angle));
-}
-
-.pyramid-left .navbar-pyramid-face {
-    background:
-        linear-gradient(
-            145deg,
-            #102b4e 0%,
-            #135d91 50%,
-            #0c8f9d 100%
-        );
-}
-
-
-/* =========================================================
-   PYRAMID BASE
-========================================================= */
-
-.navbar-pyramid-base {
-    position: absolute;
-
-    width: var(--pyramid-base);
-    height: var(--pyramid-base);
-
-    left: calc(var(--pyramid-base) / -2);
-    top: calc(var(--pyramid-base) / -2);
-
-    background:
-        linear-gradient(
-            135deg,
-            #1769d2,
-            #12b8c4
-        );
-
-    transform:
-        translateY(
-            calc(var(--pyramid-height) / 2)
-        )
-        rotateX(90deg);
-
-    opacity: 0.88;
-
-    backface-visibility: visible;
-    -webkit-backface-visibility: visible;
-}
-
-
-/* =========================================================
-   ROTATION
-========================================================= */
-
-@keyframes navbarPyramidRotate {
-
-    from {
-        transform:
-            rotateX(-13deg)
-            rotateY(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(-13deg)
-            rotateY(360deg);
-    }
-}
-
-
-/* =========================================================
-   BRAND TEXT AREA
-========================================================= */
-
-.navbar-brand-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    margin-left: -3px;
-
-    min-width: 0;
-}
-
-
-.navbar-brand-line {
-    display: flex;
-    align-items: baseline;
-
-    line-height: 1;
-
-    white-space: nowrap;
-}
-
-
-/* =========================================================
-   PMAI
-========================================================= */
-
-.navbar-pmai {
-    font-size: 1.28rem;
-    font-weight: 800;
-
-    letter-spacing: 0.045em;
-
-    background:
-        linear-gradient(
-            90deg,
-            #102b4e 0%,
-            #175ba5 52%,
-            #1787ca 100%
-        );
-
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* =========================================================
-   LAB
-========================================================= */
-
-.navbar-lab {
-    margin-left: 7px;
-
-    font-size: 1.28rem;
-    font-weight: 800;
-
-    letter-spacing: 0.035em;
-
-    background:
-        linear-gradient(
-            90deg,
-            #087f8c 0%,
-            #0ba4ae 45%,
-            #17c1c2 100%
-        );
-
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* =========================================================
-   SMALL LINE BELOW TEXT
-========================================================= */
-
-.navbar-logo-line {
-    width: 58px;
-    height: 2px;
-
-    margin-top: 6px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #1769d2,
-            #12b8c4
-        );
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .navbar-logo {
-        --pyramid-base: 38px;
-        --pyramid-height: 43px;
-        --pyramid-slant: 47px;
-        --pyramid-angle: 23.84deg;
-
-        height: 48px;
-    }
-
-    .navbar-pyramid-scene {
-        width: 52px;
-        height: 50px;
-
-        flex-basis: 52px;
-    }
-
-    .navbar-pmai,
-    .navbar-lab {
-        font-size: 1.08rem;
-    }
-
-    .navbar-lab {
-        margin-left: 6px;
-    }
-
-    .navbar-logo-line {
-        width: 50px;
-        margin-top: 5px;
-    }
-}
-
-
-@media (max-width: 420px) {
-
-    .navbar-logo {
-        --pyramid-base: 34px;
-        --pyramid-height: 39px;
-        --pyramid-slant: 42.54px;
-        --pyramid-angle: 23.56deg;
-
-        height: 44px;
-    }
-
-    .navbar-pyramid-scene {
-        width: 47px;
-        height: 46px;
-
-        flex-basis: 47px;
-    }
-
-    .navbar-pmai,
-    .navbar-lab {
-        font-size: 0.96rem;
-    }
-
-    .navbar-lab {
-        margin-left: 5px;
-    }
-
-    .navbar-logo-line {
-        width: 44px;
-        margin-top: 4px;
-    }
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
 
     .navbar-pyramid {
-        animation: none;
+
+        animation:
+            none;
 
         transform:
             rotateX(-13deg)
             rotateY(35deg);
     }
 }
-/* =========================================================
-   PMAI LAB — ROTATING PYRAMID LOGO
-========================================================= */
-
-.navbar-logo {
-    --pyramid-base: 42px;
-    --pyramid-height: 48px;
-    --pyramid-slant: 52.39px;
-    --pyramid-angle: 23.63deg;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0;
-    height: 54px;
-    flex-shrink: 0;
-
-    text-decoration: none;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        Helvetica,
-        sans-serif;
-}
-
-
-/* PYRAMID AREA */
-
-.navbar-pyramid-scene {
-    position: relative;
-
-    width: 58px;
-    height: 54px;
-
-    flex: 0 0 58px;
-
-    perspective: 500px;
-    perspective-origin: 50% 43%;
-
-    overflow: visible;
-}
-
-
-/* SHADOW */
-
-.navbar-pyramid-shadow {
-    position: absolute;
-
-    width: 34px;
-    height: 6px;
-
-    left: 50%;
-    bottom: 2px;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background: rgba(22, 50, 92, 0.13);
-
-    filter: blur(3px);
-}
-
-
-/* COMPLETE PYRAMID */
-
-.navbar-pyramid {
-    position: absolute;
-
-    left: 50%;
-    top: 48%;
-
-    width: 0;
-    height: 0;
-
-    transform-style: preserve-3d;
-
-    animation:
-        navbarPyramidRotate
-        12s
-        linear
-        infinite;
-}
-
-
-/* FACE HOLDERS */
-
-.navbar-pyramid-holder {
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 0;
-    height: 0;
-
-    transform-style: preserve-3d;
-}
-
-
-/* PYRAMID FACES */
-
-.navbar-pyramid-face {
-    position: absolute;
-
-    width: var(--pyramid-base);
-    height: var(--pyramid-slant);
-
-    left: calc(var(--pyramid-base) / -2);
-    top: calc(var(--pyramid-slant) * -1);
-
-    clip-path: polygon(
-        50% 0%,
-        0% 100%,
-        100% 100%
-    );
-
-    transform-origin: 50% 100%;
-
-    border: none;
-
-    backface-visibility: visible;
-    -webkit-backface-visibility: visible;
-}
-
-
-/* FRONT FACE */
-
-.pyramid-front {
-    transform:
-        translate3d(
-            0,
-            calc(var(--pyramid-height) / 2),
-            calc(var(--pyramid-base) / 2)
-        )
-        rotateX(var(--pyramid-angle));
-}
-
-.pyramid-front .navbar-pyramid-face {
-    background: linear-gradient(
-        145deg,
-        #93c5fd 0%,
-        #60a5fa 42%,
-        #2563eb 100%
-    );
-}
-
-
-/* BACK FACE */
-
-.pyramid-back {
-    transform:
-        translate3d(
-            0,
-            calc(var(--pyramid-height) / 2),
-            calc(var(--pyramid-base) / -2)
-        )
-        rotateX(
-            calc(var(--pyramid-angle) * -1)
-        );
-}
-
-.pyramid-back .navbar-pyramid-face {
-    background: linear-gradient(
-        145deg,
-        #16325c 0%,
-        #1e4f91 50%,
-        #1d4ed8 100%
-    );
-}
-
-
-/* RIGHT FACE */
-
-.pyramid-right {
-    transform:
-        translate3d(
-            calc(var(--pyramid-base) / 2),
-            calc(var(--pyramid-height) / 2),
-            0
-        )
-        rotateY(90deg)
-        rotateX(var(--pyramid-angle));
-}
-
-.pyramid-right .navbar-pyramid-face {
-    background: linear-gradient(
-        145deg,
-        #60a5fa 0%,
-        #3b82f6 48%,
-        #1d4ed8 100%
-    );
-}
-
-
-/* LEFT FACE */
-
-.pyramid-left {
-    transform:
-        translate3d(
-            calc(var(--pyramid-base) / -2),
-            calc(var(--pyramid-height) / 2),
-            0
-        )
-        rotateY(-90deg)
-        rotateX(var(--pyramid-angle));
-}
-
-.pyramid-left .navbar-pyramid-face {
-    background: linear-gradient(
-        145deg,
-        #16325c 0%,
-        #245b9e 52%,
-        #3b82f6 100%
-    );
-}
-
-
-/* PYRAMID BASE */
-
-.navbar-pyramid-base {
-    position: absolute;
-
-    width: var(--pyramid-base);
-    height: var(--pyramid-base);
-
-    left: calc(var(--pyramid-base) / -2);
-    top: calc(var(--pyramid-base) / -2);
-
-    background: linear-gradient(
-        135deg,
-        #1d4ed8,
-        #60a5fa
-    );
-
-    transform:
-        translateY(
-            calc(var(--pyramid-height) / 2)
-        )
-        rotateX(90deg);
-
-    opacity: 0.88;
-
-    backface-visibility: visible;
-    -webkit-backface-visibility: visible;
-}
-
-
-/* ROTATION */
-
-@keyframes navbarPyramidRotate {
-
-    from {
-        transform:
-            rotateX(-13deg)
-            rotateY(0deg);
-    }
-
-    to {
-        transform:
-            rotateX(-13deg)
-            rotateY(360deg);
-    }
-}
-
-
-/* BRAND TEXT AREA */
-
-.navbar-brand-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    margin-left: -3px;
-
-    min-width: 0;
-}
-
-
-.navbar-brand-line {
-    display: flex;
-    align-items: baseline;
-
-    line-height: 1;
-
-    white-space: nowrap;
-}
-
-
-/* PMAI */
-
-.navbar-pmai {
-    font-size: 1.28rem;
-    font-weight: 800;
-
-    letter-spacing: 0.045em;
-
-    background: linear-gradient(
-        90deg,
-        #16325c 0%,
-        #1e4f91 50%,
-        #2563eb 100%
-    );
-
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* LAB */
-
-.navbar-lab {
-    margin-left: 7px;
-
-    font-size: 1.28rem;
-    font-weight: 800;
-
-    letter-spacing: 0.035em;
-
-    background: linear-gradient(
-        90deg,
-        #2563eb 0%,
-        #3b82f6 55%,
-        #60a5fa 100%
-    );
-
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* LINE BELOW TEXT */
-
-.navbar-logo-line {
-    width: 58px;
-    height: 2px;
-
-    margin-top: 6px;
-
-    border-radius: 20px;
-
-    background: linear-gradient(
-        90deg,
-        #2563eb,
-        #60a5fa
-    );
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .navbar-logo {
-        --pyramid-base: 38px;
-        --pyramid-height: 43px;
-        --pyramid-slant: 47px;
-        --pyramid-angle: 23.84deg;
-
-        height: 48px;
-    }
-
-    .navbar-pyramid-scene {
-        width: 52px;
-        height: 50px;
-
-        flex-basis: 52px;
-    }
-
-    .navbar-pmai,
-    .navbar-lab {
-        font-size: 1.08rem;
-    }
-
-    .navbar-lab {
-        margin-left: 6px;
-    }
-
-    .navbar-logo-line {
-        width: 50px;
-        margin-top: 5px;
-    }
-}
-
-
-@media (max-width: 420px) {
-
-    .navbar-logo {
-        --pyramid-base: 34px;
-        --pyramid-height: 39px;
-        --pyramid-slant: 42.54px;
-        --pyramid-angle: 23.56deg;
-
-        height: 44px;
-    }
-
-    .navbar-pyramid-scene {
-        width: 47px;
-        height: 46px;
-
-        flex-basis: 47px;
-    }
-
-    .navbar-pmai,
-    .navbar-lab {
-        font-size: 0.96rem;
-    }
-
-    .navbar-lab {
-        margin-left: 5px;
-    }
-
-    .navbar-logo-line {
-        width: 44px;
-        margin-top: 4px;
-    }
-}
-
-
-/* REDUCED MOTION */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .navbar-pyramid {
-        animation: none;
-
-        transform:
-            rotateX(-13deg)
-            rotateY(35deg);
-    }
-}
+```
