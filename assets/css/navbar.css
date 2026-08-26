@@ -1521,69 +1521,306 @@
     }
 }
 /* =========================================================
-   PMAI LOGO — BLUE WEBSITE COLOR MATCH
+   PMAI LAB — ROTATING PYRAMID LOGO
 ========================================================= */
 
+.navbar-logo {
+    --pyramid-base: 42px;
+    --pyramid-height: 48px;
+    --pyramid-slant: 52.39px;
+    --pyramid-angle: 23.63deg;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    height: 54px;
+    flex-shrink: 0;
+
+    text-decoration: none;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* PYRAMID AREA */
+
+.navbar-pyramid-scene {
+    position: relative;
+
+    width: 58px;
+    height: 54px;
+
+    flex: 0 0 58px;
+
+    perspective: 500px;
+    perspective-origin: 50% 43%;
+
+    overflow: visible;
+}
+
+
+/* SHADOW */
+
+.navbar-pyramid-shadow {
+    position: absolute;
+
+    width: 34px;
+    height: 6px;
+
+    left: 50%;
+    bottom: 2px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(22, 50, 92, 0.13);
+
+    filter: blur(3px);
+}
+
+
+/* COMPLETE PYRAMID */
+
+.navbar-pyramid {
+    position: absolute;
+
+    left: 50%;
+    top: 48%;
+
+    width: 0;
+    height: 0;
+
+    transform-style: preserve-3d;
+
+    animation:
+        navbarPyramidRotate
+        12s
+        linear
+        infinite;
+}
+
+
+/* FACE HOLDERS */
+
+.navbar-pyramid-holder {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 0;
+
+    transform-style: preserve-3d;
+}
+
+
+/* PYRAMID FACES */
+
+.navbar-pyramid-face {
+    position: absolute;
+
+    width: var(--pyramid-base);
+    height: var(--pyramid-slant);
+
+    left: calc(var(--pyramid-base) / -2);
+    top: calc(var(--pyramid-slant) * -1);
+
+    clip-path: polygon(
+        50% 0%,
+        0% 100%,
+        100% 100%
+    );
+
+    transform-origin: 50% 100%;
+
+    border: none;
+
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+}
+
+
 /* FRONT FACE */
+
+.pyramid-front {
+    transform:
+        translate3d(
+            0,
+            calc(var(--pyramid-height) / 2),
+            calc(var(--pyramid-base) / 2)
+        )
+        rotateX(var(--pyramid-angle));
+}
+
 .pyramid-front .navbar-pyramid-face {
     background: linear-gradient(
         145deg,
-        #60a5fa 0%,
-        #3b82f6 45%,
+        #93c5fd 0%,
+        #60a5fa 42%,
         #2563eb 100%
     );
 }
 
 
 /* BACK FACE */
+
+.pyramid-back {
+    transform:
+        translate3d(
+            0,
+            calc(var(--pyramid-height) / 2),
+            calc(var(--pyramid-base) / -2)
+        )
+        rotateX(
+            calc(var(--pyramid-angle) * -1)
+        );
+}
+
 .pyramid-back .navbar-pyramid-face {
     background: linear-gradient(
         145deg,
-        #102b4e 0%,
+        #16325c 0%,
         #1e4f91 50%,
-        #2563eb 100%
+        #1d4ed8 100%
     );
 }
 
 
 /* RIGHT FACE */
+
+.pyramid-right {
+    transform:
+        translate3d(
+            calc(var(--pyramid-base) / 2),
+            calc(var(--pyramid-height) / 2),
+            0
+        )
+        rotateY(90deg)
+        rotateX(var(--pyramid-angle));
+}
+
 .pyramid-right .navbar-pyramid-face {
     background: linear-gradient(
         145deg,
-        #4da3f5 0%,
-        #3488e5 48%,
+        #60a5fa 0%,
+        #3b82f6 48%,
         #1d4ed8 100%
     );
 }
 
 
 /* LEFT FACE */
+
+.pyramid-left {
+    transform:
+        translate3d(
+            calc(var(--pyramid-base) / -2),
+            calc(var(--pyramid-height) / 2),
+            0
+        )
+        rotateY(-90deg)
+        rotateX(var(--pyramid-angle));
+}
+
 .pyramid-left .navbar-pyramid-face {
     background: linear-gradient(
         145deg,
-        #102b4e 0%,
-        #174f87 52%,
-        #2878c7 100%
+        #16325c 0%,
+        #245b9e 52%,
+        #3b82f6 100%
     );
 }
 
 
 /* PYRAMID BASE */
+
 .navbar-pyramid-base {
+    position: absolute;
+
+    width: var(--pyramid-base);
+    height: var(--pyramid-base);
+
+    left: calc(var(--pyramid-base) / -2);
+    top: calc(var(--pyramid-base) / -2);
+
     background: linear-gradient(
         135deg,
         #1d4ed8,
-        #3b82f6
+        #60a5fa
     );
+
+    transform:
+        translateY(
+            calc(var(--pyramid-height) / 2)
+        )
+        rotateX(90deg);
+
+    opacity: 0.88;
+
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
 }
 
 
-/* PMAI TEXT */
+/* ROTATION */
+
+@keyframes navbarPyramidRotate {
+
+    from {
+        transform:
+            rotateX(-13deg)
+            rotateY(0deg);
+    }
+
+    to {
+        transform:
+            rotateX(-13deg)
+            rotateY(360deg);
+    }
+}
+
+
+/* BRAND TEXT AREA */
+
+.navbar-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: -3px;
+
+    min-width: 0;
+}
+
+
+.navbar-brand-line {
+    display: flex;
+    align-items: baseline;
+
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+/* PMAI */
+
 .navbar-pmai {
+    font-size: 1.28rem;
+    font-weight: 800;
+
+    letter-spacing: 0.045em;
+
     background: linear-gradient(
         90deg,
-        #102b4e 0%,
-        #174f87 45%,
+        #16325c 0%,
+        #1e4f91 50%,
         #2563eb 100%
     );
 
@@ -1595,12 +1832,20 @@
 }
 
 
-/* LAB TEXT — BRIGHTER BLUE */
+/* LAB */
+
 .navbar-lab {
+    margin-left: 7px;
+
+    font-size: 1.28rem;
+    font-weight: 800;
+
+    letter-spacing: 0.035em;
+
     background: linear-gradient(
         90deg,
         #2563eb 0%,
-        #3b82f6 50%,
+        #3b82f6 55%,
         #60a5fa 100%
     );
 
@@ -1613,10 +1858,102 @@
 
 
 /* LINE BELOW TEXT */
+
 .navbar-logo-line {
+    width: 58px;
+    height: 2px;
+
+    margin-top: 6px;
+
+    border-radius: 20px;
+
     background: linear-gradient(
         90deg,
-        #1d4ed8,
+        #2563eb,
         #60a5fa
     );
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .navbar-logo {
+        --pyramid-base: 38px;
+        --pyramid-height: 43px;
+        --pyramid-slant: 47px;
+        --pyramid-angle: 23.84deg;
+
+        height: 48px;
+    }
+
+    .navbar-pyramid-scene {
+        width: 52px;
+        height: 50px;
+
+        flex-basis: 52px;
+    }
+
+    .navbar-pmai,
+    .navbar-lab {
+        font-size: 1.08rem;
+    }
+
+    .navbar-lab {
+        margin-left: 6px;
+    }
+
+    .navbar-logo-line {
+        width: 50px;
+        margin-top: 5px;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .navbar-logo {
+        --pyramid-base: 34px;
+        --pyramid-height: 39px;
+        --pyramid-slant: 42.54px;
+        --pyramid-angle: 23.56deg;
+
+        height: 44px;
+    }
+
+    .navbar-pyramid-scene {
+        width: 47px;
+        height: 46px;
+
+        flex-basis: 47px;
+    }
+
+    .navbar-pmai,
+    .navbar-lab {
+        font-size: 0.96rem;
+    }
+
+    .navbar-lab {
+        margin-left: 5px;
+    }
+
+    .navbar-logo-line {
+        width: 44px;
+        margin-top: 4px;
+    }
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .navbar-pyramid {
+        animation: none;
+
+        transform:
+            rotateX(-13deg)
+            rotateY(35deg);
+    }
 }
