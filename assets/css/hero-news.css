@@ -1,18 +1,17 @@
-```css
 /* =========================================================
-   PMAI LAB — HERO NEWS CARD
+   PMAI LAB — PREMIUM HERO NEWS
    File: assets/css/hero-news.css
-   Version: 1.0
-   ---------------------------------------------------------
-   Features:
-   • Premium news card
-   • Glass / academic design
-   • Automatic news rotation support
-   • Smooth transitions
+   Version: 2.0
+
+   Purpose:
+   • Premium homepage news card
+   • Responsive desktop / tablet / mobile
+   • Animated news transitions
    • Category badges
-   • Responsive design
-   • Hover effects
-   • Accessibility support
+   • Interactive news dots
+   • Glass / academic technology design
+   • Works with hero-news.js
+   • Accessible reduced-motion support
 ========================================================= */
 
 
@@ -26,9 +25,7 @@
 
     width: 100%;
 
-    max-width: 540px;
-
-    margin: 0 auto;
+    min-width: 0;
 
     display: flex;
 
@@ -36,6 +33,43 @@
 
     justify-content: center;
 
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND GLOW
+========================================================= */
+
+.hero-visual::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.12) 0%,
+            rgba(99, 102, 241, 0.06) 38%,
+            transparent 72%
+        );
+
+    filter: blur(10px);
+
+    z-index: -1;
+
+    pointer-events: none;
 }
 
 
@@ -47,19 +81,17 @@
 
     position: relative;
 
-    width: 100%;
+    width: min(100%, 500px);
 
-    min-height: 390px;
+    min-height: 405px;
 
-    padding: 28px;
+    padding: 26px 27px 21px;
+
+    display: flex;
+
+    flex-direction: column;
 
     overflow: hidden;
-
-    border:
-        1px solid
-        rgba(148, 163, 184, 0.22);
-
-    border-radius: 24px;
 
     background:
         linear-gradient(
@@ -68,9 +100,19 @@
             rgba(248, 250, 252, 0.96)
         );
 
+    border:
+        1px solid
+        rgba(203, 213, 225, 0.85);
+
+    border-radius:
+        24px;
+
     box-shadow:
-        0 24px 60px
-        rgba(15, 23, 42, 0.10);
+        0 25px 60px
+        rgba(15, 23, 42, 0.10),
+
+        0 8px 24px
+        rgba(37, 99, 235, 0.06);
 
     backdrop-filter:
         blur(20px);
@@ -78,13 +120,15 @@
     -webkit-backdrop-filter:
         blur(20px);
 
-    isolation: isolate;
-
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 }
 
 
 /* =========================================================
-   DECORATIVE GLOW
+   TOP ACCENT LINE
 ========================================================= */
 
 .hero-news-card::before {
@@ -93,32 +137,30 @@
 
     position: absolute;
 
-    top: -100px;
+    top: 0;
 
-    right: -100px;
+    left: 28px;
 
-    width: 240px;
+    right: 28px;
 
-    height: 240px;
+    height: 2px;
 
-    border-radius: 50%;
+    border-radius: 999px;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(59, 130, 246, 0.12),
-            transparent 70%
+        linear-gradient(
+            90deg,
+            #1d4ed8,
+            #3b82f6,
+            #7c3aed
         );
 
-    pointer-events: none;
-
-    z-index: -1;
-
+    opacity: 0.85;
 }
 
 
 /* =========================================================
-   SECONDARY DECORATIVE GLOW
+   DECORATIVE GLOW
 ========================================================= */
 
 .hero-news-card::after {
@@ -127,27 +169,45 @@
 
     position: absolute;
 
-    bottom: -120px;
+    width: 170px;
 
-    left: -120px;
+    height: 170px;
 
-    width: 260px;
+    right: -90px;
 
-    height: 260px;
+    top: -90px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(124, 58, 237, 0.08),
+            rgba(96, 165, 250, 0.13),
             transparent 70%
         );
 
     pointer-events: none;
+}
 
-    z-index: -1;
 
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.hero-news-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(147, 197, 253, 0.9);
+
+    box-shadow:
+        0 30px 70px
+        rgba(15, 23, 42, 0.13),
+
+        0 10px 30px
+        rgba(37, 99, 235, 0.09);
 }
 
 
@@ -159,6 +219,8 @@
 
     position: relative;
 
+    z-index: 2;
+
     display: flex;
 
     align-items: center;
@@ -167,8 +229,7 @@
 
     gap: 15px;
 
-    margin-bottom: 24px;
-
+    margin-bottom: 22px;
 }
 
 
@@ -184,6 +245,7 @@
 
     gap: 9px;
 
+    min-width: 0;
 }
 
 
@@ -195,22 +257,27 @@
 
     position: relative;
 
-    width: 9px;
+    width: 8px;
 
-    height: 9px;
+    height: 8px;
 
-    flex: 0 0 9px;
+    flex:
+        0 0 8px;
 
     border-radius: 50%;
 
-    background: #2563eb;
+    background:
+        #2563eb;
 
     box-shadow:
         0 0 0 4px
         rgba(37, 99, 235, 0.10);
-
 }
 
+
+/* =========================================================
+   LIVE DOT ANIMATION
+========================================================= */
 
 .hero-news-live-dot::after {
 
@@ -220,51 +287,48 @@
 
     inset: -4px;
 
-    border-radius: 50%;
-
     border:
         1px solid
         rgba(37, 99, 235, 0.30);
+
+    border-radius: 50%;
 
     animation:
         heroNewsPulse
         2s
         ease-out
         infinite;
-
 }
 
-
-/* =========================================================
-   LIVE DOT ANIMATION
-========================================================= */
 
 @keyframes heroNewsPulse {
 
     0% {
 
-        transform: scale(0.8);
+        transform:
+            scale(0.75);
 
-        opacity: 0.9;
-
+        opacity:
+            0.8;
     }
 
     70% {
 
-        transform: scale(1.4);
+        transform:
+            scale(1.35);
 
-        opacity: 0;
-
+        opacity:
+            0;
     }
 
     100% {
 
-        transform: scale(1.4);
+        transform:
+            scale(1.35);
 
-        opacity: 0;
-
+        opacity:
+            0;
     }
-
 }
 
 
@@ -274,33 +338,53 @@
 
 .hero-news-label {
 
-    color: #0f172a;
+    color:
+        #0f172a;
 
-    font-size: 0.74rem;
+    font-size:
+        0.70rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 0.13em;
+    letter-spacing:
+        0.14em;
 
-    text-transform: uppercase;
+    line-height:
+        1.2;
 
+    white-space:
+        nowrap;
 }
 
 
 /* =========================================================
-   LATEST STATUS
+   NEWS STATUS
 ========================================================= */
 
 .hero-news-status {
 
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        27px;
+
     padding:
-        6px 11px;
+        5px 10px;
 
     border:
         1px solid
         rgba(37, 99, 235, 0.14);
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     background:
         rgba(239, 246, 255, 0.85);
@@ -309,14 +393,19 @@
         #2563eb;
 
     font-size:
-        0.68rem;
+        0.64rem;
 
     font-weight:
-        700;
+        750;
 
     letter-spacing:
-        0.04em;
+        0.06em;
 
+    text-transform:
+        uppercase;
+
+    white-space:
+        nowrap;
 }
 
 
@@ -326,10 +415,14 @@
 
 .hero-news-list {
 
-    position: relative;
+    position:
+        relative;
 
-    min-height: 270px;
+    flex:
+        1;
 
+    min-height:
+        280px;
 }
 
 
@@ -339,28 +432,34 @@
 
 .hero-news-item {
 
-    position: absolute;
+    position:
+        absolute;
 
-    top: 0;
+    inset:
+        0;
 
-    left: 0;
+    display:
+        flex;
 
-    width: 100%;
+    flex-direction:
+        column;
 
-    opacity: 0;
+    opacity:
+        0;
 
-    visibility: hidden;
+    visibility:
+        hidden;
 
     transform:
         translateY(12px);
 
+    pointer-events:
+        none;
+
     transition:
-        opacity 0.55s ease,
-        transform 0.55s ease,
-        visibility 0.55s ease;
-
-    pointer-events: none;
-
+        opacity 0.45s ease,
+        transform 0.45s ease,
+        visibility 0.45s ease;
 }
 
 
@@ -370,17 +469,17 @@
 
 .hero-news-item.active {
 
-    position: relative;
+    opacity:
+        1;
 
-    opacity: 1;
-
-    visibility: visible;
+    visibility:
+        visible;
 
     transform:
         translateY(0);
 
-    pointer-events: auto;
-
+    pointer-events:
+        auto;
 }
 
 
@@ -389,254 +488,6 @@
 ========================================================= */
 
 .hero-news-meta {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 12px;
-
-    margin-bottom: 16px;
-
-}
-
-
-/* =========================================================
-   CATEGORY BADGE
-========================================================= */
-
-.hero-news-category {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    padding:
-        6px 10px;
-
-    border-radius:
-        7px;
-
-    font-size:
-        0.62rem;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        0.08em;
-
-    line-height:
-        1;
-
-}
-
-
-/* =========================================================
-   SEMINAR
-========================================================= */
-
-.hero-news-category.seminar {
-
-    background:
-        rgba(37, 99, 235, 0.09);
-
-    color:
-        #2563eb;
-
-}
-
-
-/* =========================================================
-   COURSE
-========================================================= */
-
-.hero-news-category.course {
-
-    background:
-        rgba(16, 185, 129, 0.10);
-
-    color:
-        #047857;
-
-}
-
-
-/* =========================================================
-   RESEARCH
-========================================================= */
-
-.hero-news-category.research {
-
-    background:
-        rgba(124, 58, 237, 0.10);
-
-    color:
-        #6d28d9;
-
-}
-
-
-/* =========================================================
-   YOUTUBE
-========================================================= */
-
-.hero-news-category.youtube {
-
-    background:
-        rgba(239, 68, 68, 0.09);
-
-    color:
-        #dc2626;
-
-}
-
-
-/* =========================================================
-   DATE
-========================================================= */
-
-.hero-news-meta time {
-
-    color:
-        #64748b;
-
-    font-size:
-        0.72rem;
-
-    font-weight:
-        600;
-
-    white-space:
-        nowrap;
-
-}
-
-
-/* =========================================================
-   NEWS TITLE
-========================================================= */
-
-.hero-news-item h3 {
-
-    max-width:
-        470px;
-
-    margin:
-        0 0 14px;
-
-    color:
-        #0f172a;
-
-    font-size:
-        clamp(
-            1.35rem,
-            2.3vw,
-            1.75rem
-        );
-
-    font-weight:
-        800;
-
-    line-height:
-        1.25;
-
-    letter-spacing:
-        -0.025em;
-
-}
-
-
-/* =========================================================
-   NEWS DESCRIPTION
-========================================================= */
-
-.hero-news-item p {
-
-    max-width:
-        465px;
-
-    margin:
-        0 0 22px;
-
-    color:
-        #64748b;
-
-    font-size:
-        0.92rem;
-
-    font-weight:
-        450;
-
-    line-height:
-        1.75;
-
-}
-
-
-/* =========================================================
-   NEWS LINK
-========================================================= */
-
-.hero-news-link {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    gap:
-        8px;
-
-    color:
-        #2563eb;
-
-    font-size:
-        0.82rem;
-
-    font-weight:
-        750;
-
-    text-decoration:
-        none;
-
-    transition:
-        gap 0.25s ease,
-        color 0.25s ease;
-
-}
-
-
-.hero-news-link span {
-
-    font-size:
-        1.05rem;
-
-    line-height:
-        1;
-
-}
-
-
-.hero-news-link:hover {
-
-    gap:
-        12px;
-
-    color:
-        #1d4ed8;
-
-}
-
-
-/* =========================================================
-   NEWS FOOTER
-========================================================= */
-
-.hero-news-footer {
 
     display:
         flex;
@@ -648,20 +499,334 @@
         space-between;
 
     gap:
-        20px;
+        12px;
 
-    padding-top:
-        18px;
-
-    border-top:
-        1px solid
-        rgba(226, 232, 240, 0.80);
-
+    margin-bottom:
+        17px;
 }
 
 
 /* =========================================================
-   DOT CONTAINER
+   CATEGORY BADGE
+========================================================= */
+
+.hero-news-category {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        27px;
+
+    padding:
+        5px 10px;
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.13);
+
+    border-radius:
+        7px;
+
+    background:
+        #eff6ff;
+
+    color:
+        #2563eb;
+
+    font-size:
+        0.62rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.09em;
+
+    line-height:
+        1;
+
+    white-space:
+        nowrap;
+}
+
+
+/* =========================================================
+   SEMINAR
+========================================================= */
+
+.hero-news-category.seminar {
+
+    background:
+        #eff6ff;
+
+    color:
+        #1d4ed8;
+
+    border-color:
+        #dbeafe;
+}
+
+
+/* =========================================================
+   COURSE
+========================================================= */
+
+.hero-news-category.course {
+
+    background:
+        #f0fdf4;
+
+    color:
+        #15803d;
+
+    border-color:
+        #dcfce7;
+}
+
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+.hero-news-category.research {
+
+    background:
+        #f5f3ff;
+
+    color:
+        #6d28d9;
+
+    border-color:
+        #ede9fe;
+}
+
+
+/* =========================================================
+   YOUTUBE
+========================================================= */
+
+.hero-news-category.youtube {
+
+    background:
+        #fef2f2;
+
+    color:
+        #b91c1c;
+
+    border-color:
+        #fee2e2;
+}
+
+
+/* =========================================================
+   NEWS DATE
+========================================================= */
+
+.hero-news-meta time {
+
+    color:
+        #64748b;
+
+    font-size:
+        0.70rem;
+
+    font-weight:
+        650;
+
+    letter-spacing:
+        0.02em;
+
+    white-space:
+        nowrap;
+}
+
+
+/* =========================================================
+   NEWS TITLE
+========================================================= */
+
+.hero-news-item h3 {
+
+    max-width:
+        420px;
+
+    margin:
+        0 0 13px;
+
+    color:
+        #0f172a;
+
+    font-size:
+        clamp(
+            1.55rem,
+            2.4vw,
+            2rem
+        );
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -0.035em;
+
+    line-height:
+        1.13;
+}
+
+
+/* =========================================================
+   NEWS DESCRIPTION
+========================================================= */
+
+.hero-news-item p {
+
+    max-width:
+        425px;
+
+    margin:
+        0;
+
+    color:
+        #64748b;
+
+    font-size:
+        0.88rem;
+
+    font-weight:
+        450;
+
+    line-height:
+        1.72;
+}
+
+
+/* =========================================================
+   NEWS LINK
+========================================================= */
+
+.hero-news-link {
+
+    align-self:
+        flex-start;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-top:
+        auto;
+
+    padding:
+        8px 0;
+
+    color:
+        #1d4ed8;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        750;
+
+    letter-spacing:
+        -0.01em;
+
+    text-decoration:
+        none;
+
+    transition:
+        color 0.25s ease,
+        gap 0.25s ease;
+}
+
+
+/* =========================================================
+   NEWS LINK ARROW
+========================================================= */
+
+.hero-news-link span {
+
+    display:
+        inline-block;
+
+    font-size:
+        1rem;
+
+    line-height:
+        1;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.hero-news-link:hover {
+
+    color:
+        #1e40af;
+
+    gap:
+        11px;
+}
+
+
+.hero-news-link:hover span {
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   NEWS FOOTER
+========================================================= */
+
+.hero-news-footer {
+
+    position:
+        relative;
+
+    z-index:
+        3;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-top:
+        19px;
+
+    padding-top:
+        17px;
+
+    border-top:
+        1px solid
+        rgba(226, 232, 240, 0.90);
+}
+
+
+/* =========================================================
+   NEWS DOTS
 ========================================================= */
 
 .hero-news-dots {
@@ -673,22 +838,27 @@
         center;
 
     gap:
-        6px;
-
+        7px;
 }
 
 
 /* =========================================================
-   DOT
+   NEWS DOT BUTTON
 ========================================================= */
 
 .hero-news-dot {
 
+    appearance:
+        none;
+
+    -webkit-appearance:
+        none;
+
     width:
-        6px;
+        7px;
 
     height:
-        6px;
+        7px;
 
     padding:
         0;
@@ -702,10 +872,13 @@
     background:
         #cbd5e1;
 
+    cursor:
+        pointer;
+
     transition:
         width 0.3s ease,
-        background 0.3s ease;
-
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
 
@@ -716,16 +889,29 @@
 .hero-news-dot.active {
 
     width:
-        20px;
+        23px;
 
     background:
         #2563eb;
-
 }
 
 
 /* =========================================================
-   ALL NEWS
+   DOT HOVER
+========================================================= */
+
+.hero-news-dot:hover {
+
+    transform:
+        scale(1.25);
+
+    background:
+        #60a5fa;
+}
+
+
+/* =========================================================
+   ALL NEWS LINK
 ========================================================= */
 
 .hero-news-all {
@@ -740,13 +926,13 @@
         7px;
 
     color:
-        #475569;
+        #334155;
 
     font-size:
-        0.75rem;
+        0.74rem;
 
     font-weight:
-        700;
+        750;
 
     text-decoration:
         none;
@@ -754,7 +940,6 @@
     transition:
         color 0.25s ease,
         gap 0.25s ease;
-
 }
 
 
@@ -763,6 +948,8 @@
     font-size:
         0.95rem;
 
+    transition:
+        transform 0.25s ease;
 }
 
 
@@ -773,32 +960,13 @@
 
     gap:
         10px;
-
 }
 
 
-/* =========================================================
-   HOVER EFFECT
-========================================================= */
-
-.hero-news-card {
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-
-}
-
-
-.hero-news-card:hover {
+.hero-news-all:hover span {
 
     transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 30px 70px
-        rgba(15, 23, 42, 0.14);
-
+        translateX(3px);
 }
 
 
@@ -806,13 +974,63 @@
    TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+
+    .hero-news-card {
+
+        width:
+            min(100%, 460px);
+
+        min-height:
+            395px;
+
+        padding:
+            24px 24px 20px;
+    }
+
+
+    .hero-news-item h3 {
+
+        font-size:
+            1.55rem;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 900px) {
 
     .hero-visual {
 
-        max-width:
-            500px;
+        margin-top:
+            12px;
+    }
 
+
+    .hero-news-card {
+
+        width:
+            100%;
+
+        max-width:
+            600px;
+
+        min-height:
+            390px;
+
+        border-radius:
+            21px;
+    }
+
+
+    .hero-news-list {
+
+        min-height:
+            265px;
     }
 
 }
@@ -822,57 +1040,142 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 768px) {
-
-    .hero-visual {
-
-        max-width:
-            100%;
-
-        margin-top:
-            20px;
-
-    }
-
+@media (max-width: 600px) {
 
     .hero-news-card {
 
         min-height:
-            360px;
+            385px;
 
         padding:
-            23px;
+            22px 20px 18px;
 
         border-radius:
-            20px;
+            19px;
+    }
 
+
+    .hero-news-card::before {
+
+        left:
+            21px;
+
+        right:
+            21px;
+    }
+
+
+    .hero-news-header {
+
+        margin-bottom:
+            19px;
+    }
+
+
+    .hero-news-label {
+
+        font-size:
+            0.63rem;
+
+        letter-spacing:
+            0.11em;
+    }
+
+
+    .hero-news-status {
+
+        min-height:
+            25px;
+
+        padding:
+            4px 8px;
+
+        font-size:
+            0.58rem;
     }
 
 
     .hero-news-list {
 
         min-height:
-            245px;
+            270px;
+    }
 
+
+    .hero-news-meta {
+
+        margin-bottom:
+            15px;
+    }
+
+
+    .hero-news-category {
+
+        min-height:
+            25px;
+
+        padding:
+            5px 8px;
+
+        font-size:
+            0.57rem;
+    }
+
+
+    .hero-news-meta time {
+
+        font-size:
+            0.65rem;
     }
 
 
     .hero-news-item h3 {
 
-        font-size:
-            1.35rem;
+        max-width:
+            100%;
 
+        font-size:
+            1.42rem;
+
+        line-height:
+            1.17;
+
+        margin-bottom:
+            11px;
     }
 
 
     .hero-news-item p {
 
         font-size:
-            0.87rem;
+            0.82rem;
 
         line-height:
             1.65;
+    }
 
+
+    .hero-news-footer {
+
+        margin-top:
+            15px;
+
+        padding-top:
+            14px;
+    }
+
+
+    .hero-news-link {
+
+        font-size:
+            0.78rem;
+    }
+
+
+    .hero-news-all {
+
+        font-size:
+            0.70rem;
     }
 
 }
@@ -882,83 +1185,126 @@
    SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 420px) {
 
     .hero-news-card {
 
+        min-height:
+            375px;
+
         padding:
-            20px;
-
-        border-radius:
-            18px;
-
+            20px 17px 16px;
     }
 
 
     .hero-news-header {
 
-        margin-bottom:
-            20px;
+        gap:
+            8px;
 
+        margin-bottom:
+            17px;
+    }
+
+
+    .hero-news-heading {
+
+        gap:
+            7px;
+    }
+
+
+    .hero-news-live-dot {
+
+        width:
+            7px;
+
+        height:
+            7px;
+
+        flex-basis:
+            7px;
     }
 
 
     .hero-news-label {
 
         font-size:
-            0.66rem;
-
+            0.57rem;
     }
 
 
     .hero-news-status {
 
-        padding:
-            5px 9px;
-
         font-size:
-            0.62rem;
+            0.54rem;
+    }
 
+
+    .hero-news-list {
+
+        min-height:
+            270px;
     }
 
 
     .hero-news-meta {
 
-        align-items:
-            flex-start;
-
-        flex-direction:
-            column;
+        flex-wrap:
+            wrap;
 
         gap:
-            8px;
-
+            7px;
     }
 
 
     .hero-news-item h3 {
 
         font-size:
-            1.25rem;
-
+            1.28rem;
     }
 
 
     .hero-news-item p {
 
         font-size:
-            0.84rem;
-
+            0.78rem;
     }
 
 
     .hero-news-footer {
 
-        padding-top:
-            15px;
-
+        gap:
+            10px;
     }
 
+
+    .hero-news-dot.active {
+
+        width:
+            19px;
+    }
+
+}
+
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.hero-news-link:focus-visible,
+.hero-news-all:focus-visible,
+.hero-news-dot:focus-visible {
+
+    outline:
+        3px solid
+        rgba(37, 99, 235, 0.25);
+
+    outline-offset:
+        4px;
+
+    border-radius:
+        5px;
 }
 
 
@@ -968,45 +1314,36 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-    .hero-news-live-dot::after {
-
-        animation:
-            none;
-
-    }
-
-
-    .hero-news-item {
-
-        transition:
-            none;
-
-    }
-
-
-    .hero-news-card {
-
-        transition:
-            none;
-
-    }
-
-
+    .hero-news-card,
+    .hero-news-item,
     .hero-news-link,
-    .hero-news-all {
-
-        transition:
-            none;
-
-    }
-
-
+    .hero-news-all,
     .hero-news-dot {
 
         transition:
             none;
+    }
 
+
+    .hero-news-live-dot::after {
+
+        animation:
+            none;
+    }
+
+
+    .hero-news-card:hover {
+
+        transform:
+            none;
+    }
+
+
+    .hero-news-link:hover,
+    .hero-news-all:hover {
+
+        gap:
+            initial;
     }
 
 }
-```
