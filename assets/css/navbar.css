@@ -1957,3 +1957,60 @@
             rotateY(35deg);
     }
 }
+
+/* =========================================================
+   MOBILE MENU ICON
+========================================================= */
+
+.menu-icon {
+
+    display: block;
+
+    font-size: 1.45rem;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON — OPEN STATE
+========================================================= */
+
+.menu-toggle.active .menu-icon {
+
+    font-size: 0;
+
+}
+
+
+.menu-toggle.active .menu-icon::after {
+
+    content: "×";
+
+    font-size: 1.65rem;
+
+    line-height: 1;
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU — MAKE SURE IT IS ABOVE CONTENT
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .nav-menu {
+
+        z-index: 100000;
+
+    }
+
+}
