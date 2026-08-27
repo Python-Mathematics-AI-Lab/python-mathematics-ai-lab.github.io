@@ -1,73 +1,143 @@
 /* =========================================================
-   PMAI LAB — PREMIUM MAIN JAVASCRIPT
-   Version 2.0
-   File: assets/js/main.js
+   PMAI LAB — NAVBAR JAVASCRIPT
+   File: assets/js/navbar.js
 ========================================================= */
 
+(function () {
 
-/* =========================================================
-   DOM READY
-========================================================= */
+    "use strict";
 
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
+        const navbar =
+            document.querySelector(".navbar");
 
-    /* =====================================================
-       ELEMENT REFERENCES
-    ====================================================== */
+        const menuToggle =
+            document.getElementById("menu-toggle");
 
-    const menuToggle =
-        document.getElementById("menu-toggle");
-
-    const navMenu =
-        document.getElementById("nav-menu");
-
-    const siteHeader =
-        document.getElementById("site-header");
+        const navMenu =
+            document.getElementById("nav-menu");
 
 
-    /* =====================================================
-       MOBILE NAVIGATION
-    ====================================================== */
+        /* =================================================
+           SAFETY CHECK
+        ================================================= */
 
-    if (menuToggle && navMenu) {
+        if (!navbar) {
+            console.warn("PMAI LAB: .navbar not found.");
+            return;
+        }
+
+        if (!menuToggle) {
+            console.warn("PMAI LAB: #menu-toggle not found.");
+            return;
+        }
+
+        if (!navMenu) {
+            console.warn("PMAI LAB: #nav-menu not found.");
+            return;
+        }
 
 
-        /* -------------------------------------------------
-           OPEN / CLOSE MENU
-        ------------------------------------------------- */
+        /* =================================================
+           INITIAL STATE
+        ================================================= */
 
-        menuToggle.addEventListener("click", function () {
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-            const isOpen =
-                navMenu.classList.toggle("show");
 
+        /* =================================================
+           OPEN MENU
+        ================================================= */
+
+        function openMenu() {
+
+            navMenu.classList.add("show");
+
+            menuToggle.classList.add("active");
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                String(isOpen)
+                "true"
             );
-
 
             menuToggle.setAttribute(
                 "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
+                "Close navigation menu"
             );
 
-
-            /* Change menu icon */
-
-            menuToggle.textContent =
-                isOpen ? "✕" : "☰";
-
-        });
+        }
 
 
-        /* -------------------------------------------------
-           CLOSE MENU AFTER CLICKING LINK
-        ------------------------------------------------- */
+        /* =================================================
+           CLOSE MENU
+        ================================================= */
+
+        function closeMenu() {
+
+            navMenu.classList.remove("show");
+
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+        }
+
+
+        /* =================================================
+           TOGGLE MENU
+        ================================================= */
+
+        function toggleMenu() {
+
+            const isOpen =
+                navMenu.classList.contains("show");
+
+            if (isOpen) {
+
+                closeMenu();
+
+            } else {
+
+                openMenu();
+
+            }
+
+        }
+
+
+        /* =================================================
+           MENU BUTTON
+        ================================================= */
+
+        menuToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                toggleMenu();
+
+            }
+        );
+
+
+        /* =================================================
+           NAVIGATION LINKS
+        ================================================= */
 
         const navLinks =
             navMenu.querySelectorAll("a");
@@ -79,22 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "click",
                 function () {
 
-                    navMenu.classList.remove("show");
-
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-
-
-                    menuToggle.textContent = "☰";
+                    closeMenu();
 
                 }
             );
@@ -102,43 +157,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        /* -------------------------------------------------
-           CLOSE MENU WHEN CLICKING OUTSIDE
-        ------------------------------------------------- */
+        /* =================================================
+           CLOSE WHEN CLICKING OUTSIDE
+        ================================================= */
 
         document.addEventListener(
             "click",
             function (event) {
 
-                const clickedInsideMenu =
-                    navMenu.contains(event.target);
-
-                const clickedToggle =
-                    menuToggle.contains(event.target);
-
-
                 if (
-                    !clickedInsideMenu &&
-                    !clickedToggle &&
-                    navMenu.classList.contains("show")
+                    !navbar.contains(event.target)
                 ) {
 
-                    navMenu.classList.remove("show");
-
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-
-
-                    menuToggle.textContent = "☰";
+                    closeMenu();
 
                 }
 
@@ -146,36 +177,17 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        /* -------------------------------------------------
+        /* =================================================
            ESCAPE KEY
-        ------------------------------------------------- */
+        ================================================= */
 
         document.addEventListener(
             "keydown",
             function (event) {
 
-                if (
-                    event.key === "Escape" &&
-                    navMenu.classList.contains("show")
-                ) {
+                if (event.key === "Escape") {
 
-                    navMenu.classList.remove("show");
-
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-
-
-                    menuToggle.textContent = "☰";
-
+                    closeMenu();
 
                     menuToggle.focus();
 
@@ -184,291 +196,142 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
 
-    }
 
-
-    /* =====================================================
-       PREMIUM HEADER SCROLL EFFECT
-    ====================================================== */
-
-    if (siteHeader) {
-
-
-        function updateHeaderOnScroll() {
-
-            if (window.scrollY > 20) {
-
-                siteHeader.classList.add(
-                    "scrolled"
-                );
-
-            } else {
-
-                siteHeader.classList.remove(
-                    "scrolled"
-                );
-
-            }
-
-        }
-
+        /* =================================================
+           WINDOW RESIZE
+        ================================================= */
 
         window.addEventListener(
-            "scroll",
-            updateHeaderOnScroll,
-            { passive: true }
+            "resize",
+            function () {
+
+                if (window.innerWidth > 900) {
+
+                    closeMenu();
+
+                }
+
+            }
         );
 
 
-        /* Run once on page load */
+        /* =================================================
+           ACTIVE PAGE
+        ================================================= */
 
-        updateHeaderOnScroll();
+        function updateActivePage() {
 
-    }
-
-
-    /* =====================================================
-       ACTIVE NAVIGATION LINK
-    ====================================================== */
-
-    if (navMenu) {
-
-
-        const currentPage =
-            window.location.pathname
-                .split("/")
-                .pop()
-                .toLowerCase();
-
-
-        const navLinks =
-            navMenu.querySelectorAll("a");
-
-
-        navLinks.forEach(function (link) {
-
-
-            const linkPage =
-                link.getAttribute("href");
-
-
-            if (!linkPage) {
-                return;
-            }
-
-
-            const cleanLinkPage =
-                linkPage
-                    .split("#")[0]
-                    .split("?")[0]
+            let currentPage =
+                window.location.pathname
+                    .split("/")
+                    .pop()
                     .toLowerCase();
 
 
-            /* ------------------------------------------------
-               HOME PAGE
-            ------------------------------------------------ */
-
             if (
-                (
-                    currentPage === "" ||
-                    currentPage === "index.html"
-                ) &&
-                (
-                    cleanLinkPage === "" ||
-                    cleanLinkPage === "index.html"
-                )
+                currentPage === ""
             ) {
 
-                link.classList.add("active");
+                currentPage = "index.html";
 
             }
 
 
-            /* ------------------------------------------------
-               OTHER PAGES
-            ------------------------------------------------ */
+            navLinks.forEach(function (link) {
 
-            else if (
-                currentPage !== "" &&
-                cleanLinkPage === currentPage
-            ) {
-
-                link.classList.add("active");
-
-            }
-
-        });
-
-    }
-
-
-    /* =====================================================
-       SMOOTH SCROLLING
-    ====================================================== */
-
-    const anchorLinks =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    anchorLinks.forEach(function (link) {
-
-
-        link.addEventListener(
-            "click",
-            function (event) {
-
-
-                const targetId =
+                const href =
                     link.getAttribute("href");
 
 
+                if (!href) {
+                    return;
+                }
+
+
+                const linkPage =
+                    href
+                        .split("/")
+                        .pop()
+                        .split("?")[0]
+                        .split("#")[0]
+                        .toLowerCase();
+
+
+                link.classList.remove(
+                    "active"
+                );
+
+                link.removeAttribute(
+                    "aria-current"
+                );
+
+
                 if (
-                    !targetId ||
-                    targetId === "#"
+                    linkPage === currentPage
                 ) {
 
-                    return;
-
-                }
-
-
-                const target =
-                    document.querySelector(
-                        targetId
+                    link.classList.add(
+                        "active"
                     );
 
-
-                if (!target) {
-
-                    return;
+                    link.setAttribute(
+                        "aria-current",
+                        "page"
+                    );
 
                 }
 
-
-                event.preventDefault();
-
-
-                const reducedMotion =
-                    window.matchMedia(
-                        "(prefers-reduced-motion: reduce)"
-                    ).matches;
-
-
-                target.scrollIntoView({
-
-                    behavior:
-                        reducedMotion
-                            ? "auto"
-                            : "smooth",
-
-                    block: "start"
-
-                });
-
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       RESPONSIVE MENU RESET
-    ====================================================== */
-
-    window.addEventListener(
-        "resize",
-        function () {
-
-
-            if (
-                window.innerWidth > 850 &&
-                navMenu &&
-                menuToggle
-            ) {
-
-
-                navMenu.classList.remove(
-                    "show"
-                );
-
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    "Open navigation menu"
-                );
-
-
-                menuToggle.textContent = "☰";
-
-            }
+            });
 
         }
-    );
 
 
-    /* =====================================================
-       CURRENT YEAR
-       Automatically updates footer year
-    ====================================================== */
-
-    const yearElements =
-        document.querySelectorAll(
-            "[data-current-year]"
-        );
+        updateActivePage();
 
 
-    yearElements.forEach(function (element) {
+        /* =================================================
+           NAVBAR HEIGHT
+        ================================================= */
 
-        element.textContent =
-            new Date().getFullYear();
+        function updateNavbarHeight() {
 
-    });
+            const height =
+                navbar.offsetHeight;
 
-
-    /* =====================================================
-       IMAGE ERROR HANDLING
-       Prevent broken images from looking awkward
-    ====================================================== */
-
-    const images =
-        document.querySelectorAll(
-            "img"
-        );
-
-
-    images.forEach(function (image) {
-
-
-        image.addEventListener(
-            "error",
-            function () {
-
-                image.classList.add(
-                    "image-error"
+            document.documentElement.style
+                .setProperty(
+                    "--pmai-navbar-height",
+                    height + "px"
                 );
 
-            }
+        }
+
+
+        updateNavbarHeight();
+
+
+        window.addEventListener(
+            "resize",
+            updateNavbarHeight
+        );
+
+
+        window.addEventListener(
+            "load",
+            updateNavbarHeight
+        );
+
+
+        /* =================================================
+           IMPORTANT
+           -----------------------------------------------
+           DO NOT CHANGE NAVBAR POSITION ON SCROLL.
+        ================================================= */
+
+        console.log(
+            "PMAI LAB Navbar: Mobile navigation ready."
         );
 
     });
 
-
-    /* =====================================================
-       PAGE LOADED
-    ====================================================== */
-
-    document.body.classList.add(
-        "page-loaded"
-    );
-
-
-});
+})();
