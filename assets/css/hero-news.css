@@ -1,0 +1,1012 @@
+```css
+/* =========================================================
+   PMAI LAB — HERO NEWS CARD
+   File: assets/css/hero-news.css
+   Version: 1.0
+   ---------------------------------------------------------
+   Features:
+   • Premium news card
+   • Glass / academic design
+   • Automatic news rotation support
+   • Smooth transitions
+   • Category badges
+   • Responsive design
+   • Hover effects
+   • Accessibility support
+========================================================= */
+
+
+/* =========================================================
+   HERO NEWS VISUAL
+========================================================= */
+
+.hero-visual {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 540px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   NEWS CARD
+========================================================= */
+
+.hero-news-card {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 390px;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(148, 163, 184, 0.22);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(248, 250, 252, 0.96)
+        );
+
+    box-shadow:
+        0 24px 60px
+        rgba(15, 23, 42, 0.10);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   DECORATIVE GLOW
+========================================================= */
+
+.hero-news-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+
+    right: -100px;
+
+    width: 240px;
+
+    height: 240px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59, 130, 246, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   SECONDARY DECORATIVE GLOW
+========================================================= */
+
+.hero-news-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -120px;
+
+    left: -120px;
+
+    width: 260px;
+
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.08),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   NEWS HEADER
+========================================================= */
+
+.hero-news-header {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 24px;
+
+}
+
+
+/* =========================================================
+   NEWS HEADING
+========================================================= */
+
+.hero-news-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+}
+
+
+/* =========================================================
+   LIVE DOT
+========================================================= */
+
+.hero-news-live-dot {
+
+    position: relative;
+
+    width: 9px;
+
+    height: 9px;
+
+    flex: 0 0 9px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(37, 99, 235, 0.10);
+
+}
+
+
+.hero-news-live-dot::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -4px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.30);
+
+    animation:
+        heroNewsPulse
+        2s
+        ease-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   LIVE DOT ANIMATION
+========================================================= */
+
+@keyframes heroNewsPulse {
+
+    0% {
+
+        transform: scale(0.8);
+
+        opacity: 0.9;
+
+    }
+
+    70% {
+
+        transform: scale(1.4);
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        transform: scale(1.4);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   NEWS LABEL
+========================================================= */
+
+.hero-news-label {
+
+    color: #0f172a;
+
+    font-size: 0.74rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   LATEST STATUS
+========================================================= */
+
+.hero-news-status {
+
+    padding:
+        6px 11px;
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.14);
+
+    border-radius: 999px;
+
+    background:
+        rgba(239, 246, 255, 0.85);
+
+    color:
+        #2563eb;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.04em;
+
+}
+
+
+/* =========================================================
+   NEWS LIST
+========================================================= */
+
+.hero-news-list {
+
+    position: relative;
+
+    min-height: 270px;
+
+}
+
+
+/* =========================================================
+   NEWS ITEM
+========================================================= */
+
+.hero-news-item {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(12px);
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease,
+        visibility 0.55s ease;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   ACTIVE NEWS ITEM
+========================================================= */
+
+.hero-news-item.active {
+
+    position: relative;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+   NEWS META
+========================================================= */
+
+.hero-news-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+
+}
+
+
+/* =========================================================
+   CATEGORY BADGE
+========================================================= */
+
+.hero-news-category {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        6px 10px;
+
+    border-radius:
+        7px;
+
+    font-size:
+        0.62rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.08em;
+
+    line-height:
+        1;
+
+}
+
+
+/* =========================================================
+   SEMINAR
+========================================================= */
+
+.hero-news-category.seminar {
+
+    background:
+        rgba(37, 99, 235, 0.09);
+
+    color:
+        #2563eb;
+
+}
+
+
+/* =========================================================
+   COURSE
+========================================================= */
+
+.hero-news-category.course {
+
+    background:
+        rgba(16, 185, 129, 0.10);
+
+    color:
+        #047857;
+
+}
+
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+.hero-news-category.research {
+
+    background:
+        rgba(124, 58, 237, 0.10);
+
+    color:
+        #6d28d9;
+
+}
+
+
+/* =========================================================
+   YOUTUBE
+========================================================= */
+
+.hero-news-category.youtube {
+
+    background:
+        rgba(239, 68, 68, 0.09);
+
+    color:
+        #dc2626;
+
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.hero-news-meta time {
+
+    color:
+        #64748b;
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* =========================================================
+   NEWS TITLE
+========================================================= */
+
+.hero-news-item h3 {
+
+    max-width:
+        470px;
+
+    margin:
+        0 0 14px;
+
+    color:
+        #0f172a;
+
+    font-size:
+        clamp(
+            1.35rem,
+            2.3vw,
+            1.75rem
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        1.25;
+
+    letter-spacing:
+        -0.025em;
+
+}
+
+
+/* =========================================================
+   NEWS DESCRIPTION
+========================================================= */
+
+.hero-news-item p {
+
+    max-width:
+        465px;
+
+    margin:
+        0 0 22px;
+
+    color:
+        #64748b;
+
+    font-size:
+        0.92rem;
+
+    font-weight:
+        450;
+
+    line-height:
+        1.75;
+
+}
+
+
+/* =========================================================
+   NEWS LINK
+========================================================= */
+
+.hero-news-link {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    color:
+        #2563eb;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        750;
+
+    text-decoration:
+        none;
+
+    transition:
+        gap 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+.hero-news-link span {
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1;
+
+}
+
+
+.hero-news-link:hover {
+
+    gap:
+        12px;
+
+    color:
+        #1d4ed8;
+
+}
+
+
+/* =========================================================
+   NEWS FOOTER
+========================================================= */
+
+.hero-news-footer {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding-top:
+        18px;
+
+    border-top:
+        1px solid
+        rgba(226, 232, 240, 0.80);
+
+}
+
+
+/* =========================================================
+   DOT CONTAINER
+========================================================= */
+
+.hero-news-dots {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+}
+
+
+/* =========================================================
+   DOT
+========================================================= */
+
+.hero-news-dot {
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    border-radius:
+        999px;
+
+    background:
+        #cbd5e1;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+/* =========================================================
+   ACTIVE DOT
+========================================================= */
+
+.hero-news-dot.active {
+
+    width:
+        20px;
+
+    background:
+        #2563eb;
+
+}
+
+
+/* =========================================================
+   ALL NEWS
+========================================================= */
+
+.hero-news-all {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    color:
+        #475569;
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        700;
+
+    text-decoration:
+        none;
+
+    transition:
+        color 0.25s ease,
+        gap 0.25s ease;
+
+}
+
+
+.hero-news-all span {
+
+    font-size:
+        0.95rem;
+
+}
+
+
+.hero-news-all:hover {
+
+    color:
+        #2563eb;
+
+    gap:
+        10px;
+
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.hero-news-card {
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+.hero-news-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 30px 70px
+        rgba(15, 23, 42, 0.14);
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-visual {
+
+        max-width:
+            500px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-visual {
+
+        max-width:
+            100%;
+
+        margin-top:
+            20px;
+
+    }
+
+
+    .hero-news-card {
+
+        min-height:
+            360px;
+
+        padding:
+            23px;
+
+        border-radius:
+            20px;
+
+    }
+
+
+    .hero-news-list {
+
+        min-height:
+            245px;
+
+    }
+
+
+    .hero-news-item h3 {
+
+        font-size:
+            1.35rem;
+
+    }
+
+
+    .hero-news-item p {
+
+        font-size:
+            0.87rem;
+
+        line-height:
+            1.65;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-news-card {
+
+        padding:
+            20px;
+
+        border-radius:
+            18px;
+
+    }
+
+
+    .hero-news-header {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .hero-news-label {
+
+        font-size:
+            0.66rem;
+
+    }
+
+
+    .hero-news-status {
+
+        padding:
+            5px 9px;
+
+        font-size:
+            0.62rem;
+
+    }
+
+
+    .hero-news-meta {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+
+    }
+
+
+    .hero-news-item h3 {
+
+        font-size:
+            1.25rem;
+
+    }
+
+
+    .hero-news-item p {
+
+        font-size:
+            0.84rem;
+
+    }
+
+
+    .hero-news-footer {
+
+        padding-top:
+            15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-news-live-dot::after {
+
+        animation:
+            none;
+
+    }
+
+
+    .hero-news-item {
+
+        transition:
+            none;
+
+    }
+
+
+    .hero-news-card {
+
+        transition:
+            none;
+
+    }
+
+
+    .hero-news-link,
+    .hero-news-all {
+
+        transition:
+            none;
+
+    }
+
+
+    .hero-news-dot {
+
+        transition:
+            none;
+
+    }
+
+}
+```
