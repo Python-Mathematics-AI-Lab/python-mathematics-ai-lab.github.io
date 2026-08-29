@@ -74,7 +74,7 @@
 </head>
 
 
-<body>
+<body class="resources-page">
 
 
     <!-- =====================================================
@@ -166,9 +166,7 @@
 
                     <li>
 
-                        <a href="index.html"
-                           class="active"
-                           aria-current="page">
+                                <a href="index.html">
 
                             Home
 
@@ -218,7 +216,9 @@
 
                     <li>
 
-                        <a href="resources.html">
+                                <a href="resources.html"
+                                    class="active"
+                                    aria-current="page">
 
                             Resources
 
@@ -272,16 +272,6 @@
                     
 
 
-                    <li>
-
-                        <a href="seminars.html"
-                           class="nav-cta">
-
-                            Request Seminar
-
-                        </a>
-
-                    </li>
 
 
                 </ul>
@@ -347,6 +337,21 @@
 
                     </button>
 
+                </div>
+
+                <div class="resource-filters" role="group" aria-label="Filter resource areas">
+                    <button type="button" class="resource-filter is-active" data-filter="all">All areas</button>
+                    <button type="button" class="resource-filter" data-filter="mathematics">Mathematics</button>
+                    <button type="button" class="resource-filter" data-filter="python">Python</button>
+                    <button type="button" class="resource-filter" data-filter="artificial intelligence">AI</button>
+                    <button type="button" class="resource-filter" data-filter="machine learning">Machine Learning</button>
+                    <button type="button" class="resource-filter" data-filter="research">Research</button>
+                    <span class="resource-count" aria-live="polite"></span>
+                </div>
+
+                <div class="resources-hero-visual" aria-label="Learning pathway from mathematics to artificial intelligence">
+                    <span>Σ ∫ ∂ ∇ λ</span>
+                    <strong>Mathematics</strong><b>↓</b><strong>Programming</strong><b>↓</b><strong>Algorithms</strong><b>↓</b><strong>Artificial intelligence</strong>
                 </div>
 
 
@@ -449,7 +454,7 @@
                          RESOURCE GRID
                 ================================================== -->
 
-                <div class="resources-grid"
+                 <div class="resources-grid"
                      id="resourcesGrid">
 
 
@@ -816,6 +821,7 @@
 
 
                 </div>
+                <p class="resources-empty" hidden>No resource areas found. Try another keyword or category.</p>
 
             </div>
 
@@ -1699,90 +1705,7 @@
     ====================================================== -->
 
     <script src="assets/js/main.js"></script>
-
-
-    <!-- =====================================================
-                     RESOURCE SEARCH
-    ====================================================== -->
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const searchInput =
-                document.getElementById("resourceSearch");
-
-            const searchButton =
-                document.getElementById("searchButton");
-
-            const resourceCards =
-                document.querySelectorAll(".resources-card");
-
-
-            function searchResources() {
-
-                const searchTerm =
-                    searchInput.value
-                        .toLowerCase()
-                        .trim();
-
-
-                resourceCards.forEach(function (card) {
-
-                    const searchableText =
-                        (
-                            card.textContent +
-                            " " +
-                            card.getAttribute("data-category")
-                        ).toLowerCase();
-
-
-                    if (
-                        searchTerm === "" ||
-                        searchableText.includes(searchTerm)
-                    ) {
-
-                        card.style.display = "";
-
-                    } else {
-
-                        card.style.display = "none";
-
-                    }
-
-                });
-
-            }
-
-
-            searchButton.addEventListener(
-                "click",
-                searchResources
-            );
-
-
-            searchInput.addEventListener(
-                "input",
-                searchResources
-            );
-
-
-            searchInput.addEventListener(
-                "keydown",
-                function (event) {
-
-                    if (event.key === "Enter") {
-
-                        searchResources();
-
-                    }
-
-                }
-            );
-
-        });
-
-    </script>
+    <script src="assets/js/resources.js"></script>
 
 
 </body>

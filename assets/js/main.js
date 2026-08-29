@@ -38,6 +38,45 @@
             return;
         }
 
+        let scrollFrame = null;
+
+        function updateNavbarState() {
+
+            document.documentElement.style.setProperty(
+                "--pmai-navbar-height",
+                navbar.offsetHeight + "px"
+            );
+
+            navbar.classList.toggle(
+                "scrolled",
+                window.scrollY > 10
+            );
+
+            scrollFrame = null;
+        }
+
+        function requestNavbarStateUpdate() {
+
+            if (scrollFrame === null) {
+                scrollFrame = window.requestAnimationFrame(
+                    updateNavbarState
+                );
+            }
+        }
+
+        window.addEventListener(
+            "scroll",
+            requestNavbarStateUpdate,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "resize",
+            requestNavbarStateUpdate
+        );
+
+        updateNavbarState();
+
 
         /* =================================================
            INITIAL STATE

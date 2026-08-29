@@ -133,7 +133,7 @@ html {
 
     scroll-behavior: smooth;
 
-    scroll-padding-top: 80px;
+    scroll-padding-top: var(--pmai-navbar-height, 79px);
 
 }
 
@@ -145,6 +145,8 @@ html {
 body {
 
     min-height: 100vh;
+
+    padding-top: var(--pmai-navbar-height, 79px);
 
     font-family:
         Inter,
