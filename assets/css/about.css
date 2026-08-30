@@ -2130,3 +2130,72 @@
 
 
 }
+/* =========================================================
+   ABOUT HERO — CENTERED LAYOUT
+========================================================= */
+
+.about-page .about-hero {
+    min-height: 0;
+    padding: 86px 24px 82px;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-page .about-hero-content {
+    display: flex;
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Remove the decorative side-orbit elements */
+
+.about-page .about-hero-content::before,
+.about-page .about-hero-content::after {
+    display: none;
+}
+
+.about-page .about-hero-badge,
+.about-page .about-hero h1,
+.about-page .about-hero-content > p:not(.section-label),
+.about-page .about-hero-actions {
+    grid-column: auto;
+    grid-row: auto;
+}
+
+.about-page .about-hero-badge {
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.about-page .about-hero h1 {
+    max-width: 920px;
+    margin: 0 auto 26px;
+}
+
+.about-page .about-hero-content > p:not(.section-label) {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    color: #52647d;
+}
+
+.about-page .about-hero-actions {
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .about-page .about-hero {
+        padding: 62px 16px 58px;
+    }
+
+    .about-page .about-hero h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .about-page .about-hero-content > p:not(.section-label) {
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+}

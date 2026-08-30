@@ -1179,3 +1179,59 @@
     }
 
 }
+/* =========================================================
+   TEAM HERO — CENTERED LAYOUT
+========================================================= */
+
+.faculty-page .faculty-hero {
+    min-height: 0;
+    padding: 86px 24px 82px;
+    justify-content: center;
+    text-align: center;
+}
+
+.faculty-page .faculty-hero-content {
+    width: min(1000px, 100%);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-right: 0;
+    text-align: center;
+}
+
+/* Remove the side label */
+
+.faculty-page .faculty-hero-content::after {
+    display: none;
+}
+
+.faculty-page .faculty-hero .section-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.faculty-page .faculty-hero h1 {
+    max-width: 900px;
+    margin: 18px auto 24px;
+}
+
+.faculty-page .faculty-hero p:not(.section-label) {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #52647d;
+}
+
+@media (max-width: 600px) {
+    .faculty-page .faculty-hero {
+        padding: 62px 16px 58px;
+    }
+
+    .faculty-page .faculty-hero h1 {
+        font-size: clamp(2.6rem, 13vw, 4rem);
+    }
+
+    .faculty-page .faculty-hero p:not(.section-label) {
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+}

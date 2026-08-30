@@ -1178,3 +1178,64 @@
     }
 
 }
+/* =========================================================
+   COURSES HERO — CENTERED LAYOUT
+========================================================= */
+
+.courses-page .courses-hero {
+    padding: 86px 24px 82px;
+}
+
+.courses-page .courses-hero-content {
+    display: flex;
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.courses-page .hero-eyebrow,
+.courses-page .courses-hero .section-label,
+.courses-page .courses-hero h1,
+.courses-page .courses-hero-description,
+.courses-page .courses-hero-actions {
+    grid-column: auto;
+    grid-row: auto;
+}
+
+.courses-page .hero-eyebrow {
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.courses-page .courses-hero h1 {
+    max-width: 900px;
+    margin: 0 auto 24px;
+}
+
+.courses-page .courses-hero-description {
+    max-width: 760px;
+    margin: 0 auto 30px;
+    color: #52647d;
+}
+
+.courses-page .courses-hero-actions {
+    justify-content: center;
+    margin-top: 0;
+}
+
+@media (max-width: 680px) {
+    .courses-page .courses-hero {
+        padding: 62px 18px 58px;
+    }
+
+    .courses-page .courses-hero h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .courses-page .courses-hero-description {
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+}
