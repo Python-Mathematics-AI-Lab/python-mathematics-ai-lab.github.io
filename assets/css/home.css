@@ -52,17 +52,1258 @@
 .text-link span, .card-arrow b { color: var(--home-blue); margin-left: 7px; }
 .hero-principles { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 48px; color: #718096; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .hero-principles span::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 7px 2px 0; border-radius: 50%; background: var(--home-cyan); }
-.lab-visual { position: relative; min-height: 470px; border: 1px solid rgba(33,103,232,.17); background: linear-gradient(145deg, #071a35, #102c52 65%, #173e5c); box-shadow: 20px 28px 0 rgba(33,103,232,.08); overflow: hidden; }
-.visual-grid { position: absolute; inset: 0; opacity: .35; background-image: linear-gradient(rgba(69,190,205,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(69,190,205,.35) 1px, transparent 1px); background-size: 38px 38px; transform: perspective(500px) rotateX(55deg) scale(1.6); transform-origin: 50% 100%; }
-.orbit { position: absolute; border: 1px solid rgba(94,213,221,.45); border-radius: 50%; transform: rotate(-25deg); }
-.orbit-one { width: 390px; height: 180px; top: 115px; left: 32px; }
-.orbit-two { width: 440px; height: 230px; top: 85px; left: 5px; transform: rotate(35deg); border-color: rgba(139,111,240,.55); }
-.formula { position: absolute; padding: 9px 12px; border: 1px solid rgba(255,255,255,.18); color: #c7f5f1; background: rgba(11,37,65,.75); font: 1rem Georgia, serif; }
-.formula-one { top: 55px; right: 34px; }.formula-two { left: 34px; bottom: 120px; }.formula-three { right: 42px; bottom: 178px; color: #d8cfff; }
-.neural-map { position: absolute; inset: 0; }.neural-map i, .neural-map b { position: absolute; width: 11px; height: 11px; border-radius: 50%; background: var(--home-cyan); box-shadow: 0 0 18px var(--home-cyan); }.neural-map b { background: #a58eff; box-shadow: 0 0 18px #a58eff; }.neural-map i:nth-child(1) { top: 42%; left: 20%; }.neural-map i:nth-child(2) { top: 63%; left: 27%; }.neural-map i:nth-child(3) { top: 25%; left: 42%; }.neural-map i:nth-child(4) { top: 50%; left: 48%; }.neural-map i:nth-child(5) { top: 73%; left: 43%; }.neural-map b:nth-of-type(1) { top: 31%; left: 68%; }.neural-map b:nth-of-type(2) { top: 56%; left: 75%; }.neural-map b:nth-of-type(3) { top: 77%; left: 67%; }.neural-map b:nth-of-type(4) { top: 46%; left: 89%; }.neural-map::before, .neural-map::after { content: ""; position: absolute; left: 22%; top: 50%; width: 68%; height: 1px; background: linear-gradient(90deg, transparent, rgba(116,227,225,.7), transparent); transform: rotate(-18deg); }.neural-map::after { transform: rotate(20deg); }
-.visual-caption { position: absolute; right: 22px; bottom: 22px; left: 22px; padding: 14px; color: #e5f5f4; border-top: 1px solid rgba(255,255,255,.22); font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; }
-.flow-visual { position: absolute; inset: 32px 34px 70px; display: flex; flex-direction: column; align-items: center; justify-content: center; }.flow-node { position: relative; z-index: 1; width: min(100%, 245px); padding: 11px 15px; display: grid; grid-template-columns: 90px 1fr; align-items: center; column-gap: 12px; border: 1px solid rgba(151,225,223,.4); background: rgba(9,31,57,.82); }.flow-node strong { color: #fff; font: 1rem Georgia, serif; }.flow-node small { grid-column: 2; color: #9db1c7; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }.flow-symbols, .flow-code, .flow-star { color: #7ce2d8; font: .88rem Georgia, serif; white-space: nowrap; }.flow-code { color: #c8baff; }.flow-star { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(135deg, var(--home-blue), var(--home-violet)); font-size: 1.3rem; box-shadow: 0 0 22px rgba(121,87,232,.55); }.flow-connector { position: relative; width: 1px; height: 29px; background: linear-gradient(#55d8d4, #8c78ee); }.flow-connector::after { content: ""; position: absolute; top: 0; left: -2px; width: 5px; height: 5px; border-radius: 50%; background: #a7fff1; box-shadow: 0 0 12px #a7fff1; animation: flowParticle 7s linear infinite; }.flow-node:nth-of-type(1) { animation: flowPulse 7s ease-in-out infinite; }.flow-node:nth-of-type(2) { animation: flowPulse 7s ease-in-out 1.7s infinite; }.flow-node:nth-of-type(3) { animation: flowPulse 7s ease-in-out 3.4s infinite; }.flow-node:nth-of-type(4) { animation: flowPulse 7s ease-in-out 5.1s infinite; }.flow-network { position: relative; width: 90px; height: 35px; background: linear-gradient(35deg, transparent 47%, #5be1d6 48%, #5be1d6 50%, transparent 51%), linear-gradient(-35deg, transparent 47%, #a58eff 48%, #a58eff 50%, transparent 51%); }.flow-network i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #79e9de; box-shadow: 0 0 8px #79e9de; }.flow-network i:nth-child(1) { top: 1px; left: 8px; }.flow-network i:nth-child(2) { top: 26px; left: 28px; }.flow-network i:nth-child(3) { top: 2px; left: 43px; }.flow-network i:nth-child(4) { top: 27px; left: 62px; }.flow-network i:nth-child(5) { top: 9px; left: 82px; }
-@keyframes flowParticle { from { transform: translateY(0); opacity: 0; } 18%, 70% { opacity: 1; } to { transform: translateY(29px); opacity: 0; } } @keyframes flowPulse { 0%, 100% { border-color: rgba(151,225,223,.4); transform: scale(1); } 10%, 22% { border-color: #a8fff4; transform: scale(1.025); box-shadow: 0 0 22px rgba(77,218,205,.2); } 30% { border-color: rgba(151,225,223,.4); transform: scale(1); } }
+
+/* =========================================================
+   HERO — BLUE INTELLIGENCE FIELD
+========================================================= */
+
+.home-hero {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 76% 18%,
+            rgba(33, 103, 232, 0.15),
+            transparent 31%
+        ),
+        radial-gradient(
+            circle at 20% 76%,
+            rgba(24, 185, 199, 0.12),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 88% 82%,
+            rgba(121, 87, 232, 0.055),
+            transparent 26%
+        ),
+        linear-gradient(
+            125deg,
+            #fcfdff 0%,
+            #eef8ff 40%,
+            #e8f4ff 72%,
+            #f3f4ff 100%
+        );
+}
+
+
+/* Remove the previous grid lines */
+
+.home-hero::before {
+    display: none;
+}
+
+
+.hero-copy {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* Complete background field */
+
+.hero-intelligence-field {
+    position: absolute;
+    z-index: 0;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+
+/* Blue ambient light */
+
+.hero-intelligence-field::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    top: -25%;
+    right: -8%;
+
+    width: 72%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(45, 125, 231, 0.13),
+            rgba(77, 173, 232, 0.06) 40%,
+            transparent 68%
+        );
+
+    filter: blur(35px);
+
+    animation:
+        intelligenceGlowOne
+        24s
+        ease-in-out
+        infinite;
+}
+
+
+/* Teal ambient light */
+
+.hero-intelligence-field::after {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    bottom: -38%;
+    left: -9%;
+
+    width: 65%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(24, 185, 199, 0.105),
+            transparent 67%
+        );
+
+    filter: blur(42px);
+
+    animation:
+        intelligenceGlowTwo
+        28s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   MATHEMATICAL NOTATION
+========================================================= */
+
+.knowledge-mark-layer {
+    position: absolute;
+    z-index: 1;
+
+    inset: 0;
+
+    transform-style: preserve-3d;
+}
+
+
+.knowledge-mark {
+    position: absolute;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(33, 103, 232, 0.74),
+            rgba(35, 150, 211, 0.62),
+            rgba(24, 185, 199, 0.54)
+        );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: var(--mark-size);
+    line-height: 1;
+
+    opacity: var(--mark-opacity);
+
+    text-shadow:
+        0 10px 22px
+        rgba(33, 103, 232, 0.08);
+
+    transform:
+        perspective(800px)
+        translateZ(var(--mark-depth))
+        rotateZ(var(--mark-rotation));
+
+    animation:
+        knowledgeMarkDrift
+        var(--mark-duration)
+        ease-in-out
+        infinite;
+}
+
+
+/* Individual notation positions */
+
+.mark-sigma {
+    --mark-size: 1.85rem;
+    --mark-opacity: 0.18;
+    --mark-depth: -20px;
+    --mark-rotation: -8deg;
+    --mark-duration: 23s;
+
+    top: 12%;
+    left: 5%;
+}
+
+
+.mark-gradient {
+    --mark-size: 1.15rem;
+    --mark-opacity: 0.23;
+    --mark-depth: 18px;
+    --mark-rotation: 4deg;
+    --mark-duration: 20s;
+
+    top: 10%;
+    left: 34%;
+
+    animation-delay: -7s;
+}
+
+
+.mark-lambda {
+    --mark-size: 1.7rem;
+    --mark-opacity: 0.16;
+    --mark-depth: -12px;
+    --mark-rotation: 7deg;
+    --mark-duration: 25s;
+
+    bottom: 13%;
+    left: 20%;
+
+    animation-delay: -11s;
+}
+
+
+.mark-matrix {
+    --mark-size: 1.05rem;
+    --mark-opacity: 0.25;
+    --mark-depth: 24px;
+    --mark-rotation: -3deg;
+    --mark-duration: 22s;
+
+    top: 19%;
+    right: 25%;
+
+    animation-delay: -4s;
+}
+
+
+.mark-probability {
+    --mark-size: 1.15rem;
+    --mark-opacity: 0.22;
+    --mark-depth: 15px;
+    --mark-rotation: -5deg;
+    --mark-duration: 24s;
+
+    right: 7%;
+    bottom: 13%;
+
+    animation-delay: -13s;
+}
+
+
+.mark-computation {
+    --mark-size: 1.05rem;
+    --mark-opacity: 0.25;
+    --mark-depth: 28px;
+    --mark-rotation: 5deg;
+    --mark-duration: 21s;
+
+    top: 54%;
+    right: 14%;
+
+    animation-delay: -9s;
+}
+
+
+.mark-graph {
+    --mark-size: 1.1rem;
+    --mark-opacity: 0.19;
+    --mark-depth: -8px;
+    --mark-rotation: -4deg;
+    --mark-duration: 26s;
+
+    bottom: 7%;
+    left: 48%;
+
+    animation-delay: -15s;
+}
+
+
+.mark-vector {
+    --mark-size: 1.15rem;
+    --mark-opacity: 0.17;
+    --mark-depth: -18px;
+    --mark-rotation: 6deg;
+    --mark-duration: 22s;
+
+    top: 66%;
+    left: 6%;
+
+    animation-delay: -5s;
+}
+
+
+/* =========================================================
+   HERO — 3D NEURAL-WEB WALLPAPER
+========================================================= */
+
+.home-hero {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 78% 18%,
+            rgba(33, 103, 232, 0.16),
+            transparent 31%
+        ),
+        radial-gradient(
+            circle at 18% 78%,
+            rgba(24, 185, 199, 0.13),
+            transparent 33%
+        ),
+        radial-gradient(
+            circle at 88% 84%,
+            rgba(121, 87, 232, 0.055),
+            transparent 26%
+        ),
+        linear-gradient(
+            125deg,
+            #fcfdff 0%,
+            #eef8ff 42%,
+            #e8f4ff 74%,
+            #f2f4ff 100%
+        );
+}
+
+
+.home-hero::before {
+    display: none;
+}
+
+
+.hero-copy {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* Complete background environment */
+
+.hero-intelligence-field {
+    position: absolute;
+    z-index: 0;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+
+/* Ambient blue depth */
+
+.hero-intelligence-field::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    top: -35%;
+    right: -12%;
+
+    width: 78%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(38, 118, 229, 0.13),
+            rgba(70, 160, 225, 0.055) 42%,
+            transparent 70%
+        );
+
+    filter: blur(40px);
+
+    animation:
+        ambientDepth
+        28s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   CONTINUOUS 3D WEB
+========================================================= */
+
+.neural-web-surface {
+    position: absolute;
+    z-index: 1;
+
+    top: -12%;
+    left: -4%;
+
+    width: 108%;
+    height: 125%;
+
+    overflow: visible;
+
+    opacity: 0.58;
+
+    filter:
+        drop-shadow(
+            0 14px 24px
+            rgba(33, 103, 232, 0.06)
+        );
+
+    transform:
+        perspective(1200px)
+        translateZ(-70px)
+        rotateX(8deg)
+        rotateY(-6deg)
+        scale(1.05);
+
+    transform-origin: center;
+
+    animation:
+        neuralWebBreathe
+        26s
+        ease-in-out
+        infinite;
+}
+
+
+.web-soft-layer path {
+    fill: none;
+
+    stroke:
+        rgba(52, 135, 219, 0.09);
+
+    stroke-width: 6;
+
+    stroke-linecap: round;
+
+    filter: blur(6px);
+
+    vector-effect: non-scaling-stroke;
+}
+
+.web-filament-layer path {
+    fill: none;
+
+    stroke:
+        url(#web-line-gradient);
+
+    stroke-width: 1.05;
+
+    stroke-linecap: round;
+
+    opacity: 0.48;
+
+    vector-effect: non-scaling-stroke;
+}
+.web-detail-layer {
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation:
+        webDetailDrift
+        15s
+        ease-in-out
+        infinite;
+}
+
+
+.web-detail-layer path {
+    fill: none;
+
+    stroke:
+        rgba(38, 124, 218, 0.20);
+
+    stroke-width: 0.82;
+
+    stroke-linecap: round;
+
+    opacity: 0.43;
+
+    vector-effect: non-scaling-stroke;
+}
+
+.web-node {
+    fill:
+        url(#web-node-gradient);
+
+    stroke:
+        rgba(255, 255, 255, 0.82);
+
+    stroke-width: 1.6;
+
+    opacity: 0.52;
+
+    transform-box: fill-box;
+    transform-origin: center;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(33, 103, 232, 0.26)
+        );
+
+    animation:
+        webNodePulse
+        9s
+        ease-in-out
+        infinite;
+}
+
+
+.web-node:nth-child(2) {
+    animation-delay: -1.5s;
+}
+
+
+.web-node:nth-child(3) {
+    animation-delay: -3s;
+}
+
+
+.web-node:nth-child(4) {
+    animation-delay: -4.5s;
+}
+
+
+.web-node:nth-child(5) {
+    animation-delay: -6s;
+}
+
+
+.web-node:nth-child(6) {
+    animation-delay: -7.5s;
+}
+
+
+.web-node:nth-child(7) {
+    animation-delay: -2s;
+}
+
+
+.web-node:nth-child(8) {
+    animation-delay: -3.5s;
+}
+
+
+.web-node:nth-child(9) {
+    animation-delay: -5s;
+}
+
+
+.web-node:nth-child(10) {
+    animation-delay: -6.5s;
+}
+
+
+.web-node:nth-child(11) {
+    animation-delay: -8s;
+}
+
+
+.web-node:nth-child(12) {
+    animation-delay: -4s;
+}
+
+
+/* =========================================================
+   ROTATING MATHEMATICS
+========================================================= */
+
+.rotating-mathematics {
+    position: absolute;
+    z-index: 2;
+
+    inset: 0;
+
+    transform-style: preserve-3d;
+}
+
+
+.math-symbol {
+    position: absolute;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: var(--symbol-size);
+    line-height: 1;
+
+    opacity: var(--symbol-opacity);
+
+    text-shadow:
+        0 8px 18px
+        rgba(33, 103, 232, 0.13);
+
+    transform-style: preserve-3d;
+
+    transform:
+        perspective(800px)
+        translateZ(var(--symbol-depth))
+        rotateZ(var(--symbol-rotation));
+
+    animation-duration:
+        var(--symbol-duration);
+
+    animation-delay:
+        var(--symbol-delay);
+
+    animation-iteration-count: infinite;
+}
+
+
+.math-glyph {
+    animation-name:
+        glyphRotate3D;
+
+    animation-timing-function: linear;
+}
+
+
+.math-equation {
+    animation-name:
+        equationTilt3D;
+
+    animation-timing-function:
+        ease-in-out;
+}
+
+
+.symbol-blue {
+    color: rgba(33, 103, 232, 0.52);
+}
+
+
+.symbol-cyan {
+    color: rgba(14, 154, 178, 0.50);
+}
+
+
+.symbol-violet {
+    color: rgba(121, 87, 232, 0.36);
+}
+
+
+/* Single mathematical glyphs */
+
+.symbol-sigma {
+    --symbol-size: 1.9rem;
+    --symbol-opacity: 0.46;
+    --symbol-depth: 28px;
+    --symbol-rotation: -8deg;
+    --symbol-duration: 23s;
+    --symbol-delay: -3s;
+
+    top: 13%;
+    left: 5%;
+}
+
+
+.symbol-integral {
+    --symbol-size: 2rem;
+    --symbol-opacity: 0.40;
+    --symbol-depth: -18px;
+    --symbol-rotation: 7deg;
+    --symbol-duration: 27s;
+    --symbol-delay: -11s;
+
+    top: 68%;
+    left: 10%;
+}
+
+
+.symbol-partial {
+    --symbol-size: 1.55rem;
+    --symbol-opacity: 0.42;
+    --symbol-depth: 14px;
+    --symbol-rotation: -5deg;
+    --symbol-duration: 21s;
+    --symbol-delay: -7s;
+
+    top: 34%;
+    left: 27%;
+}
+
+
+.symbol-nabla {
+    --symbol-size: 1.7rem;
+    --symbol-opacity: 0.44;
+    --symbol-depth: 30px;
+    --symbol-rotation: 6deg;
+    --symbol-duration: 25s;
+    --symbol-delay: -14s;
+
+    top: 8%;
+    left: 57%;
+}
+
+
+.symbol-pi {
+    --symbol-size: 1.9rem;
+    --symbol-opacity: 0.36;
+    --symbol-depth: -12px;
+    --symbol-rotation: 9deg;
+    --symbol-duration: 28s;
+    --symbol-delay: -5s;
+
+    top: 11%;
+    right: 6%;
+}
+
+
+.symbol-lambda {
+    --symbol-size: 1.75rem;
+    --symbol-opacity: 0.42;
+    --symbol-depth: 22px;
+    --symbol-rotation: -7deg;
+    --symbol-duration: 24s;
+    --symbol-delay: -9s;
+
+    bottom: 10%;
+    left: 24%;
+}
+
+
+.symbol-theta {
+    --symbol-size: 1.55rem;
+    --symbol-opacity: 0.40;
+    --symbol-depth: 18px;
+    --symbol-rotation: 6deg;
+    --symbol-duration: 22s;
+    --symbol-delay: -15s;
+
+    top: 46%;
+    right: 6%;
+}
+
+
+.symbol-delta {
+    --symbol-size: 1.65rem;
+    --symbol-opacity: 0.43;
+    --symbol-depth: 25px;
+    --symbol-rotation: -6deg;
+    --symbol-duration: 26s;
+    --symbol-delay: -12s;
+
+    right: 34%;
+    bottom: 6%;
+}
+
+
+/* Mathematical equations */
+
+.equation-gradient {
+    --symbol-size: 1.02rem;
+    --symbol-opacity: 0.46;
+    --symbol-depth: 35px;
+    --symbol-rotation: 4deg;
+    --symbol-duration: 19s;
+    --symbol-delay: -5s;
+
+    top: 14%;
+    left: 38%;
+}
+
+
+.equation-matrix {
+    --symbol-size: 1rem;
+    --symbol-opacity: 0.42;
+    --symbol-depth: 12px;
+    --symbol-rotation: -4deg;
+    --symbol-duration: 23s;
+    --symbol-delay: -10s;
+
+    top: 30%;
+    right: 23%;
+}
+
+
+.equation-probability {
+    --symbol-size: 1.02rem;
+    --symbol-opacity: 0.44;
+    --symbol-depth: 26px;
+    --symbol-rotation: -5deg;
+    --symbol-duration: 21s;
+    --symbol-delay: -13s;
+
+    right: 8%;
+    bottom: 18%;
+}
+
+
+.equation-computation {
+    --symbol-size: 1rem;
+    --symbol-opacity: 0.45;
+    --symbol-depth: 38px;
+    --symbol-rotation: 5deg;
+    --symbol-duration: 20s;
+    --symbol-delay: -8s;
+
+    top: 59%;
+    right: 17%;
+}
+
+
+.equation-graph {
+    --symbol-size: 1rem;
+    --symbol-opacity: 0.36;
+    --symbol-depth: -8px;
+    --symbol-rotation: -4deg;
+    --symbol-duration: 24s;
+    --symbol-delay: -16s;
+
+    bottom: 8%;
+    left: 48%;
+}
+
+
+.equation-vector {
+    --symbol-size: 0.98rem;
+    --symbol-opacity: 0.41;
+    --symbol-depth: 10px;
+    --symbol-rotation: 5deg;
+    --symbol-duration: 22s;
+    --symbol-delay: -7s;
+
+    top: 73%;
+    left: 5%;
+}
+
+
+.equation-determinant {
+    --symbol-size: 1rem;
+    --symbol-opacity: 0.43;
+    --symbol-depth: 22px;
+    --symbol-rotation: -3deg;
+    --symbol-duration: 20s;
+    --symbol-delay: -11s;
+
+    top: 43%;
+    left: 47%;
+}
+
+
+.equation-function {
+    --symbol-size: 1.05rem;
+    --symbol-opacity: 0.42;
+    --symbol-depth: 30px;
+    --symbol-rotation: 4deg;
+    --symbol-duration: 23s;
+    --symbol-delay: -14s;
+
+    right: 43%;
+    bottom: 3%;
+}
+
+
+/* =========================================================
+   FLOATING PYTHON LIBRARIES
+========================================================= */
+
+.floating-libraries {
+    position: absolute;
+    z-index: 3;
+
+    inset: 0;
+
+    transform-style: preserve-3d;
+}
+
+
+.floating-library {
+    position: absolute;
+
+    color:
+        rgba(26, 105, 188, 0.44);
+
+    font-family:
+        "Trebuchet MS",
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.07em;
+
+    text-shadow:
+        0 7px 16px
+        rgba(33, 103, 232, 0.10);
+
+    transform-style: preserve-3d;
+
+    animation:
+        libraryFloat3D
+        var(--library-duration)
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--library-delay);
+}
+
+
+.library-numpy {
+    --library-duration: 23s;
+    --library-delay: -5s;
+
+    top: 12%;
+    right: 34%;
+}
+
+
+.library-pandas {
+    --library-duration: 27s;
+    --library-delay: -11s;
+
+    top: 35%;
+    right: 7%;
+}
+
+
+.library-pytorch {
+    --library-duration: 21s;
+    --library-delay: -8s;
+
+    top: 64%;
+    right: 25%;
+}
+
+
+.library-networkx {
+    --library-duration: 25s;
+    --library-delay: -15s;
+
+    right: 7%;
+    bottom: 8%;
+}
+
+
+.library-scikit {
+    --library-duration: 28s;
+    --library-delay: -13s;
+
+    bottom: 17%;
+    left: 42%;
+}
+
+
+/* =========================================================
+   MOTION
+========================================================= */
+
+@keyframes ambientDepth {
+
+    0%,
+    100% {
+        opacity: 0.66;
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    50% {
+        opacity: 0.94;
+        transform:
+            translate3d(-3%, 2%, 0)
+            scale(1.07);
+    }
+}
+
+
+@keyframes neuralWebBreathe {
+
+    0%,
+    100% {
+        transform:
+            perspective(1200px)
+            translate3d(0, 0, -85px)
+            rotateX(10deg)
+            rotateY(-9deg)
+            scale(1.05);
+    }
+
+    35% {
+        transform:
+            perspective(1200px)
+            translate3d(-13px, -8px, -55px)
+            rotateX(6deg)
+            rotateY(2deg)
+            scale(1.09);
+    }
+
+    70% {
+        transform:
+            perspective(1200px)
+            translate3d(12px, 7px, -38px)
+            rotateX(4deg)
+            rotateY(9deg)
+            scale(1.12);
+    }
+}
+@keyframes webDetailDrift {
+
+    0%,
+    100% {
+        opacity: 0.34;
+
+        transform:
+            translate3d(-7px, 4px, 0)
+            scale(1.01);
+    }
+
+    50% {
+        opacity: 0.56;
+
+        transform:
+            translate3d(14px, -9px, 0)
+            scale(1.025);
+    }
+}
+
+
+@keyframes webNodePulse {
+
+    0%,
+    100% {
+        opacity: 0.34;
+        transform: scale(0.72);
+    }
+
+    50% {
+        opacity: 0.78;
+        transform: scale(1.28);
+    }
+}
+
+
+@keyframes glyphRotate3D {
+
+    0% {
+        transform:
+            perspective(800px)
+            translate3d(
+                0,
+                0,
+                var(--symbol-depth)
+            )
+            rotateY(0deg)
+            rotateZ(
+                var(--symbol-rotation)
+            );
+    }
+
+    50% {
+        transform:
+            perspective(800px)
+            translate3d(
+                6px,
+                -8px,
+                var(--symbol-depth)
+            )
+            rotateY(180deg)
+            rotateZ(
+                var(--symbol-rotation)
+            );
+    }
+
+    100% {
+        transform:
+            perspective(800px)
+            translate3d(
+                0,
+                0,
+                var(--symbol-depth)
+            )
+            rotateY(360deg)
+            rotateZ(
+                var(--symbol-rotation)
+            );
+    }
+}
+
+
+@keyframes equationTilt3D {
+
+    0%,
+    100% {
+        transform:
+            perspective(800px)
+            translate3d(
+                0,
+                0,
+                var(--symbol-depth)
+            )
+            rotateY(-18deg)
+            rotateZ(
+                var(--symbol-rotation)
+            );
+    }
+
+    50% {
+        transform:
+            perspective(800px)
+            translate3d(
+                6px,
+                -7px,
+                var(--symbol-depth)
+            )
+            rotateY(18deg)
+            rotateZ(
+                var(--symbol-rotation)
+            );
+    }
+}
+
+
+@keyframes libraryFloat3D {
+
+    0%,
+    100% {
+        transform:
+            perspective(700px)
+            translate3d(0, 0, 22px)
+            rotateY(-12deg);
+    }
+
+    50% {
+        transform:
+            perspective(700px)
+            translate3d(5px, -7px, 42px)
+            rotateY(14deg);
+    }
+}
+.math-glyph {
+    animation-duration: 16s;
+}
+
+.math-equation {
+    animation-duration: 14s;
+}
+
+.floating-library {
+    animation-duration: 18s;
+}
+
+.web-node {
+    animation-duration: 6.5s;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .neural-web-surface {
+        left: -18%;
+
+        width: 136%;
+
+        opacity: 0.54;
+    }
+
+    .math-symbol {
+        opacity:
+            calc(var(--symbol-opacity) * 0.82);
+    }
+
+    .floating-library {
+        opacity: 0.76;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .neural-web-surface {
+        top: -5%;
+        left: -42%;
+
+        width: 180%;
+        height: 112%;
+
+        opacity: 0.40;
+    }
+
+    .symbol-integral,
+    .symbol-partial,
+    .symbol-theta,
+    .equation-vector,
+    .equation-determinant,
+    .library-pandas,
+    .library-scikit {
+        display: none;
+    }
+
+    .math-symbol {
+        opacity:
+            calc(var(--symbol-opacity) * 0.68);
+    }
+
+    .floating-library {
+        font-size: 0.58rem;
+
+        opacity: 0.62;
+    }
+
+    .library-numpy {
+        top: 7%;
+        right: 9%;
+    }
+
+    .library-pytorch {
+        top: 69%;
+        right: 16%;
+    }
+
+    .library-networkx {
+        right: 5%;
+        bottom: 4%;
+    }
+}
+
+
+/* Reduced-motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-intelligence-field::before,
+    .neural-web-surface,
+    .web-node,
+    .math-symbol,
+    .floating-library {
+        animation: none !important;
+    }
+}
+
 .concept-strip { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); padding: 24px 0; border-top: 1px solid var(--home-line); }.concept-strip div { display: flex; gap: 14px; align-items: center; padding-left: 20px; border-left: 1px solid var(--home-line); }.concept-strip div:first-child { padding-left: 0; border-left: 0; }.concept-strip strong { color: var(--home-blue); font: 700 1.5rem Georgia, serif; }.concept-strip span { color: var(--home-muted); font-size: .82rem; }
 .home-section { padding: 112px 0; }.intro-band { background: var(--home-paper); }.split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start; }.home-page h2 { margin-bottom: 22px; color: var(--home-ink); font-size: clamp(2.35rem, 4vw, 4rem); line-height: 1.02; }.section-intro h2 { max-width: 500px; }.intro-copy { max-width: 550px; color: var(--home-muted); font-size: 1.08rem; line-height: 1.8; }.intro-copy p + p { margin-top: 18px; }.section-heading-row { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 44px; }.section-heading-row > p { max-width: 360px; color: var(--home-muted); line-height: 1.7; }
 .domain-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }.domain-card, .learning-card { position: relative; min-height: 280px; padding: 28px; border: 1px solid var(--home-line); background: #fff; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }.domain-card:hover, .learning-card:hover { transform: translateY(-7px); border-color: #95bce9; box-shadow: 0 18px 35px rgba(16,33,61,.1); }.domain-number { display: block; color: #9ba9bb; font-size: .7rem; font-weight: 800; }.domain-icon { display: grid; width: 48px; height: 48px; margin: 28px 0 24px; place-items: center; color: #fff; background: linear-gradient(135deg, var(--home-blue), var(--home-violet)); font: 700 1.05rem Georgia, serif; }.domain-card h3, .learning-card h3 { margin-bottom: 12px; font-size: 1.4rem; }.domain-card p, .learning-card p { color: var(--home-muted); font-size: .88rem; line-height: 1.65; }.card-arrow { position: absolute; right: 28px; bottom: 25px; color: var(--home-ink); font-size: .78rem; font-weight: 800; }
@@ -1426,5 +2667,462 @@
     .research-index-item {
         grid-template-columns: 1fr;
         gap: 14px;
+    }
+} 
+/* =========================================================
+   INTELLIGENCE MANIFOLD — RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .lab-visual {
+        width: min(100%, 620px);
+        min-height: 390px;
+
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .lab-visual {
+        min-height: 315px;
+    }
+
+    .manifold-scene {
+        width: min(108%, 420px);
+    }
+
+    .manifold-notation {
+        font-size: 13px;
+    }
+}
+
+
+/* Reduced-motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .manifold-scene,
+    .manifold-body,
+    .manifold-trajectory,
+    .manifold-highlight,
+    .manifold-node,
+    .manifold-core-aura {
+        animation: none !important;
+    }
+
+    .manifold-scene,
+    .manifold-body,
+    .manifold-node,
+    .manifold-core-aura {
+        transform: none;
+    }
+}
+/* =========================================================
+   CENTRED HOMEPAGE HERO
+========================================================= */
+
+.home-hero .hero-layout {
+    grid-template-columns: 1fr;
+
+    min-height: 680px;
+    padding: 70px 0 80px;
+
+    place-items: center;
+
+    text-align: center;
+}
+
+
+.home-hero .hero-copy {
+    width: min(100%, 920px);
+    max-width: 920px;
+
+    margin: 0 auto;
+}
+
+
+.hero-welcome {
+    margin: 0 0 14px;
+
+    color: #2774d7;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+
+.home-hero .hero-copy > .eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+}
+
+
+.home-hero h1 {
+    max-width: 900px;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.home-hero .hero-lede {
+    max-width: 760px;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.home-hero .hero-actions {
+    justify-content: center;
+}
+
+
+.home-hero .hero-principles {
+    justify-content: center;
+
+    margin-top: 40px;
+}
+
+
+/* Mobile centred hero */
+
+@media (max-width: 600px) {
+
+    .home-hero .hero-layout {
+        min-height: auto;
+        padding: 60px 0 54px;
+    }
+
+    .hero-welcome {
+        margin-bottom: 12px;
+
+        font-size: 0.66rem;
+        letter-spacing: 0.13em;
+    }
+
+    .home-hero .hero-copy > .eyebrow {
+        margin-bottom: 20px;
+
+        font-size: 0.64rem;
+        letter-spacing: 0.09em;
+    }
+
+    .home-hero .hero-actions {
+        gap: 12px;
+    }
+
+    .home-page .hero-actions .hero-button {
+        justify-content: center;
+
+        flex: 1 1 165px;
+        max-width: 220px;
+    }
+
+    .home-hero .hero-principles {
+        gap: 10px;
+
+        margin-top: 32px;
+    }
+}
+/* =========================================================
+   FINAL CENTRED HERO REFINEMENTS
+========================================================= */
+
+/* Wider central content area */
+
+.home-hero .hero-copy {
+    width: min(100%, 1160px);
+    max-width: 1160px;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* Welcome heading */
+
+.hero-welcome {
+    margin: 0 0 18px;
+
+    color: #10213d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            1.1rem,
+            1.5vw,
+            1.4rem
+        );
+
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+    text-transform: none;
+}
+
+
+/* Controlled two-line title */
+
+.home-hero h1 {
+    max-width: 1150px;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    font-size:
+        clamp(
+            3.9rem,
+            5.3vw,
+            5.8rem
+        );
+
+    line-height: 0.96;
+}
+
+
+.hero-title-line,
+.hero-title-accent {
+    display: block;
+}
+
+
+.hero-title-accent {
+    margin-top: 0.08em;
+}
+
+
+/* Darker description */
+
+.home-hero .hero-lede {
+    max-width: 800px;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    color: #4f6078;
+
+    font-size: 1.1rem;
+    line-height: 1.78;
+}
+
+
+/* =========================================================
+   MOVE SYMBOLS AWAY FROM CENTRAL CONTENT
+========================================================= */
+
+.equation-determinant {
+    top: 42%;
+    right: 3%;
+    left: auto;
+}
+
+
+.symbol-partial {
+    top: 47%;
+    left: 2%;
+}
+
+
+.symbol-delta {
+    top: 7%;
+    right: 28%;
+    bottom: auto;
+}
+
+
+.equation-graph {
+    top: 23%;
+    left: 4%;
+    bottom: auto;
+}
+
+
+.equation-function {
+    top: 29%;
+    right: 5%;
+    bottom: auto;
+}
+
+
+.equation-computation {
+    top: 59%;
+    right: 2%;
+}
+
+
+.equation-vector {
+    top: 69%;
+    left: 2%;
+}
+
+
+.library-pytorch {
+    top: 70%;
+    right: 2%;
+}
+
+
+.library-scikit {
+    top: 75%;
+    left: 2%;
+    bottom: auto;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .home-hero .hero-copy {
+        width: min(100%, 760px);
+    }
+
+    .home-hero h1 {
+        max-width: 760px;
+
+        font-size:
+            clamp(
+                3.2rem,
+                8vw,
+                4.6rem
+            );
+    }
+
+    .home-hero .hero-lede {
+        max-width: 680px;
+
+        color: #4b5e76;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .home-hero .hero-layout {
+        min-height: auto;
+        padding: 54px 0 50px;
+    }
+
+    .home-hero .hero-copy {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-welcome {
+        margin-bottom: 14px;
+
+        font-size: 1rem;
+        letter-spacing: 0.035em;
+    }
+
+    .home-hero .hero-copy > .eyebrow {
+        margin-bottom: 20px;
+
+        font-size: 0.62rem;
+        line-height: 1.6;
+        letter-spacing: 0.075em;
+    }
+
+    .home-hero h1 {
+        max-width: 100%;
+
+        font-size:
+            clamp(
+                2.55rem,
+                12vw,
+                3.35rem
+            );
+
+        line-height: 0.98;
+    }
+
+    .hero-title-accent {
+        margin-top: 0.12em;
+    }
+
+    .home-hero .hero-lede {
+        max-width: 100%;
+
+        margin-top: 26px;
+
+        color: #465a73;
+
+        font-size: 0.98rem;
+        line-height: 1.68;
+    }
+
+    .home-hero .hero-actions {
+        width: 100%;
+        gap: 12px;
+
+        justify-content: center;
+    }
+
+    .home-page .hero-actions .hero-button {
+        width: min(100%, 280px);
+        max-width: 280px;
+
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+    .home-hero .hero-principles {
+        justify-content: center;
+
+        margin-top: 30px;
+    }
+
+    /* Remove crowded background items on mobile */
+
+    .symbol-partial,
+    .symbol-delta,
+    .equation-determinant,
+    .equation-function,
+    .equation-vector,
+    .library-pytorch,
+    .library-scikit {
+        display: none;
+    }
+}
+/* =========================================================
+   FOUNDATIONS — COMPACT SECTION SPACING
+========================================================= */
+
+.foundation-orbit-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+@media (max-width: 980px) {
+    .foundation-orbit-section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+}
+
+@media (max-width: 600px) {
+    .foundation-orbit-section {
+        padding-top: 52px;
+        padding-bottom: 52px;
     }
 }
