@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /faculty-login.html
+Disallow: /faculty-dashboard.html
+Disallow: /contact-success.html
+
+Sitemap: https://pmai.online/sitemap.xml
