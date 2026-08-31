@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Does GPT Actually Learn? | Mathematics Behind AI | PMAI Lab</title>
+  <meta name="description" content="An interactive PMAI Lab explainer showing how GPT learns through parameters, gradient descent, softmax, and mathematical transformations—with live experiments and Python code.">
+  <meta name="author" content="Dr. Hira Benish">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pmai.online/blogs/what-does-gpt-actually-learn/">
+  <meta property="og:title" content="What Does GPT Actually Learn? | PMAI Lab">
+  <meta property="og:description" content="Build a tiny model, change its parameters, and watch learning happen—one mathematical step at a time.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pmai.online/blogs/what-does-gpt-actually-learn/">
+  <meta property="og:site_name" content="PMAI Lab">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"What Does GPT Actually Learn?",
+    "alternativeHeadline":"The Mathematics Behind Its Billions of Parameters",
+    "author":{"@type":"Person","name":"Dr. Hira Benish"},
+    "publisher":{"@type":"Organization","name":"PMAI Lab"},
+    "url":"https://pmai.online/blogs/what-does-gpt-actually-learn/",
+    "description":"An interactive explainer of parameters, gradient descent, softmax and model scale through mathematics and live browser experiments."
+  }
+  </script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <style>
+    :root {
+      --navy:#0b2442; --navy-2:#102f55; --blue:#1769d2; --teal:#0ea4b5;
+      --violet:#7c3aed; --gold:#e5a21a; --ink:#152238; --muted:#526176;
+      --paper:#fffdf9; --mist:#eef6f8; --border:#dbe5ea; --white:#fff;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+      --serif:Georgia,"Times New Roman",serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    ::selection{background:#bfe8ed;color:var(--navy)}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .reading-progress{position:fixed;z-index:100;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--teal),var(--blue),var(--violet))}
+    .top-nav{min-height:68px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid rgba(255,255,255,.13);color:#fff;background:var(--navy);position:relative;z-index:5}
+    .brand{font-size:13px;letter-spacing:.18em;font-weight:800;white-space:nowrap}.brand span{color:#63d5df}
+    .top-nav .links{display:flex;align-items:center;gap:24px;font-size:13px;color:#b9ccdc}.top-nav .links a:hover{color:#fff}
+    .series{color:#8fa8bd;font-size:12px;font-style:italic}
+    .all-blogs{border:1px solid rgba(255,255,255,.2);padding:8px 11px;border-radius:999px}
+    .hero{min-height:690px;padding:108px 8vw 90px;background:var(--navy);color:#fff;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);align-items:center;gap:7vw}
+    .hero:after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,#35c5d0,transparent);opacity:.7}
+    .orb{position:absolute;border-radius:999px;pointer-events:none}.orb.one{width:620px;height:620px;right:-250px;top:-160px;background:radial-gradient(circle,rgba(23,105,210,.35),transparent 66%)}.orb.two{width:440px;height:440px;left:28%;bottom:-310px;background:radial-gradient(circle,rgba(124,58,237,.29),transparent 67%)}
+    .hero-inner,.hero-equation{position:relative;z-index:1}.issue,.eyebrow{display:inline-block;font-size:11px;letter-spacing:.23em;font-weight:800}.issue{color:#75e2e9;border:1px solid rgba(117,226,233,.4);border-radius:999px;padding:8px 13px}
+    .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(56px,7vw,102px);line-height:.96;letter-spacing:-.045em;margin:29px 0 25px;max-width:860px}.hero h1 em{color:#77dbe3;font-weight:400}
+    .hero-inner>p{color:#c8d6e2;font-family:var(--serif);font-size:22px;line-height:1.55;max-width:670px}
+    .hero-actions{margin-top:38px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}.hero-actions>span{color:#91a9bc;font-size:12px}
+    .start-link{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:7px;padding:13px 17px;font-weight:750;font-size:14px;box-shadow:0 10px 35px rgba(0,0,0,.2)}
+    .hero-equation{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.055);padding:42px 38px;border-radius:2px;box-shadow:0 30px 80px rgba(0,0,0,.22);backdrop-filter:blur(8px)}.hero-equation>span{color:#75e2e9;font-size:10px;letter-spacing:.22em;font-weight:800}
+    .equation-text{font-family:"Cambria Math","STIX Two Math",var(--serif);font-style:italic}.hero-equation .equation-text{display:block;color:#fff;font-size:clamp(52px,5vw,76px);margin:30px auto;text-align:center}.hero-equation>div{border-top:1px solid rgba(255,255,255,.14);padding-top:18px;display:flex;justify-content:space-between;gap:18px;color:#acc0d0;font-size:12px}.hero-equation i{color:#74e0e8;font-family:var(--serif);font-size:18px}
+    article{overflow:hidden}.story-section{max-width:1000px;margin:0 auto;padding:120px 30px;display:grid;grid-template-columns:90px minmax(0,760px);gap:55px;scroll-margin-top:20px}.intro-section{padding-top:100px;padding-bottom:80px}
+    .section-number{font-family:var(--serif);color:#9db1bd;font-size:15px;padding-top:6px;position:relative}.section-number:after{content:"";display:block;width:46px;height:1px;background:#cbd8df;margin-top:15px}
+    .prose{min-width:0}.prose>p{font-family:var(--serif);color:#39495b;font-size:19px;line-height:1.82;margin:0 0 27px}.prose .lead{color:var(--ink);font-size:clamp(25px,3vw,34px);line-height:1.48}.prose h2{font-family:var(--serif);font-size:clamp(39px,5vw,61px);line-height:1.05;letter-spacing:-.035em;margin:18px 0 35px;font-weight:500;color:var(--navy)}.prose h3{font-size:18px;margin:55px 0 18px;color:var(--navy)}.eyebrow.dark{color:var(--blue)}.eyebrow.light{color:#79e3e9}
+    .math-stage{background:linear-gradient(135deg,#f3f8fb,#edf4ff);border-left:4px solid var(--blue);margin:37px 0;padding:42px 38px 30px;text-align:center}.math-stage .math-display{color:var(--navy);font-family:"Cambria Math","STIX Two Math",var(--serif);font-size:clamp(42px,5vw,68px);margin:0 auto 28px}.math-stage>p{display:flex;justify-content:center;gap:35px;margin:0;color:#6a7786;font-size:12px;font-family:Arial,sans-serif}.math-stage>p b{color:var(--blue);font-size:17px;margin-right:5px;font-family:var(--serif)}.math-stage.compact{padding:29px 25px;border-left-color:var(--teal)}.math-stage.compact .math-display{font-size:clamp(27px,4vw,46px);margin:0 auto}.math-stage.compact>p{margin-top:20px;font-size:13px}
+    .insight{display:flex;gap:20px;background:#f2fbfb;border:1px solid #c9eaed;padding:28px;margin:40px 0}.icon{font-size:25px;color:var(--teal);flex:0 0 auto}.insight span,.predict-box>span,.next span{font-size:10px;letter-spacing:.2em;font-weight:800;color:var(--teal)}.insight p{margin:8px 0 0;font-family:var(--serif);font-size:19px;line-height:1.55;color:#244553}
+    .predict-box{margin-top:48px;background:#fff8e9;border-top:3px solid var(--gold);padding:29px 32px}.predict-box>span{color:#a86b00}.predict-box h3{margin:7px 0 14px}.predict-box ol{margin:0;padding-left:23px;color:#586373;line-height:1.8}
+    .code-shell{border-radius:8px;overflow:hidden;background:#081827;color:#d7e7f1;box-shadow:0 18px 55px rgba(13,38,64,.17);margin:18px 0 35px}.code-topbar{height:43px;padding:0 12px 0 18px;display:flex;align-items:center;justify-content:space-between;background:#10283c;border-bottom:1px solid rgba(255,255,255,.07)}.code-topbar>span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8faabe;font-weight:700;display:flex;align-items:center;gap:9px}.code-dots{width:8px;height:8px;background:#4fd1c5;border-radius:50%;box-shadow:14px 0 #e5a21a,28px 0 #7c3aed;margin-right:28px}.copy-button{border:0;background:transparent;color:#aec2d0;cursor:pointer;padding:6px 9px;border-radius:5px}.copy-button:hover{background:rgba(255,255,255,.08);color:#fff}.code-shell pre{margin:0;padding:26px 28px;overflow-x:auto;font:13px/1.72 var(--mono);tab-size:4}.console-output{white-space:pre-wrap;padding:18px 28px 22px;background:#06131f;color:#9ddfe1;font:12px/1.7 var(--mono);border-top:1px solid rgba(255,255,255,.07)}.console-output>span{display:block;color:#657f92;font-size:9px;letter-spacing:.18em;margin-bottom:8px}
+    .full-bleed{padding:90px 4vw}.full-bleed.navy{background:var(--navy);color:#fff}.full-bleed.mist{background:var(--mist)}.full-bleed.violet{background:linear-gradient(135deg,#ede8ff,#e4f7f8)}.wide-inner{max-width:1220px;margin:0 auto}
+    .lab-panel{border:1px solid rgba(255,255,255,.16);background:#102e50;box-shadow:0 30px 80px rgba(0,0,0,.2)}.lab-heading{padding:27px 31px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.13)}.lab-heading h3{font-family:var(--serif);font-size:27px;margin:8px 0 0;font-weight:500}.live-pill{font-size:10px;letter-spacing:.16em;border:1px solid rgba(118,225,233,.5);color:#79e3e9;border-radius:999px;padding:7px 10px}.live-pill.dark{color:var(--violet);border-color:#a98ee8}
+    .lab-grid{display:grid;grid-template-columns:360px 1fr;min-height:360px}.controls{padding:37px 32px;border-right:1px solid rgba(255,255,255,.12)}.controls>label{display:block;margin-bottom:35px}.controls label>span{display:flex;justify-content:space-between;margin-bottom:15px;font-size:13px;color:#bed0df}.controls label strong{color:#79e3e9}
+    input[type="range"]{width:100%;accent-color:var(--teal);cursor:pointer}.formula-chip{font-family:var(--serif);font-size:23px;text-align:center;background:rgba(255,255,255,.07);padding:16px;border:1px solid rgba(255,255,255,.09);color:#fff}.formula-chip strong{color:#7ee7ed;font-weight:500}.controls>p{color:#94acc0;font-size:12px;line-height:1.65}
+    .model-chart{display:block;width:100%;height:100%;min-height:310px;padding:18px;background:#f8fbfc;color:#8494a1;font-size:11px}.gridline{stroke:#dfe9ee;stroke-width:1}.axis{stroke:#a8b9c3;stroke-width:1.3}.prediction-line{stroke:url(#lineGradient);stroke-width:5;fill:none;stroke-linecap:round}.data-point{fill:#0ea4b5;stroke:#fff;stroke-width:3}
+    .code-after-lab{max-width:850px;margin:75px auto 0}.code-after-lab>h3{font-family:var(--serif);font-size:30px;margin-bottom:8px}.code-after-lab>p{color:#adc2d2;font-family:var(--serif);font-size:17px}.code-after-lab .code-shell{box-shadow:none;border:1px solid #294866}
+    .dual-equations{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0}.dual-equations div{background:#f0f7f8;padding:25px;font:italic 29px "Cambria Math","STIX Two Math",var(--serif);color:var(--navy);text-align:center}
+    .learning-loop,.token-flow,.summary-chain{display:flex;align-items:center;justify-content:center;gap:13px;flex-wrap:wrap;margin:38px 0 48px}.learning-loop span,.token-flow span,.summary-chain span{background:var(--navy);color:#fff;padding:12px 15px;font-size:12px;font-weight:700;border-radius:4px}.learning-loop i,.token-flow i,.summary-chain i{color:var(--teal);font-style:normal;font-weight:800}
+    .training-lab{background:#fff;color:var(--ink);border-color:#cedfe5;box-shadow:0 22px 65px rgba(18,54,72,.12)}.training-lab .lab-heading{border-bottom-color:#dae6eb}.training-lab .eyebrow.light{color:var(--blue)}.training-lab .live-pill{color:var(--teal);border-color:#8fd5dc}
+    .training-stats{display:grid;grid-template-columns:repeat(4,1fr);background:#f7fafb;border-bottom:1px solid #dfe9ed}.training-stats div{padding:20px 26px;border-right:1px solid #dfe9ed}.training-stats span{display:block;color:#788795;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.training-stats strong{display:block;color:var(--navy);font:24px/1.2 var(--mono);margin-top:6px}
+    .training-lab .controls{color:var(--ink);border-right-color:#dfe9ed}.training-lab .controls label>span{color:#526176}.training-lab .controls label strong{color:var(--blue)}.training-lab input[type="range"]{accent-color:var(--blue)}
+    .target-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0}.target-controls label{font-size:11px;color:#6c7d8b}.target-controls input{width:100%;margin-top:6px;background:#fff;border:1px solid #cddbe2;border-radius:6px;padding:9px 10px}
+    .button-row{display:flex;flex-wrap:wrap;gap:7px}.btn{border:1px solid #c9d7de;background:#fff;color:var(--navy);padding:9px 12px;border-radius:6px;cursor:pointer;font-weight:700}.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn.ghost{border-color:transparent;background:transparent}
+    .loss-mini{margin-top:30px}.loss-mini>span{font-size:10px;letter-spacing:.12em;color:#718391;text-transform:uppercase}.loss-mini svg{width:100%;height:105px;margin-top:8px;background:#f7fafb}.spark-axis{stroke:#cbd9df}.spark-line{fill:none;stroke:var(--violet);stroke-width:3}
+    .chart-caption{text-align:center;font-size:11px;color:#6f8190}.dot.teal{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--teal);margin-right:4px}.line-key{display:inline-block;width:21px;height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));margin:0 5px 3px 15px}
+    .experiment-notes{max-width:800px;margin:46px auto 0;display:flex;gap:19px;align-items:flex-start;color:#415565}.experiment-notes .icon{color:var(--violet)}.experiment-notes h3{margin:0 0 8px;color:var(--navy)}.experiment-notes p{margin:0;font-family:var(--serif);line-height:1.7}
+    .token-flow span{background:#eef5f8;color:var(--navy);border:1px solid #d7e4e9}
+    .softmax-lab{background:#fff;border:1px solid #d8d1ef;box-shadow:0 25px 70px rgba(73,49,135,.12)}.softmax-lab .lab-heading{border-bottom-color:#e3ddf1}.softmax-grid{display:grid;grid-template-columns:.9fr 1.1fr}.controls.pale{border-right-color:#e3ddf1;color:var(--ink)}.controls.pale label>span{color:#526176}.controls.pale label strong{color:var(--violet)}.controls.pale input[type="range"]{accent-color:var(--violet)}.controls code,.prob-bars code{font:13px var(--mono);color:var(--navy)}.prob-bars{padding:46px 42px}.prob-bars>div{margin-bottom:31px}.prob-bars span{display:flex;justify-content:space-between;margin-bottom:10px}.prob-bars strong{color:var(--violet);font:15px var(--mono)}.bar-track{height:17px;background:#ebe8f4;overflow:hidden}.bar-track i{display:block;height:100%;background:linear-gradient(90deg,var(--violet),var(--blue),var(--teal));transition:width .25s ease}
+    .calculator{border:1px solid rgba(255,255,255,.15)}.calculator-grid{display:grid;grid-template-columns:340px 1fr}.number-inputs{padding:34px;border-right:1px solid rgba(255,255,255,.13)}.number-inputs label{display:block;color:#adc2d2;font-size:11px;letter-spacing:.06em;margin-bottom:22px}.number-inputs input{width:100%;margin-top:8px;color:#fff;background:#15395f;border:1px solid #315678;border-radius:6px;padding:10px 11px;font-family:var(--mono)}.calculator-grid>div:last-child{padding:42px}.total-label{color:#79e3e9;font-size:10px;letter-spacing:.2em;font-weight:800}.big-total{font:clamp(40px,7vw,76px)/1 var(--mono);margin:15px 0 32px;color:#fff;letter-spacing:-.05em}.stacked-bar{display:flex;height:20px;overflow:hidden;background:#183c61}.stacked-bar i{display:block;height:100%;transition:width .25s ease}.legend{display:grid;grid-template-columns:1fr 1fr;gap:15px 24px;margin-top:27px}.legend span{display:grid;grid-template-columns:9px 1fr auto;align-items:center;gap:8px;color:#adc2d2;font-size:11px}.legend span>i{width:8px;height:8px;border-radius:50%}.legend strong{color:#fff;font-family:var(--mono)}
+    .conclusion{padding-bottom:140px}.summary-chain span{background:#edf5f7;color:var(--navy);border-bottom:2px solid var(--teal)}.next{display:flex;gap:25px;background:var(--navy);color:#fff;padding:34px;margin-top:60px}.next .icon{color:#79e3e9;font-size:34px}.next h3{color:#fff;margin:8px 0;font-family:var(--serif);font-size:26px}.next p{color:#b9ccda;margin:0;line-height:1.55}
+    footer{background:#071c33;color:#98adbd;min-height:150px;padding:48px 6vw;display:flex;align-items:center;justify-content:space-between;gap:30px}footer p{font-family:var(--serif);font-style:italic}footer a{color:#78dce3;font-size:12px}
+
+    .reader-map{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 0}.reader-map div{background:#f6fafb;border:1px solid #dce7eb;padding:20px}.reader-map b{display:block;color:var(--blue);font-family:var(--serif);font-size:24px;margin-bottom:5px}.reader-map span{color:#526176;font-size:13px;line-height:1.5}
+    .purpose-box{margin:26px 0 30px;padding:24px 26px;border-left:4px solid var(--teal);background:#f4fbfb}.purpose-box h4{margin:0 0 10px;color:var(--navy);font-size:16px}.purpose-box p{margin:0;color:#445669;line-height:1.65}.purpose-box ul{margin:12px 0 0;padding-left:20px;color:#445669;line-height:1.65}
+    .purpose-box.gold{border-left-color:var(--gold);background:#fff9ec}.purpose-box.violet{border-left-color:var(--violet);background:#f7f3ff}
+    .lab-guide{max-width:1220px;margin:0 auto 22px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.lab-guide>div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:20px 21px}.lab-guide h4{margin:0 0 8px;color:#fff;font-size:14px}.lab-guide p,.lab-guide li{color:#c8d7e2;font-size:13px;line-height:1.6}.lab-guide ul{margin:8px 0 0;padding-left:18px}
+    .full-bleed.mist .lab-guide>div,.full-bleed.violet .lab-guide>div{background:#fff;border-color:#d9e5ea}.full-bleed.mist .lab-guide h4,.full-bleed.violet .lab-guide h4{color:var(--navy)}.full-bleed.mist .lab-guide p,.full-bleed.mist .lab-guide li,.full-bleed.violet .lab-guide p,.full-bleed.violet .lab-guide li{color:#526176}
+    .bridge-table{width:100%;border-collapse:collapse;margin:28px 0 36px;font-size:14px}.bridge-table th,.bridge-table td{border:1px solid #dbe5ea;padding:14px 16px;text-align:left;vertical-align:top}.bridge-table th{background:#f1f7fa;color:var(--navy)}.bridge-table td:first-child{font-family:var(--mono);color:var(--blue)}
+    .math-display{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:6px 0;
+}
+
+.math-display mjx-container{
+    margin:0!important;
+    max-width:100%;
+}
+
+.dual-equations mjx-container{
+    margin:0!important;
+}
+
+.math-stage.compact .math-display{
+    font-size:clamp(22px,3vw,40px);
+}
+
+@media(max-width:620px){
+
+    .math-stage{
+        padding:26px 12px 22px;
+    }
+
+    .math-stage .math-display{
+        font-size:clamp(28px,8vw,42px);
+    }
+
+    .math-stage.compact .math-display{
+        font-size:clamp(20px,6vw,30px);
+    }
+
+    .math-display mjx-container{
+        min-width:max-content;
+    }
+}
+    .run-row{display:flex;align-items:center;gap:12px;padding:0 18px 16px;background:#081827}.run-python{border:1px solid #2e607b;background:#12324a;color:#e9f6fa;border-radius:6px;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:700}.run-python:hover{background:#194664}.run-python:disabled{opacity:.6;cursor:wait}.run-note{color:#7f9bad;font-size:11px}
+    .python-live-output img{display:block;max-width:100%;height:auto;margin:14px auto 4px;border-radius:8px;background:#fff;padding:6px}.python-live-output .plot-note{color:#9fc1d2;font-size:11px;margin-top:8px}
+    .python-live-output{white-space:pre-wrap;padding:16px 28px 22px;background:#04111c;color:#9de3d9;font:12px/1.65 var(--mono);border-top:1px solid rgba(255,255,255,.07);min-height:48px}.python-live-output:empty{display:none}
+    .concept-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:26px 0 38px}.concept-grid>div{border:1px solid #dce7eb;background:#fff;padding:21px}.concept-grid h4{margin:0 0 8px;color:var(--navy);font-size:15px}.concept-grid p{margin:0;color:#526176;line-height:1.6;font-size:14px}
+    .caveat{font-size:14px!important;background:#fff8e9;border:1px solid #f0d595;padding:18px 20px;color:#5b4a1f!important}
+    .lab-takeaway{max-width:1220px;margin:22px auto 0;background:rgba(255,255,255,.08);border-left:4px solid #79e3e9;padding:18px 21px;color:#c8d7e2;line-height:1.65}.full-bleed.mist .lab-takeaway,.full-bleed.violet .lab-takeaway{background:#fff;color:#445669;border-left-color:var(--teal)}
+    @media(max-width:900px){.top-nav .links .section-link,.series{display:none}.hero{grid-template-columns:1fr;padding-top:75px}.hero-equation{max-width:560px}.story-section{grid-template-columns:45px minmax(0,1fr);gap:22px;padding:85px 22px}.lab-grid,.softmax-grid,.calculator-grid{grid-template-columns:1fr}.controls,.number-inputs{border-right:0;border-bottom:1px solid rgba(255,255,255,.13)}.training-lab .controls,.controls.pale{border-bottom-color:#dfe9ed}.calculator-grid>div:last-child{padding:34px}}
+    @media(max-width:900px){.reader-map{grid-template-columns:1fr 1fr}.lab-guide{grid-template-columns:1fr}.concept-grid{grid-template-columns:1fr}}
+    @media(max-width:620px){.reader-map{grid-template-columns:1fr}.top-nav{min-height:58px}.all-blogs{font-size:11px}.hero{min-height:640px;padding:65px 22px 70px}.hero h1{font-size:53px}.hero-inner>p{font-size:18px}.hero-equation{padding:29px 22px}.story-section{display:block;padding:72px 19px}.section-number{margin-bottom:25px}.section-number:after{display:inline-block;margin:0 0 4px 10px}.prose .lead{font-size:25px}.prose>p{font-size:17px}.prose h2{font-size:41px}.math-stage{padding:31px 15px 25px}.math-stage>p{gap:12px;flex-wrap:wrap}.dual-equations{grid-template-columns:1fr}.full-bleed{padding:55px 13px}.lab-heading{padding:22px 19px}.lab-heading h3{font-size:22px}.live-pill{display:none}.controls,.prob-bars,.calculator-grid>div:last-child,.number-inputs{padding:27px 20px}.training-stats{grid-template-columns:1fr 1fr}.training-stats div{padding:16px}.training-stats strong{font-size:18px}.code-shell pre{padding:21px 18px;font-size:11px}.console-output{padding:16px 18px;font-size:10px}.legend{grid-template-columns:1fr}.big-total{font-size:39px}.next{padding:27px 22px}footer{flex-direction:column;align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+  
+    .purpose-strip{margin:14px 0 16px;padding:12px 14px;border-left:3px solid #14b8a6;background:rgba(20,184,166,.08);border-radius:0 8px 8px 0;color:inherit;line-height:1.6}
+    .explain-card{margin-top:16px;padding:16px 18px;border:1px solid rgba(23,105,210,.16);background:rgba(23,105,210,.045);border-radius:10px}
+    .explain-card h4{margin:0 0 7px}
+    .explain-card p{margin:0}
+    .colab-extra{margin-top:18px;border:1px solid rgba(23,105,210,.18);border-radius:10px;padding:12px 14px;background:#fff}
+    .colab-extra summary{cursor:pointer;font-weight:700;color:#174f8f}
+    .colab-extra p{margin:10px 0 12px}
+
+  </style>
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="brand" aria-label="PMAI Lab home"><span>PMAI</span> LAB</a>
+    <div class="links">
+      <a class="section-link" href="#model">Model</a>
+      <a class="section-link" href="#learning">Learning</a>
+      <a class="section-link" href="#language">Language</a>
+      <a class="section-link" href="#scale">Scale</a>
+      <a href="../../blogs.html" class="all-blogs">← All Blogs</a>
+    </div>
+    <span class="series">Mathematics Behind AI</span>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="orb one"></div><div class="orb two"></div>
+    <div class="hero-inner">
+      <span class="issue">INTERACTIVE EXPLAINER · 01</span>
+      <h1>What Does GPT<br><em>Actually Learn?</em></h1>
+      <p>Build a tiny model, change its parameters, and watch learning happen—one mathematical step at a time.</p>
+      <div class="hero-actions">
+        <a href="#model" class="start-link">Start the experiment ↓</a>
+        <span>~12 min read · 4 live labs · Python included</span>
+      </div>
+    </div>
+    <div class="hero-equation">
+      <span>THE WHOLE IDEA</span>
+      <span class="equation-text">\(\hat{y}=wx+b\)</span>
+      <div><span><i>w</i> controls direction</span><span><i>b</i> controls position</span></div>
+    </div>
+  </header>
+
+  <article>
+    <section class="story-section intro-section">
+      <div class="section-number">01</div>
+      <div class="prose">
+        <p class="lead">People often say that GPT has <strong>billions of parameters</strong>. The phrase sounds impressive—but what is a parameter, and what does it mean for one to learn?</p>
+        <p>We can understand the central idea without starting with billions. Let’s begin with only two, then carefully scale the same idea toward language models.</p>
+        <div class="purpose-box">
+          <h4>What you will understand by the end</h4>
+          <p>This article is designed as a guided learning path, not just a collection of interactive widgets.</p>
+          <ul>
+            <li>what a <strong>parameter</strong> is and why changing it changes model behavior;</li>
+            <li>how <strong>loss, gradients, and gradient descent</strong> make parameters learn;</li>
+            <li>how the scalar rule \(\hat{y}=wx+b\) becomes the vector-matrix rule \(\mathbf{z}=W\mathbf{h}+\mathbf{b}\);</li>
+            <li>how next-token scores become probabilities through <strong>softmax</strong>;</li>
+            <li>why a modern GPT model needs so many learned numbers.</li>
+          </ul>
+        </div>
+        <div class="reader-map">
+          <div><b>1</b><span>Change parameters and see behavior change.</span></div>
+          <div><b>2</b><span>Train a tiny model and watch error fall.</span></div>
+          <div><b>3</b><span>Connect scalar mathematics to GPT-style matrices.</span></div>
+          <div><b>4</b><span>Turn scores into next-token probabilities.</span></div>
+        </div>
+        <p class="caveat"><strong>Important:</strong> the tiny line model is not GPT. It is a teaching model that isolates the same core mathematical idea: learned numerical parameters control transformations, and training adjusts those parameters to improve predictions.</p>
+      </div>
+    </section>
+
+    <section id="model" class="story-section">
+      <div class="section-number">02</div>
+      <div class="prose">
+        <span class="eyebrow dark">THE SMALLEST USEFUL MODEL</span>
+        <h2>Two numbers can define a behavior</h2>
+        <p>Imagine a tiny model that receives a number <em>x</em> and produces a prediction <em>ŷ</em>. Its complete behavior is controlled by a weight and a bias.</p>
+        <div class="math-stage">
+          <div class="math-display">\[\hat{y}=wx+b\]</div>
+          <p><span><b>w</b> weight</span><span><b>b</b> bias</span><span><b>ŷ</b> prediction</span></p>
+        </div>
+        <p>For <em>x = 2</em>, <em>w = 0.5</em>, and <em>b = 1</em>, the prediction is <strong>2</strong>. Increase only the weight to <em>1.5</em>, and the prediction becomes <strong>4</strong>. The model’s behavior changed because one parameter changed.</p>
+        <aside class="insight"><div class="icon">✦</div><div><span>CORE INSIGHT</span><p>A parameter is a stored number that controls how a model transforms its input. Learning is the process of finding better values for those numbers.</p></div></aside>
+        <h3>Experiment 1 · Change the parameters</h3>
+        <div class="purpose-box gold">
+          <h4>Purpose of Experiment 1</h4>
+          <p>Keep the input fixed and change only \(w\) and \(b\). This separates the role of the <strong>data</strong> from the role of the <strong>parameters</strong>. The printed outputs show that the same input can produce very different predictions when the learned parameters are different.</p>
+          <ul>
+            <li>changing \(w\) changes how strongly the output responds to the input;</li>
+            <li>changing \(b\) shifts the baseline prediction;</li>
+            <li>a negative \(w\) reverses the direction of the relationship.</li>
+          </ul>
+        </div>
+        <div class="code-shell">
+          <div class="code-topbar"><span><i class="code-dots"></i>Python</span><button class="copy-button" data-copy="modelCode">Copy</button></div>
+          <pre><code id="modelCode">def tiny_model(x, w, b):
+    return w * x + b
+
+x = 2
+experiments = [
+    {"w": 0.5, "b": 1},
+    {"w": 1.5, "b": 1},
+    {"w": 1.5, "b": 3},
+    {"w": -1.0, "b": 1},
+]
+
+for experiment in experiments:
+    y_hat = tiny_model(x, experiment["w"], experiment["b"])
+    print(experiment, "→", y_hat)</code></pre>
+          <div class="console-output"><span>EXPECTED OUTPUT</span>{"w": 0.5, "b": 1} → 2.0
+{"w": 1.5, "b": 1} → 4.0
+{"w": 1.5, "b": 3} → 6.0
+{"w": -1.0, "b": 1} → -1.0</div>
+          <div class="run-row"><button class="run-python" data-code="modelCode" data-output="modelRunOutput">▶ Run Python here</button><span class="run-note">Runs in your browser; first run may take a few seconds.</span></div>
+          <div class="python-live-output" id="modelRunOutput"></div>
+        </div>
+
+        <div class="predict-box"><span>PAUSE &amp; PREDICT</span><h3>Before touching the sliders…</h3><ol><li>What happens to the line when <em>w</em> becomes negative?</li><li>Which parameter moves the line without changing its tilt?</li></ol></div>
+      </div>
+    </section>
+
+    <section class="full-bleed navy">
+      <div class="wide-inner">
+        <div class="lab-guide">
+          <div><h4>Purpose</h4><p>Turn the formula into a visual object. You are seeing exactly how two parameter values control the position and direction of a prediction rule.</p></div>
+          <div><h4>Try these settings</h4><ul><li>\(w=0, b=2\): horizontal line</li><li>\(w=2, b=0\): steep positive line</li><li>\(w=-2, b=0\): downward line</li><li>keep \(w\) fixed and change \(b\)</li></ul></div>
+          <div><h4>What to observe</h4><p>The weight changes the <strong>tilt</strong>; the bias moves the line <strong>up or down</strong> without changing its tilt. These are two different kinds of control.</p></div>
+        </div>
+        <div class="lab-panel">
+          <div class="lab-heading"><div><span class="eyebrow light">LIVE LAB 01</span><h3>Move the parameters. Move the line.</h3></div><span class="live-pill">● LIVE</span></div>
+          <div class="lab-grid">
+            <div class="controls">
+              <label><span>Weight <strong id="wLabel">w = 1.0</strong></span><input id="wSlider" type="range" min="-3" max="3" step="0.1" value="1"></label>
+              <label><span>Bias <strong id="bLabel">b = 0.0</strong></span><input id="bSlider" type="range" min="-5" max="5" step="0.1" value="0"></label>
+              <div class="formula-chip" id="formulaChip">ŷ = <strong>1.0</strong>x + <strong>0.0</strong></div>
+              <p>Weight changes the tilt. Bias slides the line up or down.</p>
+            </div>
+            <svg id="modelChart" class="model-chart" viewBox="0 0 640 300" role="img" aria-label="Interactive line chart">
+              <defs><linearGradient id="lineGradient" x1="0" x2="1"><stop stop-color="#1769D2"></stop><stop offset="1" stop-color="#7C3AED"></stop></linearGradient></defs>
+              <g id="modelGrid"></g>
+              <path id="modelLine" class="prediction-line"></path>
+              <text x="600" y="290">x</text><text x="12" y="28">y</text>
+            </svg>
+          </div>
+        </div>
+        <div class="lab-takeaway"><strong>Why this matters for neural networks:</strong> a neural unit also combines inputs with learned weights and a bias before applying further transformations. GPT performs this idea at much larger scale using vectors and matrices rather than one scalar input and one scalar weight.</div>
+
+        <div class="code-after-lab">
+          <h3>Recreate Live Lab 01 in Python</h3>
+          <p>
+            The live sliders above are written in JavaScript so they respond instantly in the webpage.
+            This Python version performs the <strong>same mathematical idea</strong>: choose a weight
+            \(w\) and bias \(b\), calculate \(y=wx+b\), and draw the resulting line.
+          </p>
+
+          <div class="purpose-strip">
+            <strong>What to do:</strong>
+            Change <code>w</code> and <code>b</code> in the code below, then press
+            <strong>Run Python here</strong>. Compare the Python-generated graph with Live Lab 01 above.
+          </div>
+
+          <div class="code-shell">
+            <div class="code-topbar">
+              <span><i class="code-dots"></i>Python — browser runnable</span>
+              <button class="copy-button" data-copy="widgetCode">Copy</button>
+            </div>
+            <pre><code id="widgetCode">import numpy as np
+import matplotlib.pyplot as plt
+import io
+import base64
+
+# Try changing these two learned parameters
+w = 1.0
+b = 0.0
+
+x = np.linspace(-5, 5, 100)
+y = w * x + b
+
+plt.figure(figsize=(7, 4))
+plt.axhline(0, color="gray", linewidth=0.8)
+plt.axvline(0, color="gray", linewidth=0.8)
+plt.plot(x, y, linewidth=3)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title(f"y = {w}x + {b}")
+plt.ylim(-10, 10)
+plt.grid(alpha=0.2)
+
+# Send the plot back to the webpage
+_buffer = io.BytesIO()
+plt.savefig(_buffer, format="png", dpi=120, bbox_inches="tight")
+plt.close()
+_pmai_plot_data = base64.b64encode(_buffer.getvalue()).decode("utf-8")
+
+print(f"Weight w = {w}")
+print(f"Bias b = {b}")
+print(f"For x = 2, prediction = {w * 2 + b}")</code></pre>
+
+            <div class="run-row">
+              <button class="run-python"
+                      data-code="widgetCode"
+                      data-output="widgetRunOutput"
+                      data-matplotlib="true"
+                      data-plot="true">
+                ▶ Run Python here
+              </button>
+              <span class="run-note">
+                First run may take several seconds while NumPy and Matplotlib load.
+              </span>
+            </div>
+
+            <div class="python-live-output" id="widgetRunOutput"></div>
+          </div>
+
+          <div class="explain-card">
+            <h4>How to interpret the result</h4>
+            <p>
+              If you increase \(w\), the line becomes steeper. If \(w\) becomes negative,
+              the direction reverses. Changing \(b\) shifts the line vertically.
+              The Python graph therefore confirms the same lesson as Live Lab 01:
+              <strong>parameters change model behaviour because they change the mathematical transformation.</strong>
+            </p>
+          </div>
+
+          <details class="colab-extra">
+            <summary>Optional: make the Python version interactive in Google Colab/Jupyter</summary>
+            <p>
+              In Colab or Jupyter, <code>ipywidgets</code> can create Python sliders.
+              This is optional because the webpage already provides the live slider experiment.
+            </p>
+            <div class="code-shell">
+              <div class="code-topbar">
+                <span><i class="code-dots"></i>Python — Colab/Jupyter extension</span>
+                <button class="copy-button" data-copy="widgetColabCode">Copy</button>
+              </div>
+              <pre><code id="widgetColabCode">import numpy as np
+import matplotlib.pyplot as plt
+from ipywidgets import interact, FloatSlider
+
+def explore_model(w=1.0, b=0.0):
+    x = np.linspace(-5, 5, 100)
+    y = w * x + b
+
+    plt.figure(figsize=(7, 4))
+    plt.axhline(0, color="gray", linewidth=0.8)
+    plt.axvline(0, color="gray", linewidth=0.8)
+    plt.plot(x, y, linewidth=3)
+    plt.ylim(-10, 10)
+    plt.grid(alpha=0.2)
+    plt.show()
+
+interact(
+    explore_model,
+    w=FloatSlider(min=-3, max=3, step=0.1, value=1),
+    b=FloatSlider(min=-5, max=5, step=0.1, value=0),
+);</code></pre>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning" class="story-section">
+      <div class="section-number">03</div>
+      <div class="prose">
+        <span class="eyebrow dark">HOW A PARAMETER LEARNS</span>
+        <h2>Turn “wrong” into a direction</h2>
+        <p>Suppose the hidden rule is <em>y = 2x + 1</em>, and we observe five examples: (0,1), (1,3), (2,5), (3,7), and (4,9). Our model begins badly at <em>w = −1</em> and <em>b = 0</em>.</p>
+        <p>First, measure how wrong it is with mean squared error:</p>
+        <div class="math-stage compact"><div class="math-display">\[L(w,b)=\frac{1}{n}\sum_{i=1}^{n}(\hat{y}_i-y_i)^2\]</div></div>
+        <p>Then calculate the slopes of that loss—its gradients—and take a small step in the opposite direction:</p>
+        <div class="dual-equations"><div>\(w_{\text{new}}=w-\eta\frac{\partial L}{\partial w}\)</div><div>\(b_{\text{new}}=b-\eta\frac{\partial L}{\partial b}\)</div></div>
+        <div class="learning-loop"><span>Predict</span><i>→</i><span>Measure error</span><i>→</i><span>Compute gradient</span><i>→</i><span>Update</span><i>↺</i></div>
+
+        <div class="concept-grid">
+          <div><h4>Loss</h4><p>A single number that summarizes how wrong the model currently is. Lower is better.</p></div>
+          <div><h4>Gradient</h4><p>A derivative that tells us the direction in which a parameter would increase the loss. We move in the opposite direction.</p></div>
+          <div><h4>Learning rate \(\eta\)</h4><p>The size of each update. Too small can make learning slow; too large can make it overshoot or become unstable.</p></div>
+          <div><h4>Epoch</h4><p>One pass/update step in our small demonstration. More epochs mean more opportunities to adjust the parameters.</p></div>
+        </div>
+        <h3>Experiment 2 · Train with gradient descent</h3>
+        <div class="purpose-box">
+          <h4>Purpose of Experiment 2</h4>
+          <p>Here the correct rule is hidden from the model. We provide examples generated by \(y=2x+1\), start from a poor guess, and let gradient descent discover parameter values close to \(w=2\) and \(b=1\). This is the key change from Experiment 1: <strong>we are no longer choosing the parameters manually; the optimization process is learning them from data.</strong></p>
+        </div>
+
+        <div class="code-shell">
+          <div class="code-topbar"><span><i class="code-dots"></i>Python</span><button class="copy-button" data-copy="trainingCode">Copy</button></div>
+          <pre><code id="trainingCode">import numpy as np
+
+# Training data generated by y = 2x + 1
+x = np.array([0, 1, 2, 3, 4], dtype=float)
+y = np.array([1, 3, 5, 7, 9], dtype=float)
+
+# Deliberately poor starting guess
+w, b = -1.0, 0.0
+learning_rate = 0.05
+
+for epoch in range(200):
+    y_hat = w * x + b
+    error = y_hat - y
+    loss = np.mean(error ** 2)
+
+    # Gradients of mean squared error
+    dw = 2 * np.mean(error * x)
+    db = 2 * np.mean(error)
+
+    # Gradient-descent update
+    w -= learning_rate * dw
+    b -= learning_rate * db
+
+print(f"learned w={w:.3f}")
+print(f"learned b={b:.3f}")
+print(f"final loss={loss:.6f}")</code></pre>
+          <div class="console-output"><span>EXPECTED OUTPUT</span>learned w=2.000
+learned b=1.000
+final loss=0.000000</div>
+          <div class="run-row"><button class="run-python" data-code="trainingCode" data-output="trainingRunOutput" data-numpy="true">▶ Run Python here</button><span class="run-note">This executable version focuses on the mathematics; the live chart is shown in Live Lab 02 below.</span></div>
+          <div class="python-live-output" id="trainingRunOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-bleed mist">
+      <div class="wide-inner">
+        <div class="lab-guide">
+          <div><h4>Purpose</h4><p>Watch optimization turn a poor starting rule into a better one. The line is the model; the teal points are the training data it is trying to fit.</p></div>
+          <div><h4>How to use it</h4><ul><li>press <strong>Step</strong> a few times;</li><li>watch weight, bias, and loss change;</li><li>then use <strong>Auto train</strong>;</li><li>reset and try a different target rule.</li></ul></div>
+          <div><h4>Success signal</h4><p>When learning is working, the loss should generally fall and the learned weight/bias should move toward the target slope and target bias.</p></div>
+        </div>
+        <div class="lab-panel training-lab">
+          <div class="lab-heading"><div><span class="eyebrow light">LIVE LAB 02</span><h3>Watch gradient descent learn</h3></div><span class="live-pill">● LIVE</span></div>
+          <div class="training-stats">
+            <div><span>Epoch</span><strong id="epochStat">0</strong></div>
+            <div><span>Weight</span><strong id="wStat">-1.000</strong></div>
+            <div><span>Bias</span><strong id="bStat">0.000</strong></div>
+            <div><span>Loss</span><strong id="lossStat">121.0000</strong></div>
+          </div>
+          <div class="lab-grid">
+            <div class="controls">
+              <label><span>Learning rate <strong id="lrLabel">η = 0.050</strong></span><input id="lrSlider" type="range" min="0.005" max="0.2" step="0.005" value="0.05"></label>
+              <div class="target-controls">
+                <label>Target slope<input id="targetSlope" type="number" step="0.5" value="2"></label>
+                <label>Target bias<input id="targetBias" type="number" step="0.5" value="1"></label>
+              </div>
+              <div class="button-row">
+                <button id="autoTrain" class="btn primary">▶ Auto train</button>
+                <button id="stepTrain" class="btn">Step</button>
+                <button id="resetTrain" class="btn ghost">↻ Reset</button>
+              </div>
+              <div class="loss-mini"><span>Loss history</span><svg viewBox="0 0 280 100" role="img" aria-label="Loss history chart"><line x1="0" y1="90" x2="280" y2="90" class="spark-axis"></line><polyline id="lossSpark" class="spark-line" points=""></polyline></svg></div>
+            </div>
+            <div>
+              <svg id="trainingChart" class="model-chart" viewBox="0 0 640 300" role="img" aria-label="Training line chart">
+                <defs><linearGradient id="trainGradient" x1="0" x2="1"><stop stop-color="#1769D2"></stop><stop offset="1" stop-color="#7C3AED"></stop></linearGradient></defs>
+                <g id="trainingGrid"></g><g id="trainingPoints"></g><path id="trainingLine" class="prediction-line" style="stroke:url(#trainGradient)"></path>
+                <text x="600" y="290">x</text><text x="12" y="28">y</text>
+              </svg>
+              <p class="chart-caption"><span class="dot teal"></span> target data <span class="line-key"></span> learned line</p>
+            </div>
+          </div>
+        </div>
+        <div class="experiment-notes"><div class="icon">⚗</div><div><h3>Break it on purpose</h3><p>Try \(\eta=0.005\) and watch learning slow down. Then push it toward \(0.2\) and watch the updates become more aggressive. Change the target to \(3x-2\) and reset: the model must discover a new weight and bias.</p></div></div>
+        <div class="lab-takeaway"><strong>Connection to GPT:</strong> GPT also predicts, measures error, computes gradients by backpropagation, and updates parameters. The loss used for a language model is normally based on next-token probabilities rather than this simple squared-error loss.</div>
+      </div>
+    </section>
+
+    <section id="language" class="story-section">
+      <div class="section-number">04</div>
+      <div class="prose">
+        <span class="eyebrow dark">FROM NUMBERS TO WORDS</span>
+        <h2>GPT learns transformations, not sentences</h2>
+        <p>A language model does not store a little dictionary of answers. It repeatedly transforms numerical representations, using learned matrices and biases.</p>
+        <div class="token-flow"><span>Text</span><i>→</i><span>Tokens</span><i>→</i><span>Vectors</span><i>→</i><span>Scores</span><i>→</i><span>Probabilities</span></div>
+        <div class="math-stage compact"><div class="math-display">\[\mathbf{z}=W\mathbf{h}+\mathbf{b}\]</div><p>The same idea—now one vector is transformed by a whole matrix of learned weights.</p></div>
+
+        <table class="bridge-table">
+          <thead><tr><th>Tiny teaching model</th><th>GPT-style version</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>\(x\)</td><td>\(\mathbf{h}\)</td><td>A scalar input becomes a vector representation.</td></tr>
+            <tr><td>\(w\)</td><td>\(W\)</td><td>One weight becomes a matrix containing many learned weights.</td></tr>
+            <tr><td>\(b\)</td><td>\(\mathbf{b}\)</td><td>One bias becomes a bias vector.</td></tr>
+            <tr><td>\(\hat y\)</td><td>\(\mathbf z\)</td><td>One prediction becomes many scores, such as one score per vocabulary token.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Where do those learned matrices appear?</h3>
+        <p>Inside a Transformer, parameters are distributed across several components. For example, attention creates query, key, and value representations:</p>
+        <div class="math-stage compact"><div class="math-display">\[Q=XW_Q,\qquad K=XW_K,\qquad V=XW_V\]</div><p>The matrices \(W_Q, W_K, W_V\) are learned parameters.</p></div>
+        <p>Attention then uses those representations to decide which parts of the context should influence one another:</p>
+        <div class="math-stage compact"><div class="math-display">\[\operatorname{Attention}(Q,K,V)=\operatorname{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]</div></div>
+        <p>This is a much richer transformation than \(wx+b\), but the underlying theme is the same: <strong>learned numbers control how information is transformed and combined.</strong></p>
+
+        <div class="purpose-box violet">
+          <h4>What does “knowledge is in the parameters” really mean?</h4>
+          <p>It does <strong>not</strong> mean that one parameter stores one fact. Useful behavior is distributed across many parameters, the network architecture, and the temporary activations produced for the current prompt. A model can also memorize some training sequences, but its normal operation is not simply a database lookup.</p>
+        </div>
+
+        <p>After the model produces a score <em>z<sub>i</sub></em> for every possible next token, softmax turns the scores into probabilities:</p>
+        <div class="math-stage compact"><div class="math-display">\[P(i)=\frac{e^{z_i}}{\sum_j e^{z_j}}\]</div></div>
+        <p>During language-model training, the correct next token acts as the target. A common training loss is cross-entropy; for the correct token \(y\), the essential term is:</p>
+        <div class="math-stage compact"><div class="math-display">\[L=-\log P(y)\]</div><p>If the model assigns low probability to the correct token, the loss is large. Training changes parameters to make better next-token probabilities.</p></div>
+        
+        <h3>Experiment 3 · A three-token softmax</h3>
+        <div class="purpose-box gold">
+          <h4>Purpose of Experiment 3</h4>
+          <p>The raw model outputs are called <strong>logits</strong> or scores. They are not probabilities yet. Softmax converts them into positive values that sum to 1. This experiment shows why even a modest difference in scores can create a strong preference for one next token.</p>
+        </div>
+
+        <div class="code-shell">
+          <div class="code-topbar"><span><i class="code-dots"></i>Python</span><button class="copy-button" data-copy="softmaxCode">Copy</button></div>
+          <pre><code id="softmaxCode">import numpy as np
+
+tokens = ["west", "east", "banana"]
+logits = np.array([1.2, 3.8, 0.2])
+
+shifted = logits - np.max(logits)  # numerical stability
+probabilities = np.exp(shifted) / np.exp(shifted).sum()
+
+for token, probability in zip(tokens, probabilities):
+    print(f"{token:>6}: {probability:.3f}")</code></pre>
+          <div class="console-output"><span>EXPECTED OUTPUT</span>  west: 0.067
+  east: 0.909
+banana: 0.024</div>
+          <div class="run-row"><button class="run-python" data-code="softmaxCode" data-output="softmaxRunOutput" data-numpy="true">▶ Run Python here</button><span class="run-note">Change the logits in the code, then run again.</span></div>
+          <div class="python-live-output" id="softmaxRunOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-bleed violet">
+      <div class="wide-inner">
+        <div class="lab-guide">
+          <div><h4>Purpose</h4><p>See the final step that converts vocabulary scores into a probability distribution over possible next tokens.</p></div>
+          <div><h4>Try this</h4><ul><li>make all three scores equal;</li><li>raise only <strong>east</strong>;</li><li>make <strong>banana</strong> the largest score.</li></ul></div>
+          <div><h4>What to observe</h4><p>Equal scores give similar probabilities. Increasing one score steals probability mass from the others because all probabilities must sum to 1.</p></div>
+        </div>
+        <div class="softmax-lab">
+          <div class="lab-heading"><div><span class="eyebrow dark">LIVE LAB 03</span><h3>Turn scores into probabilities</h3></div><span class="live-pill dark">● LIVE</span></div>
+          <div class="softmax-grid">
+            <div class="controls pale">
+              <label><span><code>west</code><strong id="score0">score 1.2</strong></span><input class="logit-slider" data-index="0" type="range" min="-3" max="5" step="0.1" value="1.2"></label>
+              <label><span><code>east</code><strong id="score1">score 3.8</strong></span><input class="logit-slider" data-index="1" type="range" min="-3" max="5" step="0.1" value="3.8"></label>
+              <label><span><code>banana</code><strong id="score2">score 0.2</strong></span><input class="logit-slider" data-index="2" type="range" min="-3" max="5" step="0.1" value="0.2"></label>
+            </div>
+            <div class="prob-bars">
+              <div><span><code>west</code><strong id="prob0">6.7%</strong></span><div class="bar-track"><i id="bar0"></i></div></div>
+              <div><span><code>east</code><strong id="prob1">90.9%</strong></span><div class="bar-track"><i id="bar1"></i></div></div>
+              <div><span><code>banana</code><strong id="prob2">2.4%</strong></span><div class="bar-track"><i id="bar2"></i></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="lab-takeaway"><strong>Interpretation:</strong> GPT does not need a stored sentence for every prompt. It uses its learned transformations to produce context-dependent scores, then converts those scores into probabilities for what may come next.</div>
+      </div>
+    </section>
+
+    <section id="scale" class="story-section">
+      <div class="section-number">05</div>
+      <div class="prose">
+        <span class="eyebrow dark">FROM TWO TO BILLIONS</span>
+        <h2>Scale the same principle</h2>
+        <p>Modern language models contain many kinds of learned numbers: token embeddings, attention projections, feed-forward layers, normalization scales, and output weights. The count grows quickly because high-dimensional vectors are repeatedly transformed by large matrices across many layers.</p>
+        <div class="purpose-box">
+          <h4>Why billions appear so quickly</h4>
+          <p>If a layer maps a 4,096-dimensional vector to another 4,096-dimensional vector, one dense weight matrix alone contains \(4096\times4096\approx16.8\) million values. Repeat several matrices across many Transformer blocks and the total rapidly reaches billions.</p>
+        </div>
+        <p class="caveat"><strong>Teaching simplification:</strong> the calculator below is intentionally simplified. A real Transformer also includes an attention output projection, many repeated layers, biases, normalization parameters, and architecture-specific choices such as tied or untied embedding/output weights.</p>
+        <div class="code-shell">
+          <div class="code-topbar"><span><i class="code-dots"></i>Python</span><button class="copy-button" data-copy="countCode">Copy</button></div>
+          <pre><code id="countCode">vocabulary_size = 10_000
+model_dimension = 128
+feedforward_dimension = 512
+
+embedding = vocabulary_size * model_dimension
+attention = 3 * model_dimension * model_dimension
+feedforward = (
+    model_dimension * feedforward_dimension
+    + feedforward_dimension * model_dimension
+)
+output = model_dimension * vocabulary_size
+
+total = embedding + attention + feedforward + output
+print(f"{total:,} parameters")  # 2,740,224</code></pre>
+          <div class="console-output"><span>EXPECTED OUTPUT</span>2,740,224 parameters</div>
+          <div class="run-row"><button class="run-python" data-code="countCode" data-output="countRunOutput">▶ Run Python here</button><span class="run-note">Edit the dimensions above to see how the count changes.</span></div>
+          <div class="python-live-output" id="countRunOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-bleed navy">
+      <div class="wide-inner">
+    <span class="live-pill">● LIVE</span>
+</div>
+
+
+<div class="lab-guide">
+
+    <div>
+        <h4>Purpose</h4>
+        <p>
+            Turn the formula into a visual object. You are seeing
+            exactly how two parameter values control the position
+            and direction of a prediction rule.
+        </p>
+    </div>
+
+    <div>
+        <h4>Try these settings</h4>
+
+        <ul>
+            <li>\(w=0, b=2\): horizontal line</li>
+            <li>\(w=2, b=0\): steep positive line</li>
+            <li>\(w=-2, b=0\): downward line</li>
+            <li>Keep \(w\) fixed and change \(b\)</li>
+        </ul>
+    </div>
+
+    <div>
+        <h4>What to observe</h4>
+
+        <p>
+            The weight changes the <strong>tilt</strong>;
+            the bias moves the line <strong>up or down</strong>
+            without changing its tilt. These are two different
+            kinds of control.
+        </p>
+    </div>
+
+</div>
+
+
+<div class="lab-panel">
+          <div class="calculator-grid">
+            <div class="number-inputs">
+              <label>Vocabulary size<input id="vocabInput" type="number" min="10" value="10000"></label>
+              <label>Model dimension<input id="dimInput" type="number" min="2" value="128"></label>
+              <label>Feed-forward dimension<input id="ffInput" type="number" min="2" value="512"></label>
+            </div>
+            <div>
+              <p class="total-label">TOTAL PARAMETERS</p>
+              <p class="big-total" id="paramTotal">2,740,224</p>
+              <div class="stacked-bar"><i id="segEmbed" style="background:#1769D2"></i><i id="segAttn" style="background:#0EA4B5"></i><i id="segFF" style="background:#7C3AED"></i><i id="segOut" style="background:#E5A21A"></i></div>
+              <div class="legend">
+                <span><i style="background:#1769D2"></i>Embedding<strong id="legendEmbed"></strong></span>
+                <span><i style="background:#0EA4B5"></i>Attention<strong id="legendAttn"></strong></span>
+                <span><i style="background:#7C3AED"></i>Feed-forward<strong id="legendFF"></strong></span>
+                <span><i style="background:#E5A21A"></i>Output<strong id="legendOut"></strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section conclusion">
+      <div class="section-number">06</div>
+      <div class="prose">
+        <span class="eyebrow dark">THE TAKEAWAY</span>
+        <h2>Learning is adjustment at scale</h2>
+        <p class="lead">A parameter is just a number. But billions of jointly trained parameters can build rich representations of language and turn context into a probability distribution over what comes next.</p>
+        <div class="summary-chain"><span>Parameters</span><i>→</i><span>Transformations</span><i>→</i><span>Representations</span><i>→</i><span>Probabilities</span></div>
+        <div class="purpose-box violet">
+          <h4>So, what does GPT actually learn?</h4>
+          <p>It learns a large distributed system of numerical transformations: how to represent tokens, how to combine information across context, how to build increasingly useful internal representations, and how to assign scores to possible next tokens. Training repeatedly adjusts those parameters so that the model gives higher probability to appropriate continuations.</p>
+        </div>
+        <p>The tiny line model showed the principle with two parameters. The Transformer scales the same learning idea to vectors, matrices, attention, nonlinear transformations, and many layers. The result is not “one fact per parameter,” but a large coordinated mathematical system whose behavior emerges from how many learned values work together.</p>
+        <aside class="next"><div class="icon">◉</div><div><span>NEXT IN THE SERIES</span><h3>How does GPT turn words into vectors?</h3><p>We’ll build a tiny embedding space and see why meaning becomes geometry.</p></div></aside>
+      </div>
+    </section>
+  </article>
+
+  <footer>
+    <div class="brand"><span>PMAI</span> LAB</div>
+    <p>Mathematics you can touch. Code you can run. AI you can understand.</p>
+    <div><a href="../../blogs.html">All Blogs</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#top">Back to top ↑</a></div>
+  </footer>
+
+  <script>
+    // Reading progress
+    const progress = document.getElementById("readingProgress");
+    function updateProgress(){
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + "%";
+    }
+    updateProgress();
+    addEventListener("scroll", updateProgress, {passive:true});
+
+    // Copyable Python blocks
+    document.querySelectorAll(".copy-button").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.copy;
+        const code = document.getElementById(id).innerText;
+        try {
+          await navigator.clipboard.writeText(code);
+          const old = btn.textContent; btn.textContent = "Copied";
+          setTimeout(() => btn.textContent = old, 1500);
+        } catch {
+          const ta = document.createElement("textarea");
+          ta.value = code; document.body.appendChild(ta); ta.select();
+          document.execCommand("copy"); ta.remove();
+          const old = btn.textContent; btn.textContent = "Copied";
+          setTimeout(() => btn.textContent = old, 1500);
+        }
+      });
+    });
+
+    // In-browser Python runtime (Pyodide)
+    let pyodideReady = null;
+    async function getPyodide(){
+      if(!pyodideReady){
+        pyodideReady = (async()=>{
+          if(typeof loadPyodide === "undefined"){
+            throw new Error("Python runtime could not load. Check your internet connection and refresh the page.");
+          }
+          const py = await loadPyodide();
+          return py;
+        })();
+      }
+      return pyodideReady;
+    }
+
+    document.querySelectorAll(".run-python").forEach(btn=>{
+      btn.addEventListener("click", async()=>{
+        const out = document.getElementById(btn.dataset.output);
+        const code = document.getElementById(btn.dataset.code).innerText;
+        const original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "Loading Python…";
+        out.textContent = "Preparing Python runtime…";
+        try{
+          const py = await getPyodide();
+          if(btn.dataset.matplotlib === "true"){
+            btn.textContent = "Loading NumPy + Matplotlib…";
+            await py.loadPackage(["numpy", "matplotlib"]);
+          } else if(btn.dataset.numpy === "true"){
+            btn.textContent = "Loading NumPy…";
+            await py.loadPackage("numpy");
+          }
+          btn.textContent = "Running…";
+          py.runPython(`
+import sys, io
+_stdout = sys.stdout
+_buffer = io.StringIO()
+sys.stdout = _buffer
+`);
+          let error = null;
+          try{
+            await py.runPythonAsync(code);
+          }catch(err){
+            error = err;
+          }
+          const captured = py.runPython(`
+sys.stdout = _stdout
+_buffer.getvalue()
+`);
+          if(btn.dataset.plot === "true" && !error){
+            out.textContent = captured || "";
+            try{
+              const plotData = py.globals.get("_pmai_plot_data");
+              if(plotData){
+                const img = document.createElement("img");
+                img.src = "data:image/png;base64," + plotData;
+                img.alt = "Python-generated graph for y = wx + b";
+                out.appendChild(img);
+
+                const note = document.createElement("div");
+                note.className = "plot-note";
+                note.textContent = "Python generated this plot inside your browser.";
+                out.appendChild(note);
+
+                py.globals.delete("_pmai_plot_data");
+              }
+            }catch(plotErr){
+              const msg = document.createElement("div");
+              msg.textContent = "\nPlot display warning: " + plotErr.message;
+              out.appendChild(msg);
+            }
+          } else {
+            out.textContent = (captured || "") + (error ? "\nERROR:\n" + error : "");
+          }
+        }catch(err){
+          out.textContent = "Could not run Python here.\n" + err.message;
+        }finally{
+          btn.disabled = false;
+          btn.textContent = original;
+        }
+      });
+    });
+
+    // Shared SVG chart helpers
+    const W=640,H=300,P=34,xMin=-1,xMax=5,yMin=-5,yMax=12;
+    const sx=x=>P+((x-xMin)/(xMax-xMin))*(W-2*P);
+    const sy=y=>H-P-((y-yMin)/(yMax-yMin))*(H-2*P);
+    function buildGrid(group){
+      let s="";
+      [0,1,2,3,4,5].forEach(x=>s+=`<line x1="${sx(x)}" x2="${sx(x)}" y1="${P}" y2="${H-P}" class="gridline"/>`);
+      [-5,0,5,10].forEach(y=>s+=`<line x1="${P}" x2="${W-P}" y1="${sy(y)}" y2="${sy(y)}" class="gridline"/>`);
+      s+=`<line x1="${P}" x2="${W-P}" y1="${sy(0)}" y2="${sy(0)}" class="axis"/>`;
+      s+=`<line x1="${sx(0)}" x2="${sx(0)}" y1="${P}" y2="${H-P}" class="axis"/>`;
+      group.innerHTML=s;
+    }
+    function linePath(w,b){ return `M ${sx(xMin)} ${sy(w*xMin+b)} L ${sx(xMax)} ${sy(w*xMax+b)}`; }
+
+    // Live Lab 01
+    const wSlider=document.getElementById("wSlider"), bSlider=document.getElementById("bSlider");
+    buildGrid(document.getElementById("modelGrid"));
+    function renderModel(){
+      const w=Number(wSlider.value), b=Number(bSlider.value);
+      document.getElementById("wLabel").textContent=`w = ${w.toFixed(1)}`;
+      document.getElementById("bLabel").textContent=`b = ${b.toFixed(1)}`;
+      document.getElementById("formulaChip").innerHTML=`ŷ = <strong>${w.toFixed(1)}</strong>x ${b<0?"−":"+"} <strong>${Math.abs(b).toFixed(1)}</strong>`;
+      document.getElementById("modelLine").setAttribute("d",linePath(w,b));
+    }
+    wSlider.addEventListener("input",renderModel); bSlider.addEventListener("input",renderModel); renderModel();
+
+    // Live Lab 02: gradient descent
+    buildGrid(document.getElementById("trainingGrid"));
+    const xs=[0,1,2,3,4];
+    let state={w:-1,b:0,epoch:0,losses:[]}, timer=null;
+    const lr=document.getElementById("lrSlider"), ts=document.getElementById("targetSlope"), tb=document.getElementById("targetBias");
+    function targetPoints(){const m=Number(ts.value),c=Number(tb.value);return xs.map(x=>({x,y:m*x+c}));}
+    function currentLoss(){
+      const pts=targetPoints(); return pts.reduce((s,p)=>s+(state.w*p.x+state.b-p.y)**2,0)/pts.length;
+    }
+    function trainStep(){
+      const m=Number(ts.value),c=Number(tb.value),eta=Number(lr.value);
+      const errs=xs.map(x=>state.w*x+state.b-(m*x+c));
+      const loss=errs.reduce((s,e)=>s+e*e,0)/errs.length;
+      const dw=2*errs.reduce((s,e,i)=>s+e*xs[i],0)/errs.length;
+      const db=2*errs.reduce((s,e)=>s+e,0)/errs.length;
+      state={w:state.w-eta*dw,b:state.b-eta*db,epoch:state.epoch+1,losses:[...state.losses.slice(-59),loss]};
+      renderTraining();
+    }
+    function renderTraining(){
+      document.getElementById("lrLabel").textContent=`η = ${Number(lr.value).toFixed(3)}`;
+      document.getElementById("epochStat").textContent=state.epoch;
+      document.getElementById("wStat").textContent=state.w.toFixed(3);
+      document.getElementById("bStat").textContent=state.b.toFixed(3);
+      document.getElementById("lossStat").textContent=currentLoss().toFixed(4);
+      document.getElementById("trainingLine").setAttribute("d",linePath(state.w,state.b));
+      document.getElementById("trainingPoints").innerHTML=targetPoints().map(p=>`<circle cx="${sx(p.x)}" cy="${sy(p.y)}" r="6" class="data-point"/>`).join("");
+      if(state.losses.length>1){
+        const max=Math.max(...state.losses,1);
+        const pts=state.losses.map((loss,i)=>`${(i/(state.losses.length-1))*280},${90-(loss/max)*78}`).join(" ");
+        document.getElementById("lossSpark").setAttribute("points",pts);
+      } else document.getElementById("lossSpark").setAttribute("points","");
+    }
+    function resetTraining(){
+      if(timer){clearInterval(timer);timer=null;document.getElementById("autoTrain").textContent="▶ Auto train";}
+      state={w:-1,b:0,epoch:0,losses:[]}; renderTraining();
+    }
+    document.getElementById("stepTrain").addEventListener("click",trainStep);
+    document.getElementById("resetTrain").addEventListener("click",resetTraining);
+    document.getElementById("autoTrain").addEventListener("click",e=>{
+      if(timer){clearInterval(timer);timer=null;e.currentTarget.textContent="▶ Auto train";}
+      else{timer=setInterval(trainStep,180);e.currentTarget.textContent="Ⅱ Pause";}
+    });
+    lr.addEventListener("input",renderTraining); ts.addEventListener("input",renderTraining); tb.addEventListener("input",renderTraining); renderTraining();
+
+    // Live Lab 03: softmax
+    function renderSoftmax(){
+      const sliders=[...document.querySelectorAll(".logit-slider")];
+      const logits=sliders.map(s=>Number(s.value)), mx=Math.max(...logits);
+      const exps=logits.map(x=>Math.exp(x-mx)), total=exps.reduce((a,b)=>a+b,0), probs=exps.map(x=>x/total);
+      logits.forEach((x,i)=>document.getElementById("score"+i).textContent=`score ${x.toFixed(1)}`);
+      probs.forEach((p,i)=>{document.getElementById("prob"+i).textContent=(p*100).toFixed(1)+"%";document.getElementById("bar"+i).style.width=(p*100)+"%";});
+    }
+    document.querySelectorAll(".logit-slider").forEach(s=>s.addEventListener("input",renderSoftmax)); renderSoftmax();
+
+    // Live Lab 04: parameter calculator
+    const vocab=document.getElementById("vocabInput"), dim=document.getElementById("dimInput"), ff=document.getElementById("ffInput");
+    function renderParams(){
+      const v=Math.max(10,Number(vocab.value)||10),d=Math.max(2,Number(dim.value)||2),f=Math.max(2,Number(ff.value)||2);
+      const embedding=v*d, attention=3*d*d, feedforward=2*d*f, output=d*v, total=embedding+attention+feedforward+output;
+      document.getElementById("paramTotal").textContent=total.toLocaleString();
+      [["Embed",embedding],["Attn",attention],["FF",feedforward],["Out",output]].forEach(([name,val])=>{
+        document.getElementById("legend"+name).textContent=val.toLocaleString();
+        document.getElementById("seg"+name).style.width=(val/total*100)+"%";
+      });
+    }
+    [vocab,dim,ff].forEach(el=>el.addEventListener("input",renderParams)); renderParams();
+  </script>
+</body>
+</html>
